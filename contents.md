@@ -9,4 +9,5 @@
 - [Installation](/docs/installation)
 - [Upgrading](/docs/upgrading)
 - [Configuration](/docs/configuration)
+- [Issues (bugs / security)](/docs/issues)
 - [Troubleshooting](/docs/troubleshooting)
