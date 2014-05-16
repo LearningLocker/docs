@@ -1,4 +1,10 @@
-#### Troubleshooting
+/*
+Title: Troubleshooting
+Placing: 4
+*/
+
+Troubleshooting
+===============
 
 1. If you don't set up email (see step 5), you will need to verify email addresses manually. To do this, select the 'Users' menu option on the main dashboard, you will then see a list of users in the system each with an option to manually verify.
 2. If running xampp and depending on your set up, may need to append public to your site URL e.g. yoursite.com/public/

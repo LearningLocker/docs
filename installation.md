@@ -1,64 +1,97 @@
-Learning Locker requires PHP 5.4+ with the MongoDB extension, MongoDB, Composer and Apache.
+/*
+Title: Installation
+Description: How to install Learning Locker
+Placing: 3
+*/
 
-#### Components
+Installation
+============
 
-* Composer (http://getcomposer.org/)
-* MongoDB (http://mongodb.org)
-* MongoDB php extension (http://www.php.net/manual/en/mongo.installation.php)
+- [Laravel](#laravel)
+- [Install](#install)
+- [Install options](#options)
+- [Installing on AWS](#aws)
 
+<a name="laravel"></a>
+## Working with Laravel
+
+Learning Locker is built upon the excellent [Laravel](http://laravel.com). Laravel has great documentation, so, we are going to focus on the 
+key areas for Learning Locker as well as a couple of gotcha's. You will see reference to the Laravel docs throughout as it doesn't make
+sense to duplicate the efforts of a vibrate and growing community.
+
+[Laravel Docs](http://laravel.com/docs)
+
+<a name="laravel"></a>
+## Via Composer Create-Project
+
+    composer.phar create-project learninglocker/learninglocker=dev-master
+
+>Note: If you get a message 'Do you want to remove the existing VCS (.git, .svn ...) history? [Y,n] - ***select Y***
 
 ***
 
-#####We are currently testing v1.0rc1 - this will become the first stable release once testing is complete.
+> **Previous releases**
 
-Using composer run 
-```
-composer.phar create-project learninglocker/learninglocker=dev-master
-```
-*Note:* There's no need to download the code from Github beforehand; Composer will do this.
+> If you would like to use a previous version of Learning locker just append .....
 
-*Note:* If you get a message _'Do you want to remove the existing VCS (.git, .svn ...) history? [Y,n]_ - select Y
+***
 
-Then, in your terminal, run the following artisan command 
-```
-php artisan generate:migration add_statements
-```
+### Run the following artisan command 
+
+    php artisan generate:migration add_statements
 
 This will create a dated migration file in app/database/migrations – check that it contains the following method:
-```
-public function up(){
-  Schema::table('statements', function($table){
-    $table->index('lrs._id');
-    $table->index(array('lrs._id', 'statement.object.id'));
-    $table->index(array('lrs._id', 'statement.verb.id'));
-    $table->index(array('lrs._id', 'statement.actor.mbox'));
-  });
-}
-```
+
+    public function up(){
+      Schema::table('statements', function($table){
+          $table->index('lrs._id');
+          $table->index(array('lrs._id', 'statement.object.id'));
+          $table->index(array('lrs._id', 'statement.verb.id'));
+          $table->index(array('lrs._id', 'statement.actor.mbox'));
+        });
+      }
+
 if it doesn’t, add it.
 
-***
+### MongoDB
 
-* Make sure you have MongoDB set up with your db credentials added to app/config/database.php on line 86 under mongodb. 
-* Now, run:
-```
-php artisan migrate
-```
-* Add the following service provider to app/config/app.php in 'Autoloaded Service Providers'
-```
-'Jenssegers\Mongodb\Auth\ReminderServiceProvider'
-```
-* Set up email notification in app/config/mail.php (if you do not want to set up email, change 'pretend' to true in app/config/mail.php)
-* Set your domain url in app/config/app.php
-* Go to yoursite/register and create the first user (which will be super admin). _E.g. if you installed the site in a folder called learninglocker on your localhost, your site might be at ```http://localhost/learninglocker/public/```_
-* When registration is complete, you will be logged in. Next, select 'settings' to visit Overall settings and click on 'edit' - here you can give you install a name and description as well as set a few options for the install.
+Make sure you have MongoDB set up with your db credentials added to 
 
-You are now ready to start using Learning Locker.
+    app/config/database.php on line 86 under mongodb 
 
-#### Install options
+Now run
 
-You can change various settings such as debug mode, default language and timezone in app/config/app.php
+    php artisan migrate
 
-#### Installation on AWS
+Add the following service provider to app/config/app.php in 'Autoloaded Service Providers'
 
-There are very detailed instructions for getting Learning Locker running on AWS at http://cloudboffins.com/advanced-projects/learning-locker-lrs-free-server-part-1/ (it's a five part series)
+    'Jenssegers\Mongodb\Auth\ReminderServiceProvider'
+
+### Email
+
+Set up email notification in 
+
+    app/config/mail.php 
+
+**(if you do not want to set up email, change 'pretend' to true)**
+
+
+### Register first user
+
+Go to yoursite/register and create the first user (which will be super admin). 
+
+When registration is complete, you will be logged in. Next, select 'settings' to visit overall settings and click on 'edit' - here you can give your install a name and description as well as set a few options for the install.
+
+#### You are now ready to use Learning Locker
+
+<a name="options"></a>
+## Install options
+
+You can change various settings such as debug mode, default language and timezone in 
+    
+    app/config/app.php
+
+<a name="aws"></a>
+## Installation on AWS
+
+There are very detailed instructions for getting [Learning Locker running on AWS](http://cloudboffins.com/advanced-projects/learning-locker-lrs-free-server-part-1/) (it's a five part series)

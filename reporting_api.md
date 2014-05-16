@@ -1,26 +1,39 @@
-The page details the custom Learning Locker API. This should not be confused with the xAPI as detailed by the xAPI spec https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md
+/*
+Title: Reporting API
+Placing: 7
+*/
+
+API Docs
+========
+
+- [Bugs](#bugs)
+- [Installing on AWS](#aws)
+
+## About
+
+The page details the custom Learning Locker API. This should not be confused with the xAPI as detailed by the [xAPI spec](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md).
 
 The purpose of this custom API is to provider developers building reporting type tools with a few additional views of the data within an LRS.
 
-### GET - api/v1/query/analytics
+## GET - api/v1/query/analytics
 
 Parameters | Type | Description
 ----|------|----
 filters | Object  | Object of key:value objects, where the key denotes the context path and the value is the value to filter with. Values can be string or array.
 
 **Example**
-```
-{
- “context.contextActivities.grouping.type” : “course”,
- “object.definition.type” : “http://activitystrea.ms/schema/1.0/badge”,
- “context.contextActivities.grouping.tags” : [
-        [“foo”, “bar”], 
-        “hello”,
-        “world”
-  ],
- “result.score.raw: [ ‘<>’, 0.6, 0.8]
-}
-```
+
+    {
+     "context.contextActivities.grouping.type" : "course",
+     "object.definition.type" : "http://activitystrea.ms/schema/1.0/badge",
+     "context.contextActivities.grouping.tags" : [
+            ['foo', 'bar'], 
+            'hello',
+            'world'
+      ],
+     "result.score.raw": [ '<>', 0.6, 0.8]
+    }
+
 
 This example would look to return data where the grouping is a '_course_', the object definition type is '_badge_' and grouping tags are equal to '_foo_' **or** '_bar_' **and** '_hello_' **and** '_world_'. And where the raw result score is between _0.6_ and _0.8_.
 
