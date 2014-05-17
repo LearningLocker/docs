@@ -3,8 +3,8 @@ Title: Reporting API
 Placing: 7
 */
 
-API Docs
-========
+Reporting API
+=============
 
 - [About](#about)
 - [Analytics](#analytics)
