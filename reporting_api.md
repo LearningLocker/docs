@@ -1,23 +1,20 @@
 /*
 Title: Reporting API
-Order: 7
+Placing: 7
 */
 
 API Docs
 ========
 
-- [About](#about)
-- [Analytics](#analytics)
-- [Other parameters](#params)
+- [Bugs](#bugs)
+- [Installing on AWS](#aws)
 
-<a name="about"></a>
 ## About
 
 The page details the custom Learning Locker API. This should not be confused with the xAPI as detailed by the [xAPI spec](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md).
 
 The purpose of this custom API is to provider developers building reporting type tools with a few additional views of the data within an LRS.
 
-<a name="analytics"></a>
 ## GET - api/v1/query/analytics
 
 Parameters | Type | Description
@@ -40,7 +37,6 @@ filters | Object  | Object of key:value objects, where the key denotes the conte
 
 This example would look to return data where the grouping is a '_course_', the object definition type is '_badge_' and grouping tags are equal to '_foo_' **or** '_bar_' **and** '_hello_' **and** '_world_'. And where the raw result score is between _0.6_ and _0.8_.
 
-<a name="params"></a>
 ### Other parameters
 
 Parameter name | Type | Default
@@ -66,10 +62,11 @@ interval | String  | day
 **Description**
 
 User for time grouping only and only applicable when type = time.
-* Day
-* Week
-* Month
-* Year
+
+*  Day
+*  Week
+*  Month
+*  Year
 
 ***
 
@@ -77,7 +74,7 @@ Parameter name | Type | Default
 ----|------|----
 since | String  | optional 
 
-##### Description
+**Description**
 
 Format: y,m,d
 
