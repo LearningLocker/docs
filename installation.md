@@ -1,7 +1,7 @@
 /*
 Title: Installation
 Description: How to install Learning Locker
-Placing: 3
+Order: 3
 */
 
 Installation

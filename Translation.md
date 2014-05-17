@@ -1,6 +1,6 @@
 /*
  Title: Translations
- Placing: 10
+ Order: 10
 */
 
 Translations
