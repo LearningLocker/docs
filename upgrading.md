@@ -1,8 +1,3 @@
-/*
-Title: Upgrading
-Placing: 9
-*/
-
 Upgrading
 =========
 

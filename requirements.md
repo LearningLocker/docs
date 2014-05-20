@@ -1,8 +1,3 @@
-/*
- Title: Requirements
- Placing: 2
-*/
-
 Requirements
 ============
 

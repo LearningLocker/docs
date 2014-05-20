@@ -1,8 +1,3 @@
-/*
-Title: Troubleshooting
-Placing: 4
-*/
-
 Troubleshooting
 ===============
 

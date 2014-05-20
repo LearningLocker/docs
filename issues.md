@@ -1,8 +1,3 @@
-/*
-Title: Issues
-Placing: 6
-*/
-
 Issues
 ======
 

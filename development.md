@@ -1,8 +1,3 @@
-/*
- Title: Development Projects
- Placing: 8
-*/
-
 Development Projects
 ====================
 

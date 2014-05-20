@@ -1,9 +1,3 @@
-/*
-Title: Installation
-Description: How to install Learning Locker
-Placing: 3
-*/
-
 Installation
 ============
 
@@ -26,7 +20,9 @@ sense to duplicate the efforts of a vibrate and growing community.
 
     composer.phar create-project learninglocker/learninglocker=dev-master
 
->Note: If you get a message 'Do you want to remove the existing VCS (.git, .svn ...) history? [Y,n] - ***select Y***
+> **Note**
+
+> If you get a message 'Do you want to remove the existing VCS (.git, .svn ...) history? [Y,n] - ***select Y***
 
 ***
 

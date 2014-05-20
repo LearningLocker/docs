@@ -1,8 +1,3 @@
-/*
-Title: Reporting API
-Placing: 7
-*/
-
 Reporting API
 =============
 

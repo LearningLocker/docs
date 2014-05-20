@@ -1,8 +1,3 @@
-/*
- Title: Details
- Placing: 11
-*/
-
 Details
 =======
 

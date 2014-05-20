@@ -1,8 +1,3 @@
-/*
- Title: Contributing
- Placing: 5
-*/
-
 Contributing
 ============
 
