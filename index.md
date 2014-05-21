@@ -14,6 +14,8 @@ Learning Locker is an open source Learning Record Store; a type of data reposito
 
 We’re an open source community effort. To understand a little about where we are heading see our future [product roadmap](http://www.learninglocker.net/roadmap). If you want to know more about getting involved please see our [community pages](http://learninglocker.net/community/).
 
+> Learning Locker only supports xAPI v1.0 and above. It is not suitable for platforms still using an earlier version of xAPI. At this time there are no plans to provide backwards compatibility for older versions of the spec.
+
 <a name="info"></a>
 ## Info
 

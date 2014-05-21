@@ -2,7 +2,8 @@ Installation
 ============
 
 - [Laravel](#laravel)
-- [Install](#install)
+- [Install via composer](#install-composer)
+- [Install via download](#install-composer_download)
 - [Install options](#options)
 - [Installing on AWS](#aws)
 
@@ -15,20 +16,24 @@ sense to duplicate the efforts of a vibrate and growing community.
 
 [Laravel Docs](http://laravel.com/docs)
 
-<a name="laravel"></a>
+<a name="install-composer"></a>
 ## Via Composer Create-Project
 
     composer.phar create-project learninglocker/learninglocker=dev-master
 
-> **Note**
-
 > If you get a message 'Do you want to remove the existing VCS (.git, .svn ...) history? [Y,n] - ***select Y***
 
-***
 
-> **Previous releases**
+<a name="install-composer_download"></a>
+#### Via download
 
-> If you would like to use a previous version of Learning locker just append .....
+If you would prefer, you can grab the latest tagged release and uppack it into your directory. 
+
+[Releases page](https://github.com/LearningLocker/learninglocker/releases)
+
+Then run
+
+    composer.phar install
 
 ***
 
@@ -79,6 +84,10 @@ Go to yoursite/register and create the first user (which will be super admin).
 When registration is complete, you will be logged in. Next, select 'settings' to visit overall settings and click on 'edit' - here you can give your install a name and description as well as set a few options for the install.
 
 #### You are now ready to use Learning Locker
+
+> **Previous releases**
+
+> If you would like to use a previous version of Learning locker just append the tagged name to the path. e.g learninglocker/learninglocker=v1.0rc1
 
 <a name="options"></a>
 ## Install options

@@ -1,7 +1,7 @@
 Requirements
 ============
 
-Learning Locker requires PHP 5.4+ with the MongoDB extension, MongoDB, Composer and Apache.
+Learning Locker requires PHP 5.4+ with the MongoDB extension, MongoDB, MySQL, Composer and Apache.
 
 ## Components
 
@@ -12,6 +12,8 @@ Learning Locker requires PHP 5.4+ with the MongoDB extension, MongoDB, Composer 
 
 ## Other resources
 
-Learning Locker is built on Laravel.
+Learning Locker is built on Laravel, Backbonejs and Bootstrap.
 
 * [Laravel Docs](http://laravel.com)
+* [Backbonejs](http://backbonejs.com)
+* [Bootstrap](http://getbootstrap.com)
