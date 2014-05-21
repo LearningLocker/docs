@@ -19,7 +19,7 @@ sense to duplicate the efforts of a vibrate and growing community.
 <a name="install-composer"></a>
 ## Via Composer Create-Project
 
-    composer.phar create-project learninglocker/learninglocker=dev-master
+    composer.phar create-project learninglocker/learninglocker
 
 > If you get a message 'Do you want to remove the existing VCS (.git, .svn ...) history? [Y,n] - ***select Y***
 
