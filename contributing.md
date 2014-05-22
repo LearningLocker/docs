@@ -19,6 +19,14 @@ The best way to get started with pull requests is to create an ticket in our tra
 
 We are certainly open to pull requests and want to encourage people to get involved.
 
+#### Pull request criteria
+
+**Hot fix**
+> If the pull request is a hot fix then issue the pull request to the **master** branch. 
+
+**Everything else**
+> If the pull request is something more substantial then issue the pull request to the **develop** branch for testing before it is merged with master.
+
 #### Feature request
 
 If you have a feature request for Learning Locker, then create a ticket in out tracker and make you you select the label 'proposal'.
