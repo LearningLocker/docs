@@ -12,7 +12,7 @@ Installation
 
 Learning Locker is built upon the excellent [Laravel](http://laravel.com). Laravel has great documentation, so, we are going to focus on the 
 key areas for Learning Locker as well as a couple of gotcha's. You will see reference to the Laravel docs throughout as it doesn't make
-sense to duplicate the efforts of a vibrate and growing community.
+sense to duplicate the efforts of a vibrant and growing community.
 
 [Laravel Docs](http://laravel.com/docs)
 
@@ -27,7 +27,7 @@ sense to duplicate the efforts of a vibrate and growing community.
 <a name="install-composer_download"></a>
 #### Via download
 
-If you would prefer, you can grab the latest tagged release and uppack it into your directory. 
+If you would prefer, you can grab the latest tagged release and unpack it into your directory. 
 
 [Releases page](https://github.com/LearningLocker/learninglocker/releases)
 
