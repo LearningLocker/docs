@@ -10,14 +10,14 @@ Reporting API
 
 The page details the custom Learning Locker API. This should not be confused with the xAPI as detailed by the [xAPI spec](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md).
 
-The purpose of this custom API is to provider developers building reporting type tools with a few additional views of the data within an LRS.
+The purpose of this custom API is to provide developers building reporting type tools with a few additional views of the data within an LRS.
 
 <a name="analytics"></a>
 ## GET - api/v1/query/analytics
 
 Parameters | Type | Description
 ----|------|----
-filters | Object  | Object of key:value objects, where the key denotes the context path and the value is the value to filter with. Values can be string or array.
+filters | Object  | Object of key:value objects, where the key denotes the context path and the value is the value to filter with. A value can be a string or an array.
 
 **Example**
 
