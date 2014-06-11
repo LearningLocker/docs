@@ -84,7 +84,7 @@ For v1.0 of Learning Locker we have set the following indexes on a statements do
 *  lrs._id & statement.verb.id
 *  lrs._id & statement.actor.mbox
 
-> It should be noted that this is only a first pass at indexing statements. This needs full testing and revision to make sure we can optimise querying. So, if you have any suggestions then [please get involved](http://docs.learninglocker.net/contributing) and help out. Thanks.
+> It should be noted that this is only a first pass at indexing statements. This needs full testing and revision to make sure we can optimise querying. So, if you have any suggestions then [please get involved](http://docs.learninglocker.net/contribute) and help out. Thanks.
 
 <a name="quirks"></a>
 ## Quirks
