@@ -34,6 +34,10 @@ Holds details of the LRS the statement in question belongs to. There are two key
 
 This contains the actual statement as submitted to the LRS.
 
+**timestamp**
+
+This is the statement timestamp converted into MongoDate for use in Mongo's aggregation function.
+
 ### Example
 
     {
@@ -66,7 +70,8 @@ This contains the actual statement as submitted to the LRS.
         },
         "id": "9a38f6f0-f74c-40c9-a6a7-243eba85eff2",
         "stored": "2014-05-21T11:51:19.742400+00:00"
-      }
+      },
+      "timestamp": ISODate()
     }
 
 <a name="indexes"></a>
