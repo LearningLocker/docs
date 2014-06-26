@@ -10,7 +10,6 @@ There are many ways that you can contribute to the Learning Locker projects incl
 - [Use cases](#usercases)
 - [Promotion](#promo)
 
-<a name="code"></a>
 ## Code
 
 ### Pull requests
@@ -33,12 +32,10 @@ If you have a feature request for Learning Locker, then create a ticket in our t
 
 > [Issue tracker](https://github.com/LearningLocker/learninglocker/issues)
 
-<a name="testing"></a>
 ## Testing
 
 We are still to implement robust unit testing for Learning Locker but this is very much on the roadmap. In terms of end user / ux testing, we welcome all feedback. As with other issues, to report any issues you find while using Learning Locker create a ticket and provide as much detail as possible. 
 
-<a name="documentation"></a>
 ## Documentation
 
 If you would like to help us document Learning Locker, here are the steps.
@@ -47,13 +44,10 @@ If you would like to help us document Learning Locker, here are the steps.
 *  Edit your copy
 *  Issue a pull request with any changes
 
-<a name="translations"></a>
 ## Translations
 
 We are looking for people interested in translating Learning Locker. If you would like to help out, we are currently using a service called Transiflex. You can visit the [Learning Locker page](https://www.transifex.com/projects/p/learning-locker/), create a project and translate.
 
-<a name="usecases"></a>
 ## Use Cases
 
-<a name="promo"></a>
 ## Promotion

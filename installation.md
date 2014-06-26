@@ -7,7 +7,6 @@ Installation
 - [Install options](#options)
 - [Installing on AWS](#aws)
 
-<a name="laravel"></a>
 ## Working with Laravel
 
 Learning Locker is built upon the excellent [Laravel](http://laravel.com). Laravel has great documentation, so, we are going to focus on the 
@@ -16,7 +15,6 @@ sense to duplicate the efforts of a vibrant and growing community.
 
 [Laravel Docs](http://laravel.com/docs)
 
-<a name="install-composer"></a>
 ## Via Composer Create-Project
 
     composer.phar create-project learninglocker/learninglocker
@@ -24,7 +22,6 @@ sense to duplicate the efforts of a vibrant and growing community.
 > If you get a message 'Do you want to remove the existing VCS (.git, .svn ...) history? [Y,n] - ***select Y***
 
 
-<a name="install-composer_download"></a>
 #### Via download
 
 If you would prefer, you can grab the latest tagged release and unpack it into your directory. 
@@ -89,14 +86,12 @@ When registration is complete, you will be logged in. Next, select 'settings' to
 
 > If you would like to use a previous version of Learning locker just append the tagged name to the path. e.g learninglocker/learninglocker=v1.0rc1
 
-<a name="options"></a>
 ## Install options
 
 You can change various settings such as debug mode, default language and timezone in 
     
     app/config/app.php
 
-<a name="aws"></a>
 ## Installation on AWS
 
 There are very detailed instructions for getting [Learning Locker running on AWS](http://cloudboffins.com/advanced-projects/learning-locker-lrs-free-server-part-1/) (it's a five part series)

@@ -5,7 +5,6 @@ Administration
 - [Users](#users)
 - [LRSs](#lrs)
 
-<a name="setup"></a>
 ## Set up
 
 Once you download and install Learning Locker you need to register your first user, this user will become your install's super user meaning they have access to everything. 
@@ -24,7 +23,6 @@ Click on the settings option (left hand navigation). This will take you to the b
 
 > If you did not set up email as part of your initial setup, you will need to manually verify the super user email. To do this click on 'users' in the left hand sidebar, you will then see users listed (there will only be one) click on the grey verified button and you will see it turn green with a tick appearing. Your email has now been verified.
 
-<a name="users"></a>
 ## Learning Locker users
 
 Learning Locker comes with 3 defined user roles: super, observer plus and observer.
@@ -37,7 +35,6 @@ The reason we have observer and observer plus is solely to provide an option to 
 
 Super users can decide which level of user can create and LRSs.
 
-<a name="lrs"></a>
 ## Learning Locker site and LRSs
 
 An install of Learning Locker lets you create a site housing as many LRSs as you need. Each LRS is private to the person who created it and anyone they invite in.

@@ -4,13 +4,12 @@ Issues
 - [Bugs](#bugs)
 - [Security issues](#securities)
 
-<a name="bugs"></a>
 ## Bugs
+
 When you find bugs, please use the [issue tracker](https://github.com/LearningLocker/LearningLocker/issues) on Github to report them. Try to put in as much detail as you can so we can quickly debug and find a solution.
 
 If you are a developer and would like to submit a pull request, please do as we appreciate all the help we can get.
 
-<a name="securities"></a>
 ## Security vulnerabilities
 
 If you find a security issue could you please email
