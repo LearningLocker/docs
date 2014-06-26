@@ -86,7 +86,7 @@ When registration is complete, you will be logged in. Next, select 'settings' to
 #### You are now ready to use Learning Locker
 
 > **Previous releases**
-
+> 
 > If you would like to use a previous version of Learning locker just append the tagged name to the path. e.g learninglocker/learninglocker=v1.0rc1
 
 ## Install options
