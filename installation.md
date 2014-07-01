@@ -79,7 +79,7 @@ Set up email notification in
 
 ### Register first user
 
-Go to yoursite/register and create the first user (which will be super admin). 
+Go to yoursite/public/register and create the first user (which will be super admin). 
 
 When registration is complete, you will be logged in. Next, select 'settings' to visit overall settings and click on 'edit' - here you can give your install a name and description as well as set a few options for the install.
 
