@@ -11,9 +11,18 @@ xAPI Statements
 
 ## Basic Auth
 
-The primary way to submit and retrieve statements from a Learning Locker LRS is via http Basic Authentication. Upon creation each LRS generates a unique key / secret which pair as the username / password. You can reset these values at any time in the LRS setting page. 
+The primary way to submit and retrieve statements from a Learning Locker LRS is via http Basic Authentication. Upon creation each LRS generates a unique key / secret which pair as the username / password. You can reset these values at any time in the LRS setting page.
 
 > It is important to make sure you employ SSL on production sites using basic auth and never share your key / secret
+
+If your get 401 unauthorized requests in your calls to xAPI then It is posible you have some module config striping the Authorization header, usually for
+"security reasons". You can work around this issue by passing the header directly to PHP via the env in your apache default config or your virtual host:
+
+    <VirtualHost *>
+      ...
+      SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+      ...
+    </VirtualHost>
 
 ## Structure
 
@@ -34,6 +43,10 @@ Holds details of the LRS the statement in question belongs to. There are two key
 **statement**
 
 This contains the actual statement as submitted to the LRS.
+
+**timestamp**
+
+This is the statement timestamp converted into MongoDate for use in Mongo's aggregation function.
 
 ### Example
 
@@ -67,7 +80,8 @@ This contains the actual statement as submitted to the LRS.
         },
         "id": "9a38f6f0-f74c-40c9-a6a7-243eba85eff2",
         "stored": "2014-05-21T11:51:19.742400+00:00"
-      }
+      },
+      "timestamp": ISODate()
     }
 
 ## Indexes
