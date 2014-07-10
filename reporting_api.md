@@ -17,7 +17,7 @@ The purpose of this custom API is to provide developers building reporting type 
 
 Parameters | Type | Description
 ----|------|----
-filters | Object  | Object of key:value objects, where the key denotes the context path and the value is the value to filter with. A value can be a string or an array.
+filter | Object  | Object of key:value objects, where the key denotes the context path and the value is the value to filter with. A value can be a string or an array.
 
 **Example**
 
