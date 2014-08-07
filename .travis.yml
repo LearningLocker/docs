@@ -1,7 +1,7 @@
 language: node_js
 node_js:
 - '0.10'
-script: npm run-script deploy
+script: sudo deploy-ghpages.sh
 env:
   global:
   - GH_REF: github.com/LearningLocker/docs.git
