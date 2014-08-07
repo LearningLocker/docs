@@ -4,6 +4,7 @@ node_js:
 script: 
   - ls
   - pwd
+  - chmod +x ./deploy-ghpages.sh
   - ./deploy-ghpages.sh
   - sudo ./deploy-ghpages.sh
 env:
