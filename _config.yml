@@ -2,7 +2,7 @@
 title: "Learning Locker Documentation"
 email: "hello@learninglocker.net"
 description: "Documentation for Learning Locker, the open source learning record store."
-baseurl: ""
+baseurl: "/docs"
 url: "http://learninglocker.net"
 exclude: 
   - "readme.md"
