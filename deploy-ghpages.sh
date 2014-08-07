@@ -3,6 +3,8 @@ rm -rf out || exit 0;
 mkdir out; 
 gem install jekyll
 jekyll build --destination out
+branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+echo $branch
 ( cd out
  git init
  git config user.name "Travis-CI"
