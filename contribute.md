@@ -19,7 +19,7 @@ There are many ways that you can contribute to the Learning Locker projects incl
 
 The best way to get started with pull requests is to create a ticket in our tracker then address the issue / enhancement in your pull request. If the pull request is in response to a bug, then no extra detail is required, however, if you are proposing new functionality or a rewrite of existing code, then please include a detailed description with your pull request.
 
-We are certainly open to pull requests and want to encourage people to get involved.
+We are certainly open to pull requests and want to encourage people to get involved. If possible please create a test, this ensures that the issue you are fixing doesn't reappear and helps to show the expected behaviour.
 
 #### Pull request criteria
 
@@ -34,6 +34,12 @@ We are certainly open to pull requests and want to encourage people to get invol
 If you have a feature request for Learning Locker, then create a ticket in our tracker and make sure you select the label 'proposal'.
 
 > [Issue tracker](https://github.com/LearningLocker/learninglocker/issues)
+
+## Issue Guidelines
+
+When reporting an issue please state (a) the version of Learning Locker that you are using, (b) the steps to reproduce the problem if applicable, (c) the expected behaviour potentially referencing the [xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md), and (d) the actual behaviour potentially with a screenshot.
+
+If you are reporting a server-side problem it may also be helpful to note the database and authentication you are using (i.e. Mongo with basic authentication). Similarly if you are reporting a client-side problem it may also be helpful to note the OS and browser you are using and the version.
 
 ## Testing
 

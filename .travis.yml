@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - 2.1.0
+
+script:
+  - chmod +x ./deploy-ghpages.sh
+  - ./deploy-ghpages.sh
+env:
+  global:
+    - GH_REF: github.com/LearningLocker/docs.git
+    - secure: S6ASqOlcmklKG5jgxnHmb6P7cQp4rFxw5MyiApZG+GZTzkIq52AxnhkP0FcKq7M5JokY5cHMo9FWm7BCf+Pgdu7ddX3DPYB/9JJzHpRtnkBINoeSzmTcEWn2/ttwUwxZX4JvTyZ6OT3tEB8Dzpbd2NTS/OsLENy4lLrT8bTneuM=

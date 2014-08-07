@@ -2,9 +2,12 @@
 title: "Learning Locker Documentation"
 email: "hello@learninglocker.net"
 description: "Documentation for Learning Locker, the open source learning record store."
-baseurl: ""
+baseurl: "/docs"
 url: "http://learninglocker.net"
-exclude: ["readme.md", "contributing.md"]
+exclude: 
+  - "readme.md"
+  - "contributing.md"
+  - "deploy-ghpages.sh"
 
 # Build settings
 markdown: kramdown
@@ -17,3 +20,4 @@ defaults:
       path: "" # empty string for all files
     values:
       layout: "default"
+
