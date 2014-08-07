@@ -1,3 +1,6 @@
+---
+---
+
 xAPI Statements
 ===============
 
@@ -6,7 +9,6 @@ xAPI Statements
 - [Indexes](#indexes)
 - [Quirks](#quirks)
 
-<a name="basicauth"></a>
 ## Basic Auth
 
 The primary way to submit and retrieve statements from a Learning Locker LRS is via http Basic Authentication. Upon creation each LRS generates a unique key / secret which pair as the username / password. You can reset these values at any time in the LRS setting page.
@@ -22,7 +24,6 @@ If your get 401 unauthorized requests in your calls to xAPI then It is posible y
       ...
     </VirtualHost>
 
-<a name="structure"></a>
 ## Structure
 
 Learning Locker stores xAPI statements as MongoDB documents. The actual collection is named statements. To access the statement collection use the following command in your Mongo client terminal.
@@ -83,7 +84,6 @@ This is the statement timestamp converted into MongoDate for use in Mongo's aggr
       "timestamp": ISODate()
     }
 
-<a name="indexes"></a>
 ## Indexes
 
 With MongoDB you can, and should, set indexes in collections you will be querying a lot, in this case, the statements collection. You can read more about MongoDB indexes at the following links:
@@ -100,7 +100,6 @@ For v1.0 of Learning Locker we have set the following indexes on a statements do
 
 > It should be noted that this is only a first pass at indexing statements. This needs full testing and revision to make sure we can optimise querying. So, if you have any suggestions then [please get involved](http://docs.learninglocker.net/contribute) and help out. Thanks.
 
-<a name="quirks"></a>
 ## Quirks
 
 #### Full stops in keys
