@@ -1,7 +1,0 @@
-{
-  "name": "LearningLockerDocs",
-  "version": "1.0.0",
-  "scripts": {
-    "deploy": "sudo ./deploy-ghpages.sh"
-  }
-}

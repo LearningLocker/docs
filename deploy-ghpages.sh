@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 rm -rf out || exit 0;
 mkdir out; 
-npm install jekyll-cli -g
-jkl deploy -h
+gem install jekyll
+jekyll build --destination out
 ( cd out
  git init
  git config user.name "Travis-CI"
