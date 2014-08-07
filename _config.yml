@@ -7,10 +7,6 @@ url: "http://learninglocker.net"
 exclude: 
   - "readme.md"
   - "contributing.md"
-  - ".travis.yml"
-  - "package.json"
-  - "deploy-ghpages.sh"
-  - ".gitignore"
 
 # Build settings
 markdown: kramdown
