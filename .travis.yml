@@ -6,10 +6,6 @@ script:
   - chmod +x ./deploy-ghpages.sh
   - ./deploy-ghpages.sh
 
-branches:
-  only:
-    - master
-
 env:
   global:
     - GH_REF: github.com/LearningLocker/docs.git
