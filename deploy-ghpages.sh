@@ -14,6 +14,7 @@ echo "${DELIM}Finished build${DELIM}"
 # Branch
 BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 MASTER="master"
+echo "${DELIM}Comparing ${MASTER} to ${BRANCH}${DELIM}"
 
 # Deploy if on master branch
 if [ "${MASTER}" = "${BRANCH}" ]; then
