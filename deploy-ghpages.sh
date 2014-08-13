@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
 rm -rf out || exit 0;
 mkdir out; 
-gem install jekyll
-jekyll build --destination out
-BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
-MASTER="master"
+gem install jekyll;
+jekyll build --destination out;
+BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p');
+MASTER="master";
 
 if [ "$MASTER" == "$BRANCH" ]; then
 	( cd out
