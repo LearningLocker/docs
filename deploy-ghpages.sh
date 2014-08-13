@@ -4,12 +4,12 @@
 DELIM='-------------------'
 
 # Build
-echo -e "${DELIM}Starting build${DELIM}"
+echo "${DELIM}Starting build${DELIM}"
 rm -rf out || exit 0
 mkdir out
 gem install jekyll
 jekyll build --destination out
-echo -e "${DELIM}Finished build${DELIM}"
+echo "${DELIM}Finished build${DELIM}"
 
 # Branch
 BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
@@ -17,7 +17,7 @@ MASTER="master"
 
 # Deploy if on master branch
 if [ "${MASTER}" == "${BRANCH}" ]; then
-	echo -e "${DELIM}Starting deployment${DELIM}"
+	echo "${DELIM}Starting deployment${DELIM}"
 	cd out
 	git init
 	git config user.name "Travis-CI"
@@ -27,5 +27,5 @@ if [ "${MASTER}" == "${BRANCH}" ]; then
 	git add .
 	git commit -m "Deployed to Github Pages"
 	git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
-	echo -e "${DELIM}Finished deployment${DELIM}"
+	echo "${DELIM}Finished deployment${DELIM}"
 fi
