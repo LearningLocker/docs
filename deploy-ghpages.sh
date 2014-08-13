@@ -16,7 +16,7 @@ BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 MASTER="master"
 
 # Deploy if on master branch
-if [ "${MASTER}" == "${BRANCH}" ]; then
+if [ "${MASTER}" = "${BRANCH}" ]; then
 	echo "${DELIM}Starting deployment${DELIM}"
 	cd out
 	git init
