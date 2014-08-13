@@ -6,8 +6,9 @@ jekyll build --destination out;
 BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p');
 MASTER="master";
 
-if [ "$MASTER" == "$BRANCH" ]; then
-	( cd out
+if [ "${MASTER}" == "${BRANCH}" ]; then
+	( echo "Deploying to Github Pages"
+	 cd out
 	 git init
 	 git config user.name "Travis-CI"
 	 git config user.email "travis@nodemeatspace.com"
