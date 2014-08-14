@@ -7,11 +7,12 @@ Contributing
 There are many ways that you can contribute to the Learning Locker projects including:
 
 - [Code](#code)
+- [Issues](#issue-guidelines)
 - [Testing](#testing)
-- [Documentation](#docs)
+- [Documentation](#documentation)
 - [Translations](#translations)
-- [Use cases](#usercases)
-- [Promotion](#promo)
+- [Use cases](#use-cases)
+- [Promotion](#promotion)
 
 ## Code
 
@@ -60,9 +61,6 @@ If you would like to help us document Learning Locker, here are the steps.
 ## Translations
 
 We are looking for people interested in translating Learning Locker. If you would like to help out, we are currently using a service called Transiflex. You can visit the [Learning Locker page](https://www.transifex.com/projects/p/learning-locker/), create a project and translate.
-
-## Use Cases
-
 
 ## Use Cases
 
