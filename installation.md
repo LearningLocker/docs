@@ -37,23 +37,6 @@ Then run
 
 ***
 
-### Run the following artisan command 
-
-    php artisan generate:migration add_statements
-
-This will create a dated migration file in app/database/migrations – check that it contains the following method:
-
-    public function up(){
-      Schema::table('statements', function($table){
-          $table->index('lrs._id');
-          $table->index(array('lrs._id', 'statement.object.id'));
-          $table->index(array('lrs._id', 'statement.verb.id'));
-          $table->index(array('lrs._id', 'statement.actor.mbox'));
-        });
-      }
-
-if it doesn’t, add it.
-
 ### MongoDB
 
 Make sure you have MongoDB set up with your db credentials added to 
@@ -63,19 +46,6 @@ Make sure you have MongoDB set up with your db credentials added to
 Now run
 
     php artisan migrate
-
-Add the following service provider to app/config/app.php in 'Autoloaded Service Providers'
-
-    'Jenssegers\Mongodb\Auth\ReminderServiceProvider'
-
-### Email
-
-Set up email notification in 
-
-    app/config/mail.php 
-
-**(if you do not want to set up email, change 'pretend' to true)**
-
 
 ### Register first user
 
@@ -91,9 +61,7 @@ When registration is complete, you will be logged in. Next, select 'settings' to
 
 ## Install options
 
-You can change various settings such as debug mode, default language and timezone in 
-    
-    app/config/app.php
+By default the `app/config/local` configuration will be used if you access Learning Locker via your localhost. You can change various settings such as debug mode, default language and timezone in `app/config/app.php`.
 
 ## Installation on AWS
 
