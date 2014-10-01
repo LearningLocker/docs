@@ -24,14 +24,18 @@ Additional information:
 
     composer create-project learninglocker/learninglocker
 
-**If you get a message 'Do you want to remove the existing VCS (.git, .svn ...) history? [Y,n]', select 'Y'**
+*If you get a message 'Do you want to remove the existing VCS (.git, .svn ...) history? [Y,n]', select 'Y'*
 
 
 ### Github with Git
-If you would prefer, you can grab the [latest tagged release](https://github.com/LearningLocker/learninglocker/releases) and unpack it into your directory. Then run `composer install`.
+If you would prefer, you can grab the [latest tagged release](https://github.com/LearningLocker/learninglocker/releases) and unpack it into your directory. Then run... 
+
+    composer install
 
 ## Setup MongoDB
-Make sure you have MongoDB set up with your db credentials added to `app/config/database.php` on line 86 under `mongodb`. Then run `php artisan migrate`.
+Make sure you have MongoDB set up with your db credentials added to `app/config/database.php` on line 86 under `mongodb`. Then run...
+
+    php artisan migrate
 
 ## Register your first user
 Go to `yoursite/register` and create the first user (which will be super admin). When registration is complete, you will be logged in. Next, select 'settings' to visit overall settings and click on 'edit' - here you can give your install a name and description as well as set a few options for the install.
