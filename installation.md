@@ -5,13 +5,16 @@
 Learning Locker is built upon the excellent [Laravel](http://laravel.com). Laravel has great documentation, so, we are going to focus on the key areas for Learning Locker as well as a couple of gotcha's. You will see reference to the Laravel docs throughout as it doesn't make sense to duplicate the efforts of a vibrant and growing community.
 
 To install Learning Locker you need to follow these steps:
+
 1. Get the source code either via:
     1. [Packagist with Composer](#packagist-with-composer)
     2. [Github with Git](#github-with-git)
 2. [Setup Mongo](#setup-mongodb)
 3. [Register your first user](Register-your-first-user)
 
-Additional information
+
+Additional information:
+
 - [Configuration](#configuration)
 - [Installation on AWS](#Installation-on-AWS)
 
