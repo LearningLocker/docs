@@ -1,8 +1,7 @@
 ---
 ---
 
-Development Projects
-====================
+# Development Projects
 
 - [About](#about)
 - [Users portal](#users)
@@ -33,16 +32,16 @@ This page intends to detail some of the core teams thinking about possible and o
 
 ## Unit testing
 
+**Status:** in progress
+
+We do have some tests that are run on every push via Travis, however we'd like more.
+
+## Permissions management system
+
 **Status:** not started
-
-Actually, this is not a wish item but one that we need to do. We are planning on using PHP Unit Testing.
-
-## Multi Credentials
-
-**Status:** in testing
 
 **Team:** Andrew Downes
 
-**Code:** [Github pull request](https://github.com/LearningLocker/learninglocker/pull/194)
+**Issue:** https://github.com/LearningLocker/learninglocker/issues/121
 
-This code is designed to allow the management of multiple sets of Basic HTTP credentials for a single LRS.
+This part of a Moodle integration issue on Github.
