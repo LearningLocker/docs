@@ -2,7 +2,7 @@
 ---
 
 # Issues
-If you're creating an issue, it should one of the following:
+Issues may be posted to our [issue tracker](https://github.com/LearningLocker/learninglocker/issues). If you're creating an issue, it should one of the following:
 
 - [Vulnerability](#vulnerabilities)
 - [Bug](#bugs)
