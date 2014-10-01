@@ -1,23 +1,25 @@
 #!/usr/bin/env sh
 
-# Colours
+# Defines some constants.
 DELIM='-------------------'
+MASTER="master"
 
-# Build
-echo "${DELIM}Starting build${DELIM}"
+echo "${DELIM}<"
+
+# Builds the documentation using Jekyll
+echo "Starting build"
 rm -rf out || exit 0
 mkdir out
 gem install jekyll
 jekyll build --destination out
-echo "${DELIM}Finished build${DELIM}"
+echo "Finished build"
 
-# Branch
-MASTER="master"
-echo "${DELIM}Comparing ${MASTER} to ${TRAVIS_BRANCH}"
+echo ">${DELIM}<"
 
-# Deploy if on master branch
+# Deploys Jekyll build to gh-pages if Travis is on the 'master' branch.
+echo "Comparing ${MASTER} to ${TRAVIS_BRANCH}"
 if [ "${MASTER}" = "${TRAVIS_BRANCH}" ]; then
-	echo "${DELIM}Starting deployment${DELIM}"
+	echo "Starting deployment"
 	cd out
 	git init
 	git config user.name "Travis-CI"
@@ -27,5 +29,9 @@ if [ "${MASTER}" = "${TRAVIS_BRANCH}" ]; then
 	git add .
 	git commit -m "Deployed to Github Pages"
 	git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
-	echo "${DELIM}Finished deployment${DELIM}"
+	echo "Finished deployment"
+else
+	echo "Not deploying"
 fi
+
+echo ">${DELIM}"
