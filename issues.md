@@ -23,6 +23,7 @@ When reporting a bug please state the following information:
 6. OS, browser, and browser version (only for client side bugs)
 
 **Examples**
+
 - [Server-side issue](https://github.com/LearningLocker/learninglocker/issues/315)
 - [Client-side issue](https://github.com/LearningLocker/learninglocker/issues/317)
 
