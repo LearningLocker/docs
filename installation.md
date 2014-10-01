@@ -20,6 +20,7 @@ Additional information:
 
 
 ## Get the source
+
 ### Packagist with Composer
 
     composer create-project learninglocker/learninglocker
