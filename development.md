@@ -4,11 +4,11 @@
 # Development Projects
 
 - [About](#about)
-- [Users portal](#users)
-- [Reporting API](#reporting)
+- [User's portal](#users-portal)
+- [Reporting API](#reporting-api)
 - [OAuth Server / Client](#oauth)
-- [Unit testing](#testing)
-- [Multi Credentials](#credentials)
+- [Unit testing](#unit-testing)
+- [Permissions management system](#permissions-management-system)
 
 ## About
 
@@ -24,7 +24,7 @@ This page intends to detail some of the core teams thinking about possible and o
 
 **Team:** Dave Tosh, James Mullaney
 
-## OAuth Server / Client
+## OAuth
 
 **Status:** in progress
 
