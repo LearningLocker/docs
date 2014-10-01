@@ -5,7 +5,7 @@
 There are many ways that you can contribute to the Learning Locker projects including:
 
 - [Pull Requests](#pull-requests)
-- [Issues](#issue-guidelines)
+- [Issues](/issues)
 - [Testing](#testing)
 - [Documentation](#documentation)
 - [Translations](/translation)
@@ -19,32 +19,6 @@ The best way to get started with pull requests is to create a ticket in our trac
 
 **Everything else**
 > If the pull request is something more substantial then make the pull request to the **develop** branch for testing before it is merged with master.
-
-## Issue Guidelines
-If you're creating an issue, it should be either a [bug](#bugs), an [enhancement](#enhancements), or a [question](#questions).
-
-### Bugs
-When reporting a bug please state the following information:
-
-1. Version (or branch and commit) of Learning Locker that you are using (see the `VERSION` file)
-2. Steps to reproduce the bug
-3. Expected behaviour potentially referencing the [xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md)
-4. Actual behaviour potentially with a screenshot.
-5. Database and authentication (i.e. Mongo with basic authentication)
-6. OS, browser, and browser version (only for client side bugs)
-
-#### Examples
-- [Server-side issue](https://github.com/LearningLocker/learninglocker/issues/315)
-- [Client-side issue](https://github.com/LearningLocker/learninglocker/issues/317)
-
-### Enhancements
-When reporting an enhancement please state the following information:
-
-1. Motive (why this enhancement is needed)
-2. Result (what the enhancement does)
-
-### Questions
-When asking a question please make it obvious that it is a question and not a bug or an enhancement.
 
 ## Testing
 We do now have some testing which can be found in the `app/tests` directory. We'd like more tests so please feel free to add some via a pull request. The tests are ran automatically on every push to the Github repository via Travis.
