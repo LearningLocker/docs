@@ -1,23 +1,36 @@
 ---
 ---
 
-Issues
-======
+# Issues
+If you're creating an issue, it should one of the following:
 
-- [Bugs](#bugs)
-- [Security issues](#securities)
+- [Vulnerability](#vulnerabilities)
+- [Bug](#bugs)
+- [Enhancement](#enhancements)
+- [Question](#questions).
+
+## Vulnerabilities
+If you find a security issue could you please [email us](mailto:security@ht2.co.uk) with a detailed description. This will give the team a chance to quickly resolve the problem. Don't post security issues anywhere else!
 
 ## Bugs
+When reporting a bug please state the following information:
 
-When you find bugs, please use the [issue tracker](https://github.com/LearningLocker/LearningLocker/issues) on Github to report them. Try to put in as much detail as you can so we can quickly debug and find a solution.
+1. Version (or branch and commit) of Learning Locker that you are using (see the `VERSION` file)
+2. Steps to reproduce the bug
+3. Expected behaviour potentially referencing the [xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md)
+4. Actual behaviour potentially with a screenshot.
+5. Database and authentication (i.e. Mongo with basic authentication)
+6. OS, browser, and browser version (only for client side bugs)
 
-If you are a developer and would like to submit a pull request, please do as we appreciate all the help we can get.
+**Examples**
+- [Server-side issue](https://github.com/LearningLocker/learninglocker/issues/315)
+- [Client-side issue](https://github.com/LearningLocker/learninglocker/issues/317)
 
-## Security vulnerabilities
+## Enhancements
+When reporting an enhancement please state the following information:
 
-If you find a security issue could you please email
+1. Motive (why this enhancement is needed)
+2. Result (what the enhancement does)
 
-> security@ht2.co.uk
-
-
-with a detailed description. This will give the team a chance to quickly resolve the problem. Don't post security issues in the issue tracker or Learning Locker forum. Thanks!
+## Questions
+When asking a question please make it obvious that it is a question and not a bug or an enhancement.
