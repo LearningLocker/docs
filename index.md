@@ -19,12 +19,13 @@ We’re an open source community effort. To understand a little about where we a
 
 ## Info
 
-There are several ways to get started and involved with Learning Locker. These docs are a good place to begin as well as the community forum, blog, twitter account and Github repo.
+There are several ways to get started and involved with Learning Locker. These docs are a good place to begin as well as:
 
 *  [Community Forum](https://groups.google.com/forum/#!forum/learning-locker)
 *  [LL Blog](http://learninglocker.net/blog/)
 *  [Twitter](https://twitter.com/learning_locker)
 *  [Github](https://github.com/learninglocker)
+*  [Gitter](https://gitter.im/LearningLocker/learninglocker)
 
 ## Team
 
