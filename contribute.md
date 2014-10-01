@@ -38,7 +38,7 @@ If you have a feature request for Learning Locker, then create a ticket in our t
 
 ## Issue Guidelines
 
-When reporting an issue please state (a) the version of Learning Locker that you are using, (b) the steps to reproduce the issue if applicable, (c) the expected behaviour potentially referencing the [xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md), and (d) the actual behaviour potentially with a screenshot.
+When reporting an issue please state (a) the version of Learning Locker that you are using (this can be found in the `VERSION` file), (b) the steps to reproduce the issue if applicable, (c) the expected behaviour potentially referencing the [xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md), and (d) the actual behaviour potentially with a screenshot.
 
 If you are reporting a server-side issue it may also be helpful to note the database and authentication you are using (i.e. Mongo with basic authentication). Similarly if you are reporting a client-side issue it may also be helpful to note the OS and browser you are using and the version.
 
