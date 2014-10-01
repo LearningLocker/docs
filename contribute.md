@@ -21,7 +21,7 @@ The best way to get started with pull requests is to create a ticket in our trac
 > If the pull request is something more substantial then make the pull request to the **develop** branch for testing before it is merged with master.
 
 ## Issue Guidelines
-If you're creating an issue, it should be either a bug, an enhancement, or a question. Please see the sections below to determine what we require when reporting an issue.
+If you're creating an issue, it should be either a [bug](#bugs), an [enhancement](#enhancements), or a [question](#questions).
 
 ### Bugs
 When reporting a bug please state the following information:
@@ -37,17 +37,17 @@ When reporting a bug please state the following information:
 - [Server-side issue](https://github.com/LearningLocker/learninglocker/issues/315)
 - [Client-side issue](https://github.com/LearningLocker/learninglocker/issues/317)
 
-### Enhancement
+### Enhancements
 When reporting an enhancement please state the following information:
 
 1. Motive (why this enhancement is needed)
 2. Result (what the enhancement does)
 
-### Question
+### Questions
 When asking a question please make it obvious that it is a question and not a bug or an enhancement.
 
 ## Testing
-We are still to implement robust unit testing for Learning Locker but this is very much on the roadmap. In terms of end user / ux testing, we welcome all feedback. As with other issues, to report any issues you find while using Learning Locker create a ticket and provide as much detail as possible.
+We do now have some testing which can be found in the `app/tests` directory. We'd like more tests so please feel free to add some via a pull request. The tests are ran automatically on every push to the Github repository via Travis.
 
 ## Documentation
 If you would like to help us document Learning Locker, here are the steps.
