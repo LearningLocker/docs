@@ -10,7 +10,7 @@ To install Learning Locker you need to follow these steps:
     1. [Packagist with Composer](#packagist-with-composer)
     2. [Github with Git](#github-with-git)
 2. [Setup Mongo](#setup-mongodb)
-3. [Register your first user](Register-your-first-user)
+3. [Register your first user](#register-your-first-user)
 
 
 Additional information:
