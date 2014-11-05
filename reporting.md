@@ -2,19 +2,19 @@
 ---
 
 # Reporting
-Learning Locker provides a generic tool for filtering statements that we call "reporting". This guide will demonstrates everything you can do with the reporting tool. You can use the reporting tool by selecting an LRS from the "LRS List" (in the top right), then clicking "Reporting" on the menu (on the left).
+Learning Locker provides a generic tool for filtering statements that we call "reporting". This guide will document everything you can do with the reporting tool. You can use the reporting tool by selecting an LRS from the "LRS List" (in the top right), then clicking "Reporting" on the menu (on the left).
 
-- Create a report
-- Remove a report
-- Edit a report
-  - Filter by actor (who)
-  - Filter by verb (did)
-  - Filter by activity (what)
-  - Filter by content (where)
-  - Filter by result (with result)
-  - Filter by date (when)
-- View statements in a graph
-- View statements in a list
+- [Create a report](#create-a-report)
+- [Remove a report](#remove-a-report)
+- [Edit a report](#edit-a-report)
+  - [Filter by actor (who)](#filter-by-actor)
+  - [Filter by verb (did)](#filter-by-verb)
+  - [Filter by activity (what)](#filter-by-activity)
+  - [Filter by content (where)](#filter-by-context)
+  - [Filter by result (with result)](#filter-by-result)
+  - [Filter by date (when)](#filter-by-date)
+- [View statements in a graph](#view-statements-in-a-graph)
+- [View statements in a list](#view-statements-in-a-list)
 
 ## Create a report
 Click the (green) "Add" button. A new entry will appear in the list of reports, you can then [edit](#edit-a-report) that report.
@@ -25,7 +25,7 @@ Click the (red) "Delete" button next to the report. Then select "OK" in the mess
 ## Edit a report
 Click the (blue) "Edit" button next to the report. From there you will be taken to a page where you can add filters to your report.
 
-### Filter by actor (who)
+### Filter by actor
 Click the (grey) square that says "Who". You can then add and remove actors from the list that appears below.
 
 #### Adding an actor
@@ -34,7 +34,7 @@ Click the (green) "Add" button (below the list of actors - which may be empty at
 #### Removing an actor
 Click the (red) minus icon next to the actor. Then select "OK" in the message that pops up.
 
-### Filter by verb (did)
+### Filter by verb
 Click the (grey) square that says "Did". You can then add and remove verbs from the list that appears below.
 
 #### Adding a verb
@@ -43,7 +43,7 @@ Click the (green) "Add" button (below the list of verbs - which may be empty at 
 #### Removing a verb
 Click the (red) minus icon next to the verb. Then select "OK" in the message that pops up.
 
-### Filter by activity (what)
+### Filter by activity
 Click the (grey) square that says "What". You can then add and remove "activities" and "activity types" from the lists that appears below.
 
 #### Adding an activity or activity type
@@ -52,7 +52,7 @@ Click the (green) "Add" button (below the list you'd like to add to - which may 
 #### Removing an activity or activity type
 Click the (red) minus icon next to the item. Then select "OK" in the message that pops up.
 
-### Filter by content (where)
+### Filter by content
 Click the (grey) square that says "Where". You can then add and remove "parent activities", "grouping activities", "platforms", "instructors", or "languages" from the lists that appears below.
 
 #### Adding an activity or activity type
@@ -61,7 +61,7 @@ Click the (green) "Add" button (below the list you'd like to add to - which may 
 #### Removing an activity or activity type
 Click the (red) minus icon next to the item. Then select "OK" in the message that pops up.
 
-### Filter by result (with result)
+### Filter by result
 Click the (grey) square that says "With result". You can then filter by score, success, or completion.
 
 #### Filter by score
@@ -73,7 +73,7 @@ Success (`statement.result.success`) may determine whether a learner was success
 #### Filter by completion
 Complete (`statement.result.completion`) may determine whether a learner completed a test. Setting this filter to `true` will return all the statements that show a completed test and `false` will do the opposite. You can remove this filter by clicking the (red) "Clear" button next to success.
 
-### Filter by date (when)
+### Filter by date
 Click the (grey) square that says "When". You can then select a since and/or until date which will determine the date (`statement.timestamp`) range you're interested in. Statements that were not made during your date range will not be returned (unless it meets [certain conditions regarding statement refs](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#filter-conditions-for-statementrefs)).
 
 ## View statements in a graph
