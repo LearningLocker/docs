@@ -2,7 +2,7 @@
 ---
 
 # Reporting
-Learning Locker provides a generic tool for filtering statements that we call "reporting". This guide will document everything you can do with the reporting tool. You can use the reporting tool by selecting an LRS from the "LRS List" (in the top right), then clicking "Reporting" on the menu (on the left).
+Learning Locker provides a generic tool for filtering statements that we call "reporting". This page documents everything you can do with the reporting tool. You can use the reporting tool by selecting an LRS from the "LRS List" (in the top right), then clicking "Reporting" on the menu (on the left).
 
 - [Create a report](#create-a-report)
 - [Remove a report](#remove-a-report)
