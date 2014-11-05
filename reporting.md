@@ -26,7 +26,7 @@ Click the (red) "Delete" button next to the report. Then select "OK" in the mess
 Click the (blue) "Edit" button next to the report. From there you will be taken to a page where you can add filters to your report.
 
 ### Filter by actor
-Click the (grey) square that says "Who". You can then add and remove actors from the list that appears below.
+This category lets you filter actors (people that did activities). Click the (grey) square that says "Who". You can then add and remove actors from the list that appears below.
 
 #### Adding an actor
 Click the (green) "Add" button (below the list of actors - which may be empty at this point). This will add a new entry to the list of actors, you can then type the name (`statement.actor.name`) of the actor you're searchng for in the text box. If the actor’s name doesn't appear as you type it you probably misspelled their name or they haven’t done anything according to your LRS. *Currently* the report will filter by the email (`statement.actor.mbox`) associated with the actor you've selected.
@@ -35,7 +35,7 @@ Click the (green) "Add" button (below the list of actors - which may be empty at
 Click the (red) minus icon next to the actor. Then select "OK" in the message that pops up.
 
 ### Filter by verb
-Click the (grey) square that says "Did". You can then add and remove verbs from the list that appears below.
+The did category lets you filter by verbs (how actors interacted with activities, i.e. “completed”). Click the (grey) square that says "Did". You can then add and remove verbs from the list that appears below.
 
 #### Adding a verb
 Click the (green) "Add" button (below the list of verbs - which may be empty at this point). This will add a new entry to the list of verbs, you can then type the name (`statement.verb.id`) of the verb you're searchng for in the text box.
@@ -44,7 +44,7 @@ Click the (green) "Add" button (below the list of verbs - which may be empty at 
 Click the (red) minus icon next to the verb. Then select "OK" in the message that pops up.
 
 ### Filter by activity
-Click the (grey) square that says "What". You can then add and remove "activities" and "activity types" from the lists that appears below.
+This category allows you to filter by activities (what people did). Click the (grey) square that says "What". You can then add and remove "activities" and "activity types" from the lists that appears below.
 
 #### Adding an activity or activity type
 Click the (green) "Add" button (below the list you'd like to add to - which may be empty at this point). This will add a new entry to the list, you can then type the name of the "activity" (`statement.object.id`) or "activity type" (`statement.object.definition.type`) you're searchng for in the text box.
@@ -53,7 +53,7 @@ Click the (green) "Add" button (below the list you'd like to add to - which may 
 Click the (red) minus icon next to the item. Then select "OK" in the message that pops up.
 
 ### Filter by context
-Click the (grey) square that says "Where". You can then add and remove "parent activities", "grouping activities", "platforms", "instructors", or "languages" from the lists that appears below.
+Allows you to filter in terms of the context that activities took place in. Click the (grey) square that says "Where". You can then add and remove "parent activities", "grouping activities", "platforms", "instructors", or "languages" from the lists that appears below.
 
 #### Adding an activity or activity type
 Click the (green) "Add" button (below the list you'd like to add to - which may be empty at this point). This will add a new entry to the list, you can then type the name of the "parent activity" (`statement.context.contextActivities.parent.id`), "grouping activiy" (`statement.context.contextActivities.grouping.id`), "platform" (`statement.context.platform`), "instructor" (`statement.context.instructor`), or "language" (`statement.context.language`) you're searchng for in the text box.
