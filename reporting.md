@@ -29,7 +29,7 @@ Click the (blue) "Edit" button next to the report. From there you will be taken 
 Click the (grey) square that says "Who". You can then add and remove actors from the list that appears below.
 
 #### Adding an actor
-Click the (green) "Add" button (below the list of actors - which may be empty at this point). This will add a new entry to the list of actors, you can then type the name (`statement.actor.name`) of the actor you're searchng for in the text box. *Currently* the report will filter by the email (`statement.actor.mbox`) associated with the actor you've selected.
+Click the (green) "Add" button (below the list of actors - which may be empty at this point). This will add a new entry to the list of actors, you can then type the name (`statement.actor.name`) of the actor you're searchng for in the text box. If the actor’s name doesn't appear as you type it you probably misspelled their name or they haven’t done anything according to your LRS. *Currently* the report will filter by the email (`statement.actor.mbox`) associated with the actor you've selected.
 
 #### Removing an actor
 Click the (red) minus icon next to the actor. Then select "OK" in the message that pops up.
@@ -38,7 +38,7 @@ Click the (red) minus icon next to the actor. Then select "OK" in the message th
 Click the (grey) square that says "Did". You can then add and remove verbs from the list that appears below.
 
 #### Adding a verb
-Click the (green) "Add" button (below the list of verbs - which may be empty at this point). This will add a new entry to the list of verbs, you can then type the name (`verb.id`) of the verb you're searchng for in the text box.
+Click the (green) "Add" button (below the list of verbs - which may be empty at this point). This will add a new entry to the list of verbs, you can then type the name (`statement.verb.id`) of the verb you're searchng for in the text box.
 
 #### Removing a verb
 Click the (red) minus icon next to the verb. Then select "OK" in the message that pops up.
