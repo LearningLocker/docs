@@ -10,7 +10,7 @@ Learning Locker provides a generic tool for filtering statements that we call "r
   - [Filter by actor (who)](#filter-by-actor)
   - [Filter by verb (did)](#filter-by-verb)
   - [Filter by activity (what)](#filter-by-activity)
-  - [Filter by content (where)](#filter-by-context)
+  - [Filter by context (where)](#filter-by-context)
   - [Filter by result (with result)](#filter-by-result)
   - [Filter by date (when)](#filter-by-date)
 - [View statements in a graph](#view-statements-in-a-graph)
@@ -52,7 +52,7 @@ Click the (green) "Add" button (below the list you'd like to add to - which may 
 #### Removing an activity or activity type
 Click the (red) minus icon next to the item. Then select "OK" in the message that pops up.
 
-### Filter by content
+### Filter by context
 Click the (grey) square that says "Where". You can then add and remove "parent activities", "grouping activities", "platforms", "instructors", or "languages" from the lists that appears below.
 
 #### Adding an activity or activity type
