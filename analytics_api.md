@@ -1,7 +1,7 @@
 ---
 ---
 
-Reporting API
+Analytics API
 =============
 
 - [About](#about)
