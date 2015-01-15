@@ -18,11 +18,14 @@ GET http://www.example.com/api/v1/statements/where
 ```
 
 ### Parameters
+
 Name | Type | Description
 --- | --- | ---
-filters | Array of FilterArrays | The filters that the statements must pass (required).
+**filters** | Array of FilterArrays | The filters that the statements must pass.
 limit | Integer | The number of statements to be returned (defaults to 100).
 page | Integer | The page to be returned (defaults to 1).
+
+*Required parameters are shown in __bold__.*
 
 ### Example
 ```
@@ -39,9 +42,12 @@ GET http://www.example.com/api/v1/statements/aggregate
 ```
 
 ### Parameters
+
 Name | Type | Description
 --- | --- | ---
-pipeline | [MongoAggregationPipeline](http://docs.mongodb.org/manual/core/aggregation-pipeline/) | The pipeline to pass  statements through (required).
+**pipeline** | [MongoAggregationPipeline](http://docs.mongodb.org/manual/core/aggregation-pipeline/) | The pipeline to pass  statements through.
+
+*Required parameters are shown in __bold__.*
 
 ### Example
 ```
@@ -67,9 +73,12 @@ GET http://www.example.com/api/v1/statements/aggregate/time
 ```
 
 ### Parameters
+
 Name | Type | Description
 --- | --- | ---
-match | [MongoAggregationMatch](http://docs.mongodb.org/manual/reference/operator/aggregation/match/) | The match to pass statements through (required).
+**match** | [MongoAggregationMatch](http://docs.mongodb.org/manual/reference/operator/aggregation/match/) | The match to pass statements through.
+
+*Required parameters are shown in __bold__.*
 
 ### Example
 ```
@@ -88,9 +97,12 @@ GET http://www.example.com/api/v1/statements/aggregate/object
 ```
 
 ### Parameters
+
 Name | Type | Description
 --- | --- | ---
-match | [MongoAggregationMatch](http://docs.mongodb.org/manual/reference/operator/aggregation/match/) | The match to pass statements through (required).
+**match** | [MongoAggregationMatch](http://docs.mongodb.org/manual/reference/operator/aggregation/match/) | The match to pass statements through.
+
+*Required parameters are shown in __bold__.*
 
 ### Example
 ```
