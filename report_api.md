@@ -1,7 +1,7 @@
 ---
 ---
 
-# Report API
+# Reports API
 
 Method | HTTP request | Description
 --- | --- | ---
