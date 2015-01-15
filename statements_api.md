@@ -29,11 +29,11 @@ page | Integer | The page to be returned (defaults to 1).
 
 ### Example
 
-  GET http://www.example.com/api/v1/statements/where?limit=10&page=1&filters=[
-    ["statement.verb.id", "in", ["verb/1", "verb/2"],
-    ["statement.timestamp", "between", "2015-01-01", "2015-01-15"],
-    ["statement.actor.mbox", "mailto:ex@mple.com"]
-  ]
+    GET http://www.example.com/api/v1/statements/where?limit=10&page=1&filters=[
+      ["statement.verb.id", "in", ["verb/1", "verb/2"],
+      ["statement.timestamp", "between", "2015-01-01", "2015-01-15"],
+      ["statement.actor.mbox", "mailto:ex@mple.com"]
+    ]
 
 ## aggregate
 ```
@@ -50,20 +50,20 @@ Name | Type | Description
 
 ### Example
 
-  GET http://www.example.com/api/v1/statements/aggregate?pipeline=[{
-    "$match": {
-      "statement.timestamp": {
-        "$gt":"2015-01-01",
-        "$lt":"2015-01-01"
-      },
-      "statement.actor.mbox": "mailto:ex@mple.com"
-    }
-  }, {
-    "project": {
-      "_id": 0,
-      "statement": 1
-    }
-  }]
+    GET http://www.example.com/api/v1/statements/aggregate?pipeline=[{
+      "$match": {
+        "statement.timestamp": {
+          "$gt":"2015-01-01",
+          "$lt":"2015-01-01"
+        },
+        "statement.actor.mbox": "mailto:ex@mple.com"
+      }
+    }, {
+      "project": {
+        "_id": 0,
+        "statement": 1
+      }
+    }]
 
 ## aggregateTime
 ```
@@ -80,13 +80,13 @@ Name | Type | Description
 
 ### Example
 
-  GET http://www.example.com/api/v1/statements/aggregate/time?match={
-    "statement.timestamp": {
-      "$gt":"2015-01-01",
-      "$lt":"2015-01-01"
-    },
-    "statement.actor.mbox": "mailto:ex@mple.com"
-  }
+    GET http://www.example.com/api/v1/statements/aggregate/time?match={
+      "statement.timestamp": {
+        "$gt":"2015-01-01",
+        "$lt":"2015-01-01"
+      },
+      "statement.actor.mbox": "mailto:ex@mple.com"
+    }
 
 
 ## aggregateObject
@@ -104,11 +104,11 @@ Name | Type | Description
 
 ### Example
 
-  GET http://www.example.com/api/v1/statements/aggregate/object?match={
-    "statement.timestamp": {
-      "$gt":"2015-01-01",
-      "$lt":"2015-01-01"
-    },
-    "statement.actor.mbox": "mailto:ex@mple.com"
-  }
+    GET http://www.example.com/api/v1/statements/aggregate/object?match={
+      "statement.timestamp": {
+        "$gt":"2015-01-01",
+        "$lt":"2015-01-01"
+      },
+      "statement.actor.mbox": "mailto:ex@mple.com"
+    }
 
