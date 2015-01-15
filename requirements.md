@@ -12,6 +12,8 @@ Learning Locker requires PHP 5.5+ with the MongoDB extension, MongoDB, MySQL, Co
 * [MongoDB](http://mongodb.org)
 * LAMP Stack
 * [MongoDB php extension](http://www.php.net/manual/en/mongo.installation.php)
+* [Node and NPM](http://nodejs.org/)
+* [Bower](http://bower.io/)
 
 ## Other resources
 
