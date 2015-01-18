@@ -14,9 +14,16 @@ Please view our [documentation](http://docs.learninglocker.net) site.
 You may contribute to this project via [issues](/issues) and [pull request](/pulls), however, please see the [guidelines](/contributing.md) before doing so. More information about how you can get involved can be found on the [Learning Locker website](http://learninglocker.net/community/get-involved/).
 
 ### Getting Started
+1. Open the file you wish to edit on Github.
+2. Edit the file.
+3. Enter a "commit message" (found below the edited file).
+4. Click "Propose file changes" (found below the edited file).
+
+Alternatively:
+
 1. [Fork](/fork) the repository.
-4. Change the markdown documentation files.
-7. Commit and push your changes to Github.
-8. Create a [pull request](/pulls) on Github (ensuring that you follow the [guidelines](/contributing.md)).
+2. Change the markdown documentation files.
+3. Commit and push your changes to Github.
+4. Create a [pull request](/pulls) on Github (ensuring that you follow the [guidelines](/contributing.md)).
 
 Note that the documentation site is generated using [Jekyll](http://jekyllrb.com/). To learn more about the repository structure, please view the [Jekyll documentation](http://jekyllrb.com/docs/home/).
