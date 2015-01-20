@@ -53,13 +53,13 @@ Name | Type | Description
     GET http://www.example.com/api/v1/statements/aggregate?pipeline=[{
       "$match": {
         "statement.timestamp": {
-          "$gt":"2015-01-01",
-          "$lt":"2015-01-01"
+          "$gt":"2015-01-01T00:00",
+          "$lt":"2015-01-02T00:00"
         },
         "statement.actor.mbox": "mailto:ex@mple.com"
       }
     }, {
-      "project": {
+      "$project": {
         "_id": 0,
         "statement": 1
       }
@@ -82,8 +82,8 @@ Name | Type | Description
 
     GET http://www.example.com/api/v1/statements/aggregate/time?match={
       "statement.timestamp": {
-        "$gt":"2015-01-01",
-        "$lt":"2015-01-01"
+        "$gt":"2015-01-01T00:00",
+        "$lt":"2015-01-02T00:00"
       },
       "statement.actor.mbox": "mailto:ex@mple.com"
     }
@@ -106,8 +106,8 @@ Name | Type | Description
 
     GET http://www.example.com/api/v1/statements/aggregate/object?match={
       "statement.timestamp": {
-        "$gt":"2015-01-01",
-        "$lt":"2015-01-01"
+        "$gt":"2015-01-01T00:00",
+        "$lt":"2015-01-02T00:00"
       },
       "statement.actor.mbox": "mailto:ex@mple.com"
     }
