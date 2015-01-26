@@ -5,10 +5,10 @@
 
 Method | HTTP request | Description
 --- | --- | ---
-[where](#where) | GET /where | Deprecated. Gets a paginated list of statements that match given filters.
+[where](#where) | GET /where | **Deprecated.** Gets a paginated list of statements that match given filters.
 [aggregate](#aggregate) | GET /aggregate | Runs an aggregation of the statements using a pipeline.
-[aggregateTime](#aggregatetime) | GET /aggregate/time | Deprecated. Runs a time based aggregation of the statements using a match.
-[aggregateObject](#aggregateobject) | GET /aggregate/object | Deprecated. Runs a object based aggregation of the statements using a match.
+[aggregateTime](#aggregatetime) | GET /aggregate/time | **Deprecated.** Runs a time based aggregation of the statements using a match.
+[aggregateObject](#aggregateobject) | GET /aggregate/object | **Deprecated.** Runs a object based aggregation of the statements using a match.
 
 *URIs relative to http://www.example.com/api/v1/statements/, unless otherwise noted. Additionally you must supply your Basic Auth details with each request. Your Basic Auth details can be found under "xAPI Statements" in your LRS's settings.*
 
