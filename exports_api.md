@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [store](#store) | POST / | Creates a new export for the LRS.
 [show](#show) | GET /*id* | Gets the export with the given *id*.
 [update](#update) | PUT /*id* | Updates the export with the given *id*.
+[destroy](#destroy) | DELETE /*id* | Deletes the export with the given *id*.
 [showJSON](#showjson) | GET /*id*/show | **Deprecated**. Gets the statements as JSON from the export with the given *id*.
 [showCSV](#showcsv) | GET /*id*/show/csv | **Deprecated**. Gets the statements as CSV from the export with the given *id*.
 
