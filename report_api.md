@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [store](#store) | POST / | Creates a new report for the LRS.
 [show](#show) | GET /*id* | Gets the report with the given *id*.
 [update](#update) | PUT /*id* | Updates the report with the given *id*.
+[destroy](#destroy) | DELETE /*id* | Deletes the report with the given *id*.
 [run](#run) | GET /*id*/run | **Deprecated**. Gets a paginated list of statements from the report with the given *id*.
 [graph](#graph) | GET /*id*/graph | **Deprecated**. Gets the graph data of statements from the report with the given *id*.
 
