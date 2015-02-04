@@ -9,8 +9,8 @@ Method | HTTP request | Description
 [store](#store) | POST / | Creates a new report for the LRS.
 [show](#show) | GET /*id* | Gets the report with the given *id*.
 [update](#update) | PUT /*id* | Updates the report with the given *id*.
-[run](#run) | GET /*id*/run | Gets a paginated list of statements from the report with the given *id*.
-[graph](#graph) | GET /*id*/graph | Gets the graph data of statements from the report with the given *id*.
+[run](#run) | GET /*id*/run | **Deprecated**. Gets a paginated list of statements from the report with the given *id*.
+[graph](#graph) | GET /*id*/graph | **Deprecated**. Gets the graph data of statements from the report with the given *id*.
 
 
 *URIs relative to http://www.example.com/api/v1/reports/, unless otherwise noted. Additionally you must supply your Basic Auth details with each request. Your Basic Auth details can be found under "xAPI Statements" in your LRS's settings.*
@@ -113,6 +113,7 @@ None.
 
 
 ## run
+**Deprecated**. Instead you can [GET the report](#show), then [aggregate](http://docs.learninglocker.net/statements_api/#aggregate).
 ```
 GET http://www.example.com/api/v1/reports/*id*/run
 ```
@@ -135,6 +136,7 @@ None.
 
 
 ## graph
+**Deprecated**. Instead you can [GET the report](#show), then [aggregate](http://docs.learninglocker.net/statements_api/#aggregate).
 ```
 GET http://www.example.com/api/v1/reports/*id*/graph
 ```
