@@ -34,7 +34,7 @@ If you would prefer, you can grab the [latest tagged release](https://github.com
     composer install
 
 ## Setup MongoDB
-Make sure you have MongoDB set up with your db credentials added to `app/config/database.php` on line 86 under `mongodb`. Then run...
+Make sure you have MongoDB set up with your db credentials added to `app/config/local/database.php` (or `app/config/database.php` depending on your `bootstrap/start.php` file) inside `connections` under `mongodb`. Then run...
 
     php artisan migrate
     
