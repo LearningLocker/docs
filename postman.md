@@ -22,10 +22,8 @@ We recommend that you use a [Postman Environment](https://www.getpostman.com/doc
 
 To get started please create a new Postman Enviroment, then modify your environment and select "Bulk edit". Once inside the bulk edit you can copy the code below and paste it into Postman. Please change `YOUR_AUTH` to your [base 64 encoded](https://www.base64encode.org/) [basic auth details](http://docs.learninglocker.net/statements/#basic-auth) (which can be found under "xAPI Statements" on the left, inside an LRS on Learning Locker), and `YOUR_ENDPOINT` to your endpoint (i.e. "localhost/learninglocker/public").
 
-```yaml
-auth: YOUR_AUTH
-version: 1.0.1
-baseUrl: YOUR_ENDPOINT
-iri: http://www.example.com
-mbox: mailto:ex@mple.com
-```
+    auth: YOUR_AUTH
+    version: 1.0.1
+    baseUrl: YOUR_ENDPOINT
+    iri: http://www.example.com
+    mbox: mailto:ex@mple.com
