@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [showCSV](#showcsv) | GET /*id*/show/csv | **Deprecated**. Gets the statements as CSV from the export with the given *id*.
 
 
-*URIs relative to http://www.example.com/api/v1/exports/, unless otherwise noted. Additionally you must supply your Basic Auth details with each request. Your Basic Auth details can be found under "xAPI Statements" in your LRS's settings.*
+*URIs relative to http://www.example.com/api/v1/exports/, unless otherwise noted. Additionally you must supply your Basic Auth details with each request. Your Basic Auth details can be found under "xAPI Statements" in your LRS's settings. Example requests have been provided on our [Postman page](/postman).*
 
 ## index
 ```
