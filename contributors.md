@@ -7,7 +7,7 @@ Contributors
 ## Core Team
 
 *  [Ben Betts](https://twitter.com/bbetts) - CEO
-*  [Dave Tosh](https://twitter.com/davetosh) - Product Lead / Lead Developer unit Sept 2014
+*  [Dave Tosh](https://twitter.com/davetosh) - Product Lead (Lead Developer until Sept 2014)
 *  [James Mullaney](https://twitter.com/jmullaney) - Technical Director
 *  [Ryan Smith](https://twitter.com/tweetRyanSmith) - Lead Developer from Sept 2014
 
