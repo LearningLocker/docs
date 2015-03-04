@@ -5,7 +5,7 @@
 Below are some of the [Postman Collections](https://www.getpostman.com/docs/collections) we use internally to test and demonstrate Learning Locker's APIs.
 
 - [data/xAPI/statements](https://www.getpostman.com/collections/7a3452d868013026fef6)
-- [data/xAPI/activities]()
+- [data/xAPI/activities](https://www.getpostman.com/collections/680c14a7e5fcd028ae7f)
 - [data/xAPI/activities/state](https://www.getpostman.com/collections/c6307884d177fbc684e6)
 - [data/xAPI/agents](https://www.getpostman.com/collections/8f1ed1a786c2c61bf087)
 - [api/v1/exports](https://www.getpostman.com/collections/66623276d9f0c88b06dd)
