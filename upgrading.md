@@ -30,7 +30,6 @@ If you've downloaded Learning Locker using Git you will need to upgrade like thi
 For more information about using Git please see the [Git documentation](http://git-scm.com/).
 
 ## Upgrading to v1.0
-#### Migrating statements from a pre v1.0rc1
 If you are running a developer version of Learning Locker (pre 1.0rc1) then you will need to migrate all your statements in order to use this version:
 
 1. Open up a terminal and get your mongo shell running
