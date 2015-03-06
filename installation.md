@@ -7,7 +7,7 @@ Learning Locker is built upon the excellent [Laravel](http://laravel.com). Larav
 To install Learning Locker you need to follow these steps:
 
 1. [Download](#download)
-    1. [Github with Git](#github-with-git)
+    1. [Github with Git](#github-with-git) (**Recommended**)
     2. [Packagist with Composer](#packagist-with-composer)
 2. [Install](#install)
 3. [Setup Mongo](#setup-mongodb)
