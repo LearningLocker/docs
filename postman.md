@@ -11,6 +11,8 @@ Below are some of the [Postman Collections](https://www.getpostman.com/docs/coll
 - [api/v1/exports](https://www.getpostman.com/collections/66623276d9f0c88b06dd)
 - [api/v1/reports](https://www.getpostman.com/collections/c6632fc8938c418492be)
 
+> You can import a collection file. Click on the 'Import' button on the top bar, and paste a URL (use the links above) to the collection, or the collection JSON itself, and click 'Import'.
+
 ## Environment
 We recommend that you use a [Postman Environment](https://www.getpostman.com/docs/environments) to utilise our collections. Each of your environments need the variables below.
 
