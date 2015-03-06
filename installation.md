@@ -6,39 +6,47 @@ Learning Locker is built upon the excellent [Laravel](http://laravel.com). Larav
 
 To install Learning Locker you need to follow these steps:
 
-1. Get the source code either via:
-    1. [Packagist with Composer](#packagist-with-composer)
-    2. [Github with Git](#github-with-git)
-2. [Setup Mongo](#setup-mongodb)
-3. [Register your first user](#register-your-first-user)
+1. [Download](#download)
+    1. [Github with Git](#github-with-git)
+    2. [Packagist with Composer](#packagist-with-composer)
+2. [Install](#install)
+3. [Setup Mongo](#setup-mongodb)
+4. [Register your first user](#register-your-first-user)
 
 
 Additional information:
 
 - [Configuration](#configuration)
-- [Installation on AWS](#Installation-on-AWS)
+- [Installation on AWS](#installation-on-aws)
 
 
-## Get the source
+## Download
+
+### Github with Git
+To download Learning Locker via Github with Git, you need to run the commands below.
+
+    git clone git@github.com:LearningLocker/learninglocker.git learninglocker
+    cd learninglocker
 
 ### Packagist with Composer
+To download Learning Locker via Packagist via Composer, you need to run the commands below. However, please note that for a better upgrading experience we recommend that you [download Learning Locker with Github via Git](#github-with-git).
 
-    composer create-project learninglocker/learninglocker
+    composer create-project learninglocker/learninglocker learninglocker
+    cd learninglocker
 
 *If you get a message 'Do you want to remove the existing VCS (.git, .svn ...) history? [Y,n]', select 'Y'*
 
-
-### Github with Git
-If you would prefer, you can grab the [latest tagged release](https://github.com/LearningLocker/learninglocker/releases) and unpack it into your directory. Then run... 
+## Install
+To install Learning Locker you need to run the command below.
 
     composer install
 
 ## Setup MongoDB
-Make sure you have MongoDB set up with your db credentials added to `app/config/local/database.php` (or `app/config/database.php` depending on your `bootstrap/start.php` file) inside `connections` under `mongodb`. Then run...
+Make sure you have MongoDB set up with your db credentials added to `app/config/local/database.php` (or `app/config/database.php` depending on your `bootstrap/start.php` file) inside `connections` under `mongodb`. Then run the command below.
 
     php artisan migrate
     
-If you're upgrading to 1.3.0 please run:
+If you're upgrading to 1.3.0 please runs the commands below.
 
     php artisan ll:migrate-reports
     php artisan ll:migrate-statements
