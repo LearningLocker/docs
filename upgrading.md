@@ -3,9 +3,9 @@
 
 # Upgrading
 
-- [Upgrading via Github with Git](upgrading-via-github-with-git)
-- [Upgrading via Packagist with Composer](upgrading-via-packagist-with-composer)
-- [Upgrading to v1.0](upgrading-to-v10)
+- [Upgrading via Github with Git](#upgrading-via-github-with-git)
+- [Upgrading via Packagist with Composer](#upgrading-via-packagist-with-composer)
+- [Upgrading to v1.0](#upgrading-to-v10)
 
 ## Upgrading via Github with Git
 If you've downloaded Learning Locker using Git you will need to upgrade like this.
@@ -19,7 +19,7 @@ If you've downloaded Learning Locker using Git you will need to upgrade like thi
 For more information about using Git please see the [Git documentation](http://git-scm.com/).
 
 ## Upgrading via Packagist with Composer
-If you've downloaded Learning Locker using Composer you will need to upgrade like this. However, we recommend that you [download Learning Locker via Github with Git](../installation/#github-with-git) and [upgrade via Github with Git](upgrading-via-github-with-git) for a better upgrade experience.
+If you've downloaded Learning Locker using Composer you will need to upgrade like this. However, we recommend that you [download Learning Locker via Github with Git](../installation/#github-with-git) and [upgrade via Github with Git](#upgrading-via-github-with-git) for a better upgrade experience.
 
 1. Copy your "bootstrap/start.php" file.
 2. Copy your "app/config/local" directory.
