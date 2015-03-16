@@ -10,6 +10,7 @@ Below are some of the [Postman Collections](https://www.getpostman.com/docs/coll
 - [data/xAPI/agents](https://www.getpostman.com/collections/8f1ed1a786c2c61bf087)
 - [api/v1/exports](https://www.getpostman.com/collections/66623276d9f0c88b06dd)
 - [api/v1/reports](https://www.getpostman.com/collections/c6632fc8938c418492be)
+- [Statement Refs](https://www.getpostman.com/collections/f013c230a91eefe7f9e3)
 
 > You can import a collection file. Click on the 'Import' button on the top bar, and paste a URL (use the links above) to the collection, or the collection JSON itself, and click 'Import'.
 
