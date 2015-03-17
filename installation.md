@@ -13,6 +13,7 @@ To install Learning Locker you need to follow these steps:
 3. [Setup Mongo](#setup-mongodb)
 4. [Register your first user](#register-your-first-user)
 
+If you're using Ubuntu, you can also check out [@jpablo128](https://twitter.com/jpablo128)'s awesome walkthrough of [getting LL on Ubuntu](http://www.jpablo128.com/how_to_install_learning_locker/).
 
 Additional information:
 
