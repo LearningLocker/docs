@@ -15,8 +15,9 @@ To install Learning Locker you need to follow these steps:
 
 OS Guides:
 
-- Ubuntu. Check out [@jpablo128](https://twitter.com/jpablo128)'s awesome walkthrough of [getting LL on Ubuntu](http://www.jpablo128.com/how_to_install_learning_locker/).
-- CentOS 7.0. Check out [@davidpesce](https://github.com/davidpesce)'s detailed walkthrough of [setting up and installing LL on CentOS 7.0](https://gist.github.com/davidpesce/7d6e1b81594ecbc72311).
+- Ubuntu. [@jpablo128](https://twitter.com/jpablo128)'s provided an awesome walkthrough of [getting LL on Ubuntu](http://www.jpablo128.com/how_to_install_learning_locker/).
+- CentOS 7.0. [@davidpesce](https://github.com/davidpesce)'s provided a detailed walkthrough of [setting up and installing LL on CentOS 7.0](https://gist.github.com/davidpesce/7d6e1b81594ecbc72311).
+- Ubuntu with Vagrant. [Jim Baker](http://www.jmblog.org)'s blog contains [instructions for using LL with Vagrant](http://www.jmblog.org/blog/2015/02/03/learning-locker-vagrant).
 
 Additional information:
 
