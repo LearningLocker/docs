@@ -1,0 +1,184 @@
+/*
+ * Thanks to http://getbootstrap.com/examples/blog/ for initial inspiration.
+ */
+
+/*
+ * Globals
+ */
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  color: #333;
+}
+
+a { color: #727f94; }
+a:hover { color: #999; }
+
+h1 {
+  font-size: 32px;
+  margin-bottom:30px;
+}
+
+h2 {
+  font-size: 28px;
+  margin-top: 20px;
+  padding-top: 35px;
+  border-top: 1px solid #EEE;
+}
+
+h3 {
+  font-size: 24px;
+  margin-top: 10px;
+  padding-top: 15px;
+  color: #666666;
+}
+
+h4 {
+  font-size: 20px;
+  margin-top: 10px;
+  padding-top: 10px;
+  color: #666666;
+}
+
+blockquote {
+  background-color: #f1f1f1; /* #f4f8fa; */
+  margin: 20px 0;
+  padding: 20px;
+  border-left: 3px solid #5bc0de;
+}
+blockquote p {
+  font-size:13px;
+}
+blockquote strong {
+  color: #5bc0de;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.docs-sidebar .nav>li>a {
+  padding: 5px 15px;
+}
+
+.banner{
+  background:#e4e7ec; /* url(../img/banner.jpg) no-repeat; */
+  margin-bottom:20px;
+}
+
+.logo {
+  margin-top:4px;
+}
+
+.active {
+  background:#e4e7ec;
+  border-radius:6px;
+}
+
+/*
+ * Masthead for nav
+ */
+
+.docs-masthead {
+  background-color: #282a2b;
+  box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+  padding:5px 0 5px 0;
+}
+
+/* Nav links */
+.docs-nav-item {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  font-weight: 500;
+  color: #cdddeb;
+}
+.docs-nav-item:hover,
+.docs-nav-item:focus {
+  color: #fff;
+  text-decoration: none;
+}
+
+/*
+ * docs name and description
+ */
+
+.docs-header {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.docs-title {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 40px;
+  font-weight: normal;
+  /* color:#fff; */
+}
+.docs-description {
+  font-size: 20px;
+  color: #999;
+}
+
+.docs-main {
+  margin-bottom:60px;
+  margin-top: 20px;
+}
+
+.docs-sidebar {
+  margin-bottom:40px;
+}
+
+.docs-sidebar .sidebar-title {
+  font-weight:bold;
+  margin:20px 0 10px 0;
+}
+
+.docs-sidebar .sidebar-title .top {
+  margin:0 0 10px 0;
+}
+
+/*
+ * Footer
+ */
+
+.docs-footer {
+  padding: 40px 0;
+  color: #999;
+  text-align: center;
+  background-color: #f8f9fa;
+}
+
+/* Laravel paste inspired code display
+*****************************************************************/
+
+pre{
+  background:transparent;
+  padding:0;
+  font-size:12px;
+  border:0;
+  line-height:1.9em;
+  border-radius:6px;
+}
+
+pre code {
+  padding:20px;
+}
+
+@media (max-width: 770px) {
+
+  .banner {
+    background:#f1f1f1; /*transparent;*/
+  }
+
+  .docs-title {
+    color:#222;
+    font-size:30px;
+    margin-bottom:20px;
+  }
+
+}
