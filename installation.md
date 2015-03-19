@@ -51,10 +51,7 @@ Make sure you have MongoDB set up with your db credentials added to `app/config/
 
     php artisan migrate
     
-If you're upgrading to 1.3.0 please runs the commands below.
-
-    php artisan ll:migrate-reports
-    php artisan ll:migrate-statements
+If you're upgrading please check the [release notes](https://github.com/LearningLocker/learninglocker/releases) for any further steps.
 
 ## Register your first user
 Go to `yoursite/register` and create the first user (which will be super admin). When registration is complete, you will be logged in. Next, select 'settings' to visit overall settings and click on 'edit' - here you can give your install a name and description as well as set a few options for the install.
