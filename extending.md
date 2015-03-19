@@ -1,7 +1,0 @@
----
----
-
-Extending
-=========
-
-Extending Learning Locker.
