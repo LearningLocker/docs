@@ -43,9 +43,12 @@ Make sure you have MongoDB set up with your db credentials added to `app/config/
 If you're upgrading please check the [release notes](https://github.com/LearningLocker/learninglocker/releases) for any further steps.
 
 ## Register your first user
-Go to `yoursite/register` and create the first user (which will be super admin). When registration is complete, you will be logged in. Next, select 'settings' to visit overall settings and click on 'edit' - here you can give your install a name and description as well as set a few options for the install.
+Go to `yoursite/register` and create the first user.
 
-You are now ready to use Learning Locker If you would like to use a previous version of Learning locker just append the tagged name to the path. e.g learninglocker/learninglocker=v1.0rc1
+- Your first user will become your instance's super user. See [adminstration](../adminstration) for more information.
+- If you've not setup emails, manually verify your email.
+  1. Click on "users" (left hand sidebar)
+  2. Click the grey verified button (it will turn green with a tick)
 
 ## Configuration
 By default the `app/config/local` configuration will be used if you access Learning Locker via your localhost. You can change various settings such as debug mode, default language and timezone in `app/config/app.php`.

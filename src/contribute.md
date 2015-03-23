@@ -2,30 +2,40 @@
 ---
 
 # Contributing
+
 There are many ways that you can contribute to the Learning Locker projects including:
 
-- [Pull Requests](#pull-requests)
-- [Issues](/issues)
+- [Code](#code)
+- [Issues](../troubleshooting)
 - [Testing](#testing)
 - [Documentation](#documentation)
-- [Translations](/translation)
-- Promotion
+- [Translations](#translation)
+- [Promotion](#promotion)
 
-## Pull requests
-The best way to get started with pull requests is to create a ticket in our tracker then address the issue / enhancement in your pull request. If the pull request is in response to a bug, then no extra detail is required, however, if you are proposing new functionality or a rewrite of existing code, then please include a detailed description with your pull request. We are certainly open to pull requests and want to encourage people to get involved. If possible please create a test, this ensures that the issue you are fixing doesn't reappear and helps to show the expected behaviour.
+## Code
+To contribute code find a bug/enhancement to resolve in the Github issue tracker. You may [suggest a new enhancement in the issue tracker](https://github.com/LearningLocker/learninglocker/issues/new?title=%7B%7BBrief description of your enhancement%7D%7D&body=**Motive**%0A%7B%7Bwhy the enhancement is needed%7D%7D%0A%0A**Result**%0A%7B%7Bwhat the enhancement is%7D%7D%0A%0A**Additional information**%0A%7B%7BadditionalInfo%7D%7D). To start writing code, follow the instructions below.
 
-**Hot fix**
-> If the pull request is a hot fix then issue the pull request to the **master** branch.
+1. [Install and setup](http://docs.learninglocker.net/installation/) Learning Locker.
+2. Change the code.
+3. Test your code by running `./vendor/bin/phpunit`. Add tests if necessary.
+4. Repeat from Step 2 or continue to step 5.
+5. Create a [pull request](/pulls) on Github (ensuring that you follow the [guidelines](/contributing.md)).
 
-**Everything else**
-> If the pull request is something more substantial then make the pull request to the **develop** branch for testing before it is merged with master.
+*Learning Locker is built upon the [Laravel](http://laravel.com/) PHP framework, please view the [Laravel documentation](laravel.com/docs/) to learn more.*
 
 ## Testing
 We do now have some testing which can be found in the `app/tests` directory. We'd like more tests so please feel free to add some via a pull request. The tests are ran automatically on every push to the Github repository via Travis.
 
 ## Documentation
-If you would like to help us document Learning Locker, here are the steps.
+If you would like to help us document Learning Locker, please see the [documentation repo](https://github.com/learninglocker/docs).
 
--  Fork the [documentation repo](https://github.com/learninglocker/docs)
--  Edit your copy
--  Issue a pull request with any changes
+## Translation
+All languages are now provided in the app/lang directory. We currently support the languages below.
+
+- English
+- Spanish (partly)
+
+You can add translations via the "app/lang" directory in our Github repository. We were previously using a different system for translations, you can see the [Learning Locker Transifex](https://www.transifex.com/projects/p/learning-locker/) to import previous translations that may not have made it into the Github repository.
+
+## Promotion
+For details about promoting Learning Locker please [email us](mailto:hello@learninglocker.net).

@@ -2,6 +2,7 @@
 ---
 
 # Upgrading
+
 If you've downloaded Learning Locker using Git you will need to upgrade like this.
 
 1. If this is your first time upgrading, run `git checkout -b local`.
