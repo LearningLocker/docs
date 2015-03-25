@@ -57,3 +57,4 @@ By default the `app/config/local` configuration will be used if you access Learn
 ## Quirks
 1. Depending on your set up, you may need to append "public" to your site URL e.g. "yoursite.com/public/".
 2. MongoDB doesn’t allow full stops (".") in keys. Therefore, we replace all full stops in keys with "&46;" on incoming objects (such as statements) and the opposite on outgoing objects.
+3. To host Learning Locker on a HTTPS site, please see the ["Hosting Learning Locker on https:// site" thread](https://groups.google.com/forum/#!topic/learning-locker/3Y0VGYPV1d8).
