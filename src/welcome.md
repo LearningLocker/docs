@@ -7,11 +7,12 @@ Learning Locker is a conformant, open source, Learning Record Store started by [
 
 > Learning Locker only supports xAPI v1.0 and above. It is not suitable for platforms still using an earlier version of xAPI. At this time there are no plans to provide backwards compatibility for older versions of the spec.
 
-In addition to this website, there are several ways to get involved with Learning Locker such as:
+In addition to this website, there are several ways to find out more about Learning Locker such as:
 
-*  [Github Repository](https://github.com/learninglocker)
-*  [Gitter Chat Room](https://gitter.im/LearningLocker/learninglocker)
-*  [Google Forum](https://groups.google.com/forum/#!forum/learning-locker)
-*  [Blog](http://learninglocker.net/blog/)
-*  [Twitter](https://twitter.com/learning_locker)
-*  [Email](mailto:hello@learninglocker.net)
+- [Learning Locker Website](http://learninglocker.net/)
+- [Github Repository](https://github.com/learninglocker)
+- [Gitter Chat Room](https://gitter.im/LearningLocker/learninglocker)
+- [Google Forum](https://groups.google.com/forum/#!forum/learning-locker)
+- [Blog](http://learninglocker.net/blog/)
+- [Twitter](https://twitter.com/learning_locker)
+- [Email](mailto:hello@learninglocker.net)

@@ -48,7 +48,9 @@ Go to `yoursite/register` and create the first user.
 - Your first user will become your instance's super user. See [adminstration](../adminstration) for more information.
 - If you've not setup emails, manually verify your email.
   1. Click on "users" (left hand sidebar)
-  2. Click the grey verified button (it will turn green with a tick)
+  2. Click the grey verified button next to your user (it will turn green with a tick)
 
 ## Configuration
 By default the `app/config/local` configuration will be used if you access Learning Locker via your localhost. You can change various settings such as debug mode, default language and timezone in `app/config/app.php`.
+
+If running xampp and depending on your set up, may need to append "public" to your site URL e.g. "yoursite.com/public/".

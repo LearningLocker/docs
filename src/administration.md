@@ -16,13 +16,13 @@ Once you've logged in, click on the settings option (left hand navigation). Clic
 
 ## Instance Users
 
-A Learning Locker instance has three types of Users (described below).
+A Learning Locker instance has three types of users (described below).
 
 *  **Super**: control all aspects of the instance (such as accessing, creating, and deleting LRSs and users).
 *  **Observer plus**
 *  **Observer**
 
-The reason we have observer and observer plus is solely to provide an option to grant creating LRSs to a certain group of individuals. See "Who can create new LRSs?" in [#setup](#setup).
+Observer and Observer plus provide an option to grant creating LRSs to a certain group of individuals. See "Who can create new LRSs?" in [setup](#setup).
 
 ## LRS Users
 
