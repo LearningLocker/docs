@@ -44,7 +44,7 @@ until | [QueryDate](#querydate) | Date to stop returning statements.
 This example would look to return data where the grouping is a ‘course’, the object definition type is ‘badge’ and grouping tags are equal to ‘foo’ or ‘bar’ and ‘hello’ and ‘world’. And where the raw result score is between 0.6 and 0.8.
 
 ## Parameter Types
-### Query Filter
+### QueryFilter
 Object, where the `key` is a `path` and the `value` is the `filter`. A `filter` can be either:
 
 - Array of 3 items where the first is "<>". This will return objects where the `path` is between the value of the 2nd item and 3rd item (where the 3rd item is the greatest).
