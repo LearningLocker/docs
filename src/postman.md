@@ -1,7 +1,21 @@
 ---
 ---
 
-# [Postman](https://www.getpostman.com)
+# HTTP Interfaces (APIs)
+Each LRS is assigned a unique username and password which should be used via [HTTP Basic Authentication](http://en.wikipedia.org/wiki/Basic_access_authentication) when sending requests over HTTP to Learning Locker. You can find your LRS's credentials via the "xAPI Statements" link (in the left sidebar). It is important to make sure you employ SSL on production sites and never share your username or password.
+
+If your get `401 unauthorized` requests it is posible you have some module config striping the Authorization header, usually for
+"security reasons". You can work around this issue by passing the header directly to PHP via the env in your apache default config or your virtual host:
+
+    <VirtualHost *>
+      ...
+      SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+      ...
+    </VirtualHost>
+
+## [Postman](https://www.getpostman.com)
+
+### Collections
 Below are some of the [Postman Collections](https://www.getpostman.com/docs/collections) we use internally to test and demonstrate Learning Locker's APIs.
 
 - [data/xAPI/statements](https://www.getpostman.com/collections/7a3452d868013026fef6)
@@ -14,7 +28,7 @@ Below are some of the [Postman Collections](https://www.getpostman.com/docs/coll
 
 > You can import a collection file. Click on the 'Import' button on the top bar, and paste a URL (use the links above) to the collection, or the collection JSON itself, and click 'Import'.
 
-## Environment
+### Environment
 We recommend that you use a [Postman Environment](https://www.getpostman.com/docs/environments) to utilise our collections. Each of your environments need the variables below.
 
 - auth

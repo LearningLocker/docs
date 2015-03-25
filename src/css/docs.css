@@ -126,6 +126,7 @@ blockquote strong {
 
 .docs-main {
   margin-bottom:60px;
+  margin-top: 20px;
 }
 
 .docs-sidebar {
@@ -167,49 +168,6 @@ pre{
 pre code {
   padding:20px;
 }
-
-/*pre{
-  font-family:Monaco, Consolas, "Lucida Console", monospace;
-  background-color:#333;
-  padding:20px;
-  font-size:12px;
-  border:0;
-  color:#e9e4e5;
-  line-height:1.9em;
-  border-top:1px solid #333;
-  border-bottom:1px solid #333;
-  border-radius:6px;
-}
-pre .pln{color:#e9e4e5}
-pre .str{color:#bcd42a}
-pre .kwd{color:#4bb1b1}
-pre .com{color:#888888}
-pre .typ{color:#ef7c61}
-pre .lit{color:#bcd42a}
-pre .pun,
-pre .opn,
-pre .clo{color:#ffffff}
-pre .tag{color:#4bb1b1}
-pre .atn{color:#ef7c61}
-pre .atv{color:#bcd42a}
-pre .dec,
-pre .var{color:#660066}
-pre .fun{color:#ff0000}
-pre code{
-  font-family:Monaco, Consolas, "Lucida Console", monospace
-}
-li.L1,li.L3,li.L5,li.L7,li.L9{background-color:inherit}
-li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8{list-style-type:decimal}
-
-code {
-  padding: 6px 8px;
-  font-size: 96%;
-  color: #c7254e;
-  white-space: nowrap;
-  background-color: #f9f2f4;
-  border-radius: 0px;
-}
-*/
 
 @media (max-width: 770px) {
 

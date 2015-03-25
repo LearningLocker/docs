@@ -1,8 +1,7 @@
 ---
 ---
 
-Analytics API
-=============
+# Analytics API
 
 - [About](#about)
 - [Analytics](#analytics)

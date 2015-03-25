@@ -10,11 +10,11 @@ Method | HTTP request | Description
 [show](#show) | GET /*id* | Gets the export with the given *id*.
 [update](#update) | PUT /*id* | Updates the export with the given *id*.
 [destroy](#destroy) | DELETE /*id* | Deletes the export with the given *id*.
-[showJSON](#showjson) | GET /*id*/show | **Deprecated**. Gets the statements as JSON from the export with the given *id*.
-[showCSV](#showcsv) | GET /*id*/show/csv | **Deprecated**. Gets the statements as CSV from the export with the given *id*.
+[showJSON](#showjson) | GET /*id*/show | Gets the statements as JSON from the export with the given *id*.
+[showCSV](#showcsv) | GET /*id*/show/csv | Gets the statements as CSV from the export with the given *id*.
 
 
-*URIs relative to http://www.example.com/api/v1/exports/, unless otherwise noted. Additionally you must supply your Basic Auth details with each request. Your Basic Auth details can be found under "xAPI Statements" in your LRS's settings. Example requests have been provided on our [Postman page](/postman).*
+*URIs relative to http://www.example.com/api/v1/exports/, unless otherwise noted. Additionally you must supply your Basic Auth details with each request. Your Basic Auth details can be found under "xAPI Statements" in your LRS's settings. Example requests have been provided on our [HTTP Interfaces page](../postman).*
 
 ## index
 ```
@@ -112,7 +112,6 @@ None.
 
 
 ## showJSON
-**Deprecated**. Instead you can [GET the export](#show), [GET the report](http://docs.learninglocker.net/report_api/#show), then [aggregate](http://docs.learninglocker.net/statements_api/#aggregate).
 ```
 GET http://www.example.com/api/v1/exports/*id*/show
 ```
@@ -129,7 +128,6 @@ None.
 
 
 ## showCSV
-**Deprecated**. Instead you can [GET the export](#show), [GET the report](http://docs.learninglocker.net/report_api/#show), then [aggregate](http://docs.learninglocker.net/statements_api/#aggregate).
 ```
 GET http://www.example.com/api/v1/exports/*id*/show/csv
 ```

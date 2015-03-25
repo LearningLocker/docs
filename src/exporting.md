@@ -2,11 +2,12 @@
 ---
 
 # Exporting
+
 Exports are a feature that we introduced in version 1.1.0, this is a feature for people who want to get data out of Learning Locker into other external applications such as Microsoft Office Excel, Google Sheets, and even other LRSs.
 
 - [Tutorial](http://learninglocker.net/2014/10/23/reports-and-exports-part-2/)
 - [Create an export](#create-an-export)
-- [Remove an report](#remove-an-export)
+- [Remove an export](#remove-an-export)
 - [Edit an report](#edit-an-export)
   - [Select a report](#select-a-report)
   - [Select a field](#select-a-field)
