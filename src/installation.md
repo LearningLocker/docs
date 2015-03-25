@@ -13,6 +13,7 @@ Installation steps:
 Additional information:
 
 - [Configuration](#configuration)
+- [Quirks](#quirks)
 - [Installation on AWS](http://cloudboffins.com/advanced-projects/learning-locker-lrs-free-server-part-1/) thanks to [Cloud Boffins](http://cloudboffins.com)
 - [Installation on Ubuntu](http://www.jpablo128.com/how_to_install_learning_locker/) thanks to [@jpablo128](https://twitter.com/jpablo128)
 - [Installation on CentOS 7.0](https://gist.github.com/davidpesce/7d6e1b81594ecbc72311) thanks to [@davidpesce](https://github.com/davidpesce)
@@ -53,4 +54,6 @@ Go to `yoursite/register` and create the first user.
 ## Configuration
 By default the `app/config/local` configuration will be used if you access Learning Locker via your localhost. You can change various settings such as debug mode, default language and timezone in `app/config/app.php`.
 
-If running xampp and depending on your set up, may need to append "public" to your site URL e.g. "yoursite.com/public/".
+## Quirks
+1. Depending on your set up, you may need to append "public" to your site URL e.g. "yoursite.com/public/".
+2. MongoDB doesn’t allow full stops (".") in keys. Therefore, we replace all full stops in keys with "&46;" on incoming objects (such as statements) and the opposite on outgoing objects.
