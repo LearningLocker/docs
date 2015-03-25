@@ -1,7 +1,7 @@
 ---
 ---
 
-# Statements API
+# Statements (Aggregation) API
 
 Method | HTTP request | Description
 --- | --- | ---
