@@ -46,7 +46,7 @@ If you're upgrading please check the [release notes](https://github.com/Learning
 ## Register your first user
 Go to `yoursite/register` and create the first user.
 
-- Your first user will become your instance's super user. See [adminstration](../adminstration) for more information.
+- Your first user will become your instance's super user. See [adminstration](../administration) for more information.
 - If you've not setup emails, manually verify your email.
   1. Click on "users" (left hand sidebar)
   2. Click the grey verified button next to your user (it will turn green with a tick)
