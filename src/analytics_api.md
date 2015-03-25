@@ -20,7 +20,7 @@ GET http://www.example.com/api/v1/query/analytics
 
 Name | Type | Description
 --- | --- | ---
-**filter** | Object | The filters that the statements must pass.
+**filter** | [QueryFilter](#queryfilter) | The filters that the statements must pass.
 type | [QueryType](#querytype) | Type of grouping applied (defaults to "time").
 interval | [QueryInterval](#queryinterval) | Time grouping, only applicable when `type` = time (defaults to "day").
 since | [QueryDate](#querydate) | Date to begin returning statements.
@@ -34,16 +34,26 @@ until | [QueryDate](#querydate) | Date to stop returning statements.
       "context.contextActivities.grouping.type": "course",
       "object.definition.type": "http://activitystrea.ms/schema/1.0/badge",
       "context.contextActivities.grouping.tags": [
-        ['foo', 'bar'], 
-        'hello',
-        'world'
+        ["foo", "bar"], 
+        "hello",
+        "world"
       ],
-      "result.score.raw": ['<>', 0.6, 0.8]
+      "result.score.raw": ["<>", 0.6, 0.8]
     }
 
 This example would look to return data where the grouping is a ‘course’, the object definition type is ‘badge’ and grouping tags are equal to ‘foo’ or ‘bar’ and ‘hello’ and ‘world’. And where the raw result score is between 0.6 and 0.8.
 
 ## Parameter Types
+### Query Filter
+Object, where the `key` is a `path` and the `value` is the `filter`. A `filter` can be either:
+
+- Array of 3 items where the first is "<>". This will return objects where the `path` is between the value of the 2nd item and 3rd item (where the 3rd item is the greatest).
+- Array of values. This will return objects where the `path` is equal to any of the items in the Array.
+- String.
+- Number.
+- Boolean.
+- Object.
+
 ### QueryType
 String containing either:
 
