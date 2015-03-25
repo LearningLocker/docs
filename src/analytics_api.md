@@ -21,10 +21,10 @@ GET http://www.example.com/api/v1/query/analytics
 Name | Type | Description
 --- | --- | ---
 **filter** | Object | The filters that the statements must pass.
-type | QueryType | Type of grouping applied (defaults to "time").
-interval | QueryInterval | Time grouping, only applicable when `type` = time (defaults to "day").
-since | QueryDate | Date to begin returning statements.
-until | QueryDate | Date to stop returning statements.
+type | [QueryType](#querytype) | Type of grouping applied (defaults to "time").
+interval | [QueryInterval](#queryinterval) | Time grouping, only applicable when `type` = time (defaults to "day").
+since | [QueryDate](#querydate) | Date to begin returning statements.
+until | [QueryDate](#querydate) | Date to stop returning statements.
 
 *Required parameters are shown in __bold__.*
 
@@ -40,10 +40,6 @@ until | QueryDate | Date to stop returning statements.
       ],
       "result.score.raw": ['<>', 0.6, 0.8]
     }
-
-- [About](#about)
-- [Analytics](#analytics)
-- [Other parameters](#params)
 
 ## Parameter Types
 ### QueryType
