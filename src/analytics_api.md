@@ -7,7 +7,7 @@ The purpose of this custom API is to provide developers building reporting type 
 
 Method | HTTP request | Description
 --- | --- | ---
-[analytics](#analytics) | GET /analytics | Gets a paginated list of statements that match given filters.
+[analytics](#analytics) | GET /analytics | Gets an aggregated query of the statements.
 
 *URIs relative to http://www.example.com/api/v1/query/, unless otherwise noted. Additionally you must supply your Basic Auth details with each request. Your Basic Auth details can be found under "xAPI Statements" in your LRS's settings.*
 
@@ -40,6 +40,8 @@ until | [QueryDate](#querydate) | Date to stop returning statements.
       ],
       "result.score.raw": ['<>', 0.6, 0.8]
     }
+
+This example would look to return data where the grouping is a ‘course’, the object definition type is ‘badge’ and grouping tags are equal to ‘foo’ or ‘bar’ and ‘hello’ and ‘world’. And where the raw result score is between 0.6 and 0.8.
 
 ## Parameter Types
 ### QueryType
