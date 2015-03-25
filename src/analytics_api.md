@@ -7,11 +7,13 @@ The purpose of this custom API is to provide developers building reporting type 
 
 Method | HTTP request | Description
 --- | --- | ---
-[analytics](#analytics) | GET /analytics | Gets an aggregated query of the statements.
+[analytics](#analytics) | GET /analytics | **Deprecated.** Gets an aggregated query of the statements.
 
 *URIs relative to http://www.example.com/api/v1/query/, unless otherwise noted. Additionally you must supply your Basic Auth details with each request. Your Basic Auth details can be found under "xAPI Statements" in your LRS's settings.*
 
 ## analytics
+**Deprecated** - use [aggregate](../statements_api#aggregate) instead.
+
 ```
 GET http://www.example.com/api/v1/query/analytics
 ```
