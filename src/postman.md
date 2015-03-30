@@ -25,6 +25,7 @@ Below are some of the [Postman Collections](https://www.getpostman.com/docs/coll
 - [api/v1/exports](https://www.getpostman.com/collections/66623276d9f0c88b06dd)
 - [api/v1/reports](https://www.getpostman.com/collections/c6632fc8938c418492be)
 - [Statement Refs](https://www.getpostman.com/collections/f013c230a91eefe7f9e3)
+- [Statement Voids](https://www.getpostman.com/collections/42d3a5f0d257045879ba)
 
 > You can import a collection file. Click on the 'Import' button on the top bar, and paste a URL (use the links above) to the collection, or the collection JSON itself, and click 'Import'.
 
@@ -38,7 +39,7 @@ We recommend that you use a [Postman Environment](https://www.getpostman.com/doc
 - mbox
 - id
 
-To get started please create a new Postman Enviroment, then modify your environment and select "Bulk edit". Once inside the bulk edit you can copy the code below and paste it into Postman. Please change `YOUR_AUTH` to your [base 64 encoded](https://www.base64encode.org/) [basic auth details](http://docs.learninglocker.net/statements/#basic-auth) (which can be found under "xAPI Statements" on the left, inside an LRS on Learning Locker), and `YOUR_ENDPOINT` to your endpoint (i.e. "localhost/learninglocker/public").
+To get started please create a new Postman Enviroment, then modify your environment and select "Bulk edit". Once inside the bulk edit you can copy the code below and paste it into Postman. Please change `YOUR_AUTH` to your [base 64 encoded](https://www.base64encode.org/) [basic auth details](#) (which can be found under "xAPI Statements" on the left, inside an LRS on Learning Locker), and `YOUR_ENDPOINT` to your endpoint (i.e. "localhost/learninglocker/public").
 
     auth: YOUR_AUTH
     version: 1.0.1
