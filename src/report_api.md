@@ -16,6 +16,8 @@ Method | HTTP request | Description
 
 *URIs relative to http://www.example.com/api/v1/reports/, unless otherwise noted. Additionally you must supply your Basic Auth details with each request. Your Basic Auth details can be found under "xAPI Statements" in your LRS's settings. Example requests have been provided on our [HTTP Interfaces page](../postman).*
 
+*If you're interested in how others have used this API, please checkout [Rick Humphries' ELMSLN video](https://www.youtube.com/watch?v=_r1gJb6K9A0).*
+
 ## index
 ```
 GET http://www.example.com/api/v1/reports
