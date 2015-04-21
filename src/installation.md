@@ -45,9 +45,9 @@ Make sure you have MongoDB set up with your db credentials added to `app/config/
 If you're upgrading please check the [release notes](https://github.com/LearningLocker/learninglocker/releases) for any further steps.
 
 ## Configuration
-By default the `app/config/local` configuration will be used if you access Learning Locker via your localhost.
+By default the `app/config/local` configuration will be used if you access Learning Locker via your localhost.  
 Adjust the configuration to your needs in `app/config/app.php`.
-You must at least change the value for encryption key, see LearningLocker/learninglocker#488 and you can change various settings such as debug mode, default language and timezone.
+You must at least change the value for [encryption key](https://github.com/LearningLocker/learninglocker/issues/488) and you can change various settings such as debug mode, default language and timezone.
 
 ## Register your first user
 Go to `yoursite/register` and create the first user.
