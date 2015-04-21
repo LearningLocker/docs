@@ -8,11 +8,11 @@ Installation steps:
 1. [Install the requirements](#requirements)
 2. [Download and Install LL](#download-and-install)
 3. [Setup Mongo](#setup-mongodb)
-4. [Register your first user](#register-your-first-user)
+4. [Configuration](#configuration)
+5. [Register your first user](#register-your-first-user)
 
 Additional information:
 
-- [Configuration](#configuration)
 - [Quirks](#quirks)
 - [Installation on AWS](http://cloudboffins.com/advanced-projects/learning-locker-lrs-free-server-part-1/) thanks to [Cloud Boffins](http://cloudboffins.com)
 - [Installation on Ubuntu](http://www.jpablo128.com/how_to_install_learning_locker/) thanks to [@jpablo128](https://twitter.com/jpablo128)
@@ -45,9 +45,9 @@ Make sure you have MongoDB set up with your db credentials added to `app/config/
 If you're upgrading please check the [release notes](https://github.com/LearningLocker/learninglocker/releases) for any further steps.
 
 ## Configuration
-By default the `app/config/local` configuration will be used if you access Learning Locker via your localhost.  
-You must at least change the value for key in `app/config/app.php`, you can change various settings such as debug mode, default language and timezone.  
-Additionally you must configure a way to deliver mail in `app/config/mail.php`.
+By default the `app/config/local` configuration will be used if you access Learning Locker via your localhost.
+Adjust the configuration to your needs in `app/config/app.php`.
+You must at least change the value for encryption key, see LearningLocker/learninglocker#488 and you can change various settings such as debug mode, default language and timezone.
 
 ## Register your first user
 Go to `yoursite/register` and create the first user.
