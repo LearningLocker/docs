@@ -46,8 +46,12 @@ If you're upgrading please check the [release notes](https://github.com/Learning
 
 ## Configuration
 By default the `app/config/local` configuration will be used if you access Learning Locker via your localhost.  
-Adjust the configuration to your needs in `app/config/app.php`.
+Adjust the configuration to your needs in `app/config/app.php`.  
+
 You must at least change the value for [encryption key](https://github.com/LearningLocker/learninglocker/issues/488) and you can change various settings such as debug mode, default language and timezone.
+
+Grant read/write access to the webserver user on the storage folder `sudo chown -R www-data:www-data app/storage`
+
 
 ## Register your first user
 Go to `yoursite/register` and create the first user.
