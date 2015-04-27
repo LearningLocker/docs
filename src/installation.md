@@ -60,3 +60,4 @@ By default the `app/config/local` configuration will be used if you access Learn
 2. MongoDB doesn’t allow full stops (".") in keys. Therefore, we replace all full stops in keys with "&46;" on incoming objects (such as statements) and the opposite on outgoing objects.
 3. To host Learning Locker on a HTTPS site, please see the ["Hosting Learning Locker on https:// site" thread](https://groups.google.com/forum/#!topic/learning-locker/3Y0VGYPV1d8).
 4. If you get a 404 error for the "/login" or "/register" page. Please see the ["Installation Problem" thread](https://groups.google.com/forum/#!topic/learning-locker/ULtoICNOKa0), you may also need to check [issue 477](https://github.com/LearningLocker/learninglocker/issues/477).
+5. If Learning Locker can't connect to MongoDB, please check out the ["Windows install Failed to connect" thread](https://groups.google.com/forum/#!topic/learning-locker/B_UX6opI9tg).
