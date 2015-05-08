@@ -10,7 +10,7 @@ If you've downloaded Learning Locker using Git you will need to upgrade like thi
 2. Run `git fetch --tags`.
 3. Run `git merge TAG`. Where TAG is the release (i.e. "v1.3.4").
 4. Run `composer install`.
-5. Run `php artisan migrate`.
+5. Run `php artisan migrate --env=YOUR_ENV` where `YOUR_ENV` should be replaced with your environment (likely to be local or production).
 6. Check the [release notes](https://github.com/LearningLocker/learninglocker/releases) for any further steps.
 
 For more information about using Git please see the [Git documentation](http://git-scm.com/).
@@ -26,5 +26,5 @@ If you've downloaded Learning Locker using Composer you will need to upgrade lik
 6. Replace "bootstrap/start.php" with your previously copied version.
 7. Replace your "app/config/local" directory with your previously copied version.
 8. Run `composer install`.
-9. Run `php artisan migrate`.
+9. Run `php artisan migrate --env=YOUR_ENV` where `YOUR_ENV` should be replaced with your environment (likely to be local or production).
 10. Check the [release notes](https://github.com/LearningLocker/learninglocker/releases) for any further steps.
