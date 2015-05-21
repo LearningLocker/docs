@@ -19,6 +19,7 @@ Additional information:
 - [Installation on CentOS 7.0](https://gist.github.com/davidpesce/7d6e1b81594ecbc72311) thanks to [@davidpesce](https://github.com/davidpesce)
 - [Installation on Ubuntu with Vagrant](http://www.jmblog.org/blog/2015/02/03/learning-locker-vagrant) thanks to [Jim Baker](http://www.jmblog.org)
 - [Installation on CentOS 7.0 with Ansible (and optionally Vagrant)](https://github.com/gomezgoiri/learninglocker-centos7) thanks to [@gomezgoiri](https://github.com/gomezgoiri)
+- [Installation on CentOS 7.0 with Docker](https://github.com/LearningLocker/docs/issues/15) thanks to [@ajblum](https://github.com/ajblum)
 - [Load Balancing](http://learninglocker.net/2015/04/01/load-balancing-learning-locker/)
 
 ## Requirements
