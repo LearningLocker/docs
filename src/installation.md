@@ -8,7 +8,7 @@ Installation steps:
 1. [Install the requirements](#requirements)
 2. [Download and Install LL](#download-and-install)
 3. [Setup Mongo](#setup-mongodb)
-4. [Configuration](#configuration)
+4. [Configure LL](#configuration)
 5. [Register your first user](#register-your-first-user)
 
 Additional information:
