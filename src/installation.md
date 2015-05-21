@@ -46,21 +46,13 @@ Make sure you have MongoDB set up with your db credentials added to `app/config/
 If you're upgrading please check the [release notes](https://github.com/LearningLocker/learninglocker/releases) for any further steps.
 
 ## Configuration
-The main configuration is in `app/config`.  
-By default the `app/config/local` configuration will be used if you access Learning Locker via your localhost.
+The "app/config" directory contains the base configuration. By default the "app/config/local" directory will be used and overrides the base configuration. You should change the [encryption key](https://github.com/LearningLocker/learninglocker/issues/488) in "app.php".
 
-You must at least change the value for [encryption key](https://github.com/LearningLocker/learninglocker/issues/488) in `app.php`.
-There you can also change various settings such as debug mode, default language and timezone.
-
-The webserver user needs read/write access to files and folders in `app/storage` so you probably want to add the webserver user to the file owner's primary group.  
-Assuming that the current user is the owner of the files do something like
+Learning Locker will need to be able read and write files so you need to change permissions for the `LOCAL_FILESTORE` and `SESSION_FILESTORE` which are set in "env.local.php". Assuming that the current user is the owner of the files please do something similar to this:
 
     sudo gpasswd -a www-data `id -g -n $USER`
-
-Then to give read/write access to folders/files to user/group do
-
-    `sudo find app/storage/ -type d -exec chmod 775 {} + && sudo find app/storage/ -type f -exec chmod 664 {} +`
-
+    sudo find app/storage/ -type d -exec chmod 775 {} + && sudo find app/storage/ -type f -exec chmod 664 {} +
+    sudo find uploads/ -type d -exec chmod 775 {} + && sudo find uploads/ -type f -exec chmod 664 {} +
 
 ## Register your first user
 Go to `yoursite/register` and create the first user.
