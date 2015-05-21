@@ -8,11 +8,11 @@ Installation steps:
 1. [Install the requirements](#requirements)
 2. [Download and Install LL](#download-and-install)
 3. [Setup Mongo](#setup-mongodb)
-4. [Register your first user](#register-your-first-user)
+4. [Configuration](#configuration)
+5. [Register your first user](#register-your-first-user)
 
 Additional information:
 
-- [Configuration](#configuration)
 - [Quirks](#quirks)
 - [Installation on AWS](http://cloudboffins.com/advanced-projects/learning-locker-lrs-free-server-part-1/) thanks to [Cloud Boffins](http://cloudboffins.com)
 - [Installation on Ubuntu](http://www.jpablo128.com/how_to_install_learning_locker/) thanks to [@jpablo128](https://twitter.com/jpablo128)
@@ -45,6 +45,23 @@ Make sure you have MongoDB set up with your db credentials added to `app/config/
 
 If you're upgrading please check the [release notes](https://github.com/LearningLocker/learninglocker/releases) for any further steps.
 
+## Configuration
+The main configuration is in `app/config`.  
+By default the `app/config/local` configuration will be used if you access Learning Locker via your localhost.
+
+You must at least change the value for [encryption key](https://github.com/LearningLocker/learninglocker/issues/488) in `app.php`.
+There you can also change various settings such as debug mode, default language and timezone.
+
+The webserver user needs read/write access to files and folders in `app/storage` so you probably want to add the webserver user to the file owner's primary group.  
+Assuming that the current user is the owner of the files do something like
+
+    sudo gpasswd -a www-data `id -g -n $USER`
+
+Then to give read/write access to folders/files to user/group do
+
+    `sudo find app/storage/ -type d -exec chmod 775 {} + && sudo find app/storage/ -type f -exec chmod 664 {} +`
+
+
 ## Register your first user
 Go to `yoursite/register` and create the first user.
 
@@ -52,9 +69,6 @@ Go to `yoursite/register` and create the first user.
 - If you've not setup emails, manually verify your email.
   1. Click on "users" (left hand sidebar)
   2. Click the grey verified button next to your user (it will turn green with a tick)
-
-## Configuration
-By default the `app/config/local` configuration will be used if you access Learning Locker via your localhost. You can change various settings such as debug mode, default language and timezone in `app/config/app.php`.
 
 ## Quirks
 1. Depending on your set up, you may need to append "public" to your site URL e.g. "yoursite.com/public/".
