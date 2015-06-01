@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [aggregateTime](#aggregatetime) | GET /aggregate/time | **Deprecated.** Runs a time based aggregation of the statements using a match.
 [aggregateObject](#aggregateobject) | GET /aggregate/object | **Deprecated.** Runs a object based aggregation of the statements using a match.
 
-*URIs relative to http://www.example.com/api/v1/statements/, unless otherwise noted. Additionally you must supply your Basic Auth details with each request. Your Basic Auth details can be found under "xAPI Statements" in your LRS's settings.*
+*URIs relative to http://www.example.com/api/v1/statements/, unless otherwise noted. Additionally you must supply your Basic Auth details with each request. Your Basic Auth details can be found under "Manage clients" in your LRS's settings.*
 
 ## where
 **Deprecated** - use [aggregate](#aggregate) instead.
