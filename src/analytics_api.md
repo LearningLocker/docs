@@ -9,7 +9,7 @@ Method | HTTP request | Description
 --- | --- | ---
 [analytics](#analytics) | GET /analytics | **Deprecated.** Gets an aggregated query of the statements.
 
-*URIs relative to http://www.example.com/api/v1/query/, unless otherwise noted. Additionally you must supply your Basic Auth details with each request. Your Basic Auth details can be found under "xAPI Statements" in your LRS's settings.*
+*URIs relative to http://www.example.com/api/v1/query/, unless otherwise noted. Additionally you must supply your Basic Auth details with each request. Your Basic Auth details can be found under "Manage clients" in your LRS's settings.*
 
 ## analytics
 **Deprecated** - use [aggregate](../statements_api#aggregate) instead.
