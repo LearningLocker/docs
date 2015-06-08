@@ -5,10 +5,10 @@
 
 ## Core Team
 
-- [Ben Betts](https://twitter.com/bbetts) - CEO
-- [Dave Tosh](https://twitter.com/davetosh) - Product Lead (Lead Developer until Sept 2014)
+- [Ben Betts](https://twitter.com/bbetts) - [Benevolent Dictator](http://oss-watch.ac.uk/resources/benevolentdictatorgovernancemodel) (CEO at HT2)
 - [James Mullaney](https://twitter.com/jmullaney) - Technical Director
-- [Ryan Smith](https://twitter.com/tweetRyanSmith) - Lead Developer from Sept 2014
+- [Ryan Smith](https://twitter.com/tweetRyanSmith) - Lead Developer (since Sept 2014)
+- [Andrew Hickey](https://github.com/andrewhickey) - Product Lead
 
 ## Community Board
 
@@ -23,7 +23,7 @@
 ## Technical Board
 
 - Ben Betts
-- Dave Tosh
+- Dave Tosh (previous Product Lead and Lead Developer)
 - James Mullaney
 - Ryan Smith
 - Andrew Downes
