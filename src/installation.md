@@ -37,7 +37,8 @@ To download and install Learning Locker, you need to run the commands below.
 
     git clone git@github.com:LearningLocker/learninglocker.git learninglocker
     cd learninglocker
-    composer install
+    php -r "readfile('https://getcomposer.org/installer');" | php
+    php composer.phar install --no-interaction --no-dev
 
 ## Setup MongoDB
 Make sure you have MongoDB set up with your db credentials added to `app/config/local/database.php` (or `app/config/database.php` depending on your `bootstrap/start.php` file) inside `connections` under `mongodb`. Then run the command below.
