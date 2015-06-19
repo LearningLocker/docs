@@ -26,18 +26,16 @@ Additional information:
 Learning Locker requires the components listed below. Learning Locker is built upon the excellent [Laravel](http://laravel.com) PHP framework, so in addition to the components below, please see the [Laravel requirements](http://laravel.com/docs/4.2#server-requirements).
 
 * [PHP v5.5](http://php.net) - may also work on newer versions.
-* [Composer](http://getcomposer.org)
 * [MongoDB v2.6.x](http://mongodb.org) - may also work on newer versions.
 * [MongoDB php extension](http://www.php.net/manual/en/mongo.installation.php)
-* [Node and NPM](http://nodejs.org)
-* [Bower](http://bower.io)
 
 ## Download and Install
 To download and install Learning Locker, you need to run the commands below.
 
     git clone git@github.com:LearningLocker/learninglocker.git learninglocker
     cd learninglocker
-    composer install
+    php -r "readfile('https://getcomposer.org/installer');" | php
+    php composer.phar install --no-interaction --no-dev
 
 ## Setup MongoDB
 Make sure you have MongoDB set up with your db credentials added to `app/config/local/database.php` (or `app/config/database.php` depending on your `bootstrap/start.php` file) inside `connections` under `mongodb`. Then run the command below.
