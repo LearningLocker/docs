@@ -9,7 +9,7 @@ If you've downloaded Learning Locker using Git you will need to upgrade like thi
 1. If this is your first time upgrading, run `git checkout -b local && git add -A && git commit -am 'Local changes.'`.
 2. Run `git fetch --tags`.
 3. Run `git merge TAG`. Where TAG is the release (i.e. "v1.3.4").
-4. Run `php composer.phar install`.
+4. Run `php -r "readfile('https://getcomposer.org/installer');" | php; php composer.phar install`.
 5. Run `php artisan migrate --env=YOUR_ENV` where `YOUR_ENV` should be replaced with your environment (likely to be local or production).
 6. Check the [release notes](https://github.com/LearningLocker/learninglocker/releases) for any further steps.
 
