@@ -48,7 +48,7 @@ Name | Type | Description
 --- | --- | ---
 **pipeline** | [MongoAggregationPipeline](http://docs.mongodb.org/manual/core/aggregation-pipeline/) | The pipeline to pass  statements through.
 
-*Required parameters are shown in __bold__.*
+*Required parameters are shown in __bold__. Note that this endpoint will return voided statements unless specified in your pipeline (see example below).*
 
 ### Example
 
@@ -58,7 +58,8 @@ Name | Type | Description
           "$gt":"2015-01-01T00:00",
           "$lt":"2015-01-02T00:00"
         },
-        "statement.actor.mbox": "mailto:ex@mple.com"
+        "statement.actor.mbox": "mailto:ex@mple.com",
+        "voided": false
       }
     }, {
       "$project": {
@@ -80,7 +81,7 @@ Name | Type | Description
 --- | --- | ---
 **match** | [MongoAggregationMatch](http://docs.mongodb.org/manual/reference/operator/aggregation/match/) | The match to pass statements through.
 
-*Required parameters are shown in __bold__.*
+*Required parameters are shown in __bold__. Note that this endpoint will return voided statements unless specified in your pipeline (see example below).*
 
 ### Example
 
@@ -89,7 +90,8 @@ Name | Type | Description
         "$gt":"2015-01-01T00:00",
         "$lt":"2015-01-02T00:00"
       },
-      "statement.actor.mbox": "mailto:ex@mple.com"
+      "statement.actor.mbox": "mailto:ex@mple.com",
+      "voided": false
     }
 
 
@@ -106,7 +108,7 @@ Name | Type | Description
 --- | --- | ---
 **match** | [MongoAggregationMatch](http://docs.mongodb.org/manual/reference/operator/aggregation/match/) | The match to pass statements through.
 
-*Required parameters are shown in __bold__.*
+*Required parameters are shown in __bold__. Note that this endpoint will return voided statements unless specified in your pipeline (see example below).*
 
 ### Example
 
@@ -115,6 +117,7 @@ Name | Type | Description
         "$gt":"2015-01-01T00:00",
         "$lt":"2015-01-02T00:00"
       },
-      "statement.actor.mbox": "mailto:ex@mple.com"
+      "statement.actor.mbox": "mailto:ex@mple.com",
+      "voided": false
     }
 
