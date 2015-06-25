@@ -24,7 +24,7 @@ GET http://www.example.com/api/v1/statements/where
 
 Name | Type | Description
 --- | --- | ---
-**filter** | Array of FilterArrays | The filters that the statements must pass.
+**filters** | Array of FilterArrays | The filters that the statements must pass.
 limit | Integer | The number of statements to be returned (defaults to 100).
 page | Integer | The page to be returned (defaults to 1).
 
