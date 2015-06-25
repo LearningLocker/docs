@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [aggregate](#aggregate) | GET /aggregate | Runs an aggregation of the statements using a pipeline.
 [aggregateTime](#aggregatetime) | GET /aggregate/time | **Deprecated.** Runs a time based aggregation of the statements using a match.
 [aggregateObject](#aggregateobject) | GET /aggregate/object | **Deprecated.** Runs a object based aggregation of the statements using a match.
-[void](#void) | GET http://www.example.com/api/v2/aggregate/void | Voids statements using a given match.
+[void](#void) | GET http://www.example.com /api/v2/statements/aggregate/void | Voids statements using a given match.
 
 *URIs relative to http://www.example.com/api/v1/statements/, unless otherwise noted. Additionally you must supply your Basic Auth details with each request. Your Basic Auth details can be found under "Manage clients" in your LRS's settings.*
 
