@@ -35,7 +35,7 @@ page | Integer | The page to be returned (defaults to 1).
     GET http://www.example.com/api/v1/statements/where?limit=10&page=1&filter=[
       ["statement.verb.id", "in", ["verb/1", "verb/2"],
       ["statement.timestamp", "between", "2015-01-01", "2015-01-15"],
-      ["statement.actor.mbox", "mailto:ex@mple.com"]
+      ["statement.actor.mbox", "=", "mailto:ex@mple.com"]
     ]
 
 ## aggregate
