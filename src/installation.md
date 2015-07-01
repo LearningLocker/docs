@@ -38,11 +38,10 @@ To download and install Learning Locker, you need to run the commands below.
     php composer.phar install --no-interaction --no-dev
 
 ## Setup MongoDB
-Make sure you have MongoDB set up with your db credentials added to `app/config/local/database.php` (or `app/config/database.php` depending on your `bootstrap/start.php` file) inside `connections` under `mongodb`. Then run the command below.
+Make sure you have MongoDB set up with your Mongo credentials added to `app/config/local/database.php` (or `app/config/database.php` depending on your `bootstrap/start.php` file) inside `connections` under `mongodb`. Then run the command below. Depending on the permissions linked to your db credentials you shouldn't need to create a db in Mongo.
 
     php artisan migrate
 
-If you're upgrading please check the [release notes](https://github.com/LearningLocker/learninglocker/releases) for any further steps.
 
 ## Configuration
 The "app/config" directory contains the base configuration. By default the "app/config/local" directory will be used and overrides the base configuration. You should change the [encryption key](https://github.com/LearningLocker/learninglocker/issues/488) in "app.php".
