@@ -2,6 +2,8 @@ language: ruby
 rvm:
   - 2.2.1
 
+sudo: false
+
 script:
   - gem update --system
   - chmod +x ./deploy-ghpages.sh
