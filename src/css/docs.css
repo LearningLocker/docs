@@ -167,6 +167,7 @@ pre{
 
 pre code {
   padding:20px;
+  white-space: pre-wrap;
 }
 
 @media (max-width: 770px) {
