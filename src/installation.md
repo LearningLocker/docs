@@ -67,6 +67,22 @@ The "app/config" directory contains the base configuration. By default the "app/
         'key' => 'YOUR_SECRET_KEY'
     ];
 
+If you would like invited users to recieve an email containing their invitation link, you will need to change your "app/config/local/mail.php" file.
+
+    <?php
+    return [
+        'pretend' => false,
+        'username' => 'YOUR_USERNAME',
+        'password' => 'YOUR_PASSWORD',
+        'host' => 'YOUR_SMTP_HOST',
+        'port' => 'YOUR_SMTP_PORT',
+        'from' => [
+            'address' => 'YOUR_EMAIL_ADDRESS',
+            'name' => 'YOUR_NAME'
+        ]
+    ];
+
+
 Learning Locker will need to be able read and write files so you need to change permissions for the `FS_LOCAL_ENDPOINT` which can be set in ".env.local.php" to override the defaults in ".env.php". Assuming that the current user is the owner of the files please do something similar to this:
 
     sudo gpasswd -a www-data `id -g -n $USER`
