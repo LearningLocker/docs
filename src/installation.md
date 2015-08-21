@@ -67,7 +67,7 @@ The "app/config" directory contains the base configuration. By default the "app/
         'key' => 'YOUR_SECRET_KEY'
     ];
 
-If you would like invited users to recieve an email containing their invitation link, you will need to change your "app/config/local/mail.php" file.
+If you would like invited users to recieve an email containing their invitation link, you will need to change your "app/config/local/mail.php" file (see the example below).
 
     <?php
     return [
