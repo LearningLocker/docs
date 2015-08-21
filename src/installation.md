@@ -88,6 +88,8 @@ Learning Locker will need to be able read and write files so you need to change 
     sudo gpasswd -a www-data `id -g -n $USER`
     sudo find app/storage/ -type d -exec chmod 775 {} + && sudo find app/storage/ -type f -exec chmod 664 {} +
     sudo find uploads/ -type d -exec chmod 775 {} + && sudo find uploads/ -type f -exec chmod 664 {} +
+    
+Other [file storage configuration options](https://github.com/LearningLocker/learninglocker/blob/master/app/locker/repository/File/readme.md) are available as of [v1.9.0](https://github.com/LearningLocker/learninglocker/releases/tag/v1.9.0).
 
 ## Register your first user
 Go to `yoursite/register` and create the first user.
