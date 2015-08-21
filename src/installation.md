@@ -38,15 +38,36 @@ To download and install Learning Locker, you need to run the commands below.
     php composer.phar install --no-interaction --no-dev
 
 ## Setup MongoDB
-Make sure you have MongoDB set up with your Mongo credentials added to `app/config/local/database.php` (or `app/config/database.php` depending on your `bootstrap/start.php` file) inside `connections` under `mongodb`. Then run the command below. Depending on the permissions linked to your db credentials you shouldn't need to create a db in Mongo.
+Make sure you have MongoDB set up with your Mongo credentials added to `app/config/local/database.php` (you will need to create this file, see the example below - it will override default settings in `app/config/database.php`).
+
+    <?php
+    return [
+        'connections' => [
+            'mongodb' => [
+                'driver'   => 'mongodb',
+                'host'     => 'localhost',
+                'port'     => 27017,
+                'username' => 'YOUR_DATABASE_USERNAME',
+                'password' => 'YOUR_DATABASE_PASSWORD',
+                'database' => 'YOUR_DATABASE_NAME'
+            ],
+        ]
+    ];
+
+Then run the command below.
 
     php artisan migrate
 
 
 ## Configuration
-The "app/config" directory contains the base configuration. By default the "app/config/local" directory will be used and overrides the base configuration. You should change the [encryption key](https://github.com/LearningLocker/learninglocker/issues/488) in "app.php".
+The "app/config" directory contains the base configuration. By default the "app/config/local" directory will be used and overrides the base configuration. You should change the [encryption key](https://github.com/LearningLocker/learninglocker/issues/488) in "app/config/local/app.php" (see the example below).
 
-Learning Locker will need to be able read and write files so you need to change permissions for the `LOCAL_FILESTORE` and `SESSION_FILESTORE` which are set in "env.local.php". Assuming that the current user is the owner of the files please do something similar to this:
+    <?php
+    return [
+        'key' => 'YOUR_SECRET_KEY'
+    ];
+
+Learning Locker will need to be able read and write files so you need to change permissions for the `FS_LOCAL_ENDPOINT` which can be set in ".env.local.php" to override the defaults in ".env.php". Assuming that the current user is the owner of the files please do something similar to this:
 
     sudo gpasswd -a www-data `id -g -n $USER`
     sudo find app/storage/ -type d -exec chmod 775 {} + && sudo find app/storage/ -type f -exec chmod 664 {} +
