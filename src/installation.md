@@ -27,7 +27,7 @@ Learning Locker requires the components listed below. Learning Locker is built u
 
 * [PHP v5.5](http://php.net) - may also work on newer versions.
 * [MongoDB v2.6.x](http://mongodb.org) - may also work on newer versions.
-* [MongoDB php extension](http://www.php.net/manual/en/mongo.installation.php)
+* [MongoDB php extension v1.5.x+](http://www.php.net/manual/en/mongo.installation.php) - [Windows](https://s3.amazonaws.com/drivers.mongodb.org/php/index.html) / [Linux](http://stackoverflow.com/questions/24116235/uninstall-mongodb-php-driver-and-install-a-different-version#answer-24116497)
 
 ## Download and Install
 To download and install Learning Locker, you need to run the commands below.
