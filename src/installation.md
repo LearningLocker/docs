@@ -20,7 +20,7 @@ Additional information:
 - [Installation on CentOS 7.0](https://gist.github.com/davidpesce/7d6e1b81594ecbc72311) thanks to [@davidpesce](https://github.com/davidpesce)
 - [Installation on CentOS 7.0 with Ansible (and optionally Vagrant)](https://github.com/gomezgoiri/learninglocker-centos7) thanks to [@gomezgoiri](https://github.com/gomezgoiri)
 - [Installation on CentOS 7.0 with Docker](https://github.com/LearningLocker/docs/issues/15) thanks to [@ajblum](https://github.com/ajblum)
-- [Load Balancing](http://learninglocker.net/2015/04/01/load-balancing-learning-locker/)
+- [Load Balancing](http://learninglocker.net/blog/load-balancing-learning-locker/)
 
 ## Requirements
 Learning Locker requires the components listed below. Learning Locker is built upon the excellent [Laravel](http://laravel.com) PHP framework, so in addition to the components below, please see the [Laravel requirements](http://laravel.com/docs/4.2#server-requirements).
