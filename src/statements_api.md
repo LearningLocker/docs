@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 *URIs relative to http://www.example.com/api/v1/statements/, unless otherwise noted. Additionally you must supply your Basic Auth details with each request. Your Basic Auth details can be found under "Manage clients" in your LRS's settings.*
 
-**Be aware of [keys with dots](http://docs.learninglocker.net/installation/#quirks) and the [structure of statements in Learning Locker](#structure-of-statements).**
+**Be aware of [keys with dots](../installation/#quirks) and the [structure of statements in Learning Locker](#structure-of-statements).**
 
 ## where
 **Deprecated** - use [aggregate](#aggregate) instead.
