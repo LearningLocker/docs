@@ -14,6 +14,8 @@ Method | HTTP request | Description
 
 *URIs relative to http://www.example.com/api/v1/statements/, unless otherwise noted. Additionally you must supply your Basic Auth details with each request. Your Basic Auth details can be found under "Manage clients" in your LRS's settings.*
 
+**Be aware of [keys with dots](http://docs.learninglocker.net/installation/#quirks) and the [structure of statements in Learning Locker](#structure-of-statements).**
+
 ## where
 **Deprecated** - use [aggregate](#aggregate) instead.
 
@@ -189,3 +191,17 @@ This example will void all of the statements in an LRS. You could create similar
         }
       }
     }]
+
+# Structure of Statements
+
+Key | Type | Description
+--- | --- | ---
+_id | [MongoId](http://php.net/manual/en/class.mongoid.php) | Unique identifer in the database (not the LRS).
+lrs_id | [MongoId](http://php.net/manual/en/class.mongoid.php) | The identifier associated with the LRS.
+client_id | [MongoId](http://php.net/manual/en/class.mongoid.php) | The identifier associated with the Learning Locker Client that created the statement.
+statement | [xAPI Statement](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#stmtprops) | The raw xAPI Statement in JSON.
+active | Boolean | Determines if the statement was successfully stored and can be retrieved.
+voided | Boolean | Determines if the statement has been voided.
+timestamp | [ISODate](https://docs.mongodb.org/manual/core/shell-types/) | A ISODate copy of `statement.timestamp` (better performance).
+stored | [ISODate](https://docs.mongodb.org/manual/core/shell-types/) | A ISODate copy of `statement.stored` (better performance).
+refs | Array<[xAPI Statement](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#stmtprops)> | An array of raw xAPI statements that are referred to by the current statement.
