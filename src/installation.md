@@ -3,7 +3,7 @@
 
 # Installation
 
-Installation steps:
+#### Installation steps
 
 1. [Install the requirements](#requirements)
 2. [Download and Install LL](#download-and-install)
@@ -11,15 +11,20 @@ Installation steps:
 4. [Configure LL](#configuration)
 5. [Register your first user](#register-your-first-user)
 
-Additional information:
+#### Specific installation guides
+
+- [AWS](http://cloudboffins.com/advanced-projects/learning-locker-lrs-free-server-part-1/) thanks to [Cloud Boffins](http://cloudboffins.com)
+- [Ubuntu](http://www.jpablo128.com/how_to_install_learning_locker/) thanks to [J. Pablo Caballero](https://twitter.com/jpablo128)
+- [Ubuntu with Vagrant](http://www.jmblog.org/blog/2015/02/03/learning-locker-vagrant) thanks to [Jim Baker](http://www.jmblog.org)
+- [CentOS 7.0](https://gist.github.com/davidpesce/7d6e1b81594ecbc72311) thanks to [David Pesce](https://github.com/davidpesce)
+- [CentOS 7.0 with Ansible (and optionally Vagrant)](https://github.com/gomezgoiri/learninglocker-centos7) thanks to [Aitor Gómez-Goiri](https://github.com/gomezgoiri)
+- [CentOS 7.0 with Docker](https://github.com/LearningLocker/docs/issues/15) thanks to [Andrew Blum](https://github.com/ajblum)
+
+*Please refer to the [requirements](#requirements) whilst using these guides, as their links to the requirements may be old.*
+
+#### Additional information
 
 - [Quirks](#quirks)
-- [Installation on AWS](http://cloudboffins.com/advanced-projects/learning-locker-lrs-free-server-part-1/) thanks to [Cloud Boffins](http://cloudboffins.com)
-- [Installation on Ubuntu](http://www.jpablo128.com/how_to_install_learning_locker/) thanks to [@jpablo128](https://twitter.com/jpablo128)
-- [Installation on Ubuntu with Vagrant](http://www.jmblog.org/blog/2015/02/03/learning-locker-vagrant) thanks to [Jim Baker](http://www.jmblog.org)
-- [Installation on CentOS 7.0](https://gist.github.com/davidpesce/7d6e1b81594ecbc72311) thanks to [@davidpesce](https://github.com/davidpesce)
-- [Installation on CentOS 7.0 with Ansible (and optionally Vagrant)](https://github.com/gomezgoiri/learninglocker-centos7) thanks to [@gomezgoiri](https://github.com/gomezgoiri)
-- [Installation on CentOS 7.0 with Docker](https://github.com/LearningLocker/docs/issues/15) thanks to [@ajblum](https://github.com/ajblum)
 - [Load Balancing](http://learninglocker.net/blog/load-balancing-learning-locker/)
 
 ## Requirements
