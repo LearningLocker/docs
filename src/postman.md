@@ -2,7 +2,7 @@
 ---
 
 # HTTP Interfaces (APIs)
-Each LRS is assigned a unique username and password which should be used via [HTTP Basic Authentication](http://en.wikipedia.org/wiki/Basic_access_authentication) when sending requests over HTTP to Learning Locker. You can find your LRS's credentials via the "Manage clients" link (in the left sidebar). It is important to make sure you employ SSL on production sites and never share your username or password.
+Each LRS is assigned a unique username and password which should be used via [HTTP Basic Authentication](http://en.wikipedia.org/wiki/Basic_access_authentication) or [OAuth Authentication](https://github.com/LearningLocker/learninglocker/pull/617) when sending requests over HTTP to Learning Locker. You can find your LRS's credentials via the "Manage clients" link (in the left sidebar). It is important to make sure you employ SSL on production sites and never share your username or password.
 
 If your get `401 unauthorized` requests it is posible you have some module config striping the Authorization header, usually for
 "security reasons". You can work around this issue by passing the header directly to PHP via the env in your apache default config or your virtual host:
