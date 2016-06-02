@@ -37,7 +37,7 @@ Learning Locker requires the components listed below. Learning Locker is built u
 ## Download and Install
 To download and install Learning Locker, you need to run the commands below.
 
-    git clone git@github.com:LearningLocker/learninglocker.git learninglocker
+    git clone -b master git@github.com:LearningLocker/learninglocker.git learninglocker
     cd learninglocker
     php -r "readfile('https://getcomposer.org/installer');" | php
     php composer.phar install --no-interaction --no-dev
