@@ -26,6 +26,7 @@
 
 - [Quirks](#quirks)
 - [Load Balancing](http://learninglocker.net/blog/load-balancing-learning-locker/)
+- [Improving Speed](https://learninglocker.net/blog/learning-locker-v1-12/)
 
 ## Requirements
 Learning Locker requires the components listed below. Learning Locker is built upon the excellent [Laravel](http://laravel.com) PHP framework, so in addition to the components below, please see the [Laravel requirements](http://laravel.com/docs/4.2#server-requirements).
