@@ -35,4 +35,4 @@ If you've downloaded Learning Locker using Composer you will need to upgrade lik
 4. Run `git clone -b master git@github.com:LearningLocker/learninglocker.git learninglocker; cd learninglocker;`
 5. Replace “bootstrap/start.php” with your previously copied version.
 6. Replace your “app/config/local” directory with your previously copied version.
-7. Then follow the [Upgrading via Github with Git instructions](http://docs.learninglocker.net/upgrading/#upgrading-via-github-with-git).
+7. Then follow the [Upgrading via Github with Git instructions](#upgrading-via-github-with-git).
