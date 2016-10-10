@@ -13,12 +13,13 @@
 
 #### Specific installation guides
 
-- [CentOS 7.0](https://gist.github.com/davidpesce/7d6e1b81594ecbc72311) thanks to [David Pesce](https://github.com/davidpesce)
-- [CentOS 7.0 with Ansible (and optionally Vagrant)](https://github.com/gomezgoiri/learninglocker-centos7) thanks to [Aitor Gómez-Goiri](https://github.com/gomezgoiri)
-- [CentOS 7.0 with Docker](https://github.com/LearningLocker/docs/issues/15) thanks to [Andrew Blum](https://github.com/ajblum)
-- [Ubuntu](http://www.jpablo128.com/how_to_install_learning_locker/) thanks to [J. Pablo Caballero](https://twitter.com/jpablo128)
-- [Ubuntu with Vagrant](http://www.jmblog.org/blog/2015/02/03/learning-locker-vagrant) thanks to [Jim Baker](http://www.jmblog.org)
-- [AWS](http://cloudboffins.com/advanced-projects/learning-locker-lrs-free-server-part-1/) thanks to [Cloud Boffins](http://cloudboffins.com) (this is quite old, so you will experience difficulties).
+- [CentOS 7.0](https://gist.github.com/davidpesce/7d6e1b81594ecbc72311) thanks to [David Pesce](https://github.com/davidpesce) (via Gist)
+- [CentOS 7.0 with Ansible (and optionally Vagrant)](https://github.com/gomezgoiri/learninglocker-centos7) thanks to [Aitor Gómez-Goiri](https://github.com/gomezgoiri) (via Github)
+- [CentOS 7.0 with Docker](https://github.com/LearningLocker/docs/issues/15) thanks to [Andrew Blum](https://github.com/ajblum) (via Github)
+- [Ubuntu 14 with AWS](https://www.youtube.com/watch?v=51Dci7B49xA) thanks to [K. Anthony](https://www.youtube.com/channel/UCMum_tZBqqp2DM110UqyFyw) (via Youtube)
+- [Ubuntu](http://www.jpablo128.com/how_to_install_learning_locker/) thanks to [J. Pablo Caballero](https://twitter.com/jpablo128) (via blog post)
+- [Ubuntu with Vagrant](http://www.jmblog.org/blog/2015/02/03/learning-locker-vagrant) thanks to [Jim Baker](http://www.jmblog.org) (via blog post)
+- [AWS](http://cloudboffins.com/advanced-projects/learning-locker-lrs-free-server-part-1/) thanks to [Cloud Boffins](http://cloudboffins.com) (via blog posts - this is quite old, so you will experience difficulties)
 
 *Please refer to the [requirements](#requirements) whilst using these guides, as their links to the requirements may be old.*
 
