@@ -13,6 +13,7 @@
 
 #### Specific installation guides
 
+- [CentOS 7.0 via Vagrant with Ansible](https://github.com/davidpesce/learninglocker-v1-dev-env) thanks to [David Pesce](https://github.com/davidpesce) (via Github)
 - [CentOS 7.0](https://gist.github.com/davidpesce/7d6e1b81594ecbc72311) thanks to [David Pesce](https://github.com/davidpesce) (via Gist)
 - [CentOS 7.0 with Ansible (and optionally Vagrant)](https://github.com/gomezgoiri/learninglocker-centos7) thanks to [Aitor Gómez-Goiri](https://github.com/gomezgoiri) (via Github)
 - [CentOS 7.0 with Docker](https://github.com/LearningLocker/docs/issues/15) thanks to [Andrew Blum](https://github.com/ajblum) (via Github)
