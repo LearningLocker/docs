@@ -13,6 +13,7 @@
 
 #### Specific installation guides
 
+- [Docker](https://hub.docker.com/r/sproutlabs/learninglocker/) thanks to [Sprout Labs](http://sproutlabs.com.au/) (via Docker Hub) - 2017-06-14
 - [CentOS 7.3 via Vagrant with Ansible](https://github.com/davidpesce/learninglocker-v1-dev-env) thanks to [David Pesce](https://github.com/davidpesce) (via Github) - 2017-03-15
 - [CentOS 7.0](https://gist.github.com/davidpesce/7d6e1b81594ecbc72311) thanks to [David Pesce](https://github.com/davidpesce) (via Gist) - 2017-02-17
 - [CentOS 7.0 with Docker](https://github.com/LearningLocker/docs/issues/15) thanks to [Andrew Blum](https://github.com/ajblum) (via Github) - 2015-05-15
