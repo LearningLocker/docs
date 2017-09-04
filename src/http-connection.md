@@ -19,25 +19,32 @@ You must additionally supply your Basic Auth details with each request in the `A
 - [after](#after-parameter)
 
 ## Parameters
-### Sort Parameter
+### Sort Parameter (`?sort=`)
 The sort parameter is a JSON encoded object. The keys of the object represent the names of the properties you wish to sort. The values of the object represent the order in which you want to sort the properties. To sort in ascending order, use the number 1; to sort in descending order, use the number -1.
 
-For example, to sort statements in descending order of their timestamp and ascending order of their id, you can use the following sort parameter.
+For example, to sort statements in descending order of their timestamp and ascending order of their Mongo ObjectId, you can use the following sort parameter.
 
+#### JSON Example
 ```json
 {
   "timestamp": -1,
-  "statement.id": 1
+  "_id": 1
 }
+```
+
+#### URL encoded param example
+```
+sort=%7b%22timestamp%22%3a-1%2c%22statement.id%22%3a1%7d
 ```
 
 In the above example, we've included the `statement.id` because it should be unique and the sort parameter should always contain a unique property in order for pagination to work correctly with cursors. The order of the keys in the object determines which property is sorted first, so always include a unique property at the end such as the `_id` property.
 
-### Filter Parameter
+### Filter Parameter (`?filter=`)
 The filter parameter is a JSON encoded object. The keys of the object represent the names of the properties or operators. The values of the object represent the value you wish to filter by.
 
 For example, to filter statements by actor or verb, you can use the following filter parameter.
 
+#### JSON Example
 ```json
 {
   "$or": [{
@@ -49,13 +56,19 @@ For example, to filter statements by actor or verb, you can use the following fi
 }
 ```
 
+#### URL encoded param example
+```
+filter=%7b%22%24or%22%3a%5b%7b%22statement.actor.account.name%22%3a%22123%22%2c%22statement.actor.account.homePage%22%3a%22http%3a%2f%2fwww.example.org%2fuser%22%7d%2c%7b%22statement.verb.id%22%3a%22http%3a%2f%2fwww.example.org%2fverb%22%7d%5d%7d
+```
+
 In the example above, [`$or`](https://docs.mongodb.com/manual/reference/operator/query/or/#op._S_or) is a operator, all operators start with a dollar (`$`). You can find a [list of the available operators in the Mongo documentation](https://docs.mongodb.com/manual/reference/operator/query/). The most common operators are the comparision operators ([`$eq`](https://docs.mongodb.com/manual/reference/operator/query/eq/#op._S_eq), [`$gt`](https://docs.mongodb.com/manual/reference/operator/query/gt/#op._S_gt), [`$gte`](https://docs.mongodb.com/manual/reference/operator/query/gte/#op._S_gte), [`$in`](https://docs.mongodb.com/manual/reference/operator/query/in/#op._S_in), [`$lt`](https://docs.mongodb.com/manual/reference/operator/query/lt/#op._S_lt), [`$lte`](https://docs.mongodb.com/manual/reference/operator/query/lte/#op._S_lte), [`$ne`](https://docs.mongodb.com/manual/reference/operator/query/ne/#op._S_ne), and [`$nin`](https://docs.mongodb.com/manual/reference/operator/query/nin/#op._S_nin)) and the logical operators ([`$and`](https://docs.mongodb.com/manual/reference/operator/query/and/#op._S_and), [`$not`](https://docs.mongodb.com/manual/reference/operator/query/not/#op._S_not), [`$nor`](https://docs.mongodb.com/manual/reference/operator/query/nor/#op._S_nor), and [`$or`](https://docs.mongodb.com/manual/reference/operator/query/or/#op._S_or)).
 
-### Project Parameter
+### Project Parameter (`?project=`)
 The project parameter is a JSON encoded object. The keys of the object usually represent the names you want to give to the projected properties. The values of the object usually determine whether the property is included/excluded or the name of the property to project from the model.
 
 For example, to project the actor's account name as a user's identifier, the verb without a display, and the object's identifier you can use the following project parameter.
 
+#### JSON Example
 ```json
 {
   "userId": "$statement.actor.account.name",
@@ -64,6 +77,11 @@ For example, to project the actor's account name as a user's identifier, the ver
   },
   "statement.object.id": 1
 }
+```
+
+#### URL encoded param example
+```
+project=%7b%22userId%22%3a%22%24statement.actor.account.name%22%2c%22verb%22%3a%7b%22display%22%3a0%7d%2c%22statement.object.id%22%3a1%7d
 ```
 
 In the example above, the value `0` is used to exclude the verb's display property. Similarly, the value `1` is used to include the object's identifier. You can find out more about [projections via the Mongo documentation](https://docs.mongodb.com/manual/reference/operator/aggregation/project/).
@@ -81,10 +99,10 @@ For example, to use an index you've created in Mongo for verb identifiers in asc
 
 For more information about hints, you can checkout [Mongo's hint documentation](https://docs.mongodb.com/manual/reference/method/cursor.hint/index.html).
 
-### First Parameter
+### First Parameter (`?first=`)
 The first parameter is a number that represents the number of models to be returned after the [after cursor parameter](#after-parameter) or from the very first model in Mongo.
 
-### After Parameter
+### After Parameter (`?after=`)
 The after parameter is a string that represents a cursor used for getting models after a specified point in the Mongo collection.
 
 ## Pagination Example
