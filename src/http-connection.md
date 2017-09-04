@@ -32,7 +32,7 @@ For example, to sort statements in descending order of their timestamp and ascen
 }
 ```
 
-#### URL encoded param example
+#### URL encoded equivalent
 ```
 sort=%7b%22timestamp%22%3a-1%2c%22statement.id%22%3a1%7d
 ```
@@ -56,7 +56,7 @@ For example, to filter statements by actor or verb, you can use the following fi
 }
 ```
 
-#### URL encoded param example
+#### URL encoded equivalent
 ```
 filter=%7b%22%24or%22%3a%5b%7b%22statement.actor.account.name%22%3a%22123%22%2c%22statement.actor.account.homePage%22%3a%22http%3a%2f%2fwww.example.org%2fuser%22%7d%2c%7b%22statement.verb.id%22%3a%22http%3a%2f%2fwww.example.org%2fverb%22%7d%5d%7d
 ```
@@ -79,7 +79,7 @@ For example, to project the actor's account name as a user's identifier, the ver
 }
 ```
 
-#### URL encoded param example
+#### URL encoded equivalent
 ```
 project=%7b%22userId%22%3a%22%24statement.actor.account.name%22%2c%22verb%22%3a%7b%22display%22%3a0%7d%2c%22statement.object.id%22%3a1%7d
 ```
