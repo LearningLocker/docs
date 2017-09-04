@@ -9,9 +9,7 @@ The Learning Locker Connection API is a HTTP interface that utilses cursors to p
 http://www.example.org/api/connection/statements
 ```
 
-You must additionally supply your Basic Auth details with each request in the `Authorization` header. Your Basic Auth details can be found under Settings > Clients.
-
-The API also accepts the following *optional* URL parameters for filtering the models returned.
+You must additionally supply your Basic Auth details with each request in the `Authorization` header. Your Basic Auth details can be found under Settings > Clients. The API also accepts the following *optional* URL parameters for filtering the models returned.
 
 - [sort](#sort-parameter)
 - [filter](#filter-parameter)
