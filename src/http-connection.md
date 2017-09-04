@@ -18,8 +18,6 @@ The API also accepts the following *optional* URL parameters for filtering the m
 - [project](#project-parameter)
 - [hint](#hint-parameter)
 - [first](#first-parameter)
-- [last](#last-parameter)
-- [before](#before-parameter)
 - [after](#after-parameter)
 
 ## Parameters
@@ -87,12 +85,6 @@ For more information about hints, you can checkout [Mongo's hint documentation](
 
 ### First Parameter
 The first parameter is a number that represents the number of models to be returned after the [after cursor parameter](#after-parameter) or from the very first model in Mongo.
-
-### Last Parameter
-The last parameter is a number that represents the number of models to be returned before the [before cursor parameter](#before-parameter) or from the very last model in Mongo.
-
-### Before Parameter
-The before parameter is a string that represents a cursor used for getting models before a specified point in the Mongo collection.
 
 ### After Parameter
 The after parameter is a string that represents a cursor used for getting models after a specified point in the Mongo collection.
