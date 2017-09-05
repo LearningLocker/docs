@@ -172,6 +172,11 @@ X-Experience-API-Version: 1.0.3
 This route will return a 200 response as shown below where the JSON body of the response contains a more link and an array of statements that match the URL parameters. The more link can be used to retrieve the next page of statements, if there aren't any more pages of statements the more link will be an empty string.
 
 ```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+X-Experience-API-Version: 1.0.3
+X-Experience-API-Consistent-Through: 2017-08-31T15:16:29.709Z
+
 {
   "more": "/data/xAPI/statements?agent=%7B%22mbox%22%3A%20%22mailto%3Atest%40example.org%22%7D&verb=http%3A%2F%2Fwww.example.org%2Fverb&activity=http%3A%2F%2Fwww.example.org%2Factivity&registration=361cd8ef-0f6a-40d2-81f2-b988865f640c&related_activities=false&related_agents=false&since=2017-09-04T12:45:31+00:00&until=2017-09-06T12:45:31+00:00&limit=1&format=exact&attachments=false&ascending=false&cursor=59a8289f399c5b1a19efa60e",
   "statements": [{
