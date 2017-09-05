@@ -184,7 +184,7 @@ X-Experience-API-Consistent-Through: 2017-08-31T15:16:29.709Z
     "actor": { "objectType": "Agent", "mbox": "mailto:test@example.org" },
     "verb": { "id": "http://www.example.org/verb" },
     "object": { "objectType": "Activity", "id": "http://www.example.org/activity" },
-    "context": { "registration": "361cd8ef-0f6a-40d2-81f2-b988865f640c" }
+    "context": { "registration": "361cd8ef-0f6a-40d2-81f2-b988865f640c" },
     "version": "1.0.3",
     "authority": {
       "objectType": "Agent",
