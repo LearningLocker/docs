@@ -332,7 +332,7 @@ Content-Type: application/json; charset=utf-8
 ["example_state_id"]
 ```
 
-### DELETE /activities/state
+## DELETE /activities/state
 This route allows you to delete a single state document or multiple state documents. If the `stateId` URL parameter is set, it will [delete a single state document](#delete-single-state-document) with the state identifier, otherwise it will [delete many state documents](#delete-many-state-documents). For more information, view the [DELETE /activities/state route in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#single-document-put--post--get--delete).
 
 ### Delete Single State Document
