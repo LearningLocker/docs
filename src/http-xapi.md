@@ -81,7 +81,7 @@ This route allows you to create a multiple statements with or without statement 
 POST http://www.example.org/data/xAPI/statements
 Authorization: YOUR_BASIC_AUTH
 X-Experience-API-Version: 1.0.3
-Content-Type: application/json
+Content-Type: application/json; charset=utf-8
 
 [{
   "id": "dfb7218c-0fc9-4dfc-9524-d497097de027",
