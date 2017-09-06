@@ -13,7 +13,7 @@ Route | Description
 [DELETE /agents/profile](../http-xapi-agents#delete-agentsprofile) | Deletes a single profile document.
 
 ## PUT /agents/profile
-This route allows you to create a single profile document if it doesn't exist or overwrite an existing profile document if it does exist. The route has 2 required URL parameters, an `agent` (an IRI representing the agent) and a `profileId` (a string representing an identifier for the profile). For more information, view the [PUT /agents/profile route in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#agentprofres).
+This route allows you to create a single profile document if it doesn't exist or overwrite an existing profile document if it does exist. The route has 2 required URL parameters, an `agent` (a JSON encoded object representing the agent that the profile belongs to) and a `profileId` (a string representing an identifier for the profile). For more information, view the [PUT /agents/profile route in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#agentprofres).
 
 ### PUT Initial Profile
 To PUT an initial profile, the request should be something like the request below. Notice that there is an `If-None-Match` header in the request below, this is to ensure that a profile document doesn't already exist before the profile document is created. Without the `If-None-Match` header there would be a precondition failure thrown and the response would be a 412 for the request below.

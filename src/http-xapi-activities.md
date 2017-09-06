@@ -12,6 +12,96 @@ Route | Description
 [GET /activities/profile](../http-xapi-activities#get-activitiesprofile) | Retrieves a single profile document or multiple profile identifiers.
 [DELETE /activities/profile](../http-xapi-activities#delete-activitiesprofile) | Deletes a single profile document.
 
+## GET /activities
+This route allows you to retrieve the full definition of an activity, meaning that the LRS will return all of the languages displays and extensions that have been sent in statements, along with the most up to date `moreInfo` and `type` property values. This route requires an `activityId` URL parameter (an IRI representing the activity). To try this route out, first [insert two statements with different activity definitions](#insert-different-activity-definitions) and then use the route to [retrieve the full activity definition](#retrieve-full-activity-definition). For more information, view the [GET /activities route in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#25-activities-resource).
+
+### Insert Different Activity Definitions
+To insert two statements with different activity definitions, use the [POST /statements route](../http-xapi-statements#post-statements) like the request below, which will return a 200 response if the statements are successfully stored.
+
+```http
+POST http://www.example.org/data/xAPI/statements
+Authorization: YOUR_BASIC_AUTH
+X-Experience-API-Version: 1.0.3
+Content-Type: application/json; charset=utf-8
+
+[{
+  "actor": { "mbox": "mailto:test@example.org" },
+  "verb": { "id": "http://www.example.org/verb" },
+  "object": {
+    "id": "http://www.example.org/activity",
+    "definition": {
+      "name": {
+        "en-GB": "GB Activity Name"
+      },
+      "description": {
+        "en-GB": "GB Activity Description"
+      },
+      "extensions": {
+        "http://www.example.com/extension/1": "extension_value_1"
+      },
+      "moreInfo": "http://www.example.org/activity/moreinfo1",
+      "type": "http://www.example.org/activity/type1"
+    }
+  }
+}, {
+  "actor": { "mbox": "mailto:test@example.org" },
+  "verb": { "id": "http://www.example.org/verb" },
+  "object": {
+    "id": "http://www.example.org/activity",
+    "definition": {
+      "name": {
+        "en-US": "US Activity Name"
+      },
+      "description": {
+        "en-US": "US Activity Description"
+      },
+      "extensions": {
+        "http://www.example.com/extension/2": "extension_value_2"
+      },
+      "moreInfo": "http://www.example.org/activity/moreinfo2",
+      "type": "http://www.example.org/activity/type2"
+    }
+  }
+}]
+```
+
+### Retrieve Full Activity Definition
+To retrieve the full activity definition, you can use a request similar to the request below.
+
+```http
+GET http://www.example.org/data/xAPI/activities/profile?activityId=http%3A%2F%2Fwww.example.org%2Factivity
+Authorization: YOUR_BASIC_AUTH
+X-Experience-API-Version: 1.0.3
+```
+
+The response will always be a 204 similar to the response below. Notice that the `name`, `description`, and `extensions` objects have been merged inside the `definition` object. Also notice that the `moreInfo` and `type` properties are set to the most recent values.
+
+```http
+HTTP/1.1 200 OK
+X-Experience-API-Version: 1.0.3
+
+{
+  "id": "http://www.example.org/activity",
+  "definition": {
+    "name": {
+      "en-GB": "GB Activity Name"
+      "en-US": "US Activity Name"
+    },
+    "description": {
+      "en-GB": "GB Activity Description"
+      "en-US": "US Activity Description"
+    },
+    "extensions": {
+      "http://www.example.com/extension/1": "extension_value_1"
+      "http://www.example.com/extension/2": "extension_value_2"
+    },
+    "moreInfo": "http://www.example.org/activity/moreinfo2",
+    "type": "http://www.example.org/activity/type2"
+  }
+}
+```
+
+
 ## PUT /activities/profile
 This route allows you to create a single profile document if it doesn't exist or overwrite an existing profile document if it does exist. The route has 2 required URL parameters, an `activityId` (an IRI representing the activity) and a `profileId` (a string representing an identifier for the profile). For more information, view the [PUT /activities/profile route in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#27-activity-profile-resource).
 
