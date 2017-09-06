@@ -393,7 +393,7 @@ HTTP/1.1 204 NO CONTENT
 X-Experience-API-Version: 1.0.3
 ```
 
-### GET Initial PUT Profile ETag
+### GET Initial PUT Activity ETag
 To retrieve the ETag for the initial profile, you need to retrieve the profile via the [GET /activities/profile route](#get-activitiesprofile). The request below demonstrates how to do this.
 
 ```http
@@ -418,7 +418,7 @@ Last-Modified: 2017-08-31T15:16:29.709Z
 ```
 
 ### PUT Overwrite Profile
-To PUT a profile for overwriting, the request should be something like the request below. Notice that the [ETag from the previous request](#get-initial-put-profile-etag) has been used in the `If-Match` header below. Without the `If-Match` header containing the correct ETag there would be a precondition failure thrown and the response would be a 412 for the request below. The `If-Match` header ensures that concurrent updates only change the existing profile document you expected to change.
+To PUT a profile for overwriting, the request should be something like the request below. Notice that the [ETag from the previous request](#get-initial-put-activity-etag) has been used in the `If-Match` header below. Without the `If-Match` header containing the correct ETag there would be a precondition failure thrown and the response would be a 412 for the request below. The `If-Match` header ensures that concurrent updates only change the existing profile document you expected to change.
 
 ```http
 PUT http://www.example.org/data/xAPI/activities/profile?activityId=http%3A%2F%2Fwww.example.org%2Factivity&profileId=example_profile_id
@@ -490,7 +490,7 @@ HTTP/1.1 204 NO CONTENT
 X-Experience-API-Version: 1.0.3
 ```
 
-### GET Initial POST Profile ETag
+### GET Initial POST Activity ETag
 To retrieve the ETag for the initial profile, you need to retrieve the profile via the [GET /activities/profile route](#get-activitiesprofile). The request below demonstrates how to do this.
 
 ```http
@@ -515,7 +515,7 @@ Last-Modified: 2017-08-31T15:16:29.709Z
 ```
 
 ### POST Merge Profile
-To POST a profile for merging, the request should be something like the request below. Notice that the [ETag from the previous request](#get-initial-post-profile-etag) has been used in the `If-Match` header below. Without the `If-Match` header containing the correct ETag there would be a precondition failure thrown and the response would be a 412 for the request below. The `If-Match` header ensures that concurrent updates only change the existing profile document you expected to change.
+To POST a profile for merging, the request should be something like the request below. Notice that the [ETag from the previous request](#get-initial-post-activity-etag) has been used in the `If-Match` header below. Without the `If-Match` header containing the correct ETag there would be a precondition failure thrown and the response would be a 412 for the request below. The `If-Match` header ensures that concurrent updates only change the existing profile document you expected to change.
 
 ```http
 POST http://www.example.org/data/xAPI/activities/profile?activityId=http%3A%2F%2Fwww.example.org%2Factivity&profileId=example_profile_id
@@ -563,9 +563,9 @@ Last-Modified: 2017-08-31T15:17:29.709Z
 ```
 
 ## GET /activities/profile
-This route allows you to retrieve a single profile document or multiple profile identifiers. If the `profileId` URL parameter is set, it will [retrieve a single profile document](#retrieve-single-profile-document) with the profile identifier, otherwise it will [retrieve many profile identifiers](#retrieve-many-profile-identifiers). For more information, view the [GET /activities/profile route in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#27-activity-profile-resource).
+This route allows you to retrieve a single profile document or multiple profile identifiers. If the `profileId` URL parameter is set, it will [retrieve a single profile document](#retrieve-single-activity-document) with the profile identifier, otherwise it will [retrieve many profile identifiers](#retrieve-many-activity-identifiers). For more information, view the [GET /activities/profile route in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#27-activity-profile-resource).
 
-### Retrieve Single Profile Document
+### Retrieve Single Activity Document
 The route allows the same URL parameters as the [PUT /activities/profile route](#put-activitiesprofile). A request to this route should be similar to the request below.
 
 ```http
@@ -588,7 +588,7 @@ Last-Modified: 2017-08-31T15:16:29.709Z
 }
 ```
 
-### Retrieve Many Profile Identifiers
+### Retrieve Many Activity Identifiers
 The route allows the same URL parameters as the [PUT /activities/profile route](#put-activitiesprofile) except for the `profileId` parameter and with the addition of the optional `since` parameter. The `since` URL parameter is an ISO timestamp that ensures only profile identifiers stored since the timestamp (exclusive) are returned. A request to this route should be similar to the request below.
 
 ```http
@@ -608,14 +608,39 @@ Content-Type: application/json; charset=utf-8
 ```
 
 ## DELETE /activities/profile
-This route allows you to delete a single profile document and allows the same URL parameters as the [PUT /activities/profile route](#put-activitiesprofile). A request to this route should be similar to the request below.
+This route allows you to delete a single profile document and allows the same URL parameters as the [PUT /activities/profile route](#put-activitiesprofile). For more information, view the [DELETE /activities/profile route in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#27-activity-profile-resource).
 
-The route 
+### GET Activity Profile ETag
+To retrieve the ETag for the activity profile, you need to retrieve the profile via the [GET /activities/profile route](#get-activitiesprofile). The request below demonstrates how to do this.
+
+```http
+GET http://www.example.org/data/xAPI/activities/profile?activityId=http%3A%2F%2Fwww.example.org%2Factivity&profileId=example_profile_id
+Authorization: YOUR_BASIC_AUTH
+X-Experience-API-Version: 1.0.3
+```
+
+The response to the request above would be something similar to the response below.
+
+```http
+HTTP/1.1 200 OK
+X-Experience-API-Version: 1.0.3
+Content-Type: application/json; charset=utf-8
+ETag: "BBB79685FA17A8450E7307710C8A79FD9C1059A0106E9F9811AF6FD18D0F0EED"
+Last-Modified: 2017-08-31T15:17:29.709Z
+
+{
+  "example_key": "example_value"
+}
+```
+
+### Delete Activity Profile
+Notice that the [ETag from the previous request](#get-activity-profile-etag) has been used in the `If-Match` header below. Without the `If-Match` header containing the correct ETag there would be a precondition failure thrown and the response would be a 412 for the request below. The `If-Match` header ensures that concurrent deletes only delete the existing profile document you expected to delete.
 
 ```http
 DELETE http://www.example.org/data/xAPI/activities/profile?activityId=http%3A%2F%2Fwww.example.org%2Factivity&profileId=example_profile_id
 Authorization: YOUR_BASIC_AUTH
 X-Experience-API-Version: 1.0.3
+If-Match: "BBB79685FA17A8450E7307710C8A79FD9C1059A0106E9F9811AF6FD18D0F0EED"
 ```
 
 The response to the request above would be something similar to the response below. If the profile document cannot be found, a 404 response will be returned istead of a 204.
@@ -624,5 +649,3 @@ The response to the request above would be something similar to the response bel
 HTTP/1.1 204 NO CONTENT
 X-Experience-API-Version: 1.0.3
 ```
-
-For more information, view the [DELETE /activities/profile route in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#27-activity-profile-resource).
