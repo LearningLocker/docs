@@ -21,7 +21,7 @@ Route | Description
 [POST /activities/profile](../http-xapi-activities#post-activitiesprofile) | Creates or merges a profile document.
 [GET /activities/profile](../http-xapi-activities#get-activitiesprofile) | Retrieves a single profile document or multiple profile identifiers.
 [DELETE /activities/profile](../http-xapi-activities#delete-activitiesprofile) | Deletes a single profile document.
-[GET /agents](../http-xapi-agents#get-agents) | Retrieves all of the IFIs associated with a given agent.
+[GET /agents](../http-xapi-agents#get-agents) | Retrieves all of the agents used by a person.
 [PUT /agents/profile](../http-xapi-agents#put-agentsprofile) | Creates or overwrites a profile document.
 [POST /agents/profile](../http-xapi-agents#post-agentsprofile) | Creates or merges a profile document.
 [GET /agents/profile](../http-xapi-agents#get-agentsprofile) | Retrieves a single profile document or multiple profile identifiers.

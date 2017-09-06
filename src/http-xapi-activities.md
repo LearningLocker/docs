@@ -74,11 +74,12 @@ Authorization: YOUR_BASIC_AUTH
 X-Experience-API-Version: 1.0.3
 ```
 
-The response will always be a 204 similar to the response below. Notice that the `name`, `description`, and `extensions` objects have been merged inside the `definition` object. Also notice that the `moreInfo` and `type` properties are set to the most recent values.
+The response will always be a 200 for valid requests, similar to the response below. Notice that the `name`, `description`, and `extensions` objects have been merged inside the `definition` object. Also notice that the `moreInfo` and `type` properties are set to the most recent values.
 
 ```http
 HTTP/1.1 200 OK
 X-Experience-API-Version: 1.0.3
+Content-Type: application/json; charset=utf-8
 
 {
   "id": "http://www.example.org/activity",

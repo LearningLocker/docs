@@ -6,11 +6,36 @@ The table below describes the routes that the HTTP interface provides, all of th
 
 Route | Description
 --- | ---
-[GET /agents](../http-xapi-agents#get-agents) | Retrieves all of the IFIs associated with a given agent.
+[GET /agents](../http-xapi-agents#get-agents) | Retrieves all of the agents used by a person.
 [PUT /agents/profile](../http-xapi-agents#put-agentsprofile) | Creates or overwrites a profile document.
 [POST /agents/profile](../http-xapi-agents#post-agentsprofile) | Creates or merges a profile document.
 [GET /agents/profile](../http-xapi-agents#get-agentsprofile) | Retrieves a single profile document or multiple profile identifiers.
 [DELETE /agents/profile](../http-xapi-agents#delete-agentsprofile) | Deletes a single profile document.
+
+## GET /agents
+This route allows you to retrieve all of the agents that are used by a single person, given one of the agents that they use via the required `agent` URL parameter. The request below demonstrates how this is done. For more information, view the [GET /agents route in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#24-agents-resource).
+
+```http
+GET http://www.example.org/data/xAPI/agents?agent=%7B%22mbox%22%3A%20%22mailto%3Atest%40example.org%22%7D
+Authorization: YOUR_BASIC_AUTH
+X-Experience-API-Version: 1.0.3
+```
+
+The response will always be a 200 for valid requests, similar to the response below. 
+
+```http
+HTTP/1.1 200 OK
+X-Experience-API-Version: 1.0.3
+Content-Type: application/json; charset=utf-8
+
+{
+  "objectType": "Person",
+  "account": [],
+  "mbox": ["mailto:test@example.org"],
+  "mbox_sha1sum": [],
+  "openid": []
+}
+```
 
 ## PUT /agents/profile
 This route allows you to create a single profile document if it doesn't exist or overwrite an existing profile document if it does exist. The route has 2 required URL parameters, an `agent` (a JSON encoded object representing the agent that the profile belongs to) and a `profileId` (a string representing an identifier for the profile). For more information, view the [PUT /agents/profile route in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#agentprofres).
