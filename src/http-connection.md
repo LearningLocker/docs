@@ -66,7 +66,7 @@ For example, to project the actor's account name as a user's identifier, the ver
 ```json
 {
   "userId": "$statement.actor.account.name",
-  "verb": {
+  "statement.verb": {
     "display": 0
   },
   "statement.object.id": 1
