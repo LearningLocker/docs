@@ -11,11 +11,17 @@ cache | Boolean that determines if the result should be cached for reuse next ti
 maxTimeMS | Number that specifies the time limit for the query in Mongo.
 maxScan | Number that specifies the maximum number of models to scan in Mongo.
 
-A simple request to this interface using all of the available URL parameters looks like the request below. In the request below, the pipeline contains two stages, one to limit the route to returning a max of 1 statement and another to only project the `statement` from the statement's model.
+A simple request to this interface using all of the available URL parameters looks like the request below. 
 
 ```http
 GET http://www.example.org/api/statements/aggregate?cache=false&maxTimeMS=5000&maxScan=10000&pipeline=%5B%7B%22%24limit%22%3A%201%7D%2C%20%7B%22%24project%22%3A%20%7B%20%22statement%22%3A%201%2C%20%22_id%22%3A%200%20%7D%7D%5D
 Authorization: Basic YOUR_BASIC_AUTH
+```
+
+In the request above, the `pipeline` contains two stages, one to limit the route to returning a max of 1 statement and another to only project the `statement` from the statement's model. The JSON encoded `pipeline` without URL encoding is shown below.
+
+```json
+[{"$limit": 1}, {"$project": { "statement": 1, "_id": 0 }}]
 ```
 
 A response to this valid request will return a 200 response like the response below, where the JSON encoded body contains an array of objects.
