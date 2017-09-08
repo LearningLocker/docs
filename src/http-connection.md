@@ -38,7 +38,7 @@ For example, to sort statements in descending order of their timestamp and ascen
 }
 ```
 
-In the above example, we've included the `statement.id` because it should be unique and the sort parameter should always contain a unique property in order for pagination to work correctly with cursors. The order of the keys in the object determines which property is sorted first, so always include a unique property at the end such as the `_id` property.
+In the above example, we've included the `_id` because it should be unique and the sort parameter should always contain a unique property in order for pagination to work correctly with cursors. The order of the keys in the object determines which property is sorted first, so always include a unique property at the end such as the `_id` property.
 
 ### Filter Parameter
 The filter parameter is a JSON encoded object. The keys of the object represent the names of the properties or operators. The values of the object represent the value you wish to filter by.
