@@ -170,3 +170,19 @@ GET http://www.example.org/api/statements/aggregate?pipeline=%5B%7B%0D%0A%20%20%
 Authorization: Basic YOUR_BASIC_AUTH
 ```
 
+### Sort Stage
+In this stage the keys of the object represent the names of the properties you wish to sort. The values of the object represent the order in which you want to sort the properties. To sort in ascending order, use the number 1; to sort in descending order, use the number -1. For example, to sort statements in descending order of their timestamp and ascending order of their Mongo ObjectId, you can use the following sort parameter.
+
+```json
+{
+  "timestamp": -1,
+  "_id": 1
+}
+```
+
+In the above example, we've included the `_id` because it should be unique and the sort parameter should always contain a unique property in order to ensure the objects are always returned in the same order for any pagination. The order of the keys in the object determines which property is sorted first, so always include a unique property at the end such as the `_id` property. You can find out more about the [sort stage via the Mongo documentation](https://docs.mongodb.com/manual/reference/operator/aggregation/sort/). The request below demonstrates how the sort stage above could be used in a request.
+
+```http
+GET http://www.example.org/api/statements/aggregate?pipeline=%5B%7B%0D%0A%20%20%22%24sort%22%3A%20%7B%0D%0A%20%20%20%20%22timestamp%22%3A%20-1%2C%0D%0A%20%20%20%20%22_id%22%3A%201%0D%0A%20%20%7D%0D%0A%7D%5D
+Authorization: Basic YOUR_BASIC_AUTH
+```
