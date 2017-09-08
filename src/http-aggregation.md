@@ -138,6 +138,9 @@ Note that when using extension keys, you need to replace any dots with `&46;` be
 }
 ```
 
+#### Matching With Improved Performance
+You may find that changing the match stage can vary the time it takes a query to run, especially when you have a large number of statements. You can take advantage of database indexes to improve performance, more information is available about [using indexes in the match stage via Mongo's documentation](https://docs.mongodb.com/manual/core/aggregation-pipeline/#pipeline-operators-and-indexes). If utilising indexes doesn't have the required performance improvement, you can instead utilise our [Connection HTTP Interface](../http-connection) or [BI tools](../guides-retrieving).
+
 ### Limit Stage
 For example, to limit the interface to returning 1 statement, you can use the following request. You can find out more about the [limit stage via the Mongo documentation](https://docs.mongodb.com/manual/reference/operator/aggregation/limit/).
 
@@ -225,3 +228,6 @@ Note that when using extension keys, you need to replace any dots with `&46;` be
   "statement.context.extensions.http://www&46;example&46;com/extension": 1
 }
 ```
+
+#### Sorting With Improved Performance
+You may find that changing the sort stage can vary the time it takes a query to run, especially when you have a large number of statements. You can take advantage of database indexes to improve performance, more information is available about [using indexes in the sort stage via Mongo's documentation](https://docs.mongodb.com/manual/core/aggregation-pipeline/#pipeline-operators-and-indexes). If utilising indexes doesn't have the required performance improvement, you can instead utilise our [Connection HTTP Interface](../http-connection) or [BI tools](../guides-retrieving).

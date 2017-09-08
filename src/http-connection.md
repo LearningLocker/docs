@@ -49,6 +49,9 @@ Note that when using extension keys, you need to replace any dots with `&46;` be
 }
 ```
 
+#### Sorting With Improved Performance
+You may find that changing the sort parameter can vary the time it takes a query to run, especially when you have a large number of models. You can take advantage of database indexes to improve performance, more information is available about [using indexes via Mongo's documentation](https://docs.mongodb.com/manual/indexes/). If utilising indexes doesn't have the required performance improvement, you can instead utilise [BI tools](../guides-retrieving).
+
 ### Filter Parameter
 The filter parameter is a JSON encoded object. The keys of the object represent the names of the properties or operators. The values of the object represent the value you wish to filter by.
 
@@ -77,6 +80,9 @@ Note that when using extension keys, you need to replace any dots with `&46;` be
   }
 }
 ```
+
+#### Filtering With Improved Performance
+You may find that changing the filter parameter can vary the time it takes a query to run, especially when you have a large number of models. You can take advantage of database indexes to improve performance, more information is available about [using indexes via Mongo's documentation](https://docs.mongodb.com/manual/indexes/). If utilising indexes doesn't have the required performance improvement, you can instead utilise [BI tools](../guides-retrieving).
 
 ### Project Parameter
 The project parameter is a JSON encoded object. The keys of the object usually represent the names you want to give to the projected properties. The values of the object usually determine whether the property is included/excluded or the name of the property to project from the model.
