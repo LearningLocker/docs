@@ -154,14 +154,14 @@ In the group stage above, the `_id` property specifies the properties to group b
 
 Name | Description
 --- | ---
-`$sum` | Returns a sum of numeric values from the grouped records.
-`$avg` | Returns an average of numeric values from the grouped records.
-`$first` | Returns a value from the first record in the grouped records.
-`$last` | Returns a value from the last record in the grouped records.
-`$max` | Returns the highest of the numeric values from the grouped records.
-`$min` | Returns the lowest of the numeric values from the grouped records
-`$push` | Returns an array of values from the grouped records.
-`$addToSet` | Returns an array of unique values from the grouped records.
+[`$sum`](https://docs.mongodb.com/manual/reference/operator/aggregation/sum/#grp._S_sum) | Returns a sum of numeric values from the grouped records.
+[`$avg`](https://docs.mongodb.com/manual/reference/operator/aggregation/avg/#grp._S_avg) | Returns an average of numeric values from the grouped records.
+[`$first`](https://docs.mongodb.com/manual/reference/operator/aggregation/first/#grp._S_first) | Returns a value from the first record in the grouped records.
+[`$last`](https://docs.mongodb.com/manual/reference/operator/aggregation/last/#grp._S_last) | Returns a value from the last record in the grouped records.
+[`$max`](https://docs.mongodb.com/manual/reference/operator/aggregation/max/#grp._S_max) | Returns the highest of the numeric values from the grouped records.
+[`$min`](https://docs.mongodb.com/manual/reference/operator/aggregation/min/#grp._S_min) | Returns the lowest of the numeric values from the grouped records
+[`$push`](https://docs.mongodb.com/manual/reference/operator/aggregation/push/#grp._S_push) | Returns an array of values from the grouped records.
+[`$addToSet`](https://docs.mongodb.com/manual/reference/operator/aggregation/addToSet/#grp._S_addToSet) | Returns an array of unique values from the grouped records.
 
 You can find out more about the [group stage via the Mongo documentation](https://docs.mongodb.com/manual/reference/operator/aggregation/group/). The request below demonstrates how the group stage above could be used in a request.
 
