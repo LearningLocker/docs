@@ -134,3 +134,39 @@ GET http://www.example.org/api/statements/aggregate?pipeline=%5B%7B%20%22%24skip
 Authorization: Basic YOUR_BASIC_AUTH
 ```
 
+### Group Stage
+For example, to retrieve the average raw score for each actor, you can use the group stage below.
+
+```json
+{
+  "_id": {
+    "actor_account_homePage": "$statement.actor.account.homePage",
+    "actor_account_name": "$statement.actor.account.name",
+    "actor_mbox": "$statement.actor.mbox",
+    "actor_mbox_sha1sum": "$statement.actor.mbox_sha1sum",
+    "actor_openid": "$statement.actor.openid",
+  },
+  "statements": { "$avg": "$statement.result.score.raw" }
+}
+```
+
+In the group stage above, the `_id` property specifies the properties to group by and is a required property in the group stage. The rest of the properties in the group stage specify the properties to be passed through to the next stage. In the example above, `$avg` is one of the accumulator operators available in Mongo, the other common accumulator operators are listed in the table below.
+
+Name | Description
+--- | ---
+`$sum` | Returns a sum of numeric values from the grouped records.
+`$avg` | Returns an average of numeric values from the grouped records.
+`$first` | Returns a value from the first record in the grouped records.
+`$last` | Returns a value from the last record in the grouped records.
+`$max` | Returns the highest of the numeric values from the grouped records.
+`$min` | Returns the lowest of the numeric values from the grouped records
+`$push` | Returns an array of values from the grouped records.
+`$addToSet` | Returns an array of unique values from the grouped records.
+
+You can find out more about the [group stage via the Mongo documentation](https://docs.mongodb.com/manual/reference/operator/aggregation/group/). The request below demonstrates how the group stage above could be used in a request.
+
+```http
+GET http://www.example.org/api/statements/aggregate?pipeline=%5B%7B%0D%0A%20%20%22%24group%22%3A%20%7B%0D%0A%20%20%20%20%22_id%22%3A%20%7B%0D%0A%20%20%20%20%20%20%22actor_account_homePage%22%3A%20%22%24statement.actor.account.homePage%22%2C%0D%0A%20%20%20%20%20%20%22actor_account_name%22%3A%20%22%24statement.actor.account.name%22%2C%0D%0A%20%20%20%20%20%20%22actor_mbox%22%3A%20%22%24statement.actor.mbox%22%2C%0D%0A%20%20%20%20%20%20%22actor_mbox_sha1sum%22%3A%20%22%24statement.actor.mbox_sha1sum%22%2C%0D%0A%20%20%20%20%20%20%22actor_openid%22%3A%20%22%24statement.actor.openid%22%2C%0D%0A%20%20%20%20%7D%2C%0D%0A%20%20%20%20%22statements%22%3A%20%7B%20%22%24avg%22%3A%20%22%24statement.result.score.raw%22%20%7D%0D%0A%20%20%7D%0D%0A%7D%5D
+Authorization: Basic YOUR_BASIC_AUTH
+```
+
