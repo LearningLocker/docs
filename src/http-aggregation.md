@@ -76,6 +76,15 @@ GET http://www.example.org/api/statements/aggregate?pipeline=%5B%7B%0D%0A%20%20%
 Authorization: Basic YOUR_BASIC_AUTH
 ```
 
+#### Projecting With Extension Keys
+Note that when using extension keys, you need to replace any dots with `&46;` because Mongo does not allow dots in keys. For example, when you have an extension key like `http://www.example.com/extension` you can project it using `http://www&46;example&46;com/extension` instead, so a project stage using this extension key might look something like the project stage below.
+
+```json
+{
+  "statement.context.extensions.http://www&46;example&46;com/extension": 1
+}
+```
+
 ### Match Stage
 For example, to filter statements by actor or verb, you can use the following match stage.
 
@@ -116,6 +125,17 @@ You can find out more about the [match stage via the Mongo documentation](https:
 ```http
 GET http://www.example.org/api/statements/aggregate?pipeline=%5B%7B%0D%0A%20%20%22%24match%22%3A%20%7B%0D%0A%20%20%20%20%22%24or%22%3A%20%5B%7B%0D%0A%20%20%20%20%20%20%22statement.actor.account.name%22%3A%20%22123%22%2C%0D%0A%20%20%20%20%20%20%22statement.actor.account.homePage%22%3A%20%22http%3A%2F%2Fwww.example.org%2Fuser%22%0D%0A%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%22statement.verb.id%22%3A%20%7B%0D%0A%20%20%20%20%20%20%20%20%22%24in%22%3A%20%5B%0D%0A%20%20%20%20%20%20%20%20%20%20%22http%3A%2F%2Fwww.example.org%2Fverb%22%2C%0D%0A%20%20%20%20%20%20%20%20%20%20%22http%3A%2F%2Fwww.example.org%2Fotherverb%22%0D%0A%20%20%20%20%20%20%20%20%5D%0D%0A%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%7D%5D%0D%0A%20%20%7D%0D%0A%7D%5D
 Authorization: Basic YOUR_BASIC_AUTH
+```
+
+#### Matching With Extension Keys
+Note that when using extension keys, you need to replace any dots with `&46;` because Mongo does not allow dots in keys. For example, when you have an extension key like `http://www.example.com/extension` you can filter it using `http://www&46;example&46;com/extension` instead, so a match stage using this extension key might look something like the match stage below.
+
+```json
+{
+  "statement.context.extensions.http://www&46;example&46;com/extension": {
+    "$ne": "example_value"
+  }
+}
 ```
 
 ### Limit Stage
@@ -170,6 +190,16 @@ GET http://www.example.org/api/statements/aggregate?pipeline=%5B%7B%0D%0A%20%20%
 Authorization: Basic YOUR_BASIC_AUTH
 ```
 
+#### Grouping With Extension Keys
+Note that when using extension keys, you need to replace any dots with `&46;` because Mongo does not allow dots in keys. For example, when you have an extension key like `http://www.example.com/extension` you can group by it using `http://www&46;example&46;com/extension` instead, so a group stage using this extension key might look something like the group stage below.
+
+```json
+{
+  "_id": "$statement.context.extensions.http://www&46;example&46;com/extension",
+  "statements": { "$avg": "$statement.result.score.raw" }
+}
+```
+
 ### Sort Stage
 In this stage the keys of the object represent the names of the properties you wish to sort. The values of the object represent the order in which you want to sort the properties. To sort in ascending order, use the number 1; to sort in descending order, use the number -1. For example, to sort statements in descending order of their timestamp and ascending order of their Mongo ObjectId, you can use the following sort parameter.
 
@@ -185,4 +215,13 @@ In the above example, we've included the `_id` because it should be unique and t
 ```http
 GET http://www.example.org/api/statements/aggregate?pipeline=%5B%7B%0D%0A%20%20%22%24sort%22%3A%20%7B%0D%0A%20%20%20%20%22timestamp%22%3A%20-1%2C%0D%0A%20%20%20%20%22_id%22%3A%201%0D%0A%20%20%7D%0D%0A%7D%5D
 Authorization: Basic YOUR_BASIC_AUTH
+```
+
+#### Sorting With Extension Keys
+Note that when using extension keys, you need to replace any dots with `&46;` because Mongo does not allow dots in keys. For example, when you have an extension key like `http://www.example.com/extension` you can sort by it using `http://www&46;example&46;com/extension` instead, so a sort stage using this extension key might look something like the sort stage below.
+
+```json
+{
+  "statement.context.extensions.http://www&46;example&46;com/extension": 1
+}
 ```

@@ -40,6 +40,15 @@ For example, to sort statements in descending order of their timestamp and ascen
 
 In the above example, we've included the `_id` because it should be unique and the sort parameter should always contain a unique property in order for pagination to work correctly with cursors. The order of the keys in the object determines which property is sorted first, so always include a unique property at the end such as the `_id` property.
 
+#### Sorting With Extension Keys
+Note that when using extension keys, you need to replace any dots with `&46;` because Mongo does not allow dots in keys. For example, when you have an extension key like `http://www.example.com/extension` you can sort by it using `http://www&46;example&46;com/extension` instead, so a sort parameter using this extension key might look something like the sort parameter below.
+
+```json
+{
+  "statement.context.extensions.http://www&46;example&46;com/extension": 1
+}
+```
+
 ### Filter Parameter
 The filter parameter is a JSON encoded object. The keys of the object represent the names of the properties or operators. The values of the object represent the value you wish to filter by.
 
@@ -58,6 +67,17 @@ For example, to filter statements by actor or verb, you can use the following fi
 
 In the example above, [`$or`](https://docs.mongodb.com/manual/reference/operator/query/or/#op._S_or) is a operator, all operators start with a dollar (`$`). You can find a [list of the available operators in the Mongo documentation](https://docs.mongodb.com/manual/reference/operator/query/). The most common operators are the comparision operators ([`$eq`](https://docs.mongodb.com/manual/reference/operator/query/eq/#op._S_eq), [`$gt`](https://docs.mongodb.com/manual/reference/operator/query/gt/#op._S_gt), [`$gte`](https://docs.mongodb.com/manual/reference/operator/query/gte/#op._S_gte), [`$in`](https://docs.mongodb.com/manual/reference/operator/query/in/#op._S_in), [`$lt`](https://docs.mongodb.com/manual/reference/operator/query/lt/#op._S_lt), [`$lte`](https://docs.mongodb.com/manual/reference/operator/query/lte/#op._S_lte), [`$ne`](https://docs.mongodb.com/manual/reference/operator/query/ne/#op._S_ne), and [`$nin`](https://docs.mongodb.com/manual/reference/operator/query/nin/#op._S_nin)) and the logical operators ([`$and`](https://docs.mongodb.com/manual/reference/operator/query/and/#op._S_and), [`$not`](https://docs.mongodb.com/manual/reference/operator/query/not/#op._S_not), [`$nor`](https://docs.mongodb.com/manual/reference/operator/query/nor/#op._S_nor), and [`$or`](https://docs.mongodb.com/manual/reference/operator/query/or/#op._S_or)).
 
+#### Filtering With Extension Keys
+Note that when using extension keys, you need to replace any dots with `&46;` because Mongo does not allow dots in keys. For example, when you have an extension key like `http://www.example.com/extension` you can filter it using `http://www&46;example&46;com/extension` instead, so a filter parameter using this extension key might look something like the filter parameter below.
+
+```json
+{
+  "statement.context.extensions.http://www&46;example&46;com/extension": {
+    "$ne": "example_value"
+  }
+}
+```
+
 ### Project Parameter
 The project parameter is a JSON encoded object. The keys of the object usually represent the names you want to give to the projected properties. The values of the object usually determine whether the property is included/excluded or the name of the property to project from the model.
 
@@ -74,6 +94,15 @@ For example, to project the actor's account name as a user's identifier, the ver
 ```
 
 In the example above, the value `0` is used to exclude the verb's display property. Similarly, the value `1` is used to include the object's identifier. You can find out more about [projections via the Mongo documentation](https://docs.mongodb.com/manual/reference/operator/aggregation/project/).
+
+#### Projecting With Extension Keys
+Note that when using extension keys, you need to replace any dots with `&46;` because Mongo does not allow dots in keys. For example, when you have an extension key like `http://www.example.com/extension` you can project it using `http://www&46;example&46;com/extension` instead, so a project parameter using this extension key might look something like the project parameter below.
+
+```json
+{
+  "statement.context.extensions.http://www&46;example&46;com/extension": 1
+}
+```
 
 ### Hint Parameter
 The hint parameter is a JSON encoded object that represents a Mongo index and is similar to the [sort parameter](#sort-parameter). A hint overrides Mongo's default index selection and query optimisation process.
