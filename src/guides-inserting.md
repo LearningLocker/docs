@@ -2,11 +2,8 @@
 ---
 
 # Inserting Statements Guide
-To quickly try out inserting statements into your Learning Locker instance you can use Postman. Postman is a tool for creating and sending HTTP requests. You can [download and install Postman via their website](https://www.getpostman.com/).
+To quickly try out inserting statements into your Learning Locker instance you can use Postman. Postman is a tool for creating and sending HTTP requests. You can [download and install Postman via their website](https://www.getpostman.com/). Once you've installed Postman, you can watch the video below and check out the [documentation for our xAPI HTTP Interface](../http-xapi-statements).
 
-TODO - Discuss getting client credentials.
-TODO - Link to xAPI Docs.
-TODO - Screenshot of Postman with request.
 TODO - Video
 
 Before you start designing and inserting your own statements in production, you should consider using [tools that already transmit xAPI statements](#). If you can't use any of these existing tools, there are a number of processes and best practices that you can follow to fall into the pit of success when designing and transmitting your own statements.
@@ -95,7 +92,7 @@ Statement Property | Mapping
 At this stage, you should identifiy where the statement will be constructed and transmitted for each recipe that you identified earlier. You should consider whether you will be sending statements from the [client-side](https://en.wikipedia.org/wiki/Client-side) or the [server-side](https://en.wikipedia.org/wiki/Server-side) for each recipe as this will effect the transmission implementation.
 
 ## Implementing Transmission
-At this stage, you can start planning and implementing the transmission of statements to your Learning Locker instance via the [xAPI HTTP Interface](../http-xapi). However, there are a number of things listed below that you should consider before you begin.
+At this stage, you can start planning and implementing the transmission of statements to your Learning Locker instance via the [xAPI HTTP Interface](../http-xapi-statements). However, there are a number of things listed below that you should consider before you begin.
 
 - [Batching Statements](#batching-statements)
 - [Handling Sending Failures](#handling-sending-failures)
