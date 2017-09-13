@@ -34,7 +34,7 @@ If you can't find an existing recipe, don't worry, it's easy to create your own 
 - Try to select an appropriate [verb from the Tin Can Registry](https://registry.tincanapi.com/#home/verbs) before creating your own.
 - Try to select an appropriate [activity type from the Tin Can Registry](https://registry.tincanapi.com/#home/activityTypes) before creating your own.
 - Only include one language in your languages maps. Preferably this should use the language of the user.
-- You should set a [timestamp](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Data.md#timestamp), otherwise the LRS will generate one that uses the time the statement was stored instead of the time an experience occurred, which is inaccurate for analysis.
+- You should set a [timestamp](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Data.md#timestamp) with the correct time zone, otherwise the LRS will generate one that uses the time the statement was stored instead of the time an experience occurred, which is inaccurate for analysis.
 - Your verb and object identifiers should preferably resolve to a JSON representation of the verb or object.
 - The [statement context](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Data.md#context) should contain some minimal debugging information in the [extensions](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Data.md#miscext). For example, you might define the version of your statement transmission tool and platform.
 
