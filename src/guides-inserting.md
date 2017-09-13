@@ -2,11 +2,8 @@
 ---
 
 # Inserting Statements Guide
-To quickly try out inserting statements into your Learning Locker instance you can use Postman. Postman is a tool for creating and sending HTTP requests. You can [download and install Postman via their website](https://www.getpostman.com/).
+To quickly try out inserting statements into your Learning Locker instance you can use Postman. Postman is a tool for creating and sending HTTP requests. You can [download and install Postman via their website](https://www.getpostman.com/). Once you've installed Postman, you can watch the video below and check out the [documentation for our xAPI HTTP Interface](../http-xapi-statements).
 
-TODO - Discuss getting client credentials.
-TODO - Link to xAPI Docs.
-TODO - Screenshot of Postman with request.
 TODO - Video
 
 Before you start designing and inserting your own statements in production, you should consider using [tools that already transmit xAPI statements](#). If you can't use any of these existing tools, there are a number of processes and best practices that you can follow to fall into the pit of success when designing and transmitting your own statements.
@@ -37,7 +34,7 @@ If you can't find an existing recipe, don't worry, it's easy to create your own 
 - Try to select an appropriate [verb from the Tin Can Registry](https://registry.tincanapi.com/#home/verbs) before creating your own.
 - Try to select an appropriate [activity type from the Tin Can Registry](https://registry.tincanapi.com/#home/activityTypes) before creating your own.
 - Only include one language in your languages maps. Preferably this should use the language of the user.
-- You should set a [timestamp](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Data.md#timestamp), otherwise the LRS will generate one that uses the time the statement was stored instead of the time an experience occurred, which is inaccurate for analysis.
+- You should set a [timestamp](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Data.md#timestamp) with the correct time zone, otherwise the LRS will generate one that uses the time the statement was stored instead of the time an experience occurred, which is inaccurate for analysis.
 - Your verb and object identifiers should preferably resolve to a JSON representation of the verb or object.
 - The [statement context](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Data.md#context) should contain some minimal debugging information in the [extensions](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Data.md#miscext). For example, you might define the version of your statement transmission tool and platform.
 
@@ -95,7 +92,7 @@ Statement Property | Mapping
 At this stage, you should identify where the statement will be constructed and transmitted for each recipe that you identified earlier. You should consider whether you will be sending statements from the [client-side](https://en.wikipedia.org/wiki/Client-side) or the [server-side](https://en.wikipedia.org/wiki/Server-side) for each recipe as this will effect the transmission implementation.
 
 ## Implementing Transmission
-At this stage, you can start planning and implementing the transmission of statements to your Learning Locker instance via the [xAPI HTTP Interface](../http-xapi). However, there are a number of things listed below that you should consider before you begin.
+At this stage, you can start planning and implementing the transmission of statements to your Learning Locker instance via the [xAPI HTTP Interface](../http-xapi-statements). However, there are a number of things listed below that you should consider before you begin.
 
 - [Batching Statements](#batching-statements)
 - [Handling Sending Failures](#handling-sending-failures)
