@@ -20,16 +20,16 @@ Before you start designing and inserting your own statements in production, you 
   2. [Implement the transmission](#implementing-transmission) from the sources to the LRS.
 
 ## List Experiences
-At this stage you should figure out which experiences are important to track (e.g. logging in, completing a quiz, watching a video, etc) and what data you ideally need to capture for analysis (e.g. quiz score, video duration, etc). When creating this list, you may wish to consider the data required to:
+At this stage you should figure out which experiences are important to track (e.g. logging in, completing a quiz, watching a video, etc.) and what data you ideally need to capture for analysis (e.g. quiz score, video duration, etc.). When creating this list, you may wish to consider the data required to:
 
 - Answer your research questions.
 - Produce your stakeholder reports.
 - Adapt and improve the experiences of your users.
 
 ## Create Recipes
-At this stage you should create some example statements for each of the experiences you listed earlier ensuring that you include all of the data required for each expereince inside the statement.
+At this stage you should create some example statements for each of the experiences you listed earlier ensuring that you include all of the data required for each experience inside the statement.
 
-Before you create a recipe, consider reusing one of the [recipes in the Tin Can Registry](https://registry.tincanapi.com/#home/profiles) as this will hopefully save you some time, improve your compatability with existing systems, and ensure that you're using best practices. You may need to adapt these existing recipes to better meet your needs, as you may require additional data or not require some of the data they specify.
+Before you create a recipe, consider reusing one of the [recipes in the Tin Can Registry](https://registry.tincanapi.com/#home/profiles) as this will hopefully save you some time, improve your compatibility with existing systems, and ensure that you're using best practices. You may need to adapt these existing recipes to better meet your needs, as you may require additional data or not require some of the data they specify.
 
 If you can't find an existing recipe, don't worry, it's easy to create your own and we have some guidelines below.
 
@@ -92,7 +92,7 @@ Statement Property | Mapping
 ... | ...
 
 ## Identify Sources
-At this stage, you should identifiy where the statement will be constructed and transmitted for each recipe that you identified earlier. You should consider whether you will be sending statements from the [client-side](https://en.wikipedia.org/wiki/Client-side) or the [server-side](https://en.wikipedia.org/wiki/Server-side) for each recipe as this will effect the transmission implementation.
+At this stage, you should identify where the statement will be constructed and transmitted for each recipe that you identified earlier. You should consider whether you will be sending statements from the [client-side](https://en.wikipedia.org/wiki/Client-side) or the [server-side](https://en.wikipedia.org/wiki/Server-side) for each recipe as this will effect the transmission implementation.
 
 ## Implementing Transmission
 At this stage, you can start planning and implementing the transmission of statements to your Learning Locker instance via the [xAPI HTTP Interface](../http-xapi). However, there are a number of things listed below that you should consider before you begin.
@@ -105,7 +105,7 @@ At this stage, you can start planning and implementing the transmission of state
 If you're potentially sending a significant number of statements in a short period of time, you should consider sending statements to the LRS in batches to improve response times, reduce HTTP requests, and reduce the elapsed time spent sending statements.
 
 ### Handling Sending Failures
-If a statement fails to be sent you may want to consider implementing some retry strategies to resend statements that previously failed to be stored (normally because of downtime). We'd recommend that you send these failed statements in [batches](#batching-statements). If you're sending statements from the client-side, we'd recommend that you wait 5-60 seconds between retries and retry 3-5 times. If you're sending statements server-side, you may want to consider storing failed statements somewhere and using a Cron job to send them.
+If a statement fails to be sent you may want to consider implementing some retry strategies to resend statements that previously failed to be stored (normally because of downtime). We'd recommend that you send these failed statements in [batches](#batching-statements). If you're sending statements from the client-side, we'd recommend that you wait 5-60 seconds between retries and retry a maximum of 3-5 times. If you're sending statements server-side, you may want to consider storing failed statements somewhere and using a Cron job to send them.
 
 ### Sending Securely
-If you're sending statements from the server-side this shouldn't be an issue as the LRS credentials are not exposed. However, if you're sending statements from the client-side, you should consider finding a way to protect the LRS credentials so that they're not exposed to users, since they may try to read or write unwanted data from/to the LRS. We'd recommend using the [xAPI launch process](https://github.com/adlnet/xapi-launch) with Learning Locker's Launchr, you can email [hello@ht2labs.com](mailto:hello@ht2labs.com) for more information.
+If you're sending statements from the server-side this shouldn't be an issue as the LRS credentials are not exposed. However, if you're sending statements from the client-side, you should consider finding a way to protect the LRS credentials so that they're not exposed to tech-savvy users, since a malicious user may try to read sensitive data from, or write unwanted data to, the LRS. We'd recommend using the [xAPI launch process](https://github.com/adlnet/xapi-launch) with Learning Locker's Launchr, you can email [hello@ht2labs.com](mailto:hello@ht2labs.com) for more information about this.
