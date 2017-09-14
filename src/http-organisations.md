@@ -5,16 +5,18 @@
 
 Organisations are a logical grouping of statements.
 
-Can be accessed through the [connection API](/http-connection) and [restify api](/http-models). Accepted properties:
+Can be accessed through the [connection API](/http-connection) and [restify api](/http-models).
+
+### Schmea
 
 Name | Description
 --- | ---
 _id | The unique id of document.
 createdAt | When this document was created.
 updatedAt | When the document was last updated.
-name | The name of the orgaisation.
-parent | The _id of the parent oragisation.
-owner | The user which created this organisation.
+name | The name of the organisation.
+parent | The _id of the parent organisation.
+owner | The id of the [user](/http-users) which created this organisation.
 settings | [json settings for this organisation](#settings).
 
 ### Settings

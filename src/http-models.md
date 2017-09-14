@@ -31,7 +31,7 @@ Name | Description
 [Export](../http-exports#schema) | Template for exporting statements.
 [Organisation](../http-organisations#schema) | Container of clients and stores that a subset of users can access.
 [Persona](../http-personas#schema) | Group of xAPI agents relating to a single person.
-[Query](../http-querys#schema) | Saved filter for statements.
+[Query](../http-queries#schema) | Saved filter for statements.
 [Role](../http-roles#schema) | Group of permissions for accessing organisation data via users.
 [Store](../http-stores#schema) | Container for xAPI data (statements, documents, and attachments).
 [User](../http-users#schema) | Login details for accessing the UI.

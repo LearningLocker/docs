@@ -18,7 +18,7 @@ authority | A json encoded string of an agent object that will be added to any s
 scopes | An array of strings. permission scopes that this client has permission for.
 isTrusted | Whether this client is active. 
 organisation | The organisation this client is attached to.
-lrs_id | The id of the lrs that the system will put recieved xapi statements.
+lrs_id | The id of the [lrs](/lrs) that the system will put recieved xapi statements.
 
 # api
 
