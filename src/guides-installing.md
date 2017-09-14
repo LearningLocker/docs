@@ -4,11 +4,11 @@
 # Installing V2 Guide
 To install Learning Locker version 2, you can run one of the commands below **as the root user** on `CentOS`, `Fedora`, `Ubuntu`, and `Debian`. For more information, you can view the [deployment repository's documentation](https://github.com/LearningLocker/deploy).
 
-**Install with curl**
+**Install with cURL**
 ```sh
 curl -o- https://bit.ly/ll-v2-install | bash
 ```
-**Install with wget**:
+**Install with Wget**:
 ```sh
 wget -qO- https://bit.ly/ll-v2-install | bash
 ```
