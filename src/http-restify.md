@@ -1,6 +1,4 @@
---
---
+---
+---
 
 # Restify HTTP interface.
-
- 
