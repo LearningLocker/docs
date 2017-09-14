@@ -27,7 +27,7 @@ In the request above, the `pipeline` contains two stages, one to limit the route
 A response to this valid request will return a 200 response like the response below, where the JSON encoded body contains an array of records.
 
 ```http
-HTTP/1.1 204 NO CONTENT
+HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
 [{
@@ -104,7 +104,7 @@ For example, to filter statements by actor or verb, you can use the following ma
 }
 ```
 
-In the example above, `$or` and `$in` are operators, all operators start with a dollar (`$`). You can find a [list of the available operators in the Mongo documentation](https://docs.mongodb.com/manual/reference/operator/query/). The most common operators are the comparision operators and the logical operators listed in the table below.
+In the example above, `$or` and `$in` are operators, all operators start with a dollar (`$`). You can find a [list of the available operators in the Mongo documentation](https://docs.mongodb.com/manual/reference/operator/query/). The most common operators are the comparison operators and the logical operators listed in the table below.
 
 Operator | Description
 --- | ---
