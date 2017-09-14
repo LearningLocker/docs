@@ -5,7 +5,7 @@
 
 Organisations are a logical grouping of statements.
 
-Can be accessed through the [connection API](/http-connection) and [restify api](/http-restify). Accepted parameters:
+Can be accessed through the [connection API](/http-connection) and [restify api](/http-models). Accepted properties:
 
 Name | Description
 --- | ---
