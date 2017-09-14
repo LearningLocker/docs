@@ -8,7 +8,7 @@ The table below describes the routes that the HTTP interface provides. This HTTP
 GET http://www.example.org/api/lrs
 ```
 
-To access this interface, you must additionally supply your Basic Auth details with each request in the `Authorization` header. Your Basic Auth details can be found under `Settings > Clients`.
+To access this interface, you must additionally supply your Basic Auth details with each request in the `Authorization` header. Your Basic Auth details can be found under **Settings** > **Clients**.
 
 Method | Description
 --- | ---

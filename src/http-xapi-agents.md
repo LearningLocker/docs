@@ -2,7 +2,7 @@
 ---
 
 # xAPI Agents HTTP Interface
-The table below describes the routes that the HTTP interface provides, all of the URLs are relative to http://www.example.org/data/xAPI where http://www.example.org is the URL of your Learning Locker instance. To access this interface, you must additionally supply your Basic Auth details with each request in the `Authorization` header. Your Basic Auth details can be found under Settings > Clients. Go to the [xAPI HTTP interface documentation](../http-xapi) to see the rest of the xAPI routes.
+The table below describes the routes that the HTTP interface provides, all of the URLs are relative to http://www.example.org/data/xAPI where http://www.example.org is the URL of your Learning Locker instance. To access this interface, you must additionally supply your Basic Auth details with each request in the `Authorization` header. Your Basic Auth details can be found under **Settings** > **Clients**. Go to the [xAPI HTTP interface documentation](../http-xapi) to see the rest of the xAPI routes.
 
 Route | Description
 --- | ---
