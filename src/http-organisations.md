@@ -7,7 +7,7 @@ Organisations are a logical grouping of statements.
 
 Can be accessed through the [connection API](/http-connection) and [restify api](/http-models).
 
-### Schmea
+### Schema
 
 Name | Description
 --- | ---
@@ -16,7 +16,7 @@ createdAt | When this document was created.
 updatedAt | When the document was last updated.
 name | The name of the organisation.
 parent | The _id of the parent organisation.
-owner | The id of the [user](/http-users) which created this organisation.
+owner | The id of the [user](/http-users#schema) which created this organisation.
 settings | [json settings for this organisation](#settings).
 
 ### Settings
@@ -31,8 +31,8 @@ PASSWORD_REQUIRE_ALPHA | Whether the password requires characters.
 PASSWORD_MIN_LENGTH | The minimum password length.
 PASSWORD_HISTORY_TOTAL | How many previous passwords the user is not allowed to use
 PASSWORD_HISTORY_CHECK | Whether to check password history
-LOCKOUT_SECONDS | How long to lock out a user after LOCK_ATTEMPTS failed log in attempts.
-LOCKOUT_ATTEMPTS | How many log in tries a user as allowed before triggering the LOCKOUT_SECONDS timeout.
+LOCKOUT_SECONDS | How long to lock out a user after LOCK_ATTEMPTS failed login attempts.
+LOCKOUT_ATTEMPTS | How many login tries a user as allowed before triggering the LOCKOUT_SECONDS timeout.
 LOCKOUT_ENABLED | Whether the LOCKOUT functionality is enabled.
 
 

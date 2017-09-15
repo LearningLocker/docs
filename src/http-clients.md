@@ -3,22 +3,24 @@
 
 # Clients HTTP Interface
 
-Details of a cleints which will be accessing Learning Locker. It contains details for permissions, authenticating and storing the xapi request.
+Details of a clients which will be accessing Learning Locker. It contains details for permissions, authenticating and storing the xapi request.
 
-It is accessable through the [connection API](/http-connection) and [restify api](/http-models). Accepted properties:
+It is accessible through the [connection API](/http-connection) and [restify api](/http-models).
+
+### Schema
 
 Name | Description
 --- | ---
 _id | The unique id of document.
 createdAt | When this document was created.
 updatedAt | When this document was last updated.
-title | String. The title of the cleint.
+title | String. The title of the client.
 api | The client [basic auth](https://en.wikipedia.org/wiki/Basic_access_authentication) details. [See api](#api).
 authority | A json encoded string of an agent object that will be added to any statements the client pushes statement model. [See authority](#authority).
-scopes | An array of strings. permission scopes that this client has permission for.
+scopes | An array of strings. permission [scopes](/http-roles#scopes) that this client has permission for.
 isTrusted | Whether this client is active. 
-organisation | The organisation this client is attached to.
-lrs_id | The id of the [lrs](/lrs) that the system will put recieved xapi statements.
+organisation | The [organisation](/http-organisations#schema) this client is attached to.
+lrs_id | The id of the [store](/http-stores#schema) that the system will put recieved xapi statements.
 
 # api
 

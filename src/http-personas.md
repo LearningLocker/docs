@@ -15,12 +15,12 @@ _id | The id of the persona.
 name | The display name of this persona.
 createdAt | When this persona was last created.
 updatedAt | When this persona was last updated.
-organisation | The id of the [organisation](#http-organisations) that this persona belongs to.
+organisation | The id of the [organisation](/http-organisations#schema) that this persona belongs to.
 personaIdenfiers | An array of ids for [personaIdentifiers](#persona-identifiers).
 
 ### Persona identifiers
 
-personaidentifiers has properties: 
+Persona identifiers has properties: 
 
 Name | Description
 --- | ---
@@ -28,7 +28,7 @@ _id | The id of this persona identifier.
 createdAt | When this persona was last created.
 updatedAt | When this persona was last updated.
 organisation | The id of the [organisation](/http-organisations) that this persona identifier belongs to.
-uniqueIdentifier | The unqiue identifier. [See identifier](#identifier)
+uniqueIdentifier | The unique identifier. [See identifier](#identifier)
 identifiers | A list of identifiers. [See identifier](#identifier)
 persona | The id of the [persona](/http-persona) this identifier persona identifier belongs to.
 
