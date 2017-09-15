@@ -2,9 +2,7 @@
 ---
 
 # Inserting Statements Guide
-To quickly try out inserting statements into your Learning Locker instance you can use Postman. Postman is a tool for creating and sending HTTP requests. You can [download and install Postman via their website](https://www.getpostman.com/). Once you've installed Postman, you can watch the video below and check out the [documentation for our xAPI HTTP Interface](../http-xapi-statements).
-
-TODO - Video
+To quickly try out inserting statements into your Learning Locker instance you can use Postman. Postman is a tool for creating and sending HTTP requests. You can [download and install Postman via their website](https://www.getpostman.com/). Once you've installed Postman, you can check out the [documentation for our xAPI HTTP Interface](../http-xapi-statements).
 
 Before you start designing and inserting your own statements in production, you should consider using [tools that already transmit xAPI statements](#). If you can't use any of these existing tools, there are a number of processes and best practices that you can follow to fall into the pit of success when designing and transmitting your own statements.
 
