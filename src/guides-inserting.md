@@ -87,7 +87,9 @@ Statement Property | Mapping
 ... | ...
 
 ## Identify Sources
-At this stage, you should identify where the statement will be constructed and transmitted for each recipe that you identified earlier. You should consider whether you will be sending statements from the [client-side](https://en.wikipedia.org/wiki/Client-side) or the [server-side](https://en.wikipedia.org/wiki/Server-side) for each recipe as this will effect the transmission implementation.
+At this stage, you should identify where the statement will be constructed and transmitted for each recipe that you identified earlier.
+
+You should consider whether you will be sending statements from the [client-side](https://en.wikipedia.org/wiki/Client-side) or the [server-side](https://en.wikipedia.org/wiki/Server-side) for each recipe as this will effect the transmission implementation. Alternatively, you may be creating statements using an external service, so at this stage you may also wish to consider whether you will need to [poll](https://en.wikipedia.org/wiki/Polling_(computer_science)) that service for events or whether you can use [webhooks](https://en.wikipedia.org/wiki/Webhook) or an [event listener](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) (with something like [Redis](https://redis.io/topics/pubsub)).
 
 ## Implementing Transmission
 At this stage, you can start planning and implementing the transmission of statements to your Learning Locker instance via the [xAPI HTTP Interface](../http-xapi-statements). However, there are a number of things listed below that you should consider before you begin.
