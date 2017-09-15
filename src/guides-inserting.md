@@ -97,7 +97,7 @@ At this stage, you can start planning and implementing the transmission of state
 - [Sending Securely](#sending-securely)
 
 ### Batching Statements
-If you're potentially sending a significant number of statements in a short period of time, you should consider sending statements to the LRS in batches to improve response times, reduce HTTP requests, and reduce the elapsed time spent sending statements.
+If you're potentially sending a significant number of statements in a short period of time, you should consider sending statements to the LRS in batches to improve response times, reduce HTTP requests, and reduce the elapsed time spent sending statements. For example, on the server-side this may be implemented with the use of a statement log and a cron job (the [Moodle Logstore plugin](https://github.com/xAPI-vle/moodle-logstore_xapi/pull/26) is an example of this).
 
 ### Handling Sending Failures
 If a statement fails to be sent you may want to consider implementing some retry strategies to resend statements that previously failed to be stored (normally because of downtime). We'd recommend that you send these failed statements in [batches](#batching-statements). If you're sending statements from the client-side, we'd recommend that you wait 5-60 seconds between retries and retry a maximum of 3-5 times. If you're sending statements server-side, you may want to consider storing failed statements somewhere and using a Cron job to send them.
