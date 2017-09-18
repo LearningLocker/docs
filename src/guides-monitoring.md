@@ -1,7 +1,7 @@
 ---
 ---
 
-# Monitoring your LRS guide
+# Monitoring your LRS
 
 ## KeyMetrics
 
