@@ -5,7 +5,7 @@
 
 A user of learning locker.
 
-Can be accessed through the [connection API](/http-connection) and [restify api](/http-models).
+Can be accessed through the [Connection HTTP Interface](/http-connection) and [Models HTTP Interface](/http-models).
 
 ### Schema
 
@@ -18,7 +18,6 @@ organisations | A list of [organisation](/http-organisations#schema) ids that th
 organisationSettings | A list of [organisation settings](#organisation-settings) for this user
 imageUrl | A url of an image for this user. 
 googleId | The user's google id.
-password | The user's hashed password.
 ownerOrganisation | The id of the users owning [organisation](/http-organisations#schema)
 ownerOrganisationSettings | Duplication of [organisation settings](/http-organisations#schema).
 settings | An object of specific users settings. [see settings](#settings)

@@ -5,7 +5,7 @@
 
 Visualisation configuration.
 
-Can be accessed through the [connection API](/http-connection) and [restify api](/http-models).
+Can be accessed through the [Connection HTTP Interface](/http-connection) and [Models HTTP Interface](/http-models).
 
 ### Schema
 
@@ -27,7 +27,7 @@ axesxOperator | The x axes operator, eg uniqueCount.
 axesOperator | The visualisation operator, eg uniqueCount.
 axesquery | Query for this visualisation.
 axesxQuery | Query for the x axes.
-axesyQUery | Query for the y axes.
+axesyQuery | Query for the y axes.
 stacked | If this visualisation is stacked.
 chart | The type of visualisation.
 filter | An array of stringified [mongo filters](https://docs.mongodb.com/manual/reference/operator/aggregation/filter/).

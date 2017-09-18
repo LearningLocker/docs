@@ -5,7 +5,7 @@
 
 A store holds collections of statements. (may be referred to as lrs).
 
-Can be accessed through the [connection API](/http-connection) and [restify api](/http-models).
+Can be accessed through the [Connection HTTP Interface](/http-connection) and [Models HTTP Interface](/http-models).
 
 ### Schema
 

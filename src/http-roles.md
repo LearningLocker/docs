@@ -5,7 +5,7 @@
 
 Roles contain a set of permissions, of which then users can be assigned.
 
-Can be accessed through the [connection API](/http-connection) and [restify api](/http-models). 
+Can be accessed through the [Connection HTTP Interface](/http-connection) and [Models HTTP Interface](/http-models). 
 
 ### Schema
 
@@ -64,7 +64,6 @@ A scope is a specific permission. Available scopes:
 Scope | Sub Scope | Description
 --- | --- | ---
 ALL | | all.
-STUDENT_APP | | student_app.
 TRIBAL_INSIGHT | | tribal_insight.
 LAP | | lap.
 SSP | | ssp.
@@ -85,7 +84,6 @@ XAPI_SCOPES | statements/read/mine | Read my statements.
 XAPI_SCOPES | state | Access state.
 XAPI_SCOPES | profile | Access profiles.
 UDD_SCOPES | udd/read | Read all.
-UDD_SCOPES | student_app | Student App.
 UDD_SCOPES | tribal_insight | Tribal Insight.
 UDD_SCOPES | lap | Lap.
 UDD_SCOPES | ssp | Ssp.

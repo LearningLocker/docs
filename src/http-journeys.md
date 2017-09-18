@@ -5,7 +5,7 @@
 
 A visualisation of an actor/person's progress through a journey.
 
-Can be accessed through the [connection API](/http-connection) and [restify api](/http-models).
+Can be accessed through the [Connection HTTP Interface](/http-connection) and [Models HTTP Interface](/http-models).
 
 ### Schema
 
@@ -18,8 +18,14 @@ updatedAt | When this journey was last updated.
 isActive | If this journey is active.
 organisation | The id of the [organisation](/http-organisations#schema) this journey belongs to.
 sources | An array of [stores](/http-stores#schema) that this journey applies to.
-waypoints | An array of of waypoints for this journey. [See waypoints](#waypoints)
+waypoints | An array of waypoints for this journey. [See waypoints](#waypoints)
 outcomes | An array of outcomes for this journey. [See outcomes](#outcomes)
+isSequential | If this journey is sequential.
+isRepeatable | If this journey is repeatable.
+owner | The id of the [user](/http-users#schema) who created this journey.
+trackBy | either 'actor', 'person'.
+recalculateStatus | Progress in calculating this journey. [See recalculate status](#recalculate-status).
+isPublic | If false then this visualisation is only available to the owner and users with [org/all/journey/view scope](/http-roles/#organisation-scopes), otherwise it's available to everyone in the organisation with permission.
 
 ### Waypoints
 
@@ -27,17 +33,12 @@ An array of points with properties:
 
 Name | Description
 --- | ---
+_id | the id of this waypoint.
 description | Name of this waypoint.
 isActive | If this waypoint is active.
-conditions | A stringified json [mongo query](https://docs.mongodb.com/manual/tutorial/query-documents/) of when this waypoint has been reached.
+conditions | A stringified JSON [mongo query](https://docs.mongodb.com/manual/tutorial/query-documents/) of when this waypoint has been reached.
 count | The number of times that the condition must be met.
 order | The order of this waypoint.
-isSequential | If this journey is sequential.
-isRepeatable | If this journey is repeatable.
-owner | The id of the [user](/http-users#schema) who created this journey.
-trackBy | either 'actor', 'person'.
-recalculateStatus | Progress in calculating this journey. [See recalculate status](#recalculate-status).
-isPublic | If false then this visualisation is only available to the owner and users with [org/all/journey/view scope](/http-roles/#organisation-scopes), otherwise it's available to everyone in the organisation with permission.
 
 ### Outcomes
 

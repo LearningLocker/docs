@@ -5,7 +5,7 @@
 
 Details of dashboards.
 
-It is accessible through the [connection API](/http-connection) and [restify api](/http-models).
+It is accessible through the [Connection HTTP Interface](/http-connection) and [Models HTTP Interface](/http-models).
 
 ### Schema
 
@@ -19,7 +19,7 @@ widgets | An array of the widgets on this dashboard. See [widgets](#widgets).
 organisation | Id of the [organisation](/http-organisations#schema) this dashboard belongs to.
 owner | Id of the [user](/http-users#schema) who created this dashboard
 visibility | NOWHERE, ANYWHERE, VALID_DOMAINS. The scope of where this dashboard is externally visible.
-validDomains | If visibility is VALID_DOMAINS, A string of domains which can view this dashboard.
+validDomains | If visibility is VALID_DOMAINS, a string of domains which can view this dashboard.
 isPublic | If false then this dashboard is only available to the owner and users with [org/all/dashboard/view scope](/http-roles/#organisation-scopes), otherwise it's available to everyone in the organisation with permission. This is unrelated to visibility.
 
 ### Widgets

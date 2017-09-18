@@ -5,7 +5,7 @@
 
 Organisations are a logical grouping of statements.
 
-Can be accessed through the [connection API](/http-connection) and [restify api](/http-models).
+Can be accessed through the [Connection HTTP Interface](/http-connection) and [Models HTTP Interface](/http-models).
 
 ### Schema
 
@@ -17,7 +17,7 @@ updatedAt | When the document was last updated.
 name | The name of the organisation.
 parent | The _id of the parent organisation.
 owner | The id of the [user](/http-users#schema) which created this organisation.
-settings | [json settings for this organisation](#settings).
+settings | [JSON settings for this organisation](#settings).
 
 ### Settings
 
