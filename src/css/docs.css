@@ -108,7 +108,7 @@ blockquote strong {
   position: relative;
   display: inline-block;
   padding: 18px;
-  font-weight: 500;
+  font-weight: 600;
   color: #696969;
 }
 .docs-nav-item:hover,
