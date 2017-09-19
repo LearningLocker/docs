@@ -9,11 +9,16 @@ If you have installed Learning Locker using the recomended build script, then th
 
 Whilst this tool can be used to monitor the running processes from within each server running LL (refer to [the documentation](http://pm2.keymetrics.io/docs/usage/monitoring/)), it can also be setup to send performance metrics to the [Key Metrics](http://docs.keymetrics.io/) platform (costs may apply).
 
+![PM2 Monitoring](../images/pm2-monit.jpg "PM2 Monitoring")
+
+
 ## Logs
 
 ### Local
 
 By default logs are captured by pm2 and stored locally on each instance as defined in the pm2 process file  ([pm2/all.json.dist](https://github.com/LearningLocker/learninglocker_v2/blob/master/pm2/all.json.dist)). Errors and stdanrd output are separated and can be viewed by running `pm2 logs` from within your instance. By default they are stored in `/var/log/learninglocker/` and are rotated using the [`pm2-logrotate`](https://github.com/pm2-hive/pm2-logrotate) module.
+
+![PM2 Logs](../images/pm2-logs.jpg "PM2 Logs")
 
 ### AWS Cloudwatch
 Learning Locker v2 comes with the ability to push your logs to AWS Cloudwatch. To enable this, configure the relevant part of the `.env` files:
@@ -34,6 +39,8 @@ WINSTON_CLOUDWATCH_REGION=
 ```
 
 Please note that the AWS credentials must have the required permissions to create and push to log streams/groups.
+
+![Cloudwatch Logs](../images/cloudwatch-logs.jpg "Cloudwatch Logs")
 
 ### Other logging
 
@@ -57,6 +64,8 @@ NEWRELIC_API_NAME=
 NEWRELIC_UI_NAME=
 ```
 
+![New Relic](../images/newrelic.jpg "New Relic")
+
 ## Others
 
-Other Node monitoring solutions typically need to be initialised at the entry file of the application.
+Other Node monitoring solutions are available but would need to be added manually to the script or web server.
