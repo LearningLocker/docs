@@ -16,7 +16,7 @@ Whilst this tool can be used to monitor the running processes from within each s
 
 ### Local
 
-By default logs are captured by pm2 and stored locally on each instance as defined in the pm2 process file  ([pm2/all.json.dist](https://github.com/LearningLocker/learninglocker_v2/blob/master/pm2/all.json.dist)). Errors and stdanrd output are separated and can be viewed by running `pm2 logs` from within your instance. By default they are stored in `/var/log/learninglocker/` and are rotated using the [`pm2-logrotate`](https://github.com/pm2-hive/pm2-logrotate) module.
+By default logs are captured by pm2 and stored locally on each instance as defined in the pm2 process file  ([pm2/all.json.dist](https://github.com/LearningLocker/learninglocker/blob/master/pm2/all.json.dist)). Errors and stdanrd output are separated and can be viewed by running `pm2 logs` from within your instance. By default they are stored in `/var/log/learninglocker/` and are rotated using the [`pm2-logrotate`](https://github.com/pm2-hive/pm2-logrotate) module.
 
 ![PM2 Logs](../images/pm2-logs.jpg "PM2 Logs")
 
