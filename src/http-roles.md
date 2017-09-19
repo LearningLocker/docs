@@ -64,9 +64,6 @@ A scope is a specific permission. Available scopes:
 Scope | Sub Scope | Description
 --- | --- | ---
 ALL | | all.
-TRIBAL_INSIGHT | | tribal_insight.
-LAP | | lap.
-SSP | | ssp.
 OPENDASH | | opendash.
 UDD_READ | | udd/read.
 XAPI_ALL | | xapi/all.
@@ -83,11 +80,6 @@ XAPI_SCOPES | statements/write | Write statements (must be used with a read scop
 XAPI_SCOPES | statements/read/mine | Read my statements.
 XAPI_SCOPES | state | Access state.
 XAPI_SCOPES | profile | Access profiles.
-UDD_SCOPES | udd/read | Read all.
-UDD_SCOPES | tribal_insight | Tribal Insight.
-UDD_SCOPES | lap | Lap.
-UDD_SCOPES | ssp | Ssp.
-UDD_SCOPES | opendash | Opendash.
 API_SCOPES | all | All.
 CLIENT_SCOPES | all | All.
 CLIENT_SCOPES | xapi/all | All.
@@ -98,10 +90,6 @@ CLIENT_SCOPES | statements/read/mine | Read my statements.
 CLIENT_SCOPES | state | Access state.
 CLIENT_SCOPES | profile | Access profiles.
 CLIENT_SCOPES | udd/read | Read all.
-CLIENT_SCOPES | student_app | Student App.
-CLIENT_SCOPES | tribal_insight | Tribal Insight.
-CLIENT_SCOPES | lap | Lap.
-CLIENT_SCOPES | ssp | Ssp.
 CLIENT_SCOPES | opendash | Opendash.
 SITE_ADMIN | | site_admin.
 SITE_SCOPES | site_admin | Site Administrator.

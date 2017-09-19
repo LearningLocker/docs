@@ -50,5 +50,5 @@ One and only one of mbox, mbox_sha1, openid, Account should be provided
 
 Name | Description
 --- | ---
-name | Name of the account.
+name | The unique id or name used to log into the account.
 homePage | The url of the home page.
