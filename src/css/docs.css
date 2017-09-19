@@ -98,6 +98,11 @@ blockquote strong {
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 }
 
+.docs-masthead img {
+  height: 48px;
+  width: 200px;
+}
+
 /* Nav links */
 .docs-nav-item {
   position: relative;
