@@ -5,7 +5,7 @@
 
 Roles contain a set of permissions, of which then users can be assigned.
 
-Can be accessed through the [Connection HTTP Interface](/http-connection) and [Models HTTP Interface](/http-models). 
+Can be accessed through the [Connection HTTP Interface](../http-connection) and [Models HTTP Interface](../http-models). 
 
 ### Schema
 
@@ -16,8 +16,8 @@ createdAt | When this role was created.
 updatedAt | When this role was last updated.
 title | The name of this role.
 description | The description of this role.
-owner_id | The id of the [user](/http-users#schema) who created this role.
-organisation | The id of the [organisation](/http-organisations#schema) this role is in.
+owner_id | The id of the [user](../http-users#schema) who created this role.
+organisation | The id of the [organisation](../http-organisations#schema) this role is in.
 scopes | A list of [organisation scopes](#organisation-scopes) of this role.
 
 ### Organisation Scopes

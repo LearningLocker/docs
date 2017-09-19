@@ -5,7 +5,7 @@
 
 Visualisation configuration.
 
-Can be accessed through the [Connection HTTP Interface](/http-connection) and [Models HTTP Interface](/http-models).
+Can be accessed through the [Connection HTTP Interface](../http-connection) and [Models HTTP Interface](../http-models).
 
 ### Schema
 
@@ -31,11 +31,11 @@ axesyQuery | Query for the y axes.
 stacked | If this visualisation is stacked.
 chart | The type of visualisation.
 filter | An array of stringified [mongo filters](https://docs.mongodb.com/manual/reference/operator/aggregation/filter/).
-journey | The [journey's](/http-journeys#schema) id if this visualisation is a journey.
-organisation | The [organisation](/http-organisations#schema) this visualisation belongs to.
-owner | The id of the [user](/http-users#schema) who created this visualisation.
+journey | The [journey's](../http-journeys#schema) id if this visualisation is a journey.
+organisation | The [organisation](../http-organisations#schema) this visualisation belongs to.
+owner | The id of the [user](../http-users#schema) who created this visualisation.
 previewPeriod | The time range which is shown in this visualisation.
-isPublic | If false then this visualisation is only available to the owner and users with [org/all/visualisation/view scope](/http-roles/#organisation-scopes), otherwise it's available to everyone in the organisation with permission.
+isPublic | If false then this visualisation is only available to the owner and users with [org/all/visualisation/view scope](../http-roles/#organisation-scopes), otherwise it's available to everyone in the organisation with permission.
 
 
 

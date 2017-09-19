@@ -5,7 +5,7 @@
 
 A visualisation of an actor/person's progress through a journey.
 
-Can be accessed through the [Connection HTTP Interface](/http-connection) and [Models HTTP Interface](/http-models).
+Can be accessed through the [Connection HTTP Interface](../http-connection) and [Models HTTP Interface](../http-models).
 
 ### Schema
 
@@ -16,16 +16,16 @@ description | The name of the journey.
 createdAt | When this journey was created.
 updatedAt | When this journey was last updated.
 isActive | If this journey is active.
-organisation | The id of the [organisation](/http-organisations#schema) this journey belongs to.
-sources | An array of [stores](/http-stores#schema) that this journey applies to.
+organisation | The id of the [organisation](../http-organisations#schema) this journey belongs to.
+sources | An array of [stores](../http-stores#schema) that this journey applies to.
 waypoints | An array of waypoints for this journey. [See waypoints](#waypoints)
 outcomes | An array of outcomes for this journey. [See outcomes](#outcomes)
 isSequential | If this journey is sequential.
 isRepeatable | If this journey is repeatable.
-owner | The id of the [user](/http-users#schema) who created this journey.
+owner | The id of the [user](../http-users#schema) who created this journey.
 trackBy | either 'actor', 'person'.
 recalculateStatus | Progress in calculating this journey. [See recalculate status](#recalculate-status).
-isPublic | If false then this visualisation is only available to the owner and users with [org/all/journey/view scope](/http-roles/#organisation-scopes), otherwise it's available to everyone in the organisation with permission.
+isPublic | If false then this visualisation is only available to the owner and users with [org/all/journey/view scope](../http-roles/#organisation-scopes), otherwise it's available to everyone in the organisation with permission.
 
 ### Waypoints
 
