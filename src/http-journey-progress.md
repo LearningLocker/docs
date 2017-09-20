@@ -38,7 +38,7 @@ An array of completed waypoints.
 
 Name | Type | Description
 --- | --- | ---
-waypoints | object | An object of [completed waypoints](#completed-waypoint) which whose key is the waypoint id.
+waypoints | object | An object of [completed waypoints](#completed-waypoint) whose key are the waypoint ids.
 completedAt | Timestamp | When this waypoint was completed.
 isCompleted | boolean | If this journey has been completed. 
 
@@ -130,4 +130,6 @@ timestamp | Timestamp | When this statement was added.
       "completedAt":"2017-09-20T09:56:02.443Z",
       "isCompleted":true
     }
+  ]
+}
 ```
