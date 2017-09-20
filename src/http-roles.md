@@ -56,47 +56,6 @@ org/all/client/manage |
 org/all/role/manage |
 org/all/organisation/manage |
 
-
-### Scopes
-
-A scope is a specific permission. Available scopes: 
-
-Scope | Sub Scope | Description
---- | --- | ---
-ALL | | all.
-OPENDASH | | opendash.
-UDD_READ | | udd/read.
-XAPI_ALL | | xapi/all.
-XAPI_READ | | xapi/read.
-XAPI_STATEMENTS_READ | | statements/read.
-XAPI_STATEMENTS_WRITE | | statements/write.
-XAPI_STATEMENTS_READ_MINE | | statements/read/mine.
-XAPI_STATE_ALL | | state.
-XAPI_PROFILE_ALL | | profile.
-XAPI_SCOPES | xapi/all | All.
-XAPI_SCOPES | xapi/read | Read all.
-XAPI_SCOPES | statements/read | Read all statements.
-XAPI_SCOPES | statements/write | Write statements (must be used with a read scope).
-XAPI_SCOPES | statements/read/mine | Read my statements.
-XAPI_SCOPES | state | Access state.
-XAPI_SCOPES | profile | Access profiles.
-API_SCOPES | all | All.
-CLIENT_SCOPES | all | All.
-CLIENT_SCOPES | xapi/all | All.
-CLIENT_SCOPES | xapi/read | Read all.
-CLIENT_SCOPES | statements/read | Read all statements.
-CLIENT_SCOPES | statements/write | Write statements (must be used with a read scope).
-CLIENT_SCOPES | statements/read/mine | Read my statements.
-CLIENT_SCOPES | state | Access state.
-CLIENT_SCOPES | profile | Access profiles.
-CLIENT_SCOPES | udd/read | Read all.
-CLIENT_SCOPES | opendash | Opendash.
-SITE_ADMIN | | site_admin.
-SITE_SCOPES | site_admin | Site Administrator.
-OBSERVER | | observer.
-USER_SCOPES | all | Organisation Administrator.
-USER_SCOPES | observer | Organisation Observer.
-
 ### Examples
 
 ```json

@@ -18,7 +18,7 @@ updatedAt | When this document was last updated.
 title | String. The title of the client.
 api | The client [basic auth](https://en.wikipedia.org/wiki/Basic_access_authentication) details. [See api](#api).
 authority | A JSON encoded string of an agent object that will be set on any statements that the client pushes. [See authority](#authority).
-scopes | An array of strings. Permission [scopes](../http-roles#scopes) that this client has permission for.
+scopes | An array of strings. Permission [scopes](#client-scopes) that this client has permission for.
 isTrusted | Whether this client is enabled. 
 organisation | The [organisation](../http-organisations#schema) this client is attached to.
 lrs_id | The id of the [store](../http-stores#schema) that the system will put received xapi statements.
@@ -52,6 +52,22 @@ Name | Description
 --- | ---
 name | The unique id or name used to log into the account.
 homePage | The url of the home page.
+
+### Client Scopes
+
+A scope is a specific permission. Available scopes: 
+
+Scope | Value | Description
+--- | --- | ---
+all | Permission to read and write everything.
+all/read | Permission to read everything.
+xapi/all | Permission to read and write to the xAPI.
+xapi/read | Read all.
+statements/read | Read all statements.
+statements/write | Write statements (must be used with a read scope).
+statements/read/mine | Read my statements.
+state | Access state.
+profile | Access profiles.
 
 ### Example Model
 
