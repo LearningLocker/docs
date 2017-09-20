@@ -84,7 +84,7 @@ _Variables in italics are required for debugging or development only_
 Name | Description | Example | Default
 --- | --- | --- | ---
 **EXPRESS_PORT** | The port that the UI is attached to | `8081` | `8081`
-__MODELS_REPO__ | Development setting to pick database type | `mongo` | `mongo`
+_MODELS_REPO_ | Development setting to pick database type (`mongo` or `memory`). Memory only to be used for testing | `mongo` | `mongo`
 **MONGO_URL** | The [full Mongo connection string](https://docs.mongodb.com/manual/reference/connection-string/). This can include multiple hosts for replicas, and extra configuration values passed through query strings. | `mongodb://localhost:27017/learninglocker_v2`
 **REDIS_URL** | The full URL of the Redis instance including port, database number and authentication if required | `redis://127.0.0.1:6379/0` | `redis://127.0.0.1:6379/0`
 REDIS_PREFIX | A prefix to append to all keys within the Redis database | `learninglocker` | -
