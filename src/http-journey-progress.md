@@ -3,7 +3,7 @@
 
 # Journey Progress HTTP Interface
 
-A an actor/person's progress through a journey.
+An actor/person's progress through a journey.
 
 It is accessible through the following HTTP interfaces:
 
