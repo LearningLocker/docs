@@ -60,9 +60,7 @@ Name | Type | Description
 statement | Mongo ID | The id of a statement.
 timestamp | Timestamp | When this statement was added.
 
-### Example
-
-An example GET request object.
+## Example GET data
 
 ```
 {  
