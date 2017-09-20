@@ -39,7 +39,7 @@ w | The width of this widget.
 
 ```json
 {
-	"_id" : "5903057d532c9c6a48248d6d",
+	"_id" : "59c2371c16bc715f83c3450c",
 	"createdAt" : "2017-04-28T09:03:57.332Z",
 	"updatedAt" : "2017-05-18T12:55:24.430Z",
 	"owner" : "59c2371c16bc715f83c34509",
