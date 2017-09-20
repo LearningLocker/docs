@@ -96,3 +96,19 @@ SITE_SCOPES | site_admin | Site Administrator.
 OBSERVER | | observer.
 USER_SCOPES | all | Organisation Administrator.
 USER_SCOPES | observer | Organisation Observer.
+
+### Examples
+
+```json
+{
+	"_id" : "59c2371c16bc715f83c34501",
+	"createdAt" : "2017-09-19T12:58:58.884Z",
+	"updatedAt" : "2017-09-19T12:58:58.884Z",
+	"title" : "Example Role",
+	"owner_id" : "59c2371c16bc715f83c34502",
+	"organisation" : "59c2371c16bc715f83c34503",
+	"scopes" : [
+		"all"
+	]
+}
+```
