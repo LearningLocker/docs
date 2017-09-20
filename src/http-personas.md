@@ -41,4 +41,17 @@ Name | Description
 key | The key of the identifier.
 value | The value of the identifier.
 
+### Example Model
 
+```json
+{
+	"_id" : "59c1219936229d4ce96346d5",
+	"createdAt" : "2017-09-19T13:54:33.596Z",
+	"updatedAt" : "2017-09-19T13:54:33.610Z",
+	"organisation" : "59c1148ab12f044cd22cb329",
+	"name" : "Xander Bogaerts",
+	"personaIdentifiers" : [
+		"59c1219909a77ab6202983e3"
+	]
+}
+```
