@@ -31,6 +31,7 @@ Name | Description
 [Download](../http-downloads#schema) | Record of downloaded exports.
 [Export](../http-exports#schema) | Template for exporting statements.
 [Journey](../http-journeys#schema) | Journeys visualisation.
+[Journey Progress](../http-journey-progress#schema) | Journey progress.
 [Organisation](../http-organisations#schema) | Container of clients and stores that a subset of users can access.
 [Persona](../http-personas#schema) | Group of xAPI agents relating to a single person.
 [Query](../http-queries#schema) | Saved filter for statements.
