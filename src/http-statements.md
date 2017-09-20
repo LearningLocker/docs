@@ -3,13 +3,16 @@
 
 # Statements HTTP Interface
 
-Statements hold all of the xAPI records that have been inserted into the database via the xAPI `statements/` interface.
+Statements hold all of the xAPI records that have been inserted into the database via the [xAPI Statements HTTP interface](../http-xapi-statements).
 
-Whilt statements _can_ be inserted via the REST API, this is not recommended as it bypasses all validation, reference and void checking, leading to invalid xAPI records.
+It is accessible through the following HTTP interfaces:
 
-Statements can be deleted by the REST API on a statement by statement basis, but again **this is not recomended**.
+- [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/statement.
+- [Models HTTP Interface](../http-models) via http://www.example.org/api/statement.
 
-This model can be accessed through the [Connection HTTP Interface](../http-connection) and [Models HTTP Interface](../http-models).
+Whilst statements _can_ be inserted via the Models HTTP interface, this is not recommended as it bypasses all validation, reference and void checking, leading to invalid xAPI records.
+
+Statements can be deleted by the REST API (on a statement by statement basis, but again **this is not recomended.**
 
 ### Schema
 
@@ -43,7 +46,7 @@ Please refer to the [Statement Properties](https://github.com/adlnet/xAPI-Spec/b
 This contains an array of any statements that are referenced as part of this statement structure.
 
 ### Example GET data
-```
+```json
 {
     "_id" : "111aaa1111a111111aa11111",
     "hasGeneratedId" : false,

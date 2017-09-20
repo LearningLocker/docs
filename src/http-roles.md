@@ -5,7 +5,10 @@
 
 Roles contain a set of permissions, of which then users can be assigned.
 
-Can be accessed through the [Connection HTTP Interface](../http-connection) and [Models HTTP Interface](../http-models). 
+It is accessible through the following HTTP interfaces:
+
+- [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/role.
+- [Models HTTP Interface](../http-models) via http://www.example.org/api/role.
 
 ### Schema
 
@@ -56,43 +59,18 @@ org/all/client/manage |
 org/all/role/manage |
 org/all/organisation/manage |
 
+### Examples
 
-### Scopes
-
-A scope is a specific permission. Available scopes: 
-
-Scope | Sub Scope | Description
---- | --- | ---
-ALL | | all.
-OPENDASH | | opendash.
-UDD_READ | | udd/read.
-XAPI_ALL | | xapi/all.
-XAPI_READ | | xapi/read.
-XAPI_STATEMENTS_READ | | statements/read.
-XAPI_STATEMENTS_WRITE | | statements/write.
-XAPI_STATEMENTS_READ_MINE | | statements/read/mine.
-XAPI_STATE_ALL | | state.
-XAPI_PROFILE_ALL | | profile.
-XAPI_SCOPES | xapi/all | All.
-XAPI_SCOPES | xapi/read | Read all.
-XAPI_SCOPES | statements/read | Read all statements.
-XAPI_SCOPES | statements/write | Write statements (must be used with a read scope).
-XAPI_SCOPES | statements/read/mine | Read my statements.
-XAPI_SCOPES | state | Access state.
-XAPI_SCOPES | profile | Access profiles.
-API_SCOPES | all | All.
-CLIENT_SCOPES | all | All.
-CLIENT_SCOPES | xapi/all | All.
-CLIENT_SCOPES | xapi/read | Read all.
-CLIENT_SCOPES | statements/read | Read all statements.
-CLIENT_SCOPES | statements/write | Write statements (must be used with a read scope).
-CLIENT_SCOPES | statements/read/mine | Read my statements.
-CLIENT_SCOPES | state | Access state.
-CLIENT_SCOPES | profile | Access profiles.
-CLIENT_SCOPES | udd/read | Read all.
-CLIENT_SCOPES | opendash | Opendash.
-SITE_ADMIN | | site_admin.
-SITE_SCOPES | site_admin | Site Administrator.
-OBSERVER | | observer.
-USER_SCOPES | all | Organisation Administrator.
-USER_SCOPES | observer | Organisation Observer.
+```json
+{
+	"_id" : "59c2371c16bc715f83c34501",
+	"createdAt" : "2017-09-19T12:58:58.884Z",
+	"updatedAt" : "2017-09-19T12:58:58.884Z",
+	"title" : "Example Role",
+	"owner_id" : "59c2371c16bc715f83c34502",
+	"organisation" : "59c2371c16bc715f83c34503",
+	"scopes" : [
+		"all"
+	]
+}
+```

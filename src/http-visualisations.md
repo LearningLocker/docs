@@ -5,7 +5,10 @@
 
 Visualisation configuration.
 
-Can be accessed through the [Connection HTTP Interface](../http-connection) and [Models HTTP Interface](../http-models).
+It is accessible through the following HTTP interfaces:
+
+- [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/visualisation.
+- [Models HTTP Interface](../http-models) via http://www.example.org/api/visualisation.
 
 ### Schema
 
@@ -37,6 +40,29 @@ owner | The id of the [user](../http-users#schema) who created this visualisatio
 previewPeriod | The time range which is shown in this visualisation.
 isPublic | If false then this visualisation is only available to the owner and users with [org/all/visualisation/view scope](../http-roles/#organisation-scopes), otherwise it's available to everyone in the organisation with permission.
 
+### Example Model
+
+```json
+{
+	"_id" : "59c1087dfd869741959c5701",
+	"createdAt" : "2017-09-19T13:13:09.312Z",
+	"updatedAt" : "2017-09-19T13:22:00.404Z",
+	"owner" : "59c1087dfd869741959c5702",
+	"axes" : "{}",
+	"organisation" : "59c1087dfd869741959c5703",
+	"isPublic" : false,
+	"previewPeriod" : "LAST_7_DAYS",
+	"filters" : [
+		"{\"color\":\"#1e8bc3\"}"
+	],
+	"chart" : "LINE",
+	"stacked" : true,
+	"axesoperator" : "uniqueCount",
+	"axesvalue" : "{\"optionKey\":\"statements\",\"searchString\":\"Statements\"}",
+	"type" : "COUNTER",
+	"description" : "Example Visualisation"
+}
+```
 
 
 

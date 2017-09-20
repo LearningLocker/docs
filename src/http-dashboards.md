@@ -5,7 +5,10 @@
 
 Details of dashboards.
 
-It is accessible through the [Connection HTTP Interface](../http-connection) and [Models HTTP Interface](../http-models).
+It is accessible through the following HTTP interfaces:
+
+- [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/dashboard.
+- [Models HTTP Interface](../http-models) via http://www.example.org/api/dashboard.
 
 ### Schema
 
@@ -35,4 +38,30 @@ y | The y position of this widget.
 h | The height of this widget.
 w | The width of this widget.
 
+### Example Model
 
+```json
+{
+	"_id" : "59c2371c16bc715f83c3450c",
+	"createdAt" : "2017-04-28T09:03:57.332Z",
+	"updatedAt" : "2017-05-18T12:55:24.430Z",
+	"owner" : "59c2371c16bc715f83c34509",
+	"title" : "Example Dashboard",
+	"organisation" : "59c2371c16bc715f83c34507",
+	"visibility" : "NOWHERE",
+	"widgets" : [
+		{
+			"title" : "Example Widget",
+			"_id" : "59c2371c16bc715f83c3450a",
+			"h" : 4,
+			"w" : 4,
+			"y" : 0,
+			"x" : 0,
+			"visualisation" : "59c2371c16bc715f83c3450b"
+		}
+	],
+	"filter" : "{}",
+	"public" : false,
+	"isPublic" : true
+}
+```
