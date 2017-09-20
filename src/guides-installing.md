@@ -43,4 +43,4 @@ By default the install script will copy the (.env.example) from [both](https://g
 
 It is likely you will wish to configure your application to connect to external databases, and whilst setup and configuration of these in beyond the scopes of this documentation, you will need to ensure that both `.env` files contain the same configuration values where appropriate.
 
-A full description of all configuration values is available in the [Configuration Overview](../overview-configuration)
+A full description of all configuration values in both repositories is available in the [Configuration Guide](../guides-configuring)
