@@ -49,7 +49,7 @@ Name | Type | Description
 --- | --- | ---
 waypoint | Mongo ID | The id of the waypoint
 order | Integer | The order of the waypoint
-statements | Array of [journey Progress Statements](#journey-progress-statements) | A reference to the statements
+statements | Array of [journey progress statements](#journey-progress-statements) | A reference to the statements
 
 ### Journey Progress Statements
 
