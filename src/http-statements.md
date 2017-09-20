@@ -12,7 +12,7 @@ It is accessible through the following HTTP interfaces:
 
 Whilst statements _can_ be inserted via the Models HTTP interface, this is not recommended as it bypasses all validation, reference and void checking, leading to invalid xAPI records.
 
-Statements can be deleted by the REST API (on a statement by statement basis, but again this is not recomended.
+Statements can be deleted by the REST API (on a statement by statement basis, but again **this is not recomended.**
 
 ### Schema
 
@@ -46,7 +46,7 @@ Please refer to the [Statement Properties](https://github.com/adlnet/xAPI-Spec/b
 This contains an array of any statements that are referenced as part of this statement structure.
 
 ### Example GET data
-```
+```json
 {
     "_id" : "111aaa1111a111111aa11111",
     "hasGeneratedId" : false,
