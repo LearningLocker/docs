@@ -88,13 +88,12 @@ __MODELS_REPO__ | Development setting to pick database type | `mongo` | `mongo`
 **MONGO_URL** | The [full Mongo connection string](https://docs.mongodb.com/manual/reference/connection-string/). This can include multiple hosts for replicas, and extra configuration values passed through query strings. | `mongodb://localhost:27017/learninglocker_v2`
 **REDIS_URL** | The full URL of the Redis instance including port, database number and authentication if required | `redis://127.0.0.1:6379/0` | `redis://127.0.0.1:6379/0`
 REDIS_PREFIX | A prefix to append to all keys within the Redis database | `learninglocker` | -
-REDIS_PREFIX | A prefix to append to all keys within the Redis database | `learninglocker` | -
+REDIS_PREFIX | A prefix to append to all keys within the Redis database | `learninglocker` | 'LEARNINGLOCKER'
 **STORAGE_REPO** | Define the storage method (`local` for local storage or `s3` for AWS S3 storage) | `local` | -
 FS_LOCAL_STORAGE_DIR | An absolute path to storage | `/custom/storage/dir` | Current working directory
 FS_S3_ACCESS_KEY_ID | If using the Amazon repo, an AWS Access Key with permissions to read and write to the specified S3 bucket | `12356789` | -
 FS_S3_SECRET_ACCESS_KEY | AWS Secret Access Key | `12356789` | -
 FS_S3_REGION | AWS Secret Access Key | `us-west-1` | -
-EXPRESS_MORGAN_DIRECTORY | API access logs - absolute directory to store logs | `/path/to/storage` | Current Working Directory + `/storage/accessLogs`
 WINSTON_CONSOLE_LEVEL | Minimum logging level (error\|warning\|info\|debug\|silly) | `info` | `info`
 **WINSTON_CLOUDWATCH_ENABLED** | Should logs be sent to AWS Cloudwatch?<br><br>[AWS credentials must be configured for Cloudwatch access](http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-identity-based-access-control-cwl.html) | `true` | `false`
 WINSTON_CLOUDWATCH_LOG_GROUP_NAME | The Cloudwatch Logs group name | `llv2` | `llv2`
