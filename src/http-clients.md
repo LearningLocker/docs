@@ -57,7 +57,7 @@ homePage | The url of the home page.
 
 A scope is a specific permission. Available scopes: 
 
-Scope | Value | Description
+Scope | Description
 --- | --- | ---
 all | Permission to read and write everything.
 all/read | Permission to read everything.
