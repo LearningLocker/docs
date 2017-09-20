@@ -51,7 +51,7 @@ We also install the xAPI Service here, inside the `xapi/` directory.
 
 ## Configuration & Environment Variables
 
-Each of these applications has thier own `.env`. These hold all the configurations that the applications require in order to run, from database settings to logging configuration.
+Each of these applications has their own `.env`. These hold all the configurations that the applications require in order to run, from database settings to logging configuration.
 
 By default the install script will copy the (.env.example) from [both](https://github.com/LearningLocker/learninglocker/blob/master/.env.example) repos [respectively](https://github.com/LearningLocker/xapi-service/blob/master/.env.example).
 
