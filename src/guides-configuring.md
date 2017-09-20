@@ -46,7 +46,7 @@ WINSTON_CLOUDWATCH_LOG_GROUP_NAME | The Cloudwatch Logs group name | `llv2` | `l
 WINSTON_CLOUDWATCH_LOG_STREAM_NAME | The Cloudwatch Logs stream name | `application` | The server's hostname
 WINSTON_CLOUDWATCH_ACCESS_KEY_ID | AWS Access Key with suitable priviliges | `12345678901` | -
 WINSTON_CLOUDWATCH_SECRET_ACCESS_KEY | AWS Secret Access Key | `12345678901` | -
-WINSTON_CLOUDWATCH_REGION** | The region the logs will be sent to | `us-west-1` | -
+WINSTON_CLOUDWATCH_REGION | The region the logs will be sent to | `us-west-1` | -
 **SMTP_HOST** | The SMTP mailbox host | `smtp.mailserver.com` | -
 **SMTP_PORT** | The SMTP port | `1234` | -
 **SMTP_SECURED** | Use SSL for SMTP? | `true` | -
@@ -54,11 +54,51 @@ WINSTON_CLOUDWATCH_REGION** | The region the logs will be sent to | `us-west-1` 
 **SMTP_PASS** | The SMTP password | `password` | -
 **QUEUE_PROVIDER** | Which queue provider should be used?<br><br>Options are `REDIS` or `SQS`<br><br>When using Redis, queues are held in the Redis database<br><br>When using SQS, queues are held and managed by the AWS Simple Queue Service | `SQS` | -
 QUEUE_NAMESPACE | A queue prefix for SQS | `example` | -
-AWS_SQS_ACCESS_KEY_ID | desc | `example` | -
+AWS_SQS_ACCESS_KEY_ID | An AWS Access Key ID with priviliges to read/write to SQS queue jobs | `12567890` | -
+AWS_SQS_SECRET_ACCESS_KEY | An AWS Secret Access Key for SQS | `example` | -
+AWS_SQS_DEFAULT_REGION | The AWS region for SQS | `us-west-1` | -
 GOOGLE_ENABLED | Enable OAuth via Google (Requires setup in the Google Developer Console) | `true` | `false`
 GOOGLE_CLIENT_ID | Google OAuth Client ID | `12456789` | -
 GOOGLE_CLIENT_SECRET | Google OAuth Client Secret | `12356789` | -
+**FS_REPO** | Define the storage method (`local` for local storage or `amazon` for AWS S3 storage) | `local` | -
+FS_SUBFOLDER | A subfolder for all uploads to live within | `storage` | `storage`
+FS_LOCAL_ENDPOINT | An absolute path to storage | `/custom/storage/dir` | Current working directory
+FS_AWS_S3_ACCESS_KEY_ID | If using the Amazon repo, an AWS Access Key with permissions to read and write to the specified S3 bucket | `12356789` | -
+FS_AWS_S3_SECRET_ACCESS_KEY | AWS Secret Access Key | `12356789` | -
+FS_AWS_S3_REGION | AWS Secret Access Key | `us-west-1` | -
+FS_AWS_S3_BUCKET | The S3 bucket name | `12356789` | -
+NEW_RELIC_LICENSE_KEY | A New Relic license key for monitoring the UI and API | `qwertyuiopsdfghjkl` | -
+NEWRELIC_API_NAME | Name for the API in New Relic | `12356789` | -
+NEWRELIC_UI_NAME | Name for the UI in New Relic | `12356789` | -
+CLAMSCAN_BINARY | Location of Clamscan binary if requiring anti-virus scans on uploaded files (e.g. images) | `/usr/bin/clamscan` | -
+
+## xAPI Service
+
+Please note that some of these variables are slightly different to their Application equivalents. Future updates will bring these inline with each other, with the eventual goal of allowing for a single `.env` file.
+
+**Variables in bold are required or strongly recommended**
+
+_Variables in italics are required for debugging or development only_
 
 
-_Work in progress_
-
+Name | Description | Example | Default
+--- | --- | --- | ---
+**EXPRESS_PORT** | The port that the UI is attached to | `8081` | `8081`
+__MODELS_REPO__ | Development setting to pick database type | `mongo` | `mongo`
+**MONGO_URL** | The [full Mongo connection string](https://docs.mongodb.com/manual/reference/connection-string/). This can include multiple hosts for replicas, and extra configuration values passed through query strings. | `mongodb://localhost:27017/learninglocker_v2`
+**REDIS_URL** | The full URL of the Redis instance including port, database number and authentication if required | `redis://127.0.0.1:6379/0` | `redis://127.0.0.1:6379/0`
+REDIS_PREFIX | A prefix to append to all keys within the Redis database | `learninglocker` | -
+REDIS_PREFIX | A prefix to append to all keys within the Redis database | `learninglocker` | -
+**STORAGE_REPO** | Define the storage method (`local` for local storage or `s3` for AWS S3 storage) | `local` | -
+FS_LOCAL_STORAGE_DIR | An absolute path to storage | `/custom/storage/dir` | Current working directory
+FS_S3_ACCESS_KEY_ID | If using the Amazon repo, an AWS Access Key with permissions to read and write to the specified S3 bucket | `12356789` | -
+FS_S3_SECRET_ACCESS_KEY | AWS Secret Access Key | `12356789` | -
+FS_S3_REGION | AWS Secret Access Key | `us-west-1` | -
+EXPRESS_MORGAN_DIRECTORY | API access logs - absolute directory to store logs | `/path/to/storage` | Current Working Directory + `/storage/accessLogs`
+WINSTON_CONSOLE_LEVEL | Minimum logging level (error\|warning\|info\|debug\|silly) | `info` | `info`
+**WINSTON_CLOUDWATCH_ENABLED** | Should logs be sent to AWS Cloudwatch?<br><br>[AWS credentials must be configured for Cloudwatch access](http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-identity-based-access-control-cwl.html) | `true` | `false`
+WINSTON_CLOUDWATCH_LOG_GROUP_NAME | The Cloudwatch Logs group name | `llv2` | `llv2`
+WINSTON_CLOUDWATCH_LOG_STREAM_NAME | The Cloudwatch Logs stream name | `application` | The server's hostname
+WINSTON_CLOUDWATCH_ACCESS_KEY_ID | AWS Access Key with suitable priviliges | `12345678901` | -
+WINSTON_CLOUDWATCH_SECRET_ACCESS_KEY | AWS Secret Access Key | `12345678901` | -
+WINSTON_CLOUDWATCH_REGION | The region the logs will be sent to | `us-west-1` | -
