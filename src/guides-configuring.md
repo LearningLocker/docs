@@ -37,7 +37,7 @@ AGGREGATION_CACHE_SECONDS | How many seconds are aggregation results cached  | `
 AGGREGATION_REFRESH_AT_SECONDS | Refresh aggregations when this close to expiry | `120` | `120`
 MAX_TIME_MS | [Max time aggregations can run for in milliseconds](https://docs.mongodb.com/manual/reference/operator/meta/maxTimeMS/) | `300` | `0` (no limit)
 MAX_SCAN | Maximum number of documents an aggregation can scan][(https://docs.mongodb.com/manual/reference/operator/meta/maxScan/) | `10000` | `0` (no limit)
-**LOG_MIN_LEVEL** | Minimum logging level (error|warning|info|debug|silly) | `debug` | `info`
+**LOG_MIN_LEVEL** | Minimum logging level (error\|warning\|info\|debug\|silly) | `debug` | `info`
 LOG_DIR | Relative dir to store API access logs | `logs` | `logs`
 _TEST_LOG_MIN_LEVEL_ | Logging level for tests | `silly` | -
 COLOR_LOGS | Should logs be output using ANSI color | `true` | -
@@ -56,5 +56,10 @@ WINSTON_CLOUDWATCH_REGION** | The region the logs will be sent to | `us-west-1` 
 QUEUE_NAMESPACE | A queue prefix for SQS | `example` | -
 AWS_SQS_ACCESS_KEY_ID | desc | `example` | -
 
+GOOGLE_ENABLED | Enable OAuth via Google (Requires setup in the Google Developer Console) | `true` | `false`
+GOOGLE_CLIENT_ID | Google OAuth Client ID | `12456789` | -
+GOOGLE_CLIENT_SECRET | Google OAuth Client Secret | `12356789` | -
+
 
 _Work in progress_
+
