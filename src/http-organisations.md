@@ -5,7 +5,10 @@
 
 Organisations are a logical grouping of statements.
 
-Can be accessed through the [Connection HTTP Interface](../http-connection) and [Models HTTP Interface](../http-models).
+It is accessible through the following HTTP interfaces:
+
+- [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/organisation.
+- [Models HTTP Interface](../http-models) via http://www.example.org/api/organisation.
 
 ### Schema
 

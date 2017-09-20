@@ -6,7 +6,10 @@
 
 Details of a clients which will be accessing Learning Locker. It contains details for permissions, authenticating and storing the xapi request.
 
-It is accessible through the [Connection HTTP Interface](../http-connection) and [Models HTTP Interface](../http-models).
+It is accessible through the following HTTP interfaces:
+
+- [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/client.
+- [Models HTTP Interface](../http-models) via http://www.example.org/api/client.
 
 ### Schema
 

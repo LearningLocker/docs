@@ -5,7 +5,10 @@
 
 Roles contain a set of permissions, of which then users can be assigned.
 
-Can be accessed through the [Connection HTTP Interface](../http-connection) and [Models HTTP Interface](../http-models). 
+It is accessible through the following HTTP interfaces:
+
+- [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/role.
+- [Models HTTP Interface](../http-models) via http://www.example.org/api/role.
 
 ### Schema
 

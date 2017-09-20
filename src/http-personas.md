@@ -5,7 +5,10 @@
 
 A persona, generated from xapi statements. 
 
-Can be accessed through the [Connection HTTP Interface](../http-connection) and [Models HTTP Interface](../http-models).
+It is accessible through the following HTTP interfaces:
+
+- [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/persona.
+- [Models HTTP Interface](../http-models) via http://www.example.org/api/persona.
 
 ### Schema
 
@@ -34,6 +37,10 @@ personaIdenfiers | An array of ids for [personaIdentifiers](#persona-identifiers
 ```
 
 ### Persona identifiers
+Persona Identifiers are also accessible through the following HTTP interfaces:
+
+- [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/personaidentifier.
+- [Models HTTP Interface](../http-models) via http://www.example.org/api/personaidentifier.
 
 Persona identifiers has properties: 
 
