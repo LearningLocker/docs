@@ -34,7 +34,4 @@ PASSWORD_HISTORY_CHECK | Whether to check password history
 LOCKOUT_SECONDS | How long to lock out a user after LOCK_ATTEMPTS failed login attempts.
 LOCKOUT_ATTEMPTS | How many login tries a user as allowed before triggering the LOCKOUT_SECONDS timeout.
 LOCKOUT_ENABLED | Whether the LOCKOUT functionality is enabled.
-
-
-
-
+`

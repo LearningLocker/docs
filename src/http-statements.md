@@ -7,7 +7,7 @@ Statements hold all of the xAPI records that have been inserted into the databas
 
 Whilt statements _can_ be inserted via the REST API, this is not recommended as it bypasses all validation, reference and void checking, leading to invalid xAPI records.
 
-Statements can be deleted by the REST API (on a statement by statement basis, but again this is not recomended.
+Statements can be deleted by the REST API on a statement by statement basis, but again **this is not recomended**.
 
 This model can be accessed through the [Connection HTTP Interface](../http-connection) and [Models HTTP Interface](../http-models).
 

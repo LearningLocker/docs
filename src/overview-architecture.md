@@ -4,7 +4,7 @@
 # Architecture Overview
 Learning Locker is divided into two Github repositories, one for [the Learning Locker application](#learning-locker-application) and one for [the xAPI service](#xapi-service).
 
-In Learning Locker the Browser Interface, HTTP Interface, and xAPI Service use their own HTTP ports, hence we'd recommend that you use something like [NGINX](https://www.nginx.com/) to route to the correct port upon receiving HTTP requests. If you utilise the [installation comamnd provided in the installation documentation](../guides-installing), it will attempt to install and setup NGINX for you. The installation command will also use [PM2](https://github.com/Unitech/pm2) to manage your processes and restart them if they exit to ensure uptime.
+In Learning Locker the Browser Interface, HTTP Interface, and xAPI Service use their own HTTP ports, hence we'd recommend that you use a server such as [NGINX](https://www.nginx.com/) to route to the correct port upon receiving HTTP requests. If you utilise the [installation comamnd provided in the installation documentation](../guides-installing), it will attempt to install and setup NGINX for you. The installation command will also use [PM2](https://github.com/Unitech/pm2) to manage your processes and restart them if they exit to ensure uptime.
 
 ## Learning Locker Application
 The Learning Locker application repository is made up of three parts (in the same Github repository), [the browser interface (UI)](#browser-interface-ui), [the HTTP interface (API)](#http-interface-api), and [the workers](#workers). The three parts are ran as their own process to share resources (since JavaScript is single-threaded) and ensure a degree of redundancy.
