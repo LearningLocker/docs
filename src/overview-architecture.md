@@ -4,7 +4,7 @@
 # Architecture Overview
 Learning Locker is divided into two Github repositories, one for [the Learning Locker application](#learning-locker-application) and one for [the xAPI service](#xapi-service).
 
-In Learning Locker the Browser Interface, HTTP Interface, and xAPI Service use their own HTTP ports, hence we'd recommend that you use a server such as [NGINX](https://www.nginx.com/) to route to the correct port upon receiving HTTP requests. If you utilise the [installation comamnd provided in the installation documentation](../guides-installing), it will attempt to install and setup NGINX for you. The installation command will also use [PM2](https://github.com/Unitech/pm2) to manage your processes and restart them if they exit to ensure uptime.
+In Learning Locker the Browser Interface, HTTP Interface, and xAPI Service use their own HTTP ports, hence we'd recommend that you use a server such as [NGINX](https://www.nginx.com/) to route to the correct port upon receiving HTTP requests. If you utilise the [installation command provided in the installation documentation](../guides-installing), it will attempt to install and setup NGINX for you. The installation command will also use [PM2](https://github.com/Unitech/pm2) to manage your processes and restart them if they exit to ensure uptime.
 
 ## Learning Locker Application
 The Learning Locker application repository is made up of three parts (in the same Github repository), [the browser interface (UI)](#browser-interface-ui), [the HTTP interface (API)](#http-interface-api), and [the workers](#workers). The three parts are ran as their own process to share resources (since JavaScript is single-threaded) and ensure a degree of redundancy.
@@ -13,7 +13,7 @@ The Learning Locker application repository is made up of three parts (in the sam
 The browser interface is written in JavaScript (ES6 using Webpack and Babel), utilising React to construct views and Redux to manage state. The browser interface utilises the HTTP interface to retrieve and change models in Learning Locker. Note that all models automatically save within 3 seconds after they're changed. For more information and help with the browser interface, you can go to the [Zendesk Help Centre for Learning Locker](https://ht2ltd.zendesk.com/hc/en-us/categories/115000129989-Learning-Locker).
 
 ### HTTP Interface (API)
-The HTTP interface is also written in JavaScript (ES6 using Webpack and Babel) and uses Express, Restify, Mongo, and Mongoose. Express is used to provide HTTP routes and Restify is used on top of Express to provide [RESTful routes for each of the models in Learnng Locker](../http-models). Mongoose is used on top of Mongo to manage models in the Mongo database used by Learning Locker. 
+The HTTP interface is also written in JavaScript (ES6 using Webpack and Babel) and uses Express, Restify, Mongo, and Mongoose. Express is used to provide HTTP routes and Restify is used on top of Express to provide [RESTful routes for each of the models in Learning Locker](../http-models). Mongoose is used on top of Mongo to manage models in the Mongo database used by Learning Locker. 
 
 ### Workers
 The workers are also written in JavaScript (ES6 using Webpack and Babel), they utilse Redis and optionally SQS via queue drivers. The workers make use of queues to process long running jobs. Multiple instances of the workers can be used in a cluster to process the queues in parallel across many machines and processors.
