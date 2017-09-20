@@ -5,7 +5,10 @@
 
 Organisations are a logical grouping of statements.
 
-Can be accessed through the [Connection HTTP Interface](../http-connection) and [Models HTTP Interface](../http-models).
+It is accessible through the following HTTP interfaces:
+
+- [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/organisation.
+- [Models HTTP Interface](../http-models) via http://www.example.org/api/organisation.
 
 ### Schema
 
@@ -35,6 +38,28 @@ LOCKOUT_SECONDS | How long to lock out a user after LOCK_ATTEMPTS failed login a
 LOCKOUT_ATTEMPTS | How many login tries a user as allowed before triggering the LOCKOUT_SECONDS timeout.
 LOCKOUT_ENABLED | Whether the LOCKOUT functionality is enabled.
 
+### Example Model
 
-
-
+```json
+{
+	"_id" : "59c2371c16bc715f83c34501",
+	"createdAt" : "2017-04-27T15:45:34.298Z",
+	"updatedAt" : "2017-04-27T15:45:38.138Z",
+	"parent" : "59c2371c16bc715f83c34502",
+	"owner" : "59c2371c16bc715f83c34503",
+	"settings" : {
+		"PASSWORD_CUSTOM_MESSAGE" : null,
+		"PASSWORD_CUSTOM_REGEX" : null,
+		"PASSWORD_USE_CUSTOM_REGEX" : false,
+		"PASSWORD_REQUIRE_NUMBER" : false,
+		"PASSWORD_REQUIRE_ALPHA" : true,
+		"PASSWORD_MIN_LENGTH" : 8,
+		"PASSWORD_HISTORY_TOTAL" : 3,
+		"PASSWORD_HISTORY_CHECK" : true,
+		"LOCKOUT_SECONDS" : 1800,
+		"LOCKOUT_ATTEMPS" : 5,
+		"LOCKOUT_ENABLED" : true
+	},
+	"name" : "Example Organisation"
+}
+```
