@@ -7,8 +7,8 @@ A an actor/person's progress through a journey.
 
 It is accessible through the following HTTP interfaces:
 
-- [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/journey.
-- [Models HTTP Interface](../http-models) via http://www.example.org/api/journey.
+- [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/journeyProgress.
+- [Models HTTP Interface](../http-models) via http://www.example.org/api/journeyProgress.
 
 ### Schema
 
