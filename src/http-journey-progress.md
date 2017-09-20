@@ -38,7 +38,7 @@ An array of completed waypoints.
 
 Name | Type | Description
 --- | --- | ---
-waypoints | object | An object of [completed waypoints](#completed-waypoint) which whose key is the waypoint id.
+waypoints | object | An object of [completed waypoints](#completed-waypoint) whose key are the waypoint ids.
 completedAt | Timestamp | When this waypoint was completed.
 isCompleted | boolean | If this journey has been completed. 
 
