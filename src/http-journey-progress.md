@@ -68,7 +68,6 @@ timestamp | Timestamp | When this statement was added.
   "journey":"59c23527bdf9ac67b2ab5ee6",
   "organisation":"59198183d8ea540933227033",
   "updatedAt":"2017-09-20T09:56:04.309Z",
-  "__v":0,
   "createdAt":"2017-09-20T09:55:52.198Z",
   "pendingProgress":{  
     "59c237bebdf9ac67b2ab5ee9":{  
