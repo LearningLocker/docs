@@ -20,7 +20,7 @@ apt-get update
 
 **Install with cURL**
 ```sh
-curl -o- http://lrnloc.kr/installv2 | bash
+curl -o- -L http://lrnloc.kr/installv2 | bash
 ```
 **Install with Wget**:
 ```sh
