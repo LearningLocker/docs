@@ -6,11 +6,11 @@ To install Learning Locker version 2, you can run one of the commands below **as
 
 **Install with cURL**
 ```sh
-curl -o- http://lrnloc.kr/install-v2 | bash
+curl -o- http://lrnloc.kr/installv2 | bash
 ```
 **Install with Wget**:
 ```sh
-wget -qO- http://lrnloc.kr/install-v2 | bash
+wget -qO- http://lrnloc.kr/installv2 | bash
 ```
 
 To upgrade, simply re-run the command above.
