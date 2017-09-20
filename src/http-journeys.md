@@ -49,13 +49,99 @@ Name | Type | Description
 description | String | The name of this outcome.
 isActive | Boolean | If this outcome is active.
 type | String | Only `'callback'` currently supported, `'statement'` outcomes coming soon
-callback | String (URL) |  URL to POST completion data on a journey being completed
+callback | String (URL) |  URL to POST completion data on a journey being completed. [See callback example](#callback-example)
 
 #### Callback example
 
-```
-{
+When a persona/actor completes a journey, the [callback url](#outcomes) will recieve a POST with JSON body. Example body: 
 
+```
+{  
+   "owner":{  
+      "trackBy":"actor",
+      "ident":{  
+         "account":{  
+            "homePage":"http://www.dave.com",
+            "name":"Dave16"
+         },
+         "objectType":"Agent"
+      }
+   },
+   "attempt":{  
+      "waypoints":[  
+         {  
+            "completedAt":"2017-09-20T09:01:15.418Z",
+            "isCompleted":true,
+            "statements":[  
+               {  
+                  "timestamp":"2017-09-20T09:01:15.418Z",
+                  "statement":"59c22e5bd138e448720041a8"
+               }
+            ],
+            "order":0,
+            "waypoint":"5937ae111931ba81bc7d6529",
+            "statement":[  
+               /*...statements*/
+            ]
+         }
+      ],
+      "completedAt":"2017-09-20T09:01:15.418Z",
+      "isCompleted":true
+   },
+   "journey":{  
+      "_id":"5937ae051931ba81bc7d6528",
+      "createdAt":"2017-06-07T07:40:53.310Z",
+      "updatedAt":"2017-09-20T09:01:09.940Z",
+      "owner":"59198183d8ea540933227030",
+      "organisation":"59198183d8ea540933227033",
+      "__v":5,
+      "description":"Test",
+      "isPublic":false,
+      "recalculateStatus":{  
+         "remainingCount":0,
+         "totalCount":0,
+         "inProgress":false
+      },
+      "trackBy":"actor",
+      "isRepeatable":true,
+      "isSequential":false,
+      "outcomes":[  
+         {  
+            "_id":"59c22e21bdf9ac67b2ab5ee4",
+            "description":"Test outcome docs",
+            "callback":"https://requestb.in/t6lzcgt6",
+            "type":"callback",
+            "isActive":true
+         }
+      ],
+      "waypoints":[  
+         {  
+            "order":0,
+            "conditions":{  
+               "$and":[  
+                  {  
+                     "$or":[  
+                        {  
+                           "statement.verb.id":"http://adlnet.gov/expapi/verbs/completed"
+                        }
+                     ],
+                     "$comment":"{\"criterionLabel\":\"A\",\"criteriaPath\":[\"statement\",\"verb\"]}"
+                  }
+               ]
+            },
+            "_id":"5937ae111931ba81bc7d6529",
+            "count":1,
+            "isActive":true,
+            "description":"New waypoint",
+            "id":"5937ae111931ba81bc7d6529"
+         }
+      ],
+      "sources":[  
+         "5943782ac3f34065c7b4132a"
+      ],
+      "isActive":true
+   },
+   "completedAt":"2017-09-20T09:01:15.418Z"
 }
 ```
 
