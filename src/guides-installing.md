@@ -4,6 +4,20 @@
 # Installing V2 Guide
 To install Learning Locker version 2, you can run one of the commands below **as the root user** on `CentOS`, `Fedora`, `Ubuntu`, and `Debian`. For more information, you can view the [deployment repository's documentation](https://github.com/LearningLocker/deploy).
 
+Please run the required update script for your distro to ensure you have the latest version of all packages.
+
+.e.g
+```
+yum update
+```
+or
+```
+apt-get update
+```
+
+
+**You must run this script as root user. Typically this can be done by running `sudo su -`**
+
 **Install with cURL**
 ```sh
 curl -o- http://lrnloc.kr/install-v2 | bash
