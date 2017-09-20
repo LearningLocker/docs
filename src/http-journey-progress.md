@@ -130,4 +130,6 @@ timestamp | Timestamp | When this statement was added.
       "completedAt":"2017-09-20T09:56:02.443Z",
       "isCompleted":true
     }
+  ]
+}
 ```
