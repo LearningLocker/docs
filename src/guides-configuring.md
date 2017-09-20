@@ -55,7 +55,6 @@ WINSTON_CLOUDWATCH_REGION** | The region the logs will be sent to | `us-west-1` 
 **QUEUE_PROVIDER** | Which queue provider should be used?<br><br>Options are `REDIS` or `SQS`<br><br>When using Redis, queues are held in the Redis database<br><br>When using SQS, queues are held and managed by the AWS Simple Queue Service | `SQS` | -
 QUEUE_NAMESPACE | A queue prefix for SQS | `example` | -
 AWS_SQS_ACCESS_KEY_ID | desc | `example` | -
-
 GOOGLE_ENABLED | Enable OAuth via Google (Requires setup in the Google Developer Console) | `true` | `false`
 GOOGLE_CLIENT_ID | Google OAuth Client ID | `12456789` | -
 GOOGLE_CLIENT_SECRET | Google OAuth Client Secret | `12356789` | -
