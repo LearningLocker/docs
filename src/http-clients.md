@@ -52,3 +52,25 @@ Name | Description
 --- | ---
 name | The unique id or name used to log into the account.
 homePage | The url of the home page.
+
+### Example Model
+```json
+{
+	"_id" : ObjectId("59c2371616bc715f83c34506"),
+	"createdAt" : ISODate("2017-09-20T09:40:44.962Z"),
+	"updatedAt" : ISODate("2017-09-20T09:40:58.376Z"),
+	"organisation" : ObjectId("59c2371c16bc715f83c34507"),
+	"lrs_id" : ObjectId("59c2371c16bc715f83c34508"),
+	"title" : "Example Client",
+	"scopes" : [
+		"xapi/all",
+		"all"
+	],
+	"isTrusted" : true,
+	"authority" : "{\"objectType\":\"Agent\",\"name\":\"New Client\",\"mbox\":\"mailto:hello@learninglocker.net\"}",
+	"api" : {
+		"basic_secret" : "aaa",
+		"basic_key" : "bbb"
+	}
+}
+```
