@@ -20,11 +20,11 @@ apt-get update
 
 **Install with cURL**
 ```sh
-curl -o- -L http://lrnloc.kr/installv2 > deployll.sh && bash ./deployll.sh
+curl -o- -L http://lrnloc.kr/installv2 > deployll.sh && bash deployll.sh
 ```
 **Install with Wget**:
 ```sh
-wget -qO deployll.sh http://lrnloc.kr/installv2 && bash ./deployll.sh
+wget -qO deployll.sh http://lrnloc.kr/installv2 && bash deployll.sh
 ```
 
 To upgrade, simply re-run the command above.
