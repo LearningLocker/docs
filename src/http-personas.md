@@ -18,6 +18,21 @@ updatedAt | When this persona was last updated.
 organisation | The id of the [organisation](../http-organisations#schema) that this persona belongs to.
 personaIdenfiers | An array of ids for [personaIdentifiers](#persona-identifiers).
 
+### Example Persona
+
+```json
+{
+	"_id" : "59c1219936229d4ce9634601",
+	"createdAt" : "2017-09-19T13:54:33.596Z",
+	"updatedAt" : "2017-09-19T13:54:33.610Z",
+	"organisation" : "59c1219936229d4ce9634602",
+	"name" : "Example Persona",
+	"personaIdentifiers" : [
+		"59c1219936229d4ce9634603"
+	]
+}
+```
+
 ### Persona identifiers
 
 Persona identifiers has properties: 
@@ -41,17 +56,39 @@ Name | Description
 key | The key of the identifier.
 value | The value of the identifier.
 
-### Example Model
+
+### Example Persona Identifier
 
 ```json
 {
-	"_id" : "59c1219936229d4ce96346d5",
-	"createdAt" : "2017-09-19T13:54:33.596Z",
-	"updatedAt" : "2017-09-19T13:54:33.610Z",
-	"organisation" : "59c1148ab12f044cd22cb329",
-	"name" : "Xander Bogaerts",
-	"personaIdentifiers" : [
-		"59c1219909a77ab6202983e3"
-	]
+	"_id" : "59c1219936229d4ce9634603",
+	"organisation" : "59c1219936229d4ce9634602",
+	"uniqueIdentifier" : {
+		"key" : "statement.actor.account",
+		"value" : {
+			"homePage" : "http://example.org/users",
+			"name" : "Example Agent"
+		}
+	},
+	"updatedAt" : "2017-09-19T13:54:30.944Z",
+	"__v" : 1,
+	"createdAt" : "2017-09-19T13:54:30.702Z",
+	"identifiers" : [
+		{
+			"value" : "Example Agent",
+			"key" : "statement.actor.name"
+		},
+		{
+			"value" : "http://example.org/users",
+			"key" : "statement.actor.account.homePage"
+		},
+		{
+			"value" : "Example Agent",
+			"key" : "statement.actor.account.name"
+		}
+	],
+	"persona" : "59c1219936229d4ce9634601",
+	"personaScores" : [ ]
 }
 ```
+
