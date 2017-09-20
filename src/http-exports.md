@@ -19,3 +19,18 @@ projection | An array of stringified json mongo projection queries. [See mongo d
 rawMode | If true, in Learning Locker UI, the projection will be displayed as JSON text, as opposed to field value inputs.
 downloads | A list ids of [downloads](../http-downloads#schema) which have used this export template.
 isPublic | If false then this dashboard is only available to the owner and users with [org/all/export/view scope](../http-roles/#organisation-scopes), otherwise it's available to everyone in the organisation with permission.
+
+### Example Model
+
+```json
+{
+	"_id" : "59c2371c16bc715f83c34501",
+	"name" : "Example Export",
+	"organisation" : "59c2371c16bc715f83c34502",
+	"downloads" : [ ],
+	"rawMode" : false,
+	"projections" : [
+		"{\"_id\":1,\"version\":\"$statement.version\"}"
+	]
+}
+```
