@@ -11,6 +11,7 @@ echo "Starting build"
 rm -rf out || exit 0
 mkdir out
 gem install jekyll --http-proxy --source http://rubygems.org
+gem install jekyll-redirect-from
 jekyll build
 echo "Finished build"
 
