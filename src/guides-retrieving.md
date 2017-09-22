@@ -1,4 +1,9 @@
 ---
+redirect_from: 
+  - "/reporting/"
+  - "/exporting/"
+  - "/report_api/"
+  - "/exports_api/"
 ---
 
 # Retrieving Statements Guide

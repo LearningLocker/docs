@@ -1,4 +1,7 @@
 ---
+redirect_from: 
+  - "/analytics_api/"
+  - "/statements_apis/"
 ---
 
 # Aggregation HTTP Interface

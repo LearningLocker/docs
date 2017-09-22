@@ -9,6 +9,10 @@ destination: "./out"
 markdown: kramdown
 permalink: pretty
 
+# Plugins
+plugins:
+  - jekyll-redirect-from
+
 # YAML Frontmatter variables
 defaults:
   -

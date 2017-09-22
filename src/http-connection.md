@@ -1,4 +1,6 @@
 ---
+redirect_from: 
+  - "/postman/"
 ---
 
 # Connection HTTP Interface
