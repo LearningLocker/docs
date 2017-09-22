@@ -1,4 +1,4 @@
-[![Learning Locker Logo](http://learninglocker.net/wp-content/uploads/2013/12/ll-logo-sm.png)](http://learninglocker.net)   
+[![Learning Locker Logo](https://raw.githubusercontent.com/LearningLocker/docs/master/src/images/logo-small.png)](https://learninglocker.net)   
 > Documentation for Learning Locker.
 
 [![Build Status](https://travis-ci.org/LearningLocker/docs.svg?branch=master)](https://travis-ci.org/LearningLocker/docs)
