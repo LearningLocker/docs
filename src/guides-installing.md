@@ -1,4 +1,7 @@
 ---
+redirect_from: 
+   - "/installing/"
+   - "/upgrading/"
 ---
 
 # Installing V2 Guide

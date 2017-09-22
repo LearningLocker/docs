@@ -1,4 +1,9 @@
 ---
+redirect_from: 
+  - "/troubleshooting/"
+  - "/contributing/"
+  - "/contributors/"
+  - "/administration/"
 ---
 
 # Welcome
