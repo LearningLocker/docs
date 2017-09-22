@@ -1,6 +1,7 @@
 ---
 redirect_from: 
    - "/installing/"
+   - "/installation/"
    - "/upgrading/"
 ---
 
