@@ -3,6 +3,8 @@
 
 # Journeys HTTP Interface
 
+> `Please note:` Journeys are only available in our Enterprise hosted version of Learning Locker. For more information about the differences, please see [this page](https://learninglocker.net/faqs/open-source-vs-saas-lrs/).
+
 A visualisation of an actor/person's progress through a journey.
 
 It is accessible through the following HTTP interfaces:
