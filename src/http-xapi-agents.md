@@ -246,7 +246,7 @@ Authorization: YOUR_BASIC_AUTH
 X-Experience-API-Version: 1.0.3
 ```
 
-The response to the request above would be something similar to the response below. If the profile document cannot be found, a 404 response will be returned istead of a 200.
+The response to the request above would be something similar to the response below. If the profile document cannot be found, a 404 response will be returned instead of a 200.
 
 ```http
 HTTP/1.1 200 OK
@@ -315,7 +315,7 @@ X-Experience-API-Version: 1.0.3
 If-Match: "BBB79685FA17A8450E7307710C8A79FD9C1059A0106E9F9811AF6FD18D0F0EED"
 ```
 
-The response to the request above would be something similar to the response below. If the profile document cannot be found, a 404 response will be returned istead of a 204.
+The response to the request above would be something similar to the response below. If the profile document cannot be found, a 404 response will be returned instead of a 204.
 
 ```http
 HTTP/1.1 204 NO CONTENT

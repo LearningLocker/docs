@@ -44,7 +44,7 @@ COLOR_LOGS | Should logs be output using ANSI color | `true` | -
 **WINSTON_CLOUDWATCH_ENABLED** | Should logs be sent to AWS Cloudwatch?<br><br>[AWS credentials must be configured for Cloudwatch access](http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-identity-based-access-control-cwl.html) | `true` | `false`
 WINSTON_CLOUDWATCH_LOG_GROUP_NAME | The Cloudwatch Logs group name | `llv2` | `llv2`
 WINSTON_CLOUDWATCH_LOG_STREAM_NAME | The Cloudwatch Logs stream name | `application` | The server's hostname
-WINSTON_CLOUDWATCH_ACCESS_KEY_ID | AWS Access Key with suitable priviliges | `12345678901` | -
+WINSTON_CLOUDWATCH_ACCESS_KEY_ID | AWS Access Key with suitable privileges | `12345678901` | -
 WINSTON_CLOUDWATCH_SECRET_ACCESS_KEY | AWS Secret Access Key | `12345678901` | -
 WINSTON_CLOUDWATCH_REGION | The region the logs will be sent to | `us-west-1` | -
 **SMTP_HOST** | The SMTP mailbox host | `smtp.mailserver.com` | -
@@ -54,7 +54,7 @@ WINSTON_CLOUDWATCH_REGION | The region the logs will be sent to | `us-west-1` | 
 **SMTP_PASS** | The SMTP password | `password` | -
 **QUEUE_PROVIDER** | Which queue provider should be used?<br><br>Options are `REDIS` or `SQS`<br><br>When using Redis, queues are held in the Redis database<br><br>When using SQS, queues are held and managed by the AWS Simple Queue Service | `SQS` | -
 QUEUE_NAMESPACE | A queue prefix for SQS | `example` | -
-AWS_SQS_ACCESS_KEY_ID | An AWS Access Key ID with priviliges to read/write to SQS queue jobs | `12567890` | -
+AWS_SQS_ACCESS_KEY_ID | An AWS Access Key ID with privileges to read/write to SQS queue jobs | `12567890` | -
 AWS_SQS_SECRET_ACCESS_KEY | An AWS Secret Access Key for SQS | `example` | -
 AWS_SQS_DEFAULT_REGION | The AWS region for SQS | `us-west-1` | -
 GOOGLE_ENABLED | Enable OAuth via Google (Requires setup in the Google Developer Console) | `true` | `false`
@@ -98,6 +98,6 @@ WINSTON_CONSOLE_LEVEL | Minimum logging level (error\|warning\|info\|debug\|sill
 **WINSTON_CLOUDWATCH_ENABLED** | Should logs be sent to AWS Cloudwatch?<br><br>[AWS credentials must be configured for Cloudwatch access](http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-identity-based-access-control-cwl.html) | `true` | `false`
 WINSTON_CLOUDWATCH_LOG_GROUP_NAME | The Cloudwatch Logs group name | `llv2` | `llv2`
 WINSTON_CLOUDWATCH_LOG_STREAM_NAME | The Cloudwatch Logs stream name | `application` | The server's hostname
-WINSTON_CLOUDWATCH_ACCESS_KEY_ID | AWS Access Key with suitable priviliges | `12345678901` | -
+WINSTON_CLOUDWATCH_ACCESS_KEY_ID | AWS Access Key with suitable privileges | `12345678901` | -
 WINSTON_CLOUDWATCH_SECRET_ACCESS_KEY | AWS Secret Access Key | `12345678901` | -
 WINSTON_CLOUDWATCH_REGION | The region the logs will be sent to | `us-west-1` | -
