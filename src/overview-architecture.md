@@ -16,7 +16,7 @@ The browser interface is written in JavaScript (ES6 using Webpack and Babel), ut
 The HTTP interface is also written in JavaScript (ES6 using Webpack and Babel) and uses Express, Restify, Mongo, and Mongoose. Express is used to provide HTTP routes and Restify is used on top of Express to provide [RESTful routes for each of the models in Learning Locker](../http-models). Mongoose is used on top of Mongo to manage models in the Mongo database used by Learning Locker. 
 
 ### Workers
-The workers are also written in JavaScript (ES6 using Webpack and Babel), they utilse Redis and optionally SQS via queue drivers. The workers make use of queues to process long running jobs. Multiple instances of the workers can be used in a cluster to process the queues in parallel across many machines and processors.
+The workers are also written in JavaScript (ES6 using Webpack and Babel), they utilise Redis and optionally SQS via queue drivers. The workers make use of queues to process long running jobs. Multiple instances of the workers can be used in a cluster to process the queues in parallel across many machines and processors.
 
 Currently there are workers for managing the [query builder cache](https://ht2ltd.zendesk.com/hc/en-us/articles/115000925249-Query-Builder-Overview), [extracting personas from statements](../http-personas), [exporting statements via CSV](https://ht2ltd.zendesk.com/hc/en-us/articles/115000931369-Exporting-statements-to-CSV), [importing personas via CSV](https://ht2ltd.zendesk.com/hc/en-us/articles/115001223771-Adding-Additional-Data-to-People-via-CSV), and (in [Enterprise](https://www.ht2labs.com/learning-locker)) [recalculating journeys](https://ht2ltd.zendesk.com/hc/en-us/articles/115000857025-Journeys-Overview).
 
