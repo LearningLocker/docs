@@ -26,7 +26,7 @@ completions | [completions](#completions) | An object of completed statements.
 startedAt | Timestamp | When the first attempt of a waypoint was registered
 isCompleted | Boolean | Has this owner completed this journey?
 completedAt | Timestamp | When was the journey first completed
-duration | microseconds | Time between `startedAt` and `completedAt`
+duration | microseconds | Time between `startedAt` and `completedAt` in [microseconds](https://en.wikipedia.org/wiki/Microsecond)
 
 
 ### Owner
