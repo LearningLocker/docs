@@ -78,7 +78,7 @@ expires | When this token expires.
 		},
 		{
 			"date" : "2017-09-19T12:47:34.093Z",
-			"hash" : "aaa",
+			"hash" : "bbb",
 			"_id" : "59c2371c16bc715f83c34503"
 		}
 	],
