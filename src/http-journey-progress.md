@@ -50,16 +50,18 @@ statement | Array of [Journey Progress Statement](#journey-progress-statement) |
 
 ### Completions
 
-An array of completed waypoints.
+A journey can be completed multiple times if the journey is set to be repeatable. An array of completed journey attempts is stored in this value.
 
 Name | Type | Description
 --- | --- | ---
 waypoints | object | An object of [completed waypoints](#completed-waypoint) whose key are the waypoint ids.
-completedAt | Timestamp | When this waypoint was completed.
-isCompleted | boolean | If this journey has been completed. 
+completedAt | Timestamp | When this journey attempt was completed.
+isCompleted | boolean | If this journey attempt has been completed. 
 
 
 ### Completed Waypoint
+
+An array of completed waypoints for a journey attempt
 
 Name | Type | Description
 --- | --- | ---
