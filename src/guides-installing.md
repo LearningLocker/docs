@@ -5,7 +5,22 @@ redirect_from:
    - "/upgrading/"
 ---
 
-# Installing V2 Guide
+# Installing Version 2
+
+## One-click install via AWS
+
+We have prebuilt an AWS AMI (Amazon Machine Instance) that makes spinning up your own Learning Locker as simple as possible.
+
+_Really simple instructions for setting up an EC2 instance from an AMI image..._
+
+_Default login credentials_
+
+_Maybe put this information in the AMI description? If that is a thing?_
+
+___
+
+## Via the install script
+
 To install Learning Locker version 2, you can run one of the commands below **as the root user** on `CentOS`, `Fedora`, `Ubuntu`, and `Debian`. For more information, you can view the [deployment repository's documentation](https://github.com/LearningLocker/deploy).
 
 Please run the required update script for your distro to ensure you have the latest version of all packages.
@@ -33,6 +48,29 @@ wget -qO deployll.sh http://lrnloc.kr/installv2 && bash deployll.sh
 
 To upgrade, simply re-run the command above.
 
+### Application Structure
+
+There are two main repositories that are installed as part of a fresh Learning Locker installation, the [Learning Locker application](https://github.com/LearningLocker/learninglocker) and [xAPI service](https://github.com/LearningLocker/xapi-service). An in depth look at what both these packages do can be read in the [Architecture Overview](../overview-architecture).
+
+When installing your LL instance using the install script, these packages will be (by default) installed to `/usr/local/learninglocker/current` (as a symlink to a directory inside `/usr/local/learninglocker/release/...`).
+
+Inside `current/` lives the Learning Locker application which controls the User Interface, API and worker.
+
+We also install the xAPI Service here, inside the `xapi/` directory.
+
+
+### Configuration & Environment Variables
+
+Each of these applications has their own `.env`. These hold all the configurations that the applications require in order to run, from database settings to logging configuration.
+
+By default the install script will copy the (.env.example) from [both](https://github.com/LearningLocker/learninglocker/blob/master/.env.example) repos [respectively](https://github.com/LearningLocker/xapi-service/blob/master/.env.example).
+
+It is likely you will wish to configure your application to connect to external databases, and whilst setup and configuration of these in beyond the scopes of this documentation, you will need to ensure that both `.env` files contain the same configuration values where appropriate.
+
+A full description of all configuration values in both repositories is available in the [Configuration Guide](../guides-configuring)
+
+___
+
 ## Production Installations
 For production installations, we recommend the following setup**:**
 
@@ -43,22 +81,8 @@ For production installations, we recommend the following setup**:**
 
 This setup ensures good performance and a reasonable degree of redundancy in case of failures in some parts. We'd also recommend that you back up your Mongo database quite regularly depending on your own data requirements. If this sounds too costly or challenging, you may wish to consider using [our Software as a Service (SaaS) enterprise solution](https://www.ht2labs.com/learning-locker/). If you require more advice for your setup, please get in touch via [hello@ht2labs.com](mailto:hello@ht2labs.com).
 
-## Application Structure
+___
 
-There are two main repositories that are installed as part of a fresh Learning Locker installation, the [Learning Locker application](https://github.com/LearningLocker/learninglocker) and [xAPI service](https://github.com/LearningLocker/xapi-service). An in depth look at what both these packages do can be read in the [Architecture Overview](../overview-architecture).
+## Custom installations
 
-When installing your LL instance using the deploy script, these packages will be (by default) installed to `/usr/local/learninglocker/current` (as a symlink to a directory inside `/usr/local/learninglocker/release/...`).
-
-Inside `current/` lives the Learning Locker application which controls the User Interface, API and worker.
-
-We also install the xAPI Service here, inside the `xapi/` directory.
-
-## Configuration & Environment Variables
-
-Each of these applications has their own `.env`. These hold all the configurations that the applications require in order to run, from database settings to logging configuration.
-
-By default the install script will copy the (.env.example) from [both](https://github.com/LearningLocker/learninglocker/blob/master/.env.example) repos [respectively](https://github.com/LearningLocker/xapi-service/blob/master/.env.example).
-
-It is likely you will wish to configure your application to connect to external databases, and whilst setup and configuration of these in beyond the scopes of this documentation, you will need to ensure that both `.env` files contain the same configuration values where appropriate.
-
-A full description of all configuration values in both repositories is available in the [Configuration Guide](../guides-configuring)
+Please follow instructions [here](../guides-custom-installation) if you wish to install Learning Locker manually.
