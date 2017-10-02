@@ -7,18 +7,6 @@ redirect_from:
 
 # Installing Version 2
 
-## One-click install via AWS
-
-We have prebuilt an AWS AMI (Amazon Machine Instance) that makes spinning up your own Learning Locker as simple as possible.
-
-_Really simple instructions for setting up an EC2 instance from an AMI image..._
-
-_Default login credentials_
-
-_Maybe put this information in the AMI description? If that is a thing?_
-
-___
-
 ## Via the install script
 
 To install Learning Locker version 2, you can run one of the commands below **as the root user** on `CentOS`, `Fedora`, `Ubuntu`, and `Debian`. For more information, you can view the [deployment repository's documentation](https://github.com/LearningLocker/deploy).

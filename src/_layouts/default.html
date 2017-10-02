@@ -5,67 +5,68 @@
 
 <body onload="prettyCode();">
 
-    {% include header.html %}
+  {% include header.html %}
 
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-3 docs-sidebar">
-                <div class="sidebar-title">
-                    <a href="../welcome">Overview</a>
-                </div>
-                <ul class="nav">
-                    <li><a href="../overview-architecture">Architecture</a></li>
-                    <li><a href="../overview-xapi">xAPI</a></li>
-                </ul>
-                <div class="sidebar-title">
-                    <a href="#">Guides</a>
-                </div>
-                <ul class="nav">
-                    <li><a href="../guides-installing">Installing v2</a></li>
-                    <li><a href="../guides-configuring">Configuration</a></li>
-                    <li><a href="../guides-migrating">Migrating from v1 to v2</a></li>
-                    <li><a href="../guides-indexing">Indexing</a></li>
-                    <li><a href="../guides-monitoring">Monitoring</a></li>
-                    <li><a href="../guides-structuring">Structuring your LRS</a></li>
-                    <li><a href="../guides-inserting">Inserting statements</a></li>
-                    <li><a href="../guides-retrieving">Retrieving statements</a></li>
-                    <li><a href="../guides-integrating">Integrations</a></li>
-                </ul>
-                <div class="sidebar-title">
-                    <a href="#">HTTP Interfaces (APIs)</a>
-                </div>
-                <ul class="nav">
-                    <li><a href="../http-connection">Connection</a></li>
-                    <li><a href="../http-models">Models</a></li>
-                    <li><a href="../http-aggregation">Aggregation</a></li>
-                    <li><a href="../http-clients">Clients</a></li>                    
-                    <li><a href="../http-dashboards">Dashboards</a></li>
-                    <li><a href="../http-downloads">Downloads</a></li>
-                    <li><a href="../http-exports">Exports</a></li>
-                    <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
-                    <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
-                    <li><a href="../http-organisations">Organisations</a></li>
-                    <li><a href="../http-personas">Personas</a></li>
-                    <li><a href="../http-queries">Queries</a></li>
-
-                    <li><a href="../http-roles">Roles</a></li>
-                    <li><a href="../http-statements">Statements</a></li>
-                    <li><a href="../http-stores">Stores</a></li>
-                    <li><a href="../http-users">Users</a></li>
-                    <li><a href="../http-visualisations">Visualisations</a></li>
-                    <li><a href="../http-xapi">xAPI</a></li>
-                </ul>
-                <div class="sidebar-title">
-                    <a href="../faqs">FAQs</a>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-9 docs-main">
-                {{ content }}
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
         </div>
-    </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installing v2</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-migrating">Migrating from v1 to v2</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-connection">Connection</a></li>
+          <li><a href="../http-models">Models</a></li>
+          <li><a href="../http-aggregation">Aggregation</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-queries">Queries</a></li>
 
-    {% include footer.html %}
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+
+  {% include footer.html %}
 
 </body>
 
