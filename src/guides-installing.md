@@ -36,7 +36,7 @@ To upgrade, simply re-run the command above. You will be prompted if you wish to
 
 ### Logs
 
-By default, logs are installed to `/var/log/learninglocker/`
+By default, logs are written to `/var/log/learninglocker/`
 
 #### Install log
 
@@ -71,7 +71,7 @@ Where `learninglocker` is the system user you chose to install with in the scrip
 
 ### Managing the services
 
-The PM2 service manages the 4 micro-services that Learning Locker requires. This is installed by default with the install script onto the system user you chose. 
+The PM2 service manages the 4 micro-services that Learning Locker requires. This is installed by default with the install script under the system user you chose. 
 
 **In order to use the pm2 service, first ensure you are in as the correct system user:**
 
