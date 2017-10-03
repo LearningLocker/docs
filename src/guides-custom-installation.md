@@ -11,6 +11,7 @@ In order to install Learning Locker version 2, you will require a machine that h
 * Connectivity to a [Mongo](https://www.mongodb.com/) instance (v3.0+)
 * Connectivity to a [Redis](https://redis.io/) instance (v2.8+)
 * Web server _e.g. [Nginx](https://www.nginx.com/resources/wiki/) or [Apache](https://httpd.apache.org/)_ (optional)
+* Process management system _e.g. [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/) or [Supervisor](http://supervisord.org/)_
 
 ### GCC and Git
 
@@ -36,6 +37,27 @@ We are currently targetting builds on Node 6.* (the current LTS) release. Future
 
 Instructions to install Yarn can be found here: https://yarnpkg.com/en/docs/install
 
+### Process Management
+
+[PM2](http://pm2.keymetrics.io/docs/usage/quick-start/) is an excellent tool that can be used to manage the Node processes. It also handles log management/rotation and can automatically restart failed services. Learning Locker comes prepackaged with some [pm2 configuration scripts](https://github.com/LearningLocker/learninglocker/tree/develop/pm2).
+
+To [install PM2](http://pm2.keymetrics.io/docs/usage/quick-start/#installation), run the following command:
+
+```
+npm install -g pm2
+```
+
+We also recommend installing the `pm2-logrotate` module, which can handle rotating and compressing your logs.
+
+```
+pm2 install pm2-logrotate
+pm2 set pm2-logrotate:compress true
+```
+
+## User best practice
+
+It is always preferable that you do not run your Node processes as the `root` user. For this reason we would always suggest creating a new system user under which installation, builds and services can be run.
+
 ## Setup
 
 The Learning Locker application is divided into two logically seperate codebases, each of which can be configured to talk to the same Mongo and Redis instances. 
@@ -43,10 +65,6 @@ The Learning Locker application is divided into two logically seperate codebases
 Each codebase requires that it is downloaded, built and configured before it can be run. This guide will aim to guide you through manually installing and running a full Learning Locker v2 stack.
 
 More distribution specific information can be found inside the [install script source code](https://github.com/LearningLocker/deploy/).
-
-### Package Management
-
-We recommend the installation of [yarn](https://yarnpkg.com/en/) for package management.
 
 ## Installing and Building the Learning Locker UI, API and Worker
 
@@ -106,22 +124,7 @@ npm run build
 
 ## Running the services via PM2
 
-[PM2](http://pm2.keymetrics.io/docs/usage/quick-start/) is an excellent tool that can be used to manage the Node processes. It also handles log management/rotation and can automatically restart failed services. Learning Locker comes prepackaged with some [pm2 configuration scripts](https://github.com/LearningLocker/learninglocker/tree/develop/pm2).
-
-To [install PM2](http://pm2.keymetrics.io/docs/usage/quick-start/#installation), run the following command:
-
-```
-npm install -g pm2
-```
-
-We also recommend installing the `pm2-logrotate` module, which can handle rotating and compressing your logs.
-
-```
-pm2 install pm2-logrotate
-pm2 set pm2-logrotate:compress true
-```
-
-Once PM2 is installed, you will then be able to run the services using the preconfigured pm2 files in each codebase:
+If PM2 has been installed, you will be able to run the services using the preconfigured pm2 files in each codebase:
 
 ### Learning Locker UI, API, Worker
 
