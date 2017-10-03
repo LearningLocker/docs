@@ -7,6 +7,7 @@ Learning Locker comes with a range of CLI commands that can be used to execute c
 
 _Note:_ In order to use the CLI commands, you must ensure that the CLI server is built. The default install script will have performed this action as part of the `yarn build-all` command, but it can manually be built using `yarn build-cli-server`
 
+These commands should be run from the Learning Locker working directory.
 
 ## `createSiteAdmin`
 
