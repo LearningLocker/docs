@@ -86,19 +86,17 @@ yarn install
 
 You are now ready to build the code. You have different option here depending on how you wish to deploy the services. The codebase has 5 distinct services that can be built:
 
-* UI Server
-* UI Client
-* API Server
-* Worker
-* CLI
+* UI Server - `yarn build-ui-server`
+* UI Client - `yarn build-ui-client`
+* API Server - `yarn build-api-server`
+* Worker - `yarn build-worker-server`
+* CLI - `yarn build-cli-server`
 
-If you wish to run the UI, API and Worker on the same machine and run CLI commands, you will probably want to build all the services as one:
+If you wish to run the UI, API and Worker on the same machine and run CLI commands, you will probably want to build all the services in one simple command:
 
 ```
 yarn build-all
 ```
-
-However you can find other build commands available in the [`package.json`](https://github.com/LearningLocker/learninglocker/blob/develop/package.json#L19) should you wish to only install (and run) a particular service.
 
 ## Installing the xAPI service
 
