@@ -142,7 +142,7 @@ If you wish to use a different process management tool (e.g. Supervisor) or simp
 node ui/dist/server
 ```
 
-### Running the API
+#### Running the API
 
 ```
 node api/dist/server
@@ -156,7 +156,7 @@ node worker/dist/server
 ```
 
 
-### Running the xAPI service
+#### Running the xAPI service
 
 _In your xAPI service directory_
 
