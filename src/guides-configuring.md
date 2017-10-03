@@ -25,7 +25,7 @@ Name | Description | Example | Default
 _TEST_API_PORT_ | A port to expose the application on when running tests | `808080` | -
 **APP_SECRET** | Unique string used for hashing. Recommended length of 256 bits | `pleasechangetounique256bitstring` | -
 **MONGODB_PATH** | The [full Mongo connection string](https://docs.mongodb.com/manual/reference/connection-string/). This can include multiple hosts for replicas, and extra configuration values passed through query strings. | `mongodb://localhost:27017/learninglocker_v2`
-MONGODB_TEST_PATH | A different Mongo URL to use when running tests | `mongodb://localhost:27017/llv2_tests` | -
+_MONGODB_TEST_PATH_ | A different Mongo URL to use when running tests | `mongodb://localhost:27017/llv2_tests` | -
 MONGO_SOCKET_TIMEOUT_MS | How long does the socket stay open when there is no activity | `300000` | `300000`
 MONGO_CONNECTION_POOLSIZE | https://blog.mlab.com/2013/11/deep-dive-into-connection-pooling/ | `20` | `20`
 **REDIS_HOST** | The host of the Redis instance | `127.0.0.1` | `127.0.0.1`
