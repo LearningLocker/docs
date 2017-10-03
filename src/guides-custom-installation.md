@@ -4,16 +4,41 @@
 
 In order to install Learning Locker version 2, you will require a machine that has these minimum requirements:
 
-* Node v6+
-* Yarn
-* GCC toolchain
-* Connectivity to a Mongo instance
-* Connectivity to a Redis instance
-* Web server _e.g. Nginx or Apache_ (optional)
+* [Git](https://git-scm.com/)
+* [GCC toolchain](https://en.wikipedia.org/wiki/GNU_toolchain)
+* [Node](https://nodejs.org/en/) (v6+)
+* [Yarn](https://yarnpkg.com/en/)
+* Connectivity to a [Mongo](https://www.mongodb.com/) instance (v3.0+)
+* Connectivity to a [Redis](https://redis.io/) instance (v2.8+)
+* Web server _e.g. [Nginx](https://www.nginx.com/resources/wiki/) or [Apache](https://httpd.apache.org/)_ (optional)
+
+### GCC and Git
+
+A good minimum set of requirements for Git and the GCC toolchaiin can be installed with the following commands:
+
+### Fedora based systems
+```
+yum update
+yum -y install curl git python make automake gcc gcc-c++ kernel-devel xorg-x11-server-Xvfb git-core
+```
+
+### Ubuntu/Debian based systems
+```
+apt-get update && apt-get upgrade
+apt-get -y -qq install curl git python build-essential xvfb apt-transport-https
+```
+
+### Node and Yarn installation
+
+There are multiple ways to install Node and Yarn (a package management system for Node). We would recommend the excellent NVM (Node Version Manager) which can be installed by following instructions here: https://github.com/creationix/nvm
+
+We are currently targetting builds on Node 6.* (the current LTS) release. Future versions will also support Node 8.
+
+Instructions to install Yarn can be found here: https://yarnpkg.com/en/docs/install
 
 ## Setup
 
-The Learning Locker application is divided into two logically sepearate codebases, each of which can be configured to talk to the same Mongo and Redis instances. 
+The Learning Locker application is divided into two logically seperate codebases, each of which can be configured to talk to the same Mongo and Redis instances. 
 
 Each codebase requires that it is downloaded, built and configured before it can be run. This guide will aim to guide you through manually installing and running a full Learning Locker v2 stack.
 
@@ -164,3 +189,6 @@ _In your xAPI service directory_
 node dist/server.js
 ```
 
+## Server configuration
+
+The application is accessed through 3 web interfaces, the UI, API and xAPI. Each of these is configured to run on independent ports but it is recommended you setup a server to sit infront of all traffic and route accordingly. An example nginx config can be seen here: https://github.com/LearningLocker/learninglocker/blob/develop/nginx.conf.example
