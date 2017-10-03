@@ -111,8 +111,9 @@ git clone git@github.com:LearningLocker/xapi-service.git
 Enter the directory and install the requiements:
 
 ```
-yarn install
+npm install
 ```
+_Note: we do not currently use `yarn` to install the xAPI Service_
 
 ### Build
 
