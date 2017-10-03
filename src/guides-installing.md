@@ -31,7 +31,101 @@ curl -o- -L http://lrnloc.kr/installv2 > deployll.sh && bash deployll.sh
 wget -qO deployll.sh http://lrnloc.kr/installv2 && bash deployll.sh
 ```
 
-To upgrade, simply re-run the command above.
+### Upgrading
+To upgrade, simply re-run the command above. You will be prompted if you wish to "upgrade" any existing instance, or perform a fresh install.
+
+### Logs
+
+By default, logs are installed to `/var/log/learninglocker/`
+
+#### Install log
+
+If there is a problem installing the script, you can view the full install log output here:
+`/var/log/learninglocker/install.log`
+
+#### Service logs
+
+Individual logs for the different services outputs (stdout) and errors (stderr) are available in this directory under the following names:
+
+**stdout**
+* `xapi_stdout***.log`
+* `api_stdout***.log`
+* `ui_stdout***.log`
+* `worker_stdout***.log`
+
+**stderr**
+* `xapi_stderr***.log`
+* `api_stderr***.log`
+* `ui_stderr***.log`
+* `worker_stderr***.log`
+
+`***`: _Logs may have slightly different names due to rotation_
+
+
+### Restarting the services
+To restart the services, simply run the following command: 
+```
+service pm2-learninglocker restart
+```
+Where `learninglocker` is the system user you chose to install with in the script (defaults to `learninglocker`)
+
+### Managing the services
+
+The PM2 service manages the 4 micro-services that Learning Locker requires. This is installed by default with the install script onto the system user you chose. 
+
+**In order to use the pm2 service, first ensure you are in as the correct system user:**
+
+(using the default `learninglocker` system user):
+```
+sudo su learninglocker
+```
+
+#### Service status
+To view the status of your processes (using the default `learninglocker` system user):
+```
+pm2 status
+```
+
+Output:
+```
+┌──────────┬─────────┬────────┬───┬──────┬────────────┐
+│ Name     │ mode    │ status │ ↺ │ cpu  │ memory     │
+├──────────┼─────────┼────────┼───┼──────┼────────────┤
+│ API      │ cluster │ online │ 0 │ 0%   │ 144.0 MB   │
+│ UIServer │ cluster │ online │ 0 │ 0%   │ 105.8 MB   │
+│ Worker   │ cluster │ online │ 0 │ 0%   │ 109.5 MB   │
+│ xAPI     │ cluster │ online │ 0 │ 0%   │ 81.8 MB    │
+└──────────┴─────────┴──-─────┴───┴──────┴────────────┘
+```
+
+#### Service logs
+
+You can view a tail of the logs by running:
+```
+pm2 logs
+```
+
+Or view the logs for a particular service (by name or ID):
+```
+pm2 logs xAPI
+```
+
+To view more lines:
+```
+pm2 logs --lines 1000
+```
+
+### Restarting the services manually
+You can restart all the services by running:
+```
+pm2 restart all
+```
+
+Or individual services by their name or ID:
+```
+pm2 restart UIServer
+```
+
 
 ## Production Installations
 For production installations, we recommend the following setup**:**
