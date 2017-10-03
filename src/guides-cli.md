@@ -39,14 +39,14 @@ node cli/dist/server createSiteAdmin "user@example.com" "Example" "password123"
 ___
 
 ## `clearAggregationCache`
-Clear the Aggregation Cache
+Clear the cache of any aggregation data
 
 ### Command
 ```sh
 node cli/dist/server clearAggregationCache
 ```
 
-Will clear down any cached aggregation results (e.g. visualisations)
+Will clear down any cached aggregation results. This can be useful if you require an up to date result for a particular visualisation or query.
 
 ### Arguments
 
