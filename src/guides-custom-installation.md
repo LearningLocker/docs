@@ -83,13 +83,58 @@ npm run build
 
 [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/) is an excellent tool that can be used to manage the Node processes. It also handles log management/rotation and can automatically restart failed services. Learning Locker comes prepackaged with some [pm2 configuration scripts](https://github.com/LearningLocker/learninglocker/tree/develop/pm2).
 
-To install PM2, run the following command:
+To [install PM2](http://pm2.keymetrics.io/docs/usage/quick-start/#installation), run the following command:
 
 ```
 npm install -g pm2
 ```
 
+We also recommend installing the `pm2-logrotate` module, which can handle rotating and compressing your logs.
+
+```
+pm2 install pm2-logrotate
+pm2 set pm2-logrotate:compress true
+```
+
+Once PM2 is installed, you will then be able to run the services using the preconfigured pm2 files in each codebase:
+
+### Learning Locker UI, API, Worker
+
+To start all 3 services, navigate to the LL working directory and run:
+```
+pm2 start pm2/all.json
+```
+
+### xAPI Service
+
+To start the xAPI service, navigate to the xAPI Service working directory and run:
+```
+pm2 start pm2/xapi.json
+```
+
+### Config, status and logs
+
+Note you may wish to copy and modify these pm2 config files based on your setup. Documentation can be found [here](http://pm2.keymetrics.io/docs/usage/application-declaration/).
+
+To view the status of your services:
+```
+pm2 status
+```
+
+To view logs:
+```
+pm2 logs
+```
+
+To restart the services:
+```
+pm2 restart all
+```
+
+
 ## Running the services manually
+
+If you wish to use a different process management tool (e.g. Supervisor) or simply wish to run them manually for testing, you can start the services with these commands.
 
 #### Running the UI
 
