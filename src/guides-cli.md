@@ -8,14 +8,19 @@ Learning Locker comes with a range of CLI commands that can be used to execute c
 _Note:_ In order to use the CLI commands, you must ensure that the CLI server is built. The default install script will have performed this action within the `yarn build-all` command, but it can manually be built using `yarn build-cli-server`
 
 
-## Create Site Admin
+## `createSiteAdmin`
+
+Create a site admin user
+
+### Command:
+```sh
+node cli/dist/server createSiteAdmin [email] [organisation] [password]
+```
 
 Create a new user and organisation for the site. This user will have the Super User privilige (only assignable via this command) and will also automatically be made an admin of the new organisation.
 
 Additional organisation admins can be made within the platform but other super users should be made via subsequent calls to this command.
 
-### Command:
-`node cli/dist/server [email] [organisation] [password]` 
 
 ### Arguments:
 #### `email`
@@ -33,12 +38,15 @@ node cli/dist/server createSiteAdmin "user@example.com" "Example" "password123"
 ```
 ___
 
-## Clear the Aggregation Cache
-
-Will clear down any cached aggregation results (e.g. visualisations)
+## `clearAggregationCache`
+Clear the Aggregation Cache
 
 ### Command
-`node cli/dist/server clearAggregationCache`
+```sh
+node cli/dist/server clearAggregationCache
+```
+
+Will clear down any cached aggregation results (e.g. visualisations)
 
 ### Arguments
 
@@ -61,7 +69,13 @@ node cli/dist/server clearAggregationCache 572cac001bb110583ed76177
 
 ___
 
-## Batch run the worker across existing statements
+## `batchJobs` 
+Batch run the worker across existing statements
+
+### Command
+```sh
+node cli/dist/server batchJobs
+```
 
 Will force statements back through the respective worker queue if they have not already been handled. This is useful if you have migrated statements into the LRS (.e.g if migrating from V1), or your workers were not enabled at the time your statements were inserted into the LRS.
 
@@ -71,8 +85,6 @@ Currently you can batch process the Query Builder Cache generation (used to popu
 
 When a worker job is completed, the appropriate worker queue name will be populated into the `completedQueues` array on each statment document in the database. If you wish to reprocess a set of statements, then clearing the `completedQueues` will allow you to reprocess them.
 
-### Command
-`node cli/dist/server batchJobs`
 
 ### Arguments
 
