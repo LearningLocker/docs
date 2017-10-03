@@ -76,7 +76,7 @@ Clone [the Learning Locker application](https://github.com/LearningLocker/learni
 git clone git@github.com:LearningLocker/learninglocker.git
 ```
 
-Enter the directory and install the requiements:
+Enter the directory and install the requirements:
 
 ```
 yarn install
