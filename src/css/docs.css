@@ -21,6 +21,15 @@ h6, .h6 {
   line-height: 1.2em;
 }
 
+h1 .highlighter-rouge, .h1 .highlighter-rouge,
+h2 .highlighter-rouge, .h2 .highlighter-rouge,
+h3 .highlighter-rouge, .h3 .highlighter-rouge,
+h4 .highlighter-rouge, .h4 .highlighter-rouge,
+h5 .highlighter-rouge, .h5 .highlighter-rouge,
+h6 .highlighter-rouge, .h6 .highlighter-rouge {
+  text-transform: none;
+}
+
 body {
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 14px;
