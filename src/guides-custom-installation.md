@@ -15,7 +15,7 @@ In order to install Learning Locker version 2, you will require a machine that h
 
 ### GCC and Git
 
-A good minimum set of requirements for Git and the GCC toolchaiin can be installed with the following commands:
+A good minimum set of requirements for Git and the GCC toolchain can be installed with the following commands:
 
 ### Fedora based systems
 ```
@@ -33,13 +33,13 @@ apt-get -y -qq install curl git python build-essential xvfb apt-transport-https
 
 There are multiple ways to install Node and Yarn (a package management system for Node). We would recommend the excellent NVM (Node Version Manager) which can be installed by following instructions here: https://github.com/creationix/nvm
 
-We are currently targetting builds on Node 6.* (the current LTS) release. Future versions will also support Node 8.
+We are currently targeting builds on Node 6.* (the current LTS) release. Future versions will also support Node 8.
 
 Instructions to install Yarn can be found here: https://yarnpkg.com/en/docs/install
 
 ### Process Management
 
-[PM2](http://pm2.keymetrics.io/docs/usage/quick-start/) is an excellent tool that can be used to manage the Node processes. It also handles log management/rotation and can automatically restart failed services. Learning Locker comes prepackaged with some [pm2 configuration scripts](https://github.com/LearningLocker/learninglocker/tree/develop/pm2).
+[PM2](http://pm2.keymetrics.io/docs/usage/quick-start/) is an excellent tool that can be used to manage the Node processes. It also handles log management/rotation and can automatically restart failed services. Learning Locker comes pre-packaged with some [pm2 configuration scripts](https://github.com/LearningLocker/learninglocker/tree/develop/pm2).
 
 To [install PM2](http://pm2.keymetrics.io/docs/usage/quick-start/#installation), run the following command:
 
@@ -60,7 +60,7 @@ It is always preferable that you do not run your Node processes as the `root` us
 
 ## Setup
 
-The Learning Locker application is divided into two logically seperate codebases, each of which can be configured to talk to the same Mongo and Redis instances. 
+The Learning Locker application is divided into two logically separate codebases, each of which can be configured to talk to the same Mongo and Redis instances. 
 
 Each codebase requires that it is downloaded, built and configured before it can be run. This guide will aim to guide you through manually installing and running a full Learning Locker v2 stack.
 
@@ -108,7 +108,7 @@ Clone [the xAPI Service](https://github.com/LearningLocker/learninglocker) into 
 git clone git@github.com:LearningLocker/xapi-service.git
 ```
 
-Enter the directory and install the requiements:
+Enter the directory and install the requirements:
 
 ```
 npm install
