@@ -1,5 +1,6 @@
 ---
 redirect_from: 
+   - "/install/"
    - "/installing/"
    - "/installation/"
    - "/upgrading/"
@@ -13,7 +14,7 @@ To install Learning Locker version 2, you can run one of the commands below **as
 
 Please run the required update script for your distro to ensure you have the latest version of all packages.
 
-.e.g
+e.g.
 ```
 yum update
 ```
@@ -35,7 +36,7 @@ wget -qO deployll.sh http://lrnloc.kr/installv2 && bash deployll.sh
 ```
 
 ### Upgrading
-To upgrade, simply re-run the command above. You will be prompted if you wish to "upgrade" any existing instance, or perform a fresh install.
+To upgrade, simply re-run the command above. You will be asked if you wish to "upgrade" any existing instance, or perform a fresh install.
 
 ### Logs
 
