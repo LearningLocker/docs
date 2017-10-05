@@ -76,7 +76,7 @@ More distribution specific information can be found inside the [install script s
 Clone [the Learning Locker application](https://github.com/LearningLocker/learninglocker) into a new working directory on your server.
 
 ```
-git clone git@github.com:LearningLocker/learninglocker.git
+git clone https://github.com/LearningLocker/learninglocker.git
 ```
 
 Enter the directory and install the requirements:
@@ -105,10 +105,10 @@ yarn build-all
 
 ### Clone and install
 
-Clone [the xAPI Service](https://github.com/LearningLocker/learninglocker) into a new working directory on your server.
+Clone [the xAPI Service](https://github.com/LearningLocker/xapi-service) into a new working directory on your server.
 
 ```
-git clone git@github.com:LearningLocker/xapi-service.git
+git clone https://github.com/LearningLocker/xapi-service.git
 ```
 
 Enter the directory and install the requirements:
