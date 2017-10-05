@@ -101,6 +101,10 @@ If you wish to run the UI, API and Worker on the same machine and run CLI comman
 yarn build-all
 ```
 
+### Configuration
+
+Copy the `.env.example` into a new `.env` file and [edit as required](http://docs.learninglocker.net/guides-configuring/#learning-locker-application).
+
 ## Installing the xAPI service
 
 ### Clone and install
@@ -123,6 +127,10 @@ _Note: we do not currently use `yarn` to install the xAPI Service_
 ```
 npm run build
 ```
+
+### Configuration
+
+Copy the `.env.example` into a new `.env` file and [edit as required](http://docs.learninglocker.net/guides-configuring/#xapi-service).
 
 ## Running the services via PM2
 
