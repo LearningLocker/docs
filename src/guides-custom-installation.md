@@ -29,7 +29,7 @@ yum -y install curl git python make automake gcc gcc-c++ kernel-devel xorg-x11-s
 ### Ubuntu/Debian based systems
 ```
 apt-get update && apt-get upgrade
-apt-get -y -qq install curl git python build-essential xvfb apt-transport-https
+apt-get -y install curl git python build-essential xvfb apt-transport-https
 ```
 
 ### Node and Yarn installation
