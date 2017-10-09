@@ -34,11 +34,14 @@ apt-get -y install curl git python build-essential xvfb apt-transport-https
 
 ### Node and Yarn installation
 
-There are multiple ways to install Node and Yarn (a package management system for Node). We would recommend the excellent NVM (Node Version Manager) which can be installed by following instructions here: https://github.com/creationix/nvm
+There are multiple ways to install Node and Yarn (a package management system for Node). We would recommend the excellent NVM (Node Version Manager) which can be installed by following instructions here: [https://github.com/creationix/nvm](https://github.com/creationix/nvm)
 
 We are currently targeting builds on Node 6.* (the current LTS) release. Future versions will also support Node 8.
 
-Instructions to install Yarn can be found here: https://yarnpkg.com/en/docs/install
+Instructions to install Yarn can be found here: [https://yarnpkg.com/en/docs/install](https://yarnpkg.com/en/docs/install) but if being used with `nvm` install via:
+```
+npm install -g yarn
+```
 
 ### Process Management
 
