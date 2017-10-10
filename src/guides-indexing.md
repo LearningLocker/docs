@@ -5,6 +5,7 @@
 If some of your queries are taking a while to run, you can take advantage of database indexes to improve performance. You can create indexes in your database via [the Mongo shell](https://docs.mongodb.com/manual/mongo/). You can run the code below in your Mongo shell to create our recommended indexes. More information is available about [using indexes via Mongo's documentation](https://docs.mongodb.com/manual/indexes/). If utilising indexes doesn't have the required performance improvement, you can instead utilise [BI tools](../guides-retrieving).
 
 ```js
+db.statements.createIndex({ "statement.id": 1 }, { background: true })
 db.statements.createIndex({ organisation: 1, lrs_id: 1, "statement.object.id": 1, "statement.object.objectType": 1 }, { background: true })
 db.statements.createIndex({ organisation: 1, lrs_id: 1, "voided": 1, "statement.verb.id": 1, "statement.object.objectType": 1 }, { background: true })
 db.statements.createIndex({ organisation: 1, lrs_id: 1, "voided": 1, "statement.verb.id": 1, "statement.object.id" }, { background: true })
