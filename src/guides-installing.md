@@ -137,9 +137,9 @@ There are two main repositories that are installed as part of a fresh Learning L
 
 When installing your LL instance using the install script, these packages will be (by default) installed to `/usr/local/learninglocker/current` (as a symlink to a directory inside `/usr/local/learninglocker/release/...`).
 
-Inside `current/` lives the Learning Locker application which controls the User Interface, API and worker.
+Inside `current/webapp/` lives the Learning Locker application which controls the User Interface, API and worker.
 
-We also install the xAPI Service here, inside the `xapi/` directory.
+We also install the xAPI Service here, inside the `current/xapi/` directory.
 
 
 ### Configuration & Environment Variables
