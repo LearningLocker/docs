@@ -21,6 +21,15 @@ h6, .h6 {
   line-height: 1.2em;
 }
 
+h1 .highlighter-rouge, .h1 .highlighter-rouge,
+h2 .highlighter-rouge, .h2 .highlighter-rouge,
+h3 .highlighter-rouge, .h3 .highlighter-rouge,
+h4 .highlighter-rouge, .h4 .highlighter-rouge,
+h5 .highlighter-rouge, .h5 .highlighter-rouge,
+h6 .highlighter-rouge, .h6 .highlighter-rouge {
+  text-transform: none;
+}
+
 body {
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 14px;
@@ -40,17 +49,17 @@ h1 {
 
 h2 {
   font-size: 26px;
-  margin-top: 15px;
+  margin-top: 30px;
 }
 
 h3 {
   font-size: 22px;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 h4 {
   font-size: 16px;
-  margin-top: 5px;
+  margin-top: 20px;
   color: #95989a;
 }
 
