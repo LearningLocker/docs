@@ -2,10 +2,16 @@
 ---
 
 # Models HTTP Interface
-The table below describes the routes that the HTTP interface provides. This HTTP interface is available for all models in Learning Locker, for example, to get a count of stores via this API, you'd use the following route.
+The table below describes the routes that the HTTP interface provides. This HTTP interface is available for all models in Learning Locker.
 
 ```
-GET http://www.example.org/api/lrs
+GET http://www.example.org/api/v2/MODEL_NAME
+```
+
+For example, to get a count of stores via this API, you'd use the following route.
+
+```
+GET http://www.example.org/api/v2/lrs
 ```
 
 To access this interface, you must additionally supply your Basic Auth details with each request in the `Authorization` header. Your Basic Auth details can be found under **Settings** > **Clients**.
