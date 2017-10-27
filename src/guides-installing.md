@@ -62,13 +62,13 @@ wget -qO deployll.sh http://lrnloc.kr/installv2 && bash deployll.sh
 
 ### Upgrading
 
-Over time you may choose to upgrade your Learning Locker. You can run the install script below on your existing EC2 server and that will grab and rebuild the code directly on the server. **Please note: this requires an EC2 instance with at least 2GB of RAM**. You will be asked if you wish to "upgrade" any existing instance, or perform a fresh install.
+You may choose to upgrade your Learning Locker to take advantage of new features, and bug fixes. You can run the install script below on your existing EC2 server and that will grab and rebuild the code directly on the server. **Please note: this requires an EC2 instance with at least 2GB of RAM**. You will be asked if you wish to "upgrade" any existing instance, or perform a fresh install.
 
 If you are using an AMI, this will come installed with Mongo and Redis installed - your data will live on the same server as your application. It is strongly recommended that any Learning Locker running for production use stores its data on different servers to that of the application.
 
-Overtime this will allow you to simply spin up newer versions of the AMI and simply adjust your configuration file to point at your Mongo and Redis instances (existing on other servers). You will also be able to utilise load balancers to handle more traffic and provide redundancy to your site.
+Over time this will allow you to simply spin up newer versions of the AMI and simply adjust your configuration file to point at your Mongo and Redis instances (existing on other servers). You will also be able to utilise load balancers to handle more traffic and provide redundancy for your site.
 
-If you plan on keeping the Mongo database on the same server as the application, you will need to perform an [backup and restoration](https://docs.mongodb.com/manual/tutorial/backup-and-restore-tools/) of your Mongo data between servers. For this reason we strongly recommend placing your database separate to your application.
+If you plan on keeping the Mongo database on the same server as the application, you will need to perform an [backup and restoration](https://docs.mongodb.com/manual/tutorial/backup-and-restore-tools/) of your Mongo data between upgrades. For this reason we strongly recommend placing your database separate to your application.
 
 ### Logs
 
