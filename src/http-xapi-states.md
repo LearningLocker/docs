@@ -11,7 +11,7 @@ Route | Description
 [GET /activities/state](../http-xapi-states#get-activitiesstate) | Retrieves a single state document or multiple state identifiers.
 [DELETE /activities/state](../http-xapi-states#delete-activitiesstate) | Deletes a single state document or multiple state documents.
 
-<iframe src="https://player.vimeo.com/video/168960742" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/168960742" width="80%" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="padding-left: 15%;"></iframe>
 
 ## PUT /activities/state
 This route allows you to create a single state document if it doesn't exist or overwrite an existing state document if it does exist. The route has 3 required URL parameters, an `activityId` (an IRI representing the activity), an `agent` (a JSON encoded object representing the agent the state belongs to), and a `stateId` (a string representing an identifier for the state). There is also an optional URL parameter for the `registration`. A request to this route would look something like the request below.
