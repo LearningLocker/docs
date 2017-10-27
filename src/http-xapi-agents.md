@@ -12,7 +12,7 @@ Route | Description
 [GET /agents/profile](../http-xapi-agents#get-agentsprofile) | Retrieves a single profile document or multiple profile identifiers.
 [DELETE /agents/profile](../http-xapi-agents#delete-agentsprofile) | Deletes a single profile document.
 
-<iframe src="https://player.vimeo.com/video/168960743" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/168960743" width="80%" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="padding-left: 15%;"></iframe>
 
 ## GET /agents
 This route allows you to retrieve all of the agents that are used by a single person, given one of the agents that they use via the required `agent` URL parameter. The request below demonstrates how this is done. A person can be created by inserting statements or using the [Persona HTTP interface](../http-personas). Multiple agents can be associated with a person by using the [Persona HTTP interface](../http-personas) too. For more information, view the [GET /agents route in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#24-agents-resource).

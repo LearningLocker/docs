@@ -8,7 +8,7 @@ redirect_from:
 
 The Learning Locker Aggregation HTTP interface utilises the [Mongo aggregation API](https://docs.mongodb.com/manual/aggregation/) and is only available for statements. The Aggregation HTTP Interface is more advanced than the xAPI HTTP interface and allows you to access MongoDB's powerful Aggregation API for more custom filtration of statements.
 
-<iframe src="https://player.vimeo.com/video/169885401" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/169885401" width="80%" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="padding-left: 15%;"></iframe>
 
 When using this interface, you must additionally supply your Basic Auth details with each request in the `Authorization` header. Your Basic Auth details can be found under **Settings** > **Clients**. The interface requires a `pipeline` URL parameter, which is a JSON encoded array containing a pipeline of stages for statements to pass through before being output from the interface. The optional URL parameters are described in the table below.
 
