@@ -74,7 +74,7 @@ For more information, view the [POST /statements route in the xAPI specification
 ## GET /statements
 This route allows you to retrieve a single statement or multiple statements. If the `statementId` or `voidedStatementId` URL parameters are set, it will [retrieve a single statement](#single-statement) with the given identifier, otherwise it will retrieve [many statements](#many-statements). For more information, view the [GET /statements route in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#213-get-statements).
 
-<iframe src="https://player.vimeo.com/video/168960744" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/168960744" width="80%" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="padding-left: 15%;"></iframe>
 
 ### Single Statement
 In addition to the `statementId` and `voidedStatementId` URL parameters (one of which must be set to retrieve a single statement), there are two additional optional parameters in the form of `format` and `attachments`. The `format` parameter defaults to "exact" if it's not set, the other options are "ids" (only includes minimal information) and "canonical" (only includes one language per language map). The `attachments` parameter is a boolean that determines if the statement's attachments are returned with the statement.

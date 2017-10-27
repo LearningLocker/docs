@@ -12,7 +12,7 @@ Route | Description
 [GET /activities/profile](../http-xapi-activities#get-activitiesprofile) | Retrieves a single profile document or multiple profile identifiers.
 [DELETE /activities/profile](../http-xapi-activities#delete-activitiesprofile) | Deletes a single profile document.
 
-<iframe src="https://player.vimeo.com/video/168961913" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/168961913" width="80%" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="padding-left: 15%;"></iframe>
 
 ## GET /activities
 This route allows you to retrieve the full definition of an activity, meaning that the LRS will return all of the languages displays and extensions that have been sent in statements, along with the most up to date `moreInfo` and `type` property values. This route requires an `activityId` URL parameter (an IRI representing the activity). To try this route out, first [insert two statements with different activity definitions](#insert-different-activity-definitions) and then use the route to [retrieve the full activity definition](#retrieve-full-activity-definition). For more information, view the [GET /activities route in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#25-activities-resource).
