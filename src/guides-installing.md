@@ -10,7 +10,9 @@ redirect_from:
 
 ## Community AMI on Amazon Web Services (AWS)
 
-By far and away the quickest way to get started with Learning Locker is to install our Community AMI (Amazon Machine Image) on AWS. You will be able to spin up your LRS in a matter of minutes. To find the AMI, search for "Learning Locker" in the Community AMI's section when starting a new EC2 instance and follow the instructions below, or watch [this video for a step by step walkthrough](https://www.youtube.com/watch?v=7g6PJENusfo).
+By far and away the quickest way to get started with Learning Locker is to install our Community AMI (Amazon Machine Image) on AWS. You will be able to spin up your LRS in a matter of minutes. To find the AMI, search for "Learning Locker" in the Community AMI's section when starting a new EC2 instance and follow the instructions below, or watch the following video:
+
+<iframe width="80%" height="315" src="https://www.youtube.com/embed/7g6PJENusfo" frameborder="0" gesture="media" allowfullscreen style="padding-left: 15%;"></iframe>
 
 #### Instructions
 
@@ -20,7 +22,7 @@ You will also need to *ssh* to the AMI using the default 'ubuntu' user and the k
 
 This file will be generated when the server is fully running and can take up to 5 minutes to be available.
 
-**Please note that by default your EC2 instance will hold all of your LRS's data. Spinning up a new AMI will not transfer any of your data. Please see the [Upgrading](#upgrading) section below if you plan on using your LRS for real users and keeping your LRS up to date.
+**Please note that by default your EC2 instance will hold all of your LRS's data. Spinning up a new AMI will not transfer any of your data. Please see the [Upgrading](#upgrading) section below if you plan on using your LRS for real users and keeping your LRS up to date.**
 
 #### Regions
 The AMI is currently available in the following AWS regions:
@@ -31,7 +33,9 @@ The AMI is currently available in the following AWS regions:
 
 ## Via the install script
 
-To install Learning Locker version 2, you can run one of the commands below **as the root user** on `CentOS`, `Fedora`, `Ubuntu`, and `Debian`. For more information, you can view the [deployment repository's documentation](https://github.com/LearningLocker/deploy).
+To install Learning Locker version 2, you can run one of the commands below **as the root user** on `CentOS`, `Fedora`, `Ubuntu`, and `Debian`. For more information, you can view the [deployment repository's documentation](https://github.com/LearningLocker/deploy). Alternatively, view the following video tutorial:
+
+<iframe width="80%" height="315" src="https://www.youtube.com/embed/tc_VDNjXLSc" frameborder="0" gesture="media" allowfullscreen style="padding-left: 15%;"></iframe>
 
 Please run the required update script for your distro to ensure you have the latest version of all packages.
 
