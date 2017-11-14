@@ -24,5 +24,8 @@ db.statements.createIndex({ organisation: 1, "voided": 1 }, { background: true }
 db.statements.createIndex({ organisation: 1, lrs_id: 1, hash: 1 }, {unique: true, background: true});
 db.statements.createIndex({ stored: -1 }, { background: true });
 db.statements.createIndex({ "person._id": 1}, { background: true});
+
 db.client.createIndex({ "api.basic_key": 1, "api.basic_secret": 1}, {unique: true, background: true})
+
+db.fullActivities.createIndex({organisation:1, lrs_id: 1, id:1}, {background:true})
 ```
