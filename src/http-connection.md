@@ -8,7 +8,7 @@ redirect_from:
 The Learning Locker Connection API is a HTTP interface that [utilises cursors to provide paginated models](#pagination-example). The API is inspired by [GraphQL's connections](https://facebook.github.io/relay/docs/graphql-connections.html). The API is available for all models in Learning Locker, for example, to receive paginated statements via this API, you'd use the following URL.
 
 ```
-http://www.example.org/api/connection/statements
+http://www.example.org/api/connection/statement
 ```
 
 You must additionally supply your Basic Auth details with each request in the `Authorization` header. Your Basic Auth details can be found under **Settings** > **Clients**. The API also accepts the following *optional* URL parameters for filtering the models returned.
@@ -24,7 +24,7 @@ You must additionally supply your Basic Auth details with each request in the `A
 All of the URL parameters should be URL encoded (after JSON encoding if JSON encoding is required). For example, if you were using the [example sort parameter](#sort-parameter), your request would look something like the request below.
 
 ```http
-GET http://www.example.org/api/connection/statements?sort=%7b%22timestamp%22%3a-1%2c%22statement.id%22%3a1%7d
+GET http://www.example.org/api/connection/statement?sort=%7b%22timestamp%22%3a-1%2c%22statement.id%22%3a1%7d
 Authorization: Basic YOUR_BASIC_AUTH
 ```
 
@@ -157,7 +157,7 @@ The request above should return you a statement identifier for each of the state
 Once you've inserted two statements, you can make a request for the first statement, using a request like the one below.
 
 ```http
-GET http://www.example.org/api/connection/statements?first=1
+GET http://www.example.org/api/connection/statement?first=1
 Authorization: Basic YOUR_BASIC_AUTH
 ```
 
@@ -195,7 +195,7 @@ The request above should return you a connection, consisting of edges (which con
 Once you've received a page, you can use the cursors in the `pageInfo` from the previous response to retrieve the next page. For example, we can use a request like the one below to retrieve the second of the inserted statements from earlier in this example.
 
 ```http
-GET http://www.example.org/api/connection/statements?first=1&after=Zmlyc3RTdGF0ZW1lbnQ=
+GET http://www.example.org/api/connection/statement?first=1&after=Zmlyc3RTdGF0ZW1lbnQ=
 Authorization: Basic YOUR_BASIC_AUTH
 ```
 
