@@ -8,7 +8,7 @@ Visualisation configuration.
 It is accessible through the following HTTP interfaces:
 
 - [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/visualisation.
-- [Models HTTP Interface](../http-models) via http://www.example.org/api/visualisation.
+- [Models HTTP Interface](../http-rest) via http://www.example.org/api/v2/visualisation.
 
 ### Schema
 

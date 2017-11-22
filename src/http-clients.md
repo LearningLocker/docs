@@ -8,7 +8,7 @@ Details of a clients which will be accessing Learning Locker. It contains detail
 It is accessible through the following HTTP interfaces:
 
 - [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/client.
-- [Models HTTP Interface](../http-models) via http://www.example.org/api/client.
+- [Models HTTP Interface](../http-rest) via http://www.example.org/api/v2/client.
 
 ### Schema
 

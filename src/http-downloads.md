@@ -8,7 +8,7 @@ Holds records of exports.
 It is accessible through the following HTTP interfaces:
 
 - [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/download.
-- [Models HTTP Interface](../http-models) via http://www.example.org/api/download.
+- [Models HTTP Interface](../http-rest) via http://www.example.org/api/v2/download.
 
 ### Schema
 

@@ -8,7 +8,7 @@ Details of dashboards.
 It is accessible through the following HTTP interfaces:
 
 - [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/dashboard.
-- [Models HTTP Interface](../http-models) via http://www.example.org/api/dashboard.
+- [Models HTTP Interface](../http-rest) via http://www.example.org/api/v2/dashboard.
 
 ### Schema
 
