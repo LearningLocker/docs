@@ -1,7 +1,7 @@
 ---
 ---
 
-# Models HTTP Interface
+# REST API HTTP Interface
 The table below describes the routes that the HTTP interface provides. This HTTP interface is available for all models in Learning Locker.
 
 ```
@@ -30,21 +30,21 @@ Method | Description
 ## Models
 The table below lists the models supported by this interface, you can view the model schemas by clicking the model names.
 
-Name | Description
---- | ---
-[Client](../http-clients#schema) | Credentials that access HTTP Interfaces.
-[Dashboard](../http-dashboards#schema) | Customisable grid of visualisations.
-[Download](../http-downloads#schema) | Record of downloaded exports.
-[Export](../http-exports#schema) | Template for exporting statements.
-[Journey](../http-journeys#schema) | Journeys visualisation.
-[Journey Progress](../http-journey-progress#schema) | Journey progress.
-[Organisation](../http-organisations#schema) | Container of clients and stores that a subset of users can access.
-[Persona](../http-personas#schema) | Group of xAPI agents relating to a single person.
-[Query](../http-queries#schema) | Saved filter for statements.
-[Role](../http-roles#schema) | Group of permissions for accessing organisation data via users.
-[Store](../http-stores#schema) | Container for xAPI data (statements, documents, and attachments).
-[User](../http-users#schema) | Login details for accessing the UI.
-[Visualisation](../http-visualisations#schema) | Graphical view of statements.
+Name | API Model Name | Description
+--- | --- | ---
+[Client](../http-clients#schema) | `client` | Credentials that access HTTP Interfaces.
+[Dashboard](../http-dashboards#schema) | `dashboard` | Customisable grid of visualisations.
+[Download](../http-downloads#schema) | `download` | Record of downloaded exports.
+[Export](../http-exports#schema) | `export` | Template for exporting statements.
+[Journey](../http-journeys#schema) | `journey` | Journeys visualisation.
+[Journey Progress](../http-journey-progress#schema) | `journeyprogress` | Journey progress.
+[Organisation](../http-organisations#schema) | `organisation` | Container of clients and stores that a subset of users can access.
+[Persona](../http-personas#schema) | `persona` | Group of xAPI agents relating to a single person.
+[Query](../http-queries#schema) | `query` | Saved filter for statements.
+[Role](../http-roles#schema) | `role` | Group of permissions for accessing organisation data via users.
+[Store](../http-stores#schema) | `store` | Container for xAPI data (statements, documents, and attachments).
+[User](../http-users#schema) | `user` | Login details for accessing the UI.
+[Visualisation](../http-visualisations#schema) | `visualisation` | Graphical view of statements.
 
 ## Routes
 ### GET /count
