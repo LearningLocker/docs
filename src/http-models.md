@@ -51,7 +51,7 @@ Name | Description
 This route returns a count of the models. A request to this route would look something like the request below.
 
 ```http
-GET http://www.example.org/api/lrs/count
+GET http://www.example.org/api/v2/lrs/count
 Authorization: YOUR_BASIC_AUTH
 ```
 
@@ -70,7 +70,7 @@ For more information about the acceptable URL query parameters, view the [Restif
 This route returns an array of models. A request to this route would look something like the request below.
 
 ```http
-GET http://www.example.org/api/lrs
+GET http://www.example.org/api/v2/lrs
 Authorization: YOUR_BASIC_AUTH
 ```
 
@@ -96,7 +96,7 @@ For more information about the acceptable URL query parameters, view the [Restif
 This route creates a model. A request to this route would look something like the request below. Different models will require and respond with a different schema, you can view the schemas by clicking the model names in the [model table above](#models).
 
 ```http
-POST http://www.example.org/api/lrs
+POST http://www.example.org/api/v2/lrs
 Authorization: YOUR_BASIC_AUTH
 Content-Type: application/json; charset=utf-8
 
@@ -125,7 +125,7 @@ Content-Type: application/json; charset=utf-8
 This route returns a single model that has the specified identifier from the URL. A request to this route would look something like the request below.
 
 ```http
-GET http://www.example.org/api/lrs/111aaa1111a111111aa11112
+GET http://www.example.org/api/v2/lrs/111aaa1111a111111aa11112
 Authorization: YOUR_BASIC_AUTH
 ```
 
@@ -151,7 +151,7 @@ For more information about the acceptable URL query parameters, view the [Restif
 This route creates or updates a single model that has the specified identifier from the URL. A request to this route would look something like the request below. Different models will require and respond with a different schema, you can view the schemas by clicking the model names in the [model table above](#models).
 
 ```http
-PUT http://www.example.org/api/lrs/111aaa1111a111111aa11112
+PUT http://www.example.org/api/v2/lrs/111aaa1111a111111aa11112
 Authorization: YOUR_BASIC_AUTH
 Content-Type: application/json; charset=utf-8
 
@@ -185,7 +185,7 @@ Content-Type: application/json; charset=utf-8
 This route patches a single model that has the specified identifier from the URL. A request to this route would look something like the request below. Different models will require and respond with a different schema, you can view the schemas by clicking the model names in the [model table above](#models).
 
 ```http
-PATCH http://www.example.org/api/lrs/111aaa1111a111111aa11112
+PATCH http://www.example.org/api/v2/lrs/111aaa1111a111111aa11112
 Authorization: YOUR_BASIC_AUTH
 Content-Type: application/json; charset=utf-8
 
@@ -214,7 +214,7 @@ Content-Type: application/json; charset=utf-8
 This route deletes a single model that has the specified identifier from the URL. A request to this route would look something like the request below.
 
 ```http
-DELETE http://www.example.org/api/lrs/111aaa1111a111111aa11112
+DELETE http://www.example.org/api/v2/lrs/111aaa1111a111111aa11112
 Authorization: YOUR_BASIC_AUTH
 ```
 
