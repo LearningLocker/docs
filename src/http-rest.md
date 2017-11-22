@@ -1,4 +1,6 @@
 ---
+redirect_from: 
+   - "/models/"
 ---
 
 # REST API HTTP Interface
