@@ -8,7 +8,7 @@ A store holds collections of statements. (may be referred to as lrs).
 It is accessible through the following HTTP interfaces:
 
 - [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/lrs.
-- [Models HTTP Interface](../http-rest) via http://www.example.org/api/v2/lrs.
+- [REST HTTP Interface](../http-rest) via http://www.example.org/api/v2/lrs.
 
 ### Schema
 

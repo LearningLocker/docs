@@ -8,7 +8,7 @@ Statements hold all of the xAPI records that have been inserted into the databas
 It is accessible through the following HTTP interfaces:
 
 - [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/statement.
-- [Models HTTP Interface](../http-rest) via http://www.example.org/api/v2/statement.
+- [REST HTTP Interface](../http-rest) via http://www.example.org/api/v2/statement.
 
 Whilst statements _can_ be inserted via the Models HTTP interface, this is not recommended as it bypasses all validation, reference and void checking, leading to invalid xAPI records.
 

@@ -8,7 +8,7 @@ This holds queries which are then used to export data form learning locker.
 It is accessible through the following HTTP interfaces:
 
 - [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/export.
-- [Models HTTP Interface](../http-rest) via http://www.example.org/api/v2/export.
+- [REST HTTP Interface](../http-rest) via http://www.example.org/api/v2/export.
 
 ### Schema
 

@@ -8,7 +8,7 @@ A persona, generated from xapi statements.
 It is accessible through the following HTTP interfaces:
 
 - [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/persona.
-- [Models HTTP Interface](../http-rest) via http://www.example.org/api/v2/persona.
+- [REST HTTP Interface](../http-rest) via http://www.example.org/api/v2/persona.
 
 ### Schema
 
@@ -40,7 +40,7 @@ personaIdenfiers | An array of ids for [personaIdentifiers](#persona-identifiers
 Persona Identifiers are also accessible through the following HTTP interfaces:
 
 - [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/personaidentifier.
-- [Models HTTP Interface](../http-rest) via http://www.example.org/api/v2/personaidentifier.
+- [REST HTTP Interface](../http-rest) via http://www.example.org/api/v2/personaidentifier.
 
 Persona identifiers has properties: 
 

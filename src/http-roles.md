@@ -8,7 +8,7 @@ Roles contain a set of permissions, of which then users can be assigned.
 It is accessible through the following HTTP interfaces:
 
 - [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/role.
-- [Models HTTP Interface](../http-rest) via http://www.example.org/api/v2/role.
+- [REST HTTP Interface](../http-rest) via http://www.example.org/api/v2/role.
 
 ### Schema
 

@@ -8,7 +8,7 @@ This holds saved statement queries.
 It is accessible through the following HTTP interfaces:
 
 - [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/query.
-- [Models HTTP Interface](../http-rest) via http://www.example.org/api/v2/query.
+- [REST HTTP Interface](../http-rest) via http://www.example.org/api/v2/query.
 
 ### Schema
 
