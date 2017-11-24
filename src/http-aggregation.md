@@ -145,6 +145,33 @@ Note that when using extension keys, you need to replace any dots with `&46;` be
 }
 ```
 
+#### Matching on ObjectIds
+When querying on ObjectIds we must tell the aggregation to cast these values. To do this we can use the `$oid` operator:
+
+```
+"person._id": {
+  "$oid": "59c1219936229d4ce9634601"
+}
+```
+
+This will cast the ID to a Mongo Object ID
+
+#### Matching on binary date fields
+Most date fields (other than `statement.timestamp` and `statement.stored`) are stored as ISODate values. To query on these we can cast our ISO8601 formatted date from a string into an ISODate using the `$dte` operator:
+
+```
+// return all records in April 2017
+"timestamp": {
+  "$gte": {
+    "$dte": "2017-04-01T00:00:00Z"
+  },
+  "$lt": {
+    "$dte": "2017-05-01T00:00:00Z"
+  }
+}
+```
+
+
 #### Matching With Improved Performance
 You may find that changing the match stage can vary the time it takes a query to run, especially when you have a large number of statements. You can take advantage of database indexes to improve performance, more information is available about [using indexes in the match stage via Mongo's documentation](https://docs.mongodb.com/manual/core/aggregation-pipeline/#pipeline-operators-and-indexes). If utilising indexes doesn't have the required performance improvement, you can instead utilise our [Connection HTTP Interface](../http-connection) or [BI tools](../guides-retrieving).
 
