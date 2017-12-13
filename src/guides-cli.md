@@ -39,6 +39,41 @@ node cli/dist/server createSiteAdmin "user@example.com" "Example" "password123"
 ```
 ___
 
+## `migrateMongo`
+
+Runs any outstanding migrations on the Mongo database
+
+### Command:
+```sh
+node cli/dist/server migrateMongo 
+```
+
+Will check for any migrations that have not been run and apply them to the database. You can run migrations "up" or "down". The former will apply migrations, whilst the latter will rollback any migrations.
+
+### Arguments:
+#### `-u, --up [up]`
+Optional, runs up migrations up to [up file name], also accepts ['next'], [up] arg is optional
+
+#### `-d, --down <down>`
+Optional, runs down migration down to [down file name], also accepts ['last']
+
+#### `-i, --info [info]`
+Display the state of the migrations, optional ['v'|'verbose']
+
+### Example
+Apply all outstanding migrations:
+
+```
+node cli/dist/server migrateMongo --up
+```
+
+Rollback the last applied migration:
+
+```
+node cli/dist/server migrateMongo --down last
+```
+___
+
 ## `clearAggregationCache`
 Clear the cache of any aggregation data
 
