@@ -50,15 +50,19 @@ node cli/dist/server migrateMongo
 
 Will check for any migrations that have not been run and apply them to the database. You can run migrations "up" or "down". The former will apply migrations, whilst the latter will roll back migrations.
 
+If you do not pass any arguments, defaults to `-u`; all pending migrations will be performed.
+
 ### Arguments:
-#### `-u, --up [up]`
-Optional, runs up migrations up to [up file name], also accepts ['next'], [up] arg is optional
+#### `-u, --up [target]`
+Runs all pending migrations.
 
-#### `-d, --down [down]`
-Optional, runs down migration down to [down file name], also accepts ['last']
+The optional [target] parameter can be passed to specify a certain migration to run. Pass `next` as [target] to run only the next pending migration, or the name of a certain pending migration to run only that one.
 
-#### `-i, --info [info]`
-Display the state of the migrations, optional ['v'|'verbose']
+#### `-d, --down [target]`
+Optional. Runs applied migrations down until the migration name specified as [target]. Also accepts `last` as [target] to only down the last applied migration.
+
+#### `-i, --info [level]`
+Display the state of migrations (which have been run, which haven't). Can optionally specify `v` or `verbose` as [level] to output more detailed information.
 
 ### Example
 Apply all outstanding migrations:
