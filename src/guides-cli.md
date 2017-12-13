@@ -48,13 +48,13 @@ Runs any outstanding migrations on the Mongo database
 node cli/dist/server migrateMongo 
 ```
 
-Will check for any migrations that have not been run and apply them to the database. You can run migrations "up" or "down". The former will apply migrations, whilst the latter will rollback any migrations.
+Will check for any migrations that have not been run and apply them to the database. You can run migrations "up" or "down". The former will apply migrations, whilst the latter will roll back migrations.
 
 ### Arguments:
 #### `-u, --up [up]`
 Optional, runs up migrations up to [up file name], also accepts ['next'], [up] arg is optional
 
-#### `-d, --down <down>`
+#### `-d, --down [down]`
 Optional, runs down migration down to [down file name], also accepts ['last']
 
 #### `-i, --info [info]`
@@ -67,7 +67,7 @@ Apply all outstanding migrations:
 node cli/dist/server migrateMongo --up
 ```
 
-Rollback the last applied migration:
+Roll back the last applied migration:
 
 ```
 node cli/dist/server migrateMongo --down last
