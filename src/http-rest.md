@@ -41,7 +41,9 @@ Name | API Model Name | Description
 [Journey](../http-journeys#schema) | `journey` | Journeys visualisation.
 [Journey Progress](../http-journey-progress#schema) | `journeyprogress` | Journey progress.
 [Organisation](../http-organisations#schema) | `organisation` | Container of clients and stores that a subset of users can access.
-[Persona](../http-personas#schema) | `persona` | Group of xAPI agents relating to a single person.
+[Persona](../http-personas#schema) | `persona` | Person with many [identifiers](../http-persona-identifiers) and [attributes](../http-persona-attributes) across systems.
+[Persona Identifier](../http-persona-identifiers#schema) | `personaidentifier` | Unique xAPI identifier for a persona.
+[Persona Attribute](../http-persona-attributes#schema) | `personaattribute` | Attribute of a persona.
 [Query](../http-queries#schema) | `query` | Saved filter for statements.
 [Role](../http-roles#schema) | `role` | Group of permissions for accessing organisation data via users.
 [Store](../http-stores#schema) | `store` | Container for xAPI data (statements, documents, and attachments).
