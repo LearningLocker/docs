@@ -9,6 +9,7 @@ It is accessible through the following HTTP interfaces:
 
 - [Connection HTTP Interface](../http-connection) via `http://www.example.org/api/connection/personaidentifier`.
 - [REST HTTP Interface](../http-rest) via `http://www.example.org/api/v2/personaidentifier`.
+- [Upsert HTTP Interface](#upsert-http-interface) via `http://www.example.org/api/v2/personaidentifier/upsert`.
 
 ### Schema
 
@@ -82,5 +83,49 @@ value | The value of the IFI.
 {
   "key": "openid",
   "value": "http://www.example.org/example-user"
+}
+```
+
+# Upsert HTTP Interface
+This interface creates or updates a persona identifier depending on whether the IFI already exists.
+
+- If the `persona` property is not set, a persona will be created if the identifier's IFI doesn't exist.
+- If the `persona` property is set, the persona must already exist, a 404 will be returned otherwise.
+
+A request to this route would look something like the request below.
+
+```http
+POST http://www.example.org/api/v2/personaidentifier/upsert
+Authorization: YOUR_BASIC_AUTH
+Content-Type: application/json; charset=utf-8
+
+{
+  "ifi": {
+    "key": "account",
+    "value": {
+      "homePage": "http://www.example.org",
+      "name": "example-user"
+    }
+  }
+}
+```
+
+A request like the one above, will respond with a 200 response like the one below containing the created/updated identifier.
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+  "_id" : "59c1219936229d4ce9634601",
+  "organisation" : "59c1219936229d4ce9634602",
+  "persona": "59c1219936229d4ce9634603",
+  "ifi": {
+    "key": "account",
+    "value": {
+      "homePage": "http://www.example.org",
+      "name": "example-user"
+    }
+  }
 }
 ```
