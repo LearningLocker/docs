@@ -90,9 +90,9 @@ value | The value of the IFI.
 This interface creates or updates a persona identifier depending on whether the IFI already exists.
 
 - If the `persona` property is not set, a persona will be created if the identifier's IFI doesn't exist.
-- If the `persona` property is set, the persona must already exist, a 404 will be returned otherwise.
+- If the `persona` property is set, the persona must already exist. Otherwise, a 404 response code will be returned.
 
-A request to this route would look something like the request below.
+A request to the upsert route would look something like this:
 
 ```http
 POST http://www.example.org/api/v2/personaidentifier/upsert
@@ -110,7 +110,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-A request like the one above, will respond with a 200 response like the one below containing the created/updated identifier.
+The interface will respond a 200 response code, with detail the created/updated identifier.
 
 ```http
 HTTP/1.1 200 OK
