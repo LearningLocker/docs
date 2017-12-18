@@ -7,8 +7,8 @@ Represents an attribute of a [persona](../http-persona).
 
 It is accessible through the following HTTP interfaces:
 
-- [Connection HTTP Interface](../http-connection) via `http://www.example.org/api/connection/personaattribute`.
-- [REST HTTP Interface](../http-rest) via `http://www.example.org/api/v2/personaattribute`.
+- [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/personaattribute.
+- [REST HTTP Interface](../http-rest) via http://www.example.org/api/v2/personaattribute.
 
 ### Schema
 

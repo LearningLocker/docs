@@ -7,8 +7,8 @@ Represents a unique identifier for a person. Statements that use these identifie
 
 It is accessible through the following HTTP interfaces:
 
-- [Connection HTTP Interface](../http-connection) via `http://www.example.org/api/connection/personaidentifier`.
-- [REST HTTP Interface](../http-rest) via `http://www.example.org/api/v2/personaidentifier`.
+- [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/personaidentifier.
+- [REST HTTP Interface](../http-rest) via http://www.example.org/api/v2/personaidentifier.
 
 ### Schema
 
