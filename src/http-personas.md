@@ -7,8 +7,8 @@ A persona represents a person with many [identifiers](../http-persona-identifier
 
 It is accessible through the following HTTP interfaces:
 
-- [Connection HTTP Interface](../http-connection) via `http://www.example.org/api/connection/persona`.
-- [REST HTTP Interface](../http-rest) via `http://www.example.org/api/v2/persona`.
+- [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/persona.
+- [REST HTTP Interface](../http-rest) via http://www.example.org/api/v2/persona.
 
 ### Schema
 
