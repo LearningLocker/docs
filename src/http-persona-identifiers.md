@@ -110,7 +110,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-The interface will respond a 200 response code, with detail the created/updated identifier.
+The interface will respond with a 200 response code, with detail the created/updated identifier.
 
 ```http
 HTTP/1.1 200 OK
