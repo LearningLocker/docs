@@ -27,5 +27,5 @@ db.statements.createIndex({ "person._id": 1}, { background: true});
 
 db.client.createIndex({ "api.basic_key": 1, "api.basic_secret": 1}, {unique: true, background: true})
 
-db.fullActivities.createIndex({organisationId:1, lrsId: 1, activityId:1}, {background:true})
+db.fullActivities.createIndex({organisation:1, lrs_id: 1, activityId:1}, {unique: true, background:true})
 ```
