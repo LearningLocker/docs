@@ -54,7 +54,7 @@ headers | A json array encoded as a string which contains additional headers to 
   "configuration" : {
       "authType" : "no auth",
       "protocol" : "https",
-      "url" : "requestb.in/ssf1qkss",
+      "url" : "example.org/endpoint",
       "maxRetries" : 10,
       "headers" : "{\"Test-Header-Key\":\"Test-Header-Value\"}",
       "secret" : "Dave"
