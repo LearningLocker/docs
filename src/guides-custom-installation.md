@@ -127,7 +127,7 @@ yarn install
 ### Build
 
 ```
-yarn build-all
+yarn build
 ```
 
 ### Configuration
