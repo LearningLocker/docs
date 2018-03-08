@@ -10,7 +10,7 @@ db.statements.createIndex({ stored: -1 }, { background: true });
 
 db.statements.createIndex({ organisation: 1, lrs_id: 1, "statement.object.id": 1, "statement.object.objectType": 1 }, { background: true });
 db.statements.createIndex({ organisation: 1, lrs_id: 1, "voided": 1, "statement.verb.id": 1, "statement.object.objectType": 1 }, { background: true });
-db.statements.createIndex({ organisation: 1, lrs_id: 1, "voided": 1, "statement.verb.id": 1, "statement.object.id" }, { background: true });
+db.statements.createIndex({ organisation: 1, lrs_id: 1, "voided": 1, "statement.verb.id": 1, "statement.object.id": 1 }, { background: true });
 db.statements.createIndex({ organisation: 1, lrs_id: 1, "voided": 1, "statement.actor.mbox": 1 }, { background: true });
 db.statements.createIndex({ organisation: 1, lrs_id: 1, "voided": 1, "statement.actor.account.name": 1, "statement.actor.account.homePage": 1 }, { background: true });
 db.statements.createIndex({ organisation: 1, lrs_id: 1, "voided": 1, "timestamp": -1, _id: -1 }, { background: true });
@@ -42,4 +42,5 @@ db.personas.createIndex({organisation: 1}, {background: true});
 db.personaIdentifiers.createIndex({organisation: 1, persona: 1}, {background: true});
 db.personaIdentifiers.createIndex({organisation: 1, ifi: 1}, {unique: true, background: true});
 db.personaAttributes.createIndex({organisation: 1, personaId: 1, key: 1}, {background: true});
+
 ```
