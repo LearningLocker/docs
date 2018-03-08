@@ -25,7 +25,7 @@ db.statements.createIndex({ organisation: 1, lrs_id: 1, relatedAgents: 1, timest
 db.statements.createIndex({ organisation: 1, lrs_id: 1, verbs: 1, timestamp: -1}, {background: true});
 
 db.statements.createIndex({ organisation: 1, "statement.object.id": 1 }, { background: true });
-db.statements.createIndex({ organisation: 1, "statement.verb.id": 1, "statement.object.id" }, { background: true });
+db.statements.createIndex({ organisation: 1, "statement.verb.id": 1, "statement.object.id": 1 }, { background: true });
 db.statements.createIndex({ organisation: 1, "timestamp": -1, _id: 1 }, { background: true });
 db.statements.createIndex({ organisation: 1, "stored": -1, _id: 1 }, { background: true });
 db.statements.createIndex({ organisation: 1, "voided": 1 }, { background: true });
