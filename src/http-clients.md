@@ -14,7 +14,7 @@ It is accessible through the following HTTP interfaces:
 
 Name | Description
 --- | ---
-_id | The unique id of document.
+_id | The unique id of the document.
 createdAt | When this document was created.
 updatedAt | When this document was last updated.
 title | String. The title of the client.

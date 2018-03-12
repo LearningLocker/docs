@@ -10,8 +10,8 @@ echo "${DELIM}<"
 echo "Starting build"
 rm -rf out || exit 0
 mkdir out
-gem install jekyll --http-proxy --source http://rubygems.org
-gem install jekyll-redirect-from
+gem install jekyll --http-proxy --source http://rubygems.org -v 3.6.2
+gem install jekyll-redirect-from -v 0.13.0
 jekyll build
 echo "Finished build"
 
@@ -29,7 +29,7 @@ if [ "${MASTER}" = "${TRAVIS_BRANCH}" ]; then
 	cp ../countryiso.js ./countryiso.js
 	git add .
 	git commit -m "Deployed to Github Pages"
-	git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
+	git push --force "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
 	echo "Finished deployment"
 else
 	echo "Not deploying"
