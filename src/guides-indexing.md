@@ -15,14 +15,22 @@ db.statements.createIndex({ organisation: 1, lrs_id: 1, "voided": 1, "statement.
 db.statements.createIndex({ organisation: 1, lrs_id: 1, "voided": 1, "statement.actor.account.name": 1, "statement.actor.account.homePage": 1 }, { background: true });
 db.statements.createIndex({ organisation: 1, lrs_id: 1, "voided": 1, "timestamp": -1, _id: -1 }, { background: true });
 db.statements.createIndex({ organisation: 1, lrs_id: 1, "voided": 1, "stored": -1, _id: -1 }, { background: true });
-db.statements.createIndex({ organisation: 1, lrs_id: 1, "statement.id": 1 }, { background: true });
+
 db.statements.createIndex({ organisation: 1, lrs_id: 1, hash: 1 }, {unique: true, background: true});
+
 db.statements.createIndex({ organisation: 1, lrs_id: 1, activities: 1, timestamp: -1}, {background: true});
 db.statements.createIndex({ organisation: 1, lrs_id: 1, agents: 1, timestamp: -1}, {background: true});
 db.statements.createIndex({ organisation: 1, lrs_id: 1, registrations: 1, timestamp: -1}, {background: true});
 db.statements.createIndex({ organisation: 1, lrs_id: 1, relatedActivities: 1, timestamp: -1}, {background: true});
 db.statements.createIndex({ organisation: 1, lrs_id: 1, relatedAgents: 1, timestamp: -1}, {background: true});
 db.statements.createIndex({ organisation: 1, lrs_id: 1, verbs: 1, timestamp: -1}, {background: true});
+
+db.statements.createIndex({ organisation: 1, lrs_id: 1, activities: 1, stored: -1}, {background: true});
+db.statements.createIndex({ organisation: 1, lrs_id: 1, agents: 1, stored: -1}, {background: true});
+db.statements.createIndex({ organisation: 1, lrs_id: 1, registrations: 1, stored: -1}, {background: true});
+db.statements.createIndex({ organisation: 1, lrs_id: 1, relatedActivities: 1, stored: -1}, {background: true});
+db.statements.createIndex({ organisation: 1, lrs_id: 1, relatedAgents: 1, stored: -1}, {background: true});
+db.statements.createIndex({ organisation: 1, lrs_id: 1, verbs: 1, stored: -1}, {background: true});
 
 db.statements.createIndex({ organisation: 1, "statement.object.id": 1 }, { background: true });
 db.statements.createIndex({ organisation: 1, "statement.verb.id": 1, "statement.object.id": 1 }, { background: true });
