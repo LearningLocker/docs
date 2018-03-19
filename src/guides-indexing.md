@@ -40,7 +40,8 @@ db.fullActivities.createIndex({organisation:1, lrs_id: 1, activityId:1}, {unique
 
 db.personas.createIndex({organisation: 1}, {background: true});
 db.personaIdentifiers.createIndex({organisation: 1, persona: 1}, {background: true});
-db.personaIdentifiers.createIndex({organisation: 1, ifi: 1}, {unique: true, background: true});
+db.personaIdentifiers.createIndex({ organisation: 1, "ifi.key": 1, "ifi.value.homePage": 1, "ifi.value.name": 1}, {background: true})
+db.personaIdentifiers.createIndex({ organisation: 1, "ifi.key": 1, "ifi.value": 1}, {background: true, unique: true});
 db.personaAttributes.createIndex({organisation: 1, personaId: 1, key: 1}, {background: true});
 
 ```
