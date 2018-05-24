@@ -11,7 +11,7 @@ In order to install Learning Locker version 2, you will require a machine that h
 * [GCC toolchain](https://en.wikipedia.org/wiki/GNU_toolchain)
 * [Node](https://nodejs.org/en/) (v6+)
 * [Yarn](https://yarnpkg.com/en/)
-* Connectivity to a [Mongo](https://www.mongodb.com/) instance (v3.0+)
+* Connectivity to a [Mongo](https://www.mongodb.com/) instance (>v3.0.* <= 3.4.* - 3.4.* recommended)
 * Connectivity to a [Redis](https://redis.io/) instance (v2.8+)
 * Web server _e.g. [Nginx](https://www.nginx.com/resources/wiki/) or [Apache](https://httpd.apache.org/)_ (optional)
 * Process management system _e.g. [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/) or [Supervisor](http://supervisord.org/)_
