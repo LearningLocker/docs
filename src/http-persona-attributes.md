@@ -3,7 +3,7 @@
 
 # Persona Attributes HTTP Interface
 
-Represents an attribute of a [persona](../http-persona).
+Represents an attribute of a [persona](../http-personas).
 
 It is accessible through the following HTTP interfaces:
 
@@ -16,7 +16,7 @@ Name | Description
 --- | ---
 _id | The id of this attribute.
 organisation | The id of the [organisation](../http-organisations) this attribute belongs to.
-personaId | The id of the [persona](../http-persona) this attribute belongs to.
+personaId | The id of the [persona](../http-personas) this attribute belongs to.
 key | The name of the attribute.
 value | The value of the attribute.
 
