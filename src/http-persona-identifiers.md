@@ -17,7 +17,7 @@ Name | Description
 --- | ---
 _id | The id of this identifier.
 organisation | The id of the [organisation](../http-organisations) this identifier belongs to.
-persona | The id of the [persona](../http-persona) this identifier belongs to.
+persona | The id of the [persona](../http-personas) this identifier belongs to.
 ifi | A representation of the [inverse functional identifier](#inverse-functional-identifier).
 
 ### Example
