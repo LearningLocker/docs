@@ -12,7 +12,7 @@ redirect_from:
 
 By far and away the quickest way to get started with Learning Locker is to install our Community AMI (Amazon Machine Image) on AWS. You will be able to spin up your LRS in a matter of minutes. 
 
-To find the AMI, search for "Learning Locker" in the Community AMI's section when starting a new EC2 instance and follow the instructions below, or watch the following video:
+To find the AMI, search for "Learning Locker" in the Community AMI's section when starting a new EC2 instance and follow the instructions below, or watch the video below. Note that we don't currently support "t2.micro" instances because they don't provide enough RAM, we recommend "t2.medium" as a minimum.
 
 <iframe width="80%" height="315" src="https://www.youtube.com/embed/7g6PJENusfo" frameborder="0" gesture="media" allowfullscreen style="padding-left: 15%;"></iframe>
 
