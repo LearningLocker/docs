@@ -121,7 +121,7 @@ git clone https://github.com/LearningLocker/xapi-service.git
 Enter the directory and install the requirements:
 
 ```
-yarn install
+yarn install --ignore-engines
 ```
 
 ### Build
