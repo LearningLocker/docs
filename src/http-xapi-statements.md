@@ -2,7 +2,15 @@
 ---
 
 # xAPI Statements HTTP Interface
-The table below describes the routes that the HTTP interface provides, all of the URLs are relative to http://www.example.org/data/xAPI where http://www.example.org is the URL of your Learning Locker instance. To access this interface, you must additionally supply your Basic Auth details with each request in the `Authorization` header. Your Basic Auth details can be found under **Settings** > **Clients**. Go to the [xAPI HTTP interface documentation](../http-xapi) to see the rest of the xAPI routes.
+The table below describes the routes that the HTTP interface provides, all of the URLs are relative to http://www.example.org/data/xAPI where http://www.example.org is the URL of your Learning Locker instance. To access this interface, you must additionally supply your Basic Auth details with each request in the `Authorization` header. Your Basic Auth details can be found under **Settings** > **Clients**.
+
+If you receive an "unauthorised error" from this API, you can use the three checks below via the Client UI. To remove the need for these checks, Learning Locker will automatically create a new client when a new store is created, the new client is enabled by default, with the "All" scope, and the LRS set to the new store. To avoid unauthorised errors, try to use the new client and remember the checks below if you edit or create a client manually.
+
+1. Check that the client is enabled.
+2. Check that the "All" scope is selected under the "xAPI" heading.
+3. Check that an LRS is selected.
+
+Go to the [xAPI HTTP interface documentation](../http-xapi) to see the rest of the xAPI routes.
 
 Route | Description
 --- | ---
