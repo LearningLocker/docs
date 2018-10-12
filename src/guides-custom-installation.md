@@ -108,6 +108,16 @@ yarn build-all
 
 Copy the `.env.example` into a new `.env` file and [edit as required](http://docs.learninglocker.net/guides-configuring/#learning-locker-application).
 
+## Migrations
+
+The database requires some indexes adding and also when upgrading you will find migrations that take care of mutating your data where required.
+
+Once your instance is configured, run required migrations using the below command.
+
+```
+yarn migrate
+```
+
 ## Installing the xAPI service
 
 ### Clone and install
