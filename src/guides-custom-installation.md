@@ -108,6 +108,16 @@ yarn build-all
 
 Copy the `.env.example` into a new `.env` file and [edit as required](http://docs.learninglocker.net/guides-configuring/#learning-locker-application).
 
+### Migrations
+
+The database requires some indexes adding and also when upgrading you will find migrations that take care of mutating your data where required.
+
+Once your instance is configured, run required migrations using the below command.
+
+```
+yarn migrate
+```
+
 ## Installing the xAPI service
 
 ### Clone and install
@@ -121,7 +131,7 @@ git clone https://github.com/LearningLocker/xapi-service.git
 Enter the directory and install the requirements:
 
 ```
-yarn install
+yarn install --ignore-engines
 ```
 
 ### Build
@@ -206,4 +216,4 @@ node dist/server.js
 
 ## Server configuration
 
-The application is accessed through 3 web interfaces, the UI, API and xAPI. Each of these is configured to run on independent ports but it is recommended you setup a server to sit infront of all traffic and route accordingly. An example nginx config can be seen here: https://github.com/LearningLocker/learninglocker/blob/develop/nginx.conf.example
+The application is accessed through 3 web interfaces, the UI, API and xAPI. Each of these is configured to run on independent ports but it is recommended you setup a server to sit infront of all traffic and route accordingly. An example nginx config can be seen here: [nginx.conf.example](https://github.com/LearningLocker/learninglocker/blob/master/nginx.conf.example)
