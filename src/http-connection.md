@@ -5,7 +5,7 @@ redirect_from:
 
 # Connection HTTP Interface
 
-The Learning Locker Connection API is a HTTP interface that [utilises cursors to provide paginated models](#pagination-example). The API is inspired by [GraphQL's connections](https://facebook.github.io/relay/docs/graphql-connections.html). The API is available for all models in Learning Locker, for example, to receive paginated statements via this API, you'd use the following URL.
+The Learning Locker Connection API is a HTTP interface that [utilises cursors to provide paginated models](#pagination-example). The API is inspired by [GraphQL's connections](https://facebook.github.io/relay/graphql/connections.htm). The API is available for all models in Learning Locker, for example, to receive paginated statements via this API, you'd use the following URL.
 
 ```
 http://www.example.org/api/connection/statement
