@@ -9,7 +9,7 @@ In order to install Learning Locker version 2, you will require a machine that h
 
 * [Git](https://git-scm.com/)
 * [GCC toolchain](https://en.wikipedia.org/wiki/GNU_toolchain)
-* [Node](https://nodejs.org/en/) (v6+)
+* [Node](https://nodejs.org/en/) (v8)
 * [Yarn](https://yarnpkg.com/en/)
 * Connectivity to a [Mongo](https://www.mongodb.com/) instance (>v3.0.* <= 3.4.* - 3.4.* recommended)
 * Connectivity to a [Redis](https://redis.io/) instance (v2.8.18+)
@@ -36,7 +36,7 @@ apt-get -y install curl git python build-essential xvfb apt-transport-https
 
 There are multiple ways to install Node and Yarn (a package management system for Node). We would recommend the excellent NVM (Node Version Manager) which can be installed by following instructions here: [https://github.com/creationix/nvm](https://github.com/creationix/nvm)
 
-We are currently targeting builds on Node 6.* (the current LTS) release. Future versions will also support Node 8.
+We are currently targeting builds on Node 8.*
 
 Instructions to install Yarn can be found here: [https://yarnpkg.com/en/docs/install](https://yarnpkg.com/en/docs/install) but if being used with `nvm` install via:
 ```
