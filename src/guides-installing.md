@@ -177,7 +177,7 @@ Each of these applications has their own `.env`. These hold all the configuratio
 
 By default the install script will copy the (.env.example) from [both](https://github.com/LearningLocker/learninglocker/blob/master/.env.example) repos [respectively](https://github.com/LearningLocker/xapi-service/blob/master/.env.example).
 
-It is likely you will wish to configure your application to connect to external databases, and whilst setup and configuration of these in beyond the scopes of this documentation, you will need to ensure that both `.env` files contain the same configuration values where appropriate.
+It is likely you will wish to configure your application to connect to external databases, and whilst setup and configuration of these is beyond the scopes of this documentation, you will need to ensure that both `.env` files contain the same configuration values where appropriate.
 
 A full description of all configuration values in both repositories is available in the [Configuration Guide](../guides-configuring)
 
