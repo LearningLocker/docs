@@ -61,7 +61,7 @@ You may choose to upgrade your Learning Locker to take advantage of new features
 
 You can run the install script below on your existing EC2 server and that will grab and rebuild the code directly on the server. **Please note: this requires an EC2 instance with at least 2GB of RAM**. You will be asked if you wish to "upgrade" any existing instance, or perform a fresh install.
 
-If you are using an AMI, this will come installed with Mongo and Redis installed - by default your data will live on the same server as your application. 
+If you are using an AMI, this will come with Mongo and Redis installed - by default your data will live on the same server as your application.
 
 Over time this will allow you to simply spin up newer versions of the AMI and simply adjust your configuration file to point at your Mongo and Redis instances (existing on other servers). You will also be able to utilise load balancers to handle more traffic and provide redundancy for your site.
 
