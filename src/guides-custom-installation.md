@@ -45,7 +45,7 @@ npm install -g yarn
 
 ### Process Management
 
-[PM2](http://pm2.keymetrics.io/docs/usage/quick-start/) is an excellent tool that can be used to manage the Node processes. It also handles log management/rotation and can automatically restart failed services. Learning Locker comes pre-packaged with some [pm2 configuration scripts](https://github.com/LearningLocker/learninglocker/tree/develop/pm2).
+[PM2](http://pm2.keymetrics.io/docs/usage/quick-start/) is an excellent tool that can be used to manage the Node processes. It also handles log management/rotation and can automatically restart failed services. Learning Locker comes pre-packaged with some [pm2 configuration scripts](https://github.com/LearningLocker/learninglocker/tree/master/pm2).
 
 To [install PM2](http://pm2.keymetrics.io/docs/usage/quick-start/#installation), run the following command:
 

@@ -7,7 +7,7 @@ The Experience API (xAPI) is a specification that defines how to store and retri
 ## Data Models
 The xAPI provides four data models for recording elements of a learning experience, these are:
 
-- [**Statements**](../http-xapi-statements) which are an immutable record of an agent's interaction with an activity. A set of statements can used to track a complete learning experience. [Voiding](https://vimeo.com/168961267) can be used to invalidate previous statements, henceforth removing them from normal retrieval methods.
+- [**Statements**](../http-xapi-statements) which are an immutable record of an agent's interaction with an activity. A set of statements can be used to track a complete learning experience. [Voiding](https://vimeo.com/168961267) can be used to invalidate previous statements, henceforth removing them from normal retrieval methods.
 - [**Activity Profiles**](../http-xapi-activities) that record additional mutable information about an activity that you wouldn't want to record on every statement.
 - [**Agent Profiles**](../http-xapi-agents) that record additional mutable information about an agent that you wouldn't want to record on every statement.
 - [**State**](../http-xapi-states) which records mutable information about an agent in relation to an activity, such as how far they've progressed through a activity.
