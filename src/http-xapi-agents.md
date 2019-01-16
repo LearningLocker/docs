@@ -151,7 +151,7 @@ If-None-Match: "*"
 
 {
   "key_to_keep": "value_to_keep",
-  "key_to_change": "value_before_change",
+  "key_to_change": "value_before_change"
 }
 ```
 
@@ -182,7 +182,7 @@ Last-Modified: 2017-08-31T15:16:29.709Z
 
 {
   "key_to_keep": "value_to_keep",
-  "key_to_change": "value_before_change",
+  "key_to_change": "value_before_change"
 }
 ```
 
