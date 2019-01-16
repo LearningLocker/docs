@@ -87,15 +87,15 @@ Content-Type: application/json; charset=utf-8
   "id": "http://www.example.org/activity",
   "definition": {
     "name": {
-      "en-GB": "GB Activity Name"
+      "en-GB": "GB Activity Name",
       "en-US": "US Activity Name"
     },
     "description": {
-      "en-GB": "GB Activity Description"
+      "en-GB": "GB Activity Description",
       "en-US": "US Activity Description"
     },
     "extensions": {
-      "http://www.example.com/extension/1": "extension_value_1"
+      "http://www.example.com/extension/1": "extension_value_1",
       "http://www.example.com/extension/2": "extension_value_2"
     },
     "moreInfo": "http://www.example.org/activity/moreinfo2",
