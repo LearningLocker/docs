@@ -161,3 +161,16 @@ Process persona data on all statements (100 per batch) personas in a particular 
 ```
 node cli/dist/server batchJobs -j personas -b 100 -lrs 572cac001bb110583ed76177
 ```
+
+## `updateStatementCount`
+
+Recalculates the statement counts on stores
+
+### Command:
+```sh
+node cli/dist/server updateStatementCount
+```
+
+For each store, will count how many statements exist in the database and update the statementCount property on the store document. This may be required if statements have manually been deleted permanently from the database.
+
+_Note: as of v2.6.3 this process is done in synchronously per store to avoid large concurrency query issues on Learning Locker's with many stores._
