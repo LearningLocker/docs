@@ -57,7 +57,7 @@ wget -qO deployll.sh http://lrnloc.kr/installv2 && bash deployll.sh
 
 ### Upgrading
 
-You may choose to upgrade your Learning Locker to take advantage of new features and bug fixes. To make this process easier, it is strongly recommended that any Learning Locker running for production use has the database (Mongo) running on different servers to that of the application. This means you can seamlesly update your application without having to move your data.
+You may choose to upgrade your Learning Locker to take advantage of new features and bug fixes. To make this process easier, it is strongly recommended that any Learning Locker running for production use has the database (Mongo) running on different servers to that of the application. This means you can seamlessly update your application without having to move your data.
 
 You can run the install script below on your existing EC2 server and that will grab and rebuild the code directly on the server. **Please note: this requires an EC2 instance with at least 2GB of RAM**. You will be asked if you wish to "upgrade" any existing instance, or perform a fresh install.
 
