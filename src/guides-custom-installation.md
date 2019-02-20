@@ -5,7 +5,7 @@
 
 ## Requirements
 
-In order to install Learning Locker version 2, you will require a machine that has these minimum requirements:
+In order to install Learning Locker you will require a machine that has these minimum requirements:
 
 * [Git](https://git-scm.com/)
 * [GCC toolchain](https://en.wikipedia.org/wiki/GNU_toolchain)
