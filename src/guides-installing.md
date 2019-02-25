@@ -28,21 +28,9 @@ This file will be generated when the server is fully running and can take up to 
 
 ## Via the install script
 
-To install Learning Locker, you can run one of the commands below **as the root user** on `CentOS`, `Fedora`, `Ubuntu`, and `Debian`. For more information, you can view the [deployment repository's documentation](https://github.com/LearningLocker/deploy). Alternatively, view the following video tutorial:
+To install Learning Locker, you can run one of the commands below **as the root user** on `Ubuntu`. For more information, you can view the [deployment repository's documentation](https://github.com/LearningLocker/deploy). Alternatively, view the following video tutorial:
 
 <iframe width="80%" height="315" src="https://www.youtube.com/embed/tc_VDNjXLSc" frameborder="0" gesture="media" allowfullscreen style="padding-left: 15%;"></iframe>
-
-Please run the required update script for your distro to ensure you have the latest version of all packages.
-
-e.g.
-```
-yum update
-```
-or
-```
-apt-get update && apt-get upgrade
-```
-
 
 **You must run this script as root user. Typically this can be done by running `sudo su -`**
 
