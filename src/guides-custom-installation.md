@@ -5,13 +5,13 @@
 
 ## Requirements
 
-In order to install Learning Locker version 2, you will require a machine that has these minimum requirements:
+In order to install Learning Locker you will require a machine that has these minimum requirements:
 
 * [Git](https://git-scm.com/)
 * [GCC toolchain](https://en.wikipedia.org/wiki/GNU_toolchain)
 * [Node](https://nodejs.org/en/) (v8)
 * [Yarn](https://yarnpkg.com/en/)
-* Connectivity to a [Mongo](https://www.mongodb.com/) instance (>v3.0.* <= 3.4.* - 3.4.* recommended)
+* Connectivity to a [Mongo](https://www.mongodb.com/) instance (v3.6+ as of LL v3.0.0)
 * Connectivity to a [Redis](https://redis.io/) instance (v2.8.18+)
 * Web server _e.g. [Nginx](https://www.nginx.com/resources/wiki/) or [Apache](https://httpd.apache.org/)_ (optional)
 * Process management system _e.g. [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/) or [Supervisor](http://supervisord.org/)_
@@ -68,7 +68,7 @@ It is always preferable that you do not run your Node processes as the `root` us
 
 The Learning Locker application is divided into two logically separate codebases, each of which can be configured to talk to the same Mongo and Redis instances. 
 
-Each codebase requires that it is downloaded, built and configured before it can be run. This guide will aim to guide you through manually installing and running a full Learning Locker v2 stack.
+Each codebase requires that it is downloaded, built and configured before it can be run. This guide will aim to guide you through manually installing and running a full Learning Locker stack.
 
 More distribution specific information can be found inside the [install script source code](https://github.com/LearningLocker/deploy/).
 

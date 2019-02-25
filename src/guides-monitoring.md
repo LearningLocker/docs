@@ -21,7 +21,7 @@ By default logs are captured by pm2 and stored locally on each instance as defin
 ![PM2 Logs](../images/pm2-logs.jpg "PM2 Logs")
 
 ### AWS Cloudwatch
-Learning Locker v2 comes with the ability to push your logs to AWS Cloudwatch. To enable this, configure the relevant part of the `.env` files:
+Learning Locker comes with the ability to push your logs to AWS Cloudwatch. To enable this, configure the relevant part of the `.env` files:
 
 ```
 #######################
@@ -49,7 +49,7 @@ Learning Locker handles all logging via [Winston](https://www.npmjs.com/package/
 
 ## New Relic
 
-The Learning Locker application is configured to send performance metrics to New Relic. Simply fill in the following in the `.env` of your v2 application instance (**note that this is currently unavailable for the xAPI service layer**)
+The Learning Locker application is configured to send performance metrics to New Relic. Simply fill in the following in the `.env` of your application instance (**note that this is currently unavailable for the xAPI service layer**)
 
 ```
 #############

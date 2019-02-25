@@ -6,7 +6,7 @@ redirect_from:
    - "/upgrading/"
 ---
 
-# Installing Version 2
+# Installing
 
 ## Community AMI on Amazon Web Services (AWS)
 
@@ -28,7 +28,7 @@ This file will be generated when the server is fully running and can take up to 
 
 ## Via the install script
 
-To install Learning Locker version 2, you can run one of the commands below **as the root user** on `Ubuntu`. For more information, you can view the [deployment repository's documentation](https://github.com/LearningLocker/deploy). Alternatively, view the following video tutorial:
+To install Learning Locker, you can run one of the commands below **as the root user** on `Ubuntu`. For more information, you can view the [deployment repository's documentation](https://github.com/LearningLocker/deploy). Alternatively, view the following video tutorial:
 
 <iframe width="80%" height="315" src="https://www.youtube.com/embed/tc_VDNjXLSc" frameborder="0" gesture="media" allowfullscreen style="padding-left: 15%;"></iframe>
 
@@ -45,7 +45,7 @@ wget -qO deployll.sh http://lrnloc.kr/installv2 && bash deployll.sh
 
 ### Upgrading
 
-You may choose to upgrade your Learning Locker to take advantage of new features and bug fixes. To make this process easier, it is strongly recommended that any Learning Locker running for production use has the database (Mongo) running on different servers to that of the application. This means you can seamlesly update your application without having to move your data.
+You may choose to upgrade your Learning Locker to take advantage of new features and bug fixes. To make this process easier, it is strongly recommended that any Learning Locker running for production use has the database (Mongo) running on different servers to that of the application. This means you can seamlessly update your application without having to move your data.
 
 You can run the install script below on your existing EC2 server and that will grab and rebuild the code directly on the server. **Please note: this requires an EC2 instance with at least 2GB of RAM**. You will be asked if you wish to "upgrade" any existing instance, or perform a fresh install.
 
