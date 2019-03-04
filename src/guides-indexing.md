@@ -6,7 +6,7 @@ If some of your queries are taking a while to run, you can take advantage of dat
 
 ```js
 // Statements
-db.statements.createIndex({ "statement.id": 1 }, { background: true });
+db.statements.createIndex({ "statement.id": 1, lrs_id: 1 }, { background: true });
 db.statements.createIndex({ stored: -1 }, { background: true });
 
 db.statements.createIndex({ organisation: 1, lrs_id: 1, "statement.object.id": 1, "statement.object.objectType": 1 }, { background: true });
