@@ -56,7 +56,7 @@ This route returns a count of the models. A request to this route would look som
 
 ```http
 GET http://www.example.org/api/v2/lrs/count
-Authorization: YOUR_BASIC_AUTH
+Authorization: Basic YOUR_BASIC_AUTH
 ```
 
 A request like the one above, will respond with a 200 response like the one below containing a count of the models in the body.
@@ -75,7 +75,7 @@ This route returns an array of models. A request to this route would look someth
 
 ```http
 GET http://www.example.org/api/v2/lrs
-Authorization: YOUR_BASIC_AUTH
+Authorization: Basic YOUR_BASIC_AUTH
 ```
 
 A request like the one above, will respond with a 200 response like the one below containing the models as JSON in the body. Different models will respond with a different schema, you can view the schemas by clicking the model names in the [model table above](#models).
@@ -101,7 +101,7 @@ This route creates a model. A request to this route would look something like th
 
 ```http
 POST http://www.example.org/api/v2/lrs
-Authorization: YOUR_BASIC_AUTH
+Authorization: Basic YOUR_BASIC_AUTH
 Content-Type: application/json; charset=utf-8
 
 {
@@ -130,7 +130,7 @@ This route returns a single model that has the specified identifier from the URL
 
 ```http
 GET http://www.example.org/api/v2/lrs/111aaa1111a111111aa11112
-Authorization: YOUR_BASIC_AUTH
+Authorization: Basic YOUR_BASIC_AUTH
 ```
 
 A request like the one above, will respond with a 200 response like the one below containing the model as JSON in the body. Different models will respond with a different schema, you can view the schemas by clicking the model names in the [model table above](#models). Note that the request will return a 404 response if the model doesn't exist.
@@ -156,7 +156,7 @@ This route creates or updates a single model that has the specified identifier f
 
 ```http
 PUT http://www.example.org/api/v2/lrs/111aaa1111a111111aa11112
-Authorization: YOUR_BASIC_AUTH
+Authorization: Basic YOUR_BASIC_AUTH
 Content-Type: application/json; charset=utf-8
 
 {
@@ -190,7 +190,7 @@ This route patches a single model that has the specified identifier from the URL
 
 ```http
 PATCH http://www.example.org/api/v2/lrs/111aaa1111a111111aa11112
-Authorization: YOUR_BASIC_AUTH
+Authorization: Basic YOUR_BASIC_AUTH
 Content-Type: application/json; charset=utf-8
 
 {
@@ -219,7 +219,7 @@ This route deletes a single model that has the specified identifier from the URL
 
 ```http
 DELETE http://www.example.org/api/v2/lrs/111aaa1111a111111aa11112
-Authorization: YOUR_BASIC_AUTH
+Authorization: Basic YOUR_BASIC_AUTH
 ```
 
 A request like the one above, will respond with a 204 response like the one below.
