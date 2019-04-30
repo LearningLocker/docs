@@ -50,7 +50,7 @@ Content-Type: application/json; charset=utf-8
 
 {
   "key_to_keep": "value_to_keep",
-  "key_to_change": "value_before_change",
+  "key_to_change": "value_before_change"
 }
 ```
 

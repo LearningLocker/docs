@@ -65,7 +65,9 @@ A request like the one above, will respond with a 200 response like the one belo
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
-123
+{
+    "count": 3
+}
 ```
 
 For more information about the acceptable URL query parameters, view the [Restify documentation](https://florianholzapfel.github.io/express-restify-mongoose/#querying).
@@ -84,14 +86,17 @@ A request like the one above, will respond with a 200 response like the one belo
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
-[{
-  createdAt: "2017-08-08T14:35:18.400Z",
-  organisation: "111aaa1111a111111aa11111",
-  statementCount: 987,
-  title: "Example Store",
-  updatedAt: "2017-08-08T14:35:33.721Z",
-  _id: "111aaa1111a111111aa11112"
-}]
+[
+  {
+    "createdAt": "2017-08-08T14:35:18.400Z",
+    "organisation": "111aaa1111a111111aa11111",
+    "statementCount": 987,
+    "title": "Example Store",
+    "__v": 0,
+    "updatedAt": "2017-08-08T14:35:33.721Z",
+    "_id": "111aaa1111a111111aa11112"
+  }
+]
 ```
 
 For more information about the acceptable URL query parameters, view the [Restify documentation](https://florianholzapfel.github.io/express-restify-mongoose/#querying).
@@ -105,7 +110,7 @@ Authorization: Basic YOUR_BASIC_AUTH
 Content-Type: application/json; charset=utf-8
 
 {
-  title: "Example Store",
+  "title": "Example Store"
 }
 ```
 
@@ -116,12 +121,13 @@ HTTP/1.1 201 CREATED
 Content-Type: application/json; charset=utf-8
 
 {
-  createdAt: "2017-08-08T14:35:18.400Z",
-  organisation: "111aaa1111a111111aa11111",
-  statementCount: 0,
-  title: "Example Store",
-  updatedAt: "2017-08-08T14:35:33.721Z",
-  _id: "111aaa1111a111111aa11112"
+  "createdAt": "2017-08-08T14:35:18.400Z",
+  "organisation": "111aaa1111a111111aa11111",
+  "statementCount": 0,
+  "title": "Example Store",
+  "updatedAt": "2017-08-08T14:35:33.721Z",
+  "_id": "111aaa1111a111111aa11112",
+  "__v": 0
 }
 ```
 
@@ -140,12 +146,13 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
 {
-  createdAt: "2017-08-08T14:35:18.400Z",
-  organisation: "111aaa1111a111111aa11111",
-  statementCount: 987,
-  title: "Example Store",
-  updatedAt: "2017-08-08T14:35:33.721Z",
-  _id: "111aaa1111a111111aa11112"
+  "createdAt": "2017-08-08T14:35:18.400Z",
+  "organisation": "111aaa1111a111111aa11111",
+  "statementCount": 987,
+  "title": "Example Store",
+  "__v": 0,
+  "updatedAt": "2017-08-08T14:35:33.721Z",
+  "_id": "111aaa1111a111111aa11112"
 }
 ```
 
@@ -160,12 +167,12 @@ Authorization: Basic YOUR_BASIC_AUTH
 Content-Type: application/json; charset=utf-8
 
 {
-  createdAt: "2017-08-08T14:35:18.400Z",
-  organisation: "111aaa1111a111111aa11111",
-  statementCount: 987,
-  title: "Updated Title",
-  updatedAt: "2017-08-08T14:35:33.721Z",
-  _id: "111aaa1111a111111aa11112"
+  "createdAt": "2017-08-08T14:35:18.400Z",
+  "organisation": "111aaa1111a111111aa11111",
+  "statementCount": 987,
+  "title": "Updated Title",
+  "updatedAt": "2017-08-08T14:35:33.721Z",
+  "_id": "111aaa1111a111111aa11112"
 }
 ```
 
@@ -176,12 +183,13 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
 {
-  createdAt: "2017-08-08T14:35:18.400Z",
-  organisation: "111aaa1111a111111aa11111",
-  statementCount: 987,
-  title: "Updated Title",
-  updatedAt: "2017-08-08T14:35:33.721Z",
-  _id: "111aaa1111a111111aa11112"
+  "createdAt": "2017-08-08T14:35:18.400Z",
+  "organisation": "111aaa1111a111111aa11111",
+  "statementCount": 987,
+  "title": "Updated Title",
+  "__v": 0,
+  "updatedAt": "2017-08-08T14:35:33.721Z",
+  "_id": "111aaa1111a111111aa11112"
 }
 ```
 
@@ -194,7 +202,7 @@ Authorization: Basic YOUR_BASIC_AUTH
 Content-Type: application/json; charset=utf-8
 
 {
-  title: "Patched Title",
+  "title": "Patched Title"
 }
 ```
 
@@ -205,12 +213,13 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
 {
-  createdAt: "2017-08-08T14:35:18.400Z",
-  organisation: "111aaa1111a111111aa11111",
-  statementCount: 987,
-  title: "Patched Title",
-  updatedAt: "2017-08-08T14:35:33.721Z",
-  _id: "111aaa1111a111111aa11112"
+  "createdAt": "2017-08-08T14:35:18.400Z",
+  "organisation": "111aaa1111a111111aa11111",
+  "statementCount": 987,
+  "title": "Patched Title",
+  "__v": 0,
+  "updatedAt": "2017-08-08T14:35:33.721Z",
+  "_id": "111aaa1111a111111aa11112"
 }
 ```
 

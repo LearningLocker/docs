@@ -31,7 +31,7 @@ Content-Type: application/json
   "id": "dfb7218c-0fc9-4dfc-9524-d497097de027",
   "actor": { "mbox": "mailto:test@example.org" },
   "verb": { "id": "http://www.example.org/verb" },
-  "object": { "id": "http://www.example.org/activity" },
+  "object": { "id": "http://www.example.org/activity" }
 }
 ``` 
 
@@ -58,11 +58,11 @@ Content-Type: application/json; charset=utf-8
   "id": "dfb7218c-0fc9-4dfc-9524-d497097de027",
   "actor": { "mbox": "mailto:test1@example.org" },
   "verb": { "id": "http://www.example.org/verb" },
-  "object": { "id": "http://www.example.org/activity" },
+  "object": { "id": "http://www.example.org/activity" }
 }, {
   "actor": { "mbox": "mailto:test2@example.org" },
   "verb": { "id": "http://www.example.org/verb" },
-  "object": { "id": "http://www.example.org/activity" },
+  "object": { "id": "http://www.example.org/activity" }
 }]
 ```
 
