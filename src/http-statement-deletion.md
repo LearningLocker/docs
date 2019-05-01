@@ -1,10 +1,14 @@
 # Statement Deletion HTTP Interfaces
 
-By default, Learning Locker gives you the ability to delete statements via the API (this can be disabled via the `ENABLE_STATEMENT_DELETION` flag). Statements may be deleted individually, using the record's `_id` or via a batch delete method.
+By default, Learning Locker gives you the ability to delete statements via the API (this can be disabled via the `ENABLE_STATEMENT_DELETION` flag). 
+
+Statements may be deleted individually, using the record's `_id`, or via a batch delete method.
 
 ## Authorization
 
-When using this interface, you must additionally supply your Basic Auth details with each request in the `Authorization` header. Your Basic Auth details can be found under **Settings** > **Clients**. The deletion APIs require that the "Delete statements" (`'statements/delete'`) scope is enabled on the client. If a client also has a store (`lrs_id`) attached, this will be used to further filter down deletions only to this store.
+When using this interface, you must additionally supply your Basic Auth details with each request in the `Authorization` header. Your Basic Auth details can be found under **Settings** > **Clients**. 
+
+The deletion APIs require that the "Delete statements" (`'statements/delete'`) scope is enabled on the client. If a client also has a store (`lrs_id`) attached, this will be used to further filter down deletions only to this store.
 
 
 ## Single Statement Deletion
