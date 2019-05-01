@@ -58,9 +58,9 @@ An intialise request will return a 200 HTTP response with a JSON version of the 
 
 You may choose to terminate one or all batch deletions for an organisation using the following commands.
 
-Note that if a deletion has issued a worker job to delete a batch, it may delete up to 1000 records before the termination command is respected. 
+_Note that if a deletion has issued a worker job to delete a batch, it may delete up to 1000 records before the termination command is respected._
 
-This is due to how we batch the deletions into blocks of 1000. Once a batch has started, it cannot be stopped without manually stopping the Worker's Node process running the deletion job. However, no subsequent batches will be processed once that batch has finished.
+_This is due to how we batch the deletions into blocks of 1000. Once a batch has started, it cannot be stopped without manually stopping the Worker's Node process running the deletion job. However, no subsequent batches will be processed once that batch has finished._
 
 #### Terminating a single batch deletion
 
