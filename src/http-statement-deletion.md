@@ -56,7 +56,7 @@ You may choose to terminate a one or all batch deletions for an organisation usi
 
 Note that if a deletion has issued a worker job to delete a batch, it may delete up to 1000 records before the termination command is respected. 
 
-This is due to how we batch the deletions into blocks of 1000. Once a batch is started the job cannot be stopped without manually stopping the Worker process running the deletion job.
+This is due to how we batch the deletions into blocks of 1000. Once a batch has started, it cannot be stopped without manually stopping the Worker's Node process running the deletion job. However, no subsequent batches will be processed once that batch has finished.
 
 #### Terminating a single batch deletion
 
