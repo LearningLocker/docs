@@ -34,7 +34,7 @@ These endpoints allows you to send in deletion jobs to be processed. As the filt
 
 ### Initialising a batch deletion
 
-Sending a POST with a JSON body holding the required deletion filter to the following endpoint will remove all data matching that filter from the respective organisation (or store) that the client is attached to.
+Sending a POST with a JSON body holding the required deletion filter to the following endpoint will create a job to remove all data matching that filter from the respective organisation (or store) that the client is attached to.
 
 _e.g. Deletes all completions in the client's organisation or store_
 
