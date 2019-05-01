@@ -69,7 +69,6 @@ Stop a specific batch deletion from executing any more batches.
 ```
 GET http://www.example.org/api/v2/batchdelete/terminate/111aaa1111a111111aa11112
 Authorization: Basic YOUR_BASIC_AUTH
-Content-Type: application/json; charset=utf-8
 ```
 
 #### Terminating all batch deletions
@@ -79,7 +78,6 @@ Stop all batch deletions from executing any more batches
 ```
 GET http://www.example.org/api/v2/batchdelete/terminate/all
 Authorization: Basic YOUR_BASIC_AUTH
-Content-Type: application/json; charset=utf-8
 ```
 
 ### Viewing batch deletions
@@ -130,21 +128,18 @@ _Note; query parameters should be URL encoded - these examples have had this ste
 ```
 GET http://www.example.org/api/connection/batchdelete?filter={"_id":{"$oid":"111aaa1111a111111aa11112"}}
 Authorization: Basic YOUR_BASIC_AUTH
-Content-Type: application/json; charset=utf-8
 ```
 
 ##### Fetch the 5 most recently completed/terminated job
 ```
 GET http://www.example.org/api/connection/batchdelete?filter={"done":true}&sort={"updatedAt":-1, "_id": 1}&first=5
 Authorization: Basic YOUR_BASIC_AUTH
-Content-Type: application/json; charset=utf-8
 ```
 
 ##### Fetch the 5 most recently created and unfinished jobs 
 ```
 GET http://www.example.org/api/connection/batchdelete?filter={"done":false}&sort={"createdAt":-1, "_id": 1}&first=5
 Authorization: Basic YOUR_BASIC_AUTH
-Content-Type: application/json; charset=utf-8
 ```
 
 
