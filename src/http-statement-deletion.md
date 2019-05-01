@@ -26,7 +26,7 @@ The statement is deleted immediately and the 204 represents a receipt of the del
 
 ## Batch Statement Deletion
 
-This endpoint allows you to send in a deletion job to be processed. As the filter may apply to a large amount of data, the batch delete job is split out into deleting up to 1000 records at a time, with each successive deletion triggering another deletion, until no more data matches that filter.
+These endpoints allows you to send in a deletion job to be processed. As the filter may apply to a large amount of data, the batch delete job is split out into deleting up to 1000 records at a time, with each successive deletion triggering another deletion, until no more data matches that filter.
 
 ### Schema
 
