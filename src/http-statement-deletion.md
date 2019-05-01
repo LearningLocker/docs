@@ -88,7 +88,7 @@ Name | Description
 --- | ---
 _id | The id of the batch delete job.
 organisation | The id of the [organisation](../http-organisations#schema) that this job belongs to.
-filter | A stringified JSON Mongo query - records mathcing this fitler are deleted
+filter | A stringified JSON Mongo query - records matching this filter are deleted
 pageSize | Total records deleted per batch (defaults to 1000, no way to customise outside of code change and rebuild)
 deleteCount | How many records have been deleted so far
 total | Total number of statements found for deletion at initialise
