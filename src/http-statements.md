@@ -12,7 +12,7 @@ It is accessible through the following HTTP interfaces:
 
 Whilst statements _can_ be inserted via the Models HTTP interface, this is not recommended as it bypasses all validation, reference and void checking, leading to invalid xAPI records.
 
-Statements can be deleted by the REST API (on a statement by statement basis, but again **this is not recommended.**
+Statements can be deleted by the REST API. See [Statement Deletion API](../http-statement-deletion) for more information.
 
 ### Schema
 
