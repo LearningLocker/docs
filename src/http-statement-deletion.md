@@ -145,7 +145,7 @@ Authorization: Basic YOUR_BASIC_AUTH
 
 
 ### Deletion time window
-Because deletion can be a intensive job for the database, it is possible to configure Learning Locker to only trigger and process batch deletion during a specified window everyday. This can be configured to enable deletions during periods of known low activity (e.g. night time).
+Because deletion can be an intensive job for the database, it is possible to configure Learning Locker to only trigger and process batch deletion during a specified window every day. This can be configured to enable deletions during periods of known low activity (e.g. night time).
 
 To configure this, update the document in the `siteSettings` collection with the required UTC hour, minute and duration:
 
