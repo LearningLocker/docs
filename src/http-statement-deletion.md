@@ -36,7 +36,7 @@ These endpoints allows you to send in deletion jobs to be processed. As the filt
 
 Sending a POST with a JSON body holding the required deletion filter to the following endpoint will remove all data matching that filter from the respective organisation (or store) that the client is attached to.
 
-_e.g. Deletes all completions in an organiation/store_
+_e.g. Deletes all completions in the client's organisation or store_
 
 ```
 POST http://www.example.org/api/v2/batchdelete/initialise
@@ -56,7 +56,7 @@ An intialise request will return a 200 HTTP response with a JSON version of the 
 
 ### Terminating batch deletions
 
-You may choose to terminate a one or all batch deletions for an organisation using the following commands.
+You may choose to terminate one or all batch deletions for an organisation using the following commands.
 
 Note that if a deletion has issued a worker job to delete a batch, it may delete up to 1000 records before the termination command is respected. 
 
