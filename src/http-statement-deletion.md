@@ -2,7 +2,7 @@
 
 By default, Learning Locker gives you the ability to delete statements via the API (this can be disabled via the `ENABLE_STATEMENT_DELETION` flag). 
 
-Statements may be deleted individually, using the record's `_id`, or via a batch delete method.
+Statements may be deleted individually, using the record's `_id`, or in bulk via a batch delete method.
 
 ## Authorization
 
@@ -36,7 +36,7 @@ As the filter passed in may apply to a large amount of data, the batch delete jo
 
 ### Initialising a batch deletion
 
-Sending a POST with a JSON body holding the required deletion filter to the following endpoint will remove all data matching that filter from the respective organisation (or store) that the client is attached to.
+Sending a POST with a JSON body holding the required deletion filter to the following endpoint will create a job to remove all data matching that filter from the respective organisation (or store) that the client is attached to.
 
 _e.g. Deletes all completions in the client's organisation or store_
 
@@ -71,7 +71,6 @@ Stop a specific batch deletion from executing any more batches.
 ```
 GET http://www.example.org/api/v2/batchdelete/terminate/111aaa1111a111111aa11112
 Authorization: Basic YOUR_BASIC_AUTH
-Content-Type: application/json; charset=utf-8
 ```
 
 #### Terminating all batch deletions
@@ -81,7 +80,6 @@ Stop all batch deletions from executing any more batches
 ```
 GET http://www.example.org/api/v2/batchdelete/terminate/all
 Authorization: Basic YOUR_BASIC_AUTH
-Content-Type: application/json; charset=utf-8
 ```
 
 ### Viewing batch deletions
@@ -92,7 +90,7 @@ Name | Description
 --- | ---
 _id | The id of the batch delete job.
 organisation | The id of the [organisation](../http-organisations#schema) that this job belongs to.
-filter | A stringified JSON Mongo query - records mathcing this fitler are deleted
+filter | A stringified JSON Mongo query - records matching this filter are deleted
 pageSize | Total records deleted per batch (defaults to 1000, no way to customise outside of code change and rebuild)
 deleteCount | How many records have been deleted so far
 total | Total number of statements found for deletion at initialise
@@ -132,27 +130,24 @@ _Note; query parameters should be URL encoded - these examples have had this ste
 ```
 GET http://www.example.org/api/connection/batchdelete?filter={"_id":{"$oid":"111aaa1111a111111aa11112"}}
 Authorization: Basic YOUR_BASIC_AUTH
-Content-Type: application/json; charset=utf-8
 ```
 
 ##### Fetch the 5 most recently completed/terminated job
 ```
 GET http://www.example.org/api/connection/batchdelete?filter={"done":true}&sort={"updatedAt":-1, "_id": 1}&first=5
 Authorization: Basic YOUR_BASIC_AUTH
-Content-Type: application/json; charset=utf-8
 ```
 
 ##### Fetch the 5 most recently created and unfinished jobs 
 ```
 GET http://www.example.org/api/connection/batchdelete?filter={"done":false}&sort={"createdAt":-1, "_id": 1}&first=5
 Authorization: Basic YOUR_BASIC_AUTH
-Content-Type: application/json; charset=utf-8
 ```
 
 
 
 ### Deletion time window
-Because deletion can be a intensive job for the database, it is possible to configure Learning Locker to only trigger and process batch deletion during a specified window everyday. This can be configured to enable deletions during periods of known low activity (e.g. night time).
+Because deletion can be an intensive job for the database, it is possible to configure Learning Locker to only trigger and process batch deletion during a specified window every day. This can be configured to enable deletions during periods of known low activity (e.g. night time).
 
 To configure this, update the document in the `siteSettings` collection with the required UTC hour, minute and duration:
 
