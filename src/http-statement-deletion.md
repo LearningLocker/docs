@@ -82,16 +82,7 @@ Authorization: Basic YOUR_BASIC_AUTH
 Content-Type: application/json; charset=utf-8
 ```
 
-### Viewing all existing batch deletions
-Use the REST endpoint to GET all batch deletions
-
-```
-GET http://www.example.org/api/v2/batchdelete
-Authorization: Basic YOUR_BASIC_AUTH
-Content-Type: application/json; charset=utf-8
-```
-
-To find an individual job, pass the job's `_id` to the GET API request
+### Viewing batch deletions
 
 #### Schema
 
@@ -128,7 +119,7 @@ _The `filter` field is stored as text to account for `.` (dot) characters used i
 }
 ```
 
-The Batch Delete model may be retrieved using the GET [REST](../http-rest) or [Connection APIs](../http-connection) but the other HTTP methods are disabled and instead replaced by specific routes to initialise and terminating the batch deletion jobs.
+The Batch Delete model may be retrieved using the GET [REST](../http-rest) or [Connection APIs](../http-connection) but the other HTTP methods are disabled (PUT, PATCH, DELETE) and are instead replaced by the initialise and terminate routes specified above.
 
 #### Examples: (using Connection API)
 
