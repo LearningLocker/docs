@@ -2,7 +2,7 @@
 
 By default, Learning Locker gives you the ability to delete statements via the API (this can be disabled via the `ENABLE_STATEMENT_DELETION` flag). 
 
-Statements may be deleted individually, using the record's `_id`, or via a batch delete method.
+Statements may be deleted individually, using the record's `_id`, or in bulk via a batch delete method.
 
 ## Authorization
 
