@@ -26,6 +26,72 @@ HTTP/1.1 204 NO CONTENT
 
 This endpoint allows you to send in a deletion job to be processed. As the filter may apply to a large amount of data, the batch delete job is split out into deleting up to 1000 records at a time, with each successive deletion triggering another deletion, until no more data matches that filter.
 
+### Schema
+
+Name | Description 
+--- | ---
+_id | The id of the batch delete job.
+organisation | The id of the [organisation](../http-organisations#schema) that this job belongs to.
+filter | A stringified JSON Mongo query - records mathcing this fitler are deleted
+deleteCount | How many records have been deleted so far
+total | Total number of statements found for deletion at initialise
+processing | Boolean value; is there a deletion batch currently being actioned
+done | Boolean value; has the job finished or been terminated
+pageSize | Total records deleted per batch (defaults to 1000, no current way to customise)
+createdAt | When this document was created
+updatedAt | When this document was last updated
+
+
+
+### Example
+
+```json
+{
+  "_id" : "59c1219936229d4ce9634601",
+  "organisation" : "59c1219936229d4ce9634602",
+  "name" : "Example Persona",
+}
+```
+
+The Batch Delete model may be retrieved using the GET [REST](../http-rest) or [Connection APIs](../http-connection) but the other HTTP methods are disabled and instead replaced by specific routes to initialise and terminating the batch deletion jobs.
+
+### Viewing all existing batch deletions
+Use the REST endpoint to GET all batch deletions
+
+```
+GET http://www.example.org/api/v2/batchdelete
+Authorization: Basic YOUR_BASIC_AUTH
+Content-Type: application/json; charset=utf-8
+```
+
+To find an individual job, pass the job's `_id` to the GET API request
+
+#### Examples: (using Connection API)
+
+_Note; query parameters should be URL encoded - these examples have had this removed for readability_
+
+##### Fetch a particular job by `_id`
+
+```
+GET http://www.example.org/api/connection/batchdelete?filter={"_id":{"$oid":"111aaa1111a111111aa11112"}}
+Authorization: Basic YOUR_BASIC_AUTH
+Content-Type: application/json; charset=utf-8
+```
+
+##### Fetch the 5 most recently completed/terminated job
+```
+GET http://www.example.org/api/connection/batchdelete?filter={"done":true}&sort={"updatedAt":-1, "_id": 1}&first=5
+Authorization: Basic YOUR_BASIC_AUTH
+Content-Type: application/json; charset=utf-8
+```
+
+## Fetch the 5 most recently created and unfinished jobs 
+```
+GET http://www.example.org/api/connection/batchdelete?filter={"done":false}&sort={"createdAt":-1, "_id": 1}&first=5
+Authorization: Basic YOUR_BASIC_AUTH
+Content-Type: application/json; charset=utf-8
+```
+
 ### Initialising a batch deletion
 
 Sending a POST with a JSON body holding the required deletion filter to the following endpoint will remove all data matching that filter from the respective organisation (or store) that the client is attached to.
@@ -44,25 +110,39 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### Viewing batch deletions
-Use the REST endpoint to GET all batch deletions
-
-```
-GET http://www.example.org/api/v2/batchdelete
-Authorization: Basic YOUR_BASIC_AUTH
-Content-Type: application/json; charset=utf-8
-```
+If the client used to make the request also has a store (`lrs_id`) attached, this will be used to further filter down deletions only to this store.
 
 ### Terminating batch deletions
-Stop a batch deletion from executing any more deletions.
 
-_Note that is a deletion has started already, it may delete up to 1000 records before the termination command is respected. This is due to how we batch the deletions into blocks of 1000._
+You may choose to terminate a one or all batch deletions for an organisation using the following commands.
+
+Note that if a deletion has issued a worker job to delete a batch, it may delete up to 1000 records before the termination command is respected. 
+
+This is due to how we batch the deletions into blocks of 1000. Once a batch is started the job cannot be stopped without manually stopping the Worker process running the deletion job.
+
+#### Terminating a single batch deletion
+
+Stop a specific batch deletion from executing any more batches.
 
 ```
 GET http://www.example.org/api/v2/batchdelete/terminate/111aaa1111a111111aa11112
 Authorization: Basic YOUR_BASIC_AUTH
 Content-Type: application/json; charset=utf-8
 ```
+
+#### Terminating all batch deletions
+
+Stop all batch deletions from executing any more batches
+
+```
+GET http://www.example.org/api/v2/batchdelete/terminate/all
+Authorization: Basic YOUR_BASIC_AUTH
+Content-Type: application/json; charset=utf-8
+```
+
+
+
+
 
 ### Deletion time window
 Because deletion can be a intensive job for the database, it is possible to configure Learning Locker to only trigger and process batch deletion during a specified window everyday. This can be configured to enable deletions during periods of known low activity (e.g. night time).
@@ -84,4 +164,4 @@ db.siteSettings.updateOne(
 )
 ```
 
-The configuration above would allow deletions to be triggered from midnight to 5am (UTC) everyday.
+The configuration above would allow deletions to be triggered from midnight to 5am (UTC) everyday. Note that the Scheduler process is required to be run in order outstanding jobs at the start of the window everyday.
