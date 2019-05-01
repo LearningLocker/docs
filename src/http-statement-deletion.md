@@ -121,9 +121,9 @@ _The `filter` field is stored as text to account for `.` (dot) characters used i
 
 The Batch Delete model may be retrieved using the GET [REST](../http-rest) or [Connection APIs](../http-connection) but the other HTTP methods are disabled (PUT, PATCH, DELETE) and are instead replaced by the [initialise](#initialising-a-batch-deletion) and [terminate](#terminating-batch-deletions) routes specified above.
 
-#### Examples: (using Connection API)
+#### Examples: (using the Connection API)
 
-_Note; query parameters should be URL encoded - these examples have had this removed for readability_
+_Note; query parameters should be URL encoded - these examples have had this step skipped for readability_
 
 ##### Fetch a particular job by `_id`
 
