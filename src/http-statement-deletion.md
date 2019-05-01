@@ -60,7 +60,7 @@ An intialise request will return a 200 HTTP response with a JSON version of the 
 
 You may choose to terminate one or all batch deletions for an organisation using the following commands.
 
-_Note that if a deletion has issued a worker job to delete a batch, it may delete up to 1000 records before the termination command is respected._
+_Note that if a deletion is currently in progress and a worker job to delete a batch has been issued, up to 1000 records may be deleted before the termination command is respected._
 
 _This is due to how we batch the deletions into blocks of 1000. Once a batch has started, it cannot be stopped without manually stopping the Worker's Node process running the deletion job. However, no subsequent batches will be processed once that batch has finished._
 
@@ -119,11 +119,11 @@ _The `filter` field is stored as text to account for `.` (dot) characters used i
 }
 ```
 
-The Batch Delete model may be retrieved using the GET [REST](../http-rest) or [Connection APIs](../http-connection) but the other HTTP methods are disabled (PUT, PATCH, DELETE) and are instead replaced by the [initialise](#initialising-a-batch-deletion) and [terminate](#terminating-batch-deletions) routes specified above.
+The Batch Delete model may be retrieved using the GET [REST](../http-rest) or [Connection APIs](../http-connection) but other HTTP methods are disabled (PUT, PATCH, DELETE) and are instead replaced by the [initialise](#initialising-a-batch-deletion) and [terminate](#terminating-batch-deletions) routes specified above.
 
 #### Examples: (using the Connection API)
 
-_Note; query parameters should be URL encoded - these examples have had this step skipped for readability_
+_Note; query parameters should be URL encoded - these examples have not been, for readability_
 
 ##### Fetch a particular job by `_id`
 
@@ -132,7 +132,7 @@ GET http://www.example.org/api/connection/batchdelete?filter={"_id":{"$oid":"111
 Authorization: Basic YOUR_BASIC_AUTH
 ```
 
-##### Fetch the 5 most recently completed/terminated job
+##### Fetch the 5 most recently completed/terminated jobs
 ```
 GET http://www.example.org/api/connection/batchdelete?filter={"done":true}&sort={"updatedAt":-1, "_id": 1}&first=5
 Authorization: Basic YOUR_BASIC_AUTH
@@ -166,4 +166,4 @@ db.siteSettings.updateOne(
 )
 ```
 
-The configuration above would allow deletions to be triggered from midnight to 5am (UTC) everyday. Note that the Scheduler process is required to be run in order outstanding jobs at the start of the window everyday.
+The configuration above, for example, would allow deletions to be triggered from midnight to 5am (UTC) everyday. Note that the Scheduler process is required to be run in order outstanding jobs at the start of the window everyday.
