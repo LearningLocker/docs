@@ -69,7 +69,7 @@ _This is due to how we batch the deletions into blocks of 1000. Once a batch has
 Stop a specific batch deletion from executing any more batches.
 
 ```
-GET http://www.example.org/api/v2/batchdelete/terminate/111aaa1111a111111aa11112
+POST http://www.example.org/api/v2/batchdelete/terminate/111aaa1111a111111aa11112
 Authorization: Basic YOUR_BASIC_AUTH
 ```
 
@@ -78,7 +78,7 @@ Authorization: Basic YOUR_BASIC_AUTH
 Stop all batch deletions from executing any more batches
 
 ```
-GET http://www.example.org/api/v2/batchdelete/terminate/all
+POST http://www.example.org/api/v2/batchdelete/terminate/all
 Authorization: Basic YOUR_BASIC_AUTH
 ```
 
