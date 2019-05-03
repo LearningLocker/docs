@@ -5,6 +5,5 @@ rvm:
 sudo: false
 
 script:
-  - gem update --system
   - chmod +x ./deploy-ghpages.sh
   - ./deploy-ghpages.sh
