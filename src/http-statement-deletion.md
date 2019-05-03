@@ -2,7 +2,8 @@
 ---
 
 # Statement Deletion HTTP Interfaces
-## New in version v3.11.0
+
+### New in version v3.11.0
 
 By default, Learning Locker gives you the ability to delete statements via the API (this can be disabled via the `ENABLE_STATEMENT_DELETION` flag). 
 
