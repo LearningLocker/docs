@@ -7,12 +7,12 @@ Represents a CSV import (typically from a HR system) containing [persona](../htt
 
 It is accessible through the following HTTP interfaces:
 
-- [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/personaimport.
-- [REST HTTP Interface](../http-rest) via http://www.example.org/api/v2/personaimport.
+- [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/personasImport.
+- [REST HTTP Interface](../http-rest) via http://www.example.org/api/v2/personasImport.
 
 To import a CSV via the API, you need to make the three requests below in order.
 
-1. Create the persona import model via the [REST HTTP Interface](../http-rest) (http://www.example.org/api/v2/personaimport).
+1. Create the persona import model via the [REST HTTP Interface](../http-rest) (http://www.example.org/api/v2/personasImport).
 2. Upload the CSV via the [Upload HTTP interface](#upload-http-interface).
 3. Process the persona import model via the [Process HTTP interface](#process-http-interface).
 
