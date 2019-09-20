@@ -21,9 +21,7 @@ The workers are also written in JavaScript (ES6 using Webpack and Babel), they u
 Currently there are workers for managing the [query builder cache](https://ht2ltd.zendesk.com/hc/en-us/articles/115000925249-Query-Builder-Overview), [extracting personas from statements](../http-personas), [exporting statements via CSV](https://ht2ltd.zendesk.com/hc/en-us/articles/115000931369-Exporting-statements-to-CSV), [importing personas via CSV](https://ht2ltd.zendesk.com/hc/en-us/articles/115001223771-Adding-Additional-Data-to-People-via-CSV), and (in [Enterprise](https://www.ht2labs.com/learning-locker)) [recalculating journeys](https://ht2ltd.zendesk.com/hc/en-us/articles/115000857025-Journeys-Overview).
 
 ## xAPI Service
-The xAPI service is made up of four services in separate Github repositories, the services are for [statements](#statements), [activity profiles](#activity-profiles), [agent profiles](#agent-profiles), and [state](#state). The xAPI service makes it easy to run the entire [xAPI HTTP Interface](../xapi-http) whilst allowing maintainers to work on small encapsulated pieces.
-
-The service is written in TypeScript and provides an Express, Mongo, Redis, and AWS S3 connection to the four services as required.
+The xAPI service is made up of four parts: [statements](#statements), [activity profiles](#activity-profiles), [agent profiles](#agent-profiles), and [state](#state). The xAPI service provides access to the [xAPI HTTP Interface](../xapi-http) for interacting with the xAPI as defined in the specification. The service is written in entirely TypeScript and primarily uses Express, Mongo, and Redis.
 
 If you require more information there are some useful links provided below.
 - [xAPI Specification of the HTTP Resources](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#20-resources).
@@ -31,37 +29,33 @@ If you require more information there are some useful links provided below.
 - [Github repository for the xAPI Service](http://github.com/LearningLocker/xapi-service).
 
 ### Statements
-This service provides a [xAPI compliant Statements HTTP interface](../http-xapi-statements) written in TypeScript to use Express, Mongo, and Redis. It also uses local file storage or AWS S3 storage to store attachments.
+This part provides a [xAPI compliant Statements HTTP interface](../http-xapi-statements) written in TypeScript to use Express, Mongo, and Redis. It also uses local file storage or AWS S3 storage to store attachments.
 
-The [Activity HTTP Resource](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#25-activities-resource) is also provided as part of this service because Learning Locker has to merge activity definitions from inserted statements to provide this resource. You can find out more about this resource in the [Activities HTTP interface documentation](../http-xapi-activities#get-activities).
+The [Activity HTTP Resource](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#25-activities-resource) is also provided as part of this because Learning Locker has to merge activity definitions from inserted statements to provide this resource. You can find out more about this resource in the [Activities HTTP interface documentation](../http-xapi-activities#get-activities).
 
 If you require more information there are some useful links provided below.
 - [xAPI Specification of the Statements Resource](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#stmtres).
 - [Documentation of the xAPI Statements HTTP interface](../http-xapi-statements).
-- [Github repository for the Statements Service](http://github.com/LearningLocker/xapi-statements).
 
 ### Activity Profiles
-This service provides a [xAPI compliant Activity Profiles HTTP interface](../http-xapi-activities) written in TypeScript to use Express and Mongo. It also uses local file storage or AWS S3 storage to store documents.
+This part provides a [xAPI compliant Activity Profiles HTTP interface](../http-xapi-activities) written in TypeScript to use Express and Mongo. It also uses local file storage or AWS S3 storage to store documents.
 
 If you require more information there are some useful links provided below.
 - [xAPI Specification of the Activity Profiles Resource](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#actprofres).
 - [Documentation of the xAPI Activity Profiles HTTP interface](../http-xapi-activities).
-- [Github repository for the Activity Profiles Service](http://github.com/LearningLocker/xapi-activities).
 
 ### Agent Profiles
-This service provides a [xAPI compliant Agent Profiles HTTP interface](../http-xapi-agents) written in TypeScript to use Express and Mongo. It also uses local file storage or AWS S3 storage to store documents.
+This part provides a [xAPI compliant Agent Profiles HTTP interface](../http-xapi-agents) written in TypeScript to use Express and Mongo. It also uses local file storage or AWS S3 storage to store documents.
 
 The [Agent HTTP Resource](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#24-agents-resource) is also provided as part of this service to retrieve all of the agents that are used by a single person. A person can be created by inserting statements via the [xAPI Statements HTTP interface](../http-xapi-statements) or using the [Persona HTTP interface](../http-personas). Multiple agents can be associated with a person using the [Persona HTTP interface](../http-personas) too.
 
 If you require more information there are some useful links provided below.
 - [xAPI Specification of the Agent Profiles Resource](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#26-agent-profile-resource).
 - [Documentation of the xAPI Agent Profiles HTTP interface](../http-xapi-agents).
-- [Github repository for the Agent Profiles Service](http://github.com/LearningLocker/xapi-agents).
 
 ### State
-This service provides a [xAPI compliant State HTTP interface](../http-xapi-states) written in TypeScript to use Express and Mongo. It also uses local file storage or AWS S3 storage to store documents.
+This part provides a [xAPI compliant State HTTP interface](../http-xapi-states) written in TypeScript to use Express and Mongo. It also uses local file storage or AWS S3 storage to store documents.
 
 If you require more information there are some useful links provided below.
 - [xAPI Specification of the State Resource](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#23-state-resource).
 - [Documentation of the xAPI State HTTP interface](../http-xapi-states).
-- [Github repository for the State Service](http://github.com/LearningLocker/xapi-state).
