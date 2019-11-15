@@ -49,7 +49,7 @@ Learning Locker handles all logging via [Winston](https://www.npmjs.com/package/
 
 ## New Relic
 
-The Learning Locker application is configured to send performance metrics to New Relic. Simply fill in the following in the `.env` of your application instance (**note that this is currently unavailable for the xAPI service layer**)
+The Learning Locker application is configured to send performance metrics to New Relic. Simply fill in the following in the `.env` of your application instance
 
 ```
 #############
@@ -62,6 +62,16 @@ NEW_RELIC_LICENSE_KEY=
 NEWRELIC_API_NAME=
 # APM name for UI
 NEWRELIC_UI_NAME=
+```
+
+#### xAPI
+In the xAPI you can also add monitoring.
+
+```
+# New Relic License key
+NEW_RELIC_LICENSE_KEY=
+# APM name
+NEW_RELIC_APP_NAME=
 ```
 
 ![New Relic](../images/newrelic.jpg "New Relic")
