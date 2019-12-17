@@ -73,7 +73,7 @@ A statement for "viewing an application" using these guidelines might look a bit
 }
 ```
 
-There are [more example statements provided in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Data.md#appendix-a-example-statements). For further support and consultation, you can email [hello@ht2labs.com](mailto:hello@ht2labs.com).
+There are [more example statements provided in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Data.md#appendix-a-example-statements). For further support and consultation, you can email [hello@learninglocker.net](mailto:hello@learninglocker.net).
 
 ## Map Variables
 Using the recipes from the previous step, you should map the data required in each of the recipes to variables in your application. You might find it useful to use a table like the one below.
@@ -105,4 +105,4 @@ If you're potentially sending a significant number of statements in a short peri
 If a statement fails to be sent you may want to consider implementing some retry strategies to resend statements that previously failed to be stored (normally because of downtime). We'd recommend that you send these failed statements in [batches](#batching-statements). If you're sending statements from the client-side, we'd recommend that you wait 5-60 seconds between retries and retry a maximum of 3-5 times. If you're sending statements server-side, you may want to consider storing failed statements somewhere and using a Cron job to send them.
 
 ### Sending Securely
-If you're sending statements from the server-side this shouldn't be an issue as the LRS credentials are not exposed. However, if you're sending statements from the client-side, you should consider finding a way to protect the LRS credentials so that they're not exposed to tech-savvy users, since a malicious user may try to read sensitive data from, or write unwanted data to, the LRS. We'd recommend using the [xAPI launch process](https://github.com/adlnet/xapi-launch) with Learning Locker's Launchr, you can email [hello@ht2labs.com](mailto:hello@ht2labs.com) for more information about this.
+If you're sending statements from the server-side this shouldn't be an issue as the LRS credentials are not exposed. However, if you're sending statements from the client-side, you should consider finding a way to protect the LRS credentials so that they're not exposed to tech-savvy users, since a malicious user may try to read sensitive data from, or write unwanted data to, the LRS. We'd recommend using the [xAPI launch process](https://github.com/adlnet/xapi-launch) with Learning Locker's Launchr, you can email [hello@learninglocker.net](mailto:hello@learninglocker.net) for more information about this.

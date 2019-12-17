@@ -179,7 +179,7 @@ For production installations, we recommend the following setup**:**
 * 3 Mongo servers in a replica set (e.g. [Atlas](https://www.mongodb.com/cloud/atlas));
 * 1 Redis server (e.g. [AWS ElastiCache](https://aws.amazon.com/elasticache/)).
 
-This setup ensures good performance and a reasonable degree of redundancy in case of failures in some parts. We'd also recommend that you back up your Mongo database quite regularly depending on your own data requirements. If this sounds too costly or challenging, you may wish to consider using [our Software as a Service (SaaS) enterprise solution](https://www.ht2labs.com/learning-locker/). If you require more advice for your setup, please get in touch via [hello@ht2labs.com](mailto:hello@ht2labs.com).
+This setup ensures good performance and a reasonable degree of redundancy in case of failures in some parts. We'd also recommend that you back up your Mongo database quite regularly depending on your own data requirements. If this sounds too costly or challenging, you may wish to consider using [our Software as a Service (SaaS) enterprise solution](https://learningpool.com/solutions/learning-record-store-learning-locker/). If you require more advice for your setup, please get in touch via [hello@learninglocker.net](mailto:hello@learninglocker.net).
 
 ___
 

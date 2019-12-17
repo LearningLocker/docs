@@ -5,7 +5,7 @@
 [![License](https://poser.pugx.org/learninglocker/learninglocker/license.svg)](http://opensource.org/licenses/GPL-3.0)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/LearningLocker/learninglocker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-*Learning Locker is copyright [HT2](http://ht2.co.uk)*
+*Learning Locker is copyright [Learning Pool](http://learningpool.com)*
 
 ## Users
 Please view our [documentation](http://docs.learninglocker.net) site.
