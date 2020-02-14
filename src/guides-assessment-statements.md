@@ -249,7 +249,7 @@ No Metadata
     "definition": {
       "name": {"en": "Order these numbers from lowest to highest?"},
       "type": "http://adlnet.gov/expapi/activities/cmi.interaction",
-      "interactionType": "choice",
+      "interactionType": "sequencing",
       "correctResponsesPattern": ["12[,]234[,]4561"],
       "choices": [
         {"id": "234", "description": {"en": "Two hundred and thirty four"}},
