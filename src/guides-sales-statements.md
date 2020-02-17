@@ -5,7 +5,7 @@
 
 - [User closed sale with Client](#user-closed-sale-with-client)
 - [User generated lead with Client](#user-generated-lead-with-client)
-- [User called Client](#user-called-company)
+- [User called Client](#user-called-client)
 
 The statements shown here are not currently guided by an existing Profile or Community of Practice. They have been created to define how we should create statements for SalesForce.
 
