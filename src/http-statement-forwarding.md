@@ -22,7 +22,7 @@ lrs_id | The id of the [store](../http-stores#schema) that Learning Locker will 
 active | If this statement forwarder is currently active.
 configuration | The configuration for this statement forwarder [See configuration](#configuration).
 owner | Id of the [user](../http-users#schema) who created this statement forwarder.
-query | Only forwards statements which match this query.
+query | A JSON Mongo query string - only statements which match this query will be forwarded. <br><br>e.g. `'{"statement.verb.id":"http://adlnet.gov/expapi/verbs/completed"}'`
 isPublic | If false then this statement forwarder is only available to the owner and users with [org/all/statementForwarding/view scope](../http-roles/#organisation-scopes), otherwise it's available to everyone in the organisation with permission.
 
 ### Configuration
