@@ -36,11 +36,11 @@ To install Learning Locker, you can run one of the commands below **as the root 
 
 **Install with cURL**
 ```sh
-curl -o- -L http://lrnloc.kr/installv2 > deployll.sh && bash deployll.sh
+curl -o- -L https://raw.githubusercontent.com/LearningLocker/deploy/master/deployll.sh > deployll.sh && bash deployll.sh
 ```
 **Install with Wget**:
 ```sh
-wget -qO deployll.sh http://lrnloc.kr/installv2 && bash deployll.sh
+wget -qO deployll.sh https://raw.githubusercontent.com/LearningLocker/deploy/master/deployll.sh && bash deployll.sh
 ```
 
 ### Upgrading
