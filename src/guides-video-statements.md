@@ -181,7 +181,7 @@ Used to express that the actor ended a video.
     }
   },
   "result": {
-    "completed": true,
+    "completion": true,
     "duration": "PT124.3S",
     "extensions": {
       "https://w3id.org/xapi/video/extensions/time": 124.3,
