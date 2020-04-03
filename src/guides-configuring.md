@@ -33,6 +33,7 @@ MONGO_CONNECTION_POOLSIZE | https://blog.mlab.com/2013/11/deep-dive-into-connect
 REDIS_DB | The database number of the Redis instance | `0` | -
 REDIS_PREFIX | A prefix to append to all keys within the Redis database | `learninglocker` | -
 ALLOW_AGGREGATION_DISK_USE | Can Mongo use its disks for aggregating | `true` | `true`
+AGGREGATE_API_ALLOWED_COLLECTIONS | Rule to check whether is collection allowed for Aggregate API or not | `^rollup` | `^rollup`
 AGGREGATION_CACHE_SECONDS | How many seconds are aggregation results cached  | `300` | `300`
 AGGREGATION_REFRESH_AT_SECONDS | Refresh aggregations when this close to expiry | `120` | `120`
 MAX_TIME_MS | [Max time aggregations can run for in milliseconds](https://docs.mongodb.com/manual/reference/operator/meta/maxTimeMS/) | `300` | `0` (no limit)
