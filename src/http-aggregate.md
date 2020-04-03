@@ -31,7 +31,7 @@ Authorization: Basic YOUR_BASIC_AUTH
 Content-Type: application/json; charset=utf-8
 
 {
-    "collection": "rollup_collection",
+    "collection": "rollupUniqueVerbsByPlatformDaily",
     "pipeline": "[]",
     "skip": 0,
     "limit": 1,
@@ -44,7 +44,28 @@ A response to this valid request will return a 200 response like the response be
 
 ```http
 {
-    "result": [],
+    "result": [
+        {
+          "_id" : "111aaa1111a111111aa11111",
+          "organisationId" : "111aaa1111a111111aa11111",
+          "organisationName" : [
+            "My amazing org"
+          ],
+          "lrsId" : "111aaa1111a111111aa11111",
+          "lrsName" : [
+            "My awesome store"
+          ],
+          "clientId" : "111aaa1111a111111aa11111",
+          "clientName" : [
+            "My incredible client"
+          ],
+          "platform" : "Some Cool Platform",
+          "verb" : "http://adlnet.gov/expapi/verbs/scored",
+          "count" : 200,
+          "date" : "2017-08-01T00:00:00Z",
+          "storedDate" : "2017-08-01T00:00:00Z"
+        }
+    ],
     "startedAt": "2020-04-03 14:17:30.924+03:00",
     "completedAt": "2020-04-03 14:17:30.943+03:00"
 }
