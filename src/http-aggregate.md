@@ -13,7 +13,7 @@ This interface can be used to aggregate on multiple **allowed only** collections
 ## Request Setup
 
 When using this interface, you must additionally supply your Basic Auth details with each request in the `Authorization` header.
-Your Basic Auth details can be found under **Settings** > **Clients**. The interface requires a `collection` body parameter. `collection` is a string that represents collection name used to execute aggregation on. The optional URL parameters are described in the table below.
+Your Basic Auth details can be found under **Settings** > **Clients**. The interface can be passed options via a JSON object in the request body (described in the table below). The  `collection` property is required. The `collection` is a string that determines the collection name used to execute the aggregation on. The other properties are optional.
 
 Name | Description | Default Value
 --- | --- | ---
