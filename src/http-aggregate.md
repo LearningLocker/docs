@@ -16,7 +16,7 @@ When using this interface, you must additionally supply your Basic Auth details 
 Your Basic Auth details can be found under **Settings** > **Clients**. The interface requires a `collection` body parameter. `collection` is a string that represents collection name used to execute aggregation on. The optional URL parameters are described in the table below.
 
 Name | Description | Default Value
---- | ---
+--- | --- | ---
 pipeline | JSON encoded array containing a pipeline of stages for documents to pass through before being output from the interface. | `[]`<br/><br/>(in this case, you'll get records from the desired collection without any transformations)
 skip | Number that specifies a number of records that should be skipped from the beginning. This parameter will be transformed into `$skip` aggregation stage and executed at the very end. | `0`
 limit | Number that specifies a number of records that will be cut from the final results. This parameter will be transformed into `$limit` aggregation stage and executed at the very end. | `10000`
@@ -82,4 +82,3 @@ Name | Description
 [skip](#skip-stage) | Skips a number of records from the previous stage of the pipeline for the next stage.
 [group](#group-stage) | Groups records by a specified identifier from the previous stage of the pipeline for the next stage.
 [sort](#sort-stage) | Sorts the records from the previous stage of the pipeline for the next stage.
-
