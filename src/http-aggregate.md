@@ -17,7 +17,7 @@ Your Basic Auth details can be found under **Settings** > **Clients**. The inter
 
 Name | Description | Default Value
 --- | --- | ---
-pipeline | JSON encoded array containing a pipeline of stages for documents to pass through before being output from the interface. | `[]`<br/><br/>(in this case, you'll get records from the desired collection without any transformations)
+pipeline | Array containing a pipeline of stages for documents to pass through before being output from the interface. | `[]`<br/><br/>(in this case, you'll get records from the desired collection without any transformations)
 skip | Number that specifies a number of records that should be skipped from the beginning. This parameter will be transformed into `$skip` aggregation stage and executed at the very end. | `0`
 limit | Number that specifies a number of records that will be cut from the final results. This parameter will be transformed into `$limit` aggregation stage and executed at the very end. | `10000`
 maxTimeMS | Number that specifies the time limit for the query in Mongo. | `0`<br/><br/>(if nothing else was set to `MAX_TIME_MS` environment variable)
@@ -32,7 +32,7 @@ Content-Type: application/json; charset=utf-8
 
 {
     "collection": "rollupUniqueVerbsByPlatformDaily",
-    "pipeline": "[]",
+    "pipeline": [],
     "skip": 0,
     "limit": 1,
     "maxTimeMs": 100,
