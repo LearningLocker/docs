@@ -55,6 +55,8 @@ description | String | The name of this outcome.
 isActive | Boolean | If this outcome is active.
 type | String | Only `'callback'` currently supported, `'statement'` outcomes coming soon
 callback | String (URL) |  URL to POST completion data on a journey being completed. [See callback example](#callback-example)
+tripCount | Number | Load control counter. The variable MAX_TRIP_COUNT in .env is responsible for this counter.
+deactivatedAt | Date | Deactivation date if tripCount has peaked.
 
 #### Callback example
 
@@ -661,14 +663,18 @@ When a persona/actor completes a journey, the [callback url](#outcomes) will rec
         "callback":"https://requestb.in/t6lzcgt6",
         "_id":"59c237bebdf9ac67b2ab5ee8",
         "type":"callback",
-        "isActive":true
+        "isActive":true,
+        "tripCount": 0,
+        "deactivatedAt": null
       },
       {  
         "_id":"59c23b00bdf9ac67b2ab5eeb",
         "callback":"http://mockbin.org/bin/3bc290d4-9185-455f-8799-160aed03398e",
         "description":"Another post endpoint",
         "type":"callback",
-        "isActive":true
+        "isActive":true,
+        "tripCount": 5,
+        "deactivatedAt": null
       }
     ],
     "waypoints":[  
@@ -748,7 +754,9 @@ remainingCount | Number | Total amount of statements left to process
       "description": "POST to my endpoint",
       "isActive": true,
       "type": "callback",
-      "callback": "http://example.org/myPOSTcallbackURL/"
+      "callback": "http://example.org/myPOSTcallbackURL/",
+      "tripCount": 0,
+      "deactivatedAt": null
     }
   ]
   "isSequential": true,
