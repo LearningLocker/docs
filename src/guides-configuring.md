@@ -72,7 +72,7 @@ NEW_RELIC_LICENSE_KEY | A New Relic license key for monitoring the UI and API | 
 NEWRELIC_API_NAME | Name for the API in New Relic | `12356789` | -
 NEWRELIC_UI_NAME | Name for the UI in New Relic | `12356789` | -
 CLAMSCAN_BINARY | Location of Clamscan binary if requiring anti-virus scans on uploaded files (e.g. images) | `/usr/bin/clamscan` | -
-**MAX_TRIP_COUNT** | Load control counter | `15` | -
+**MAX_TRIP_COUNT** | Load control counter (Enterprise Only) | `15` | -
 
 ## xAPI Service
 
