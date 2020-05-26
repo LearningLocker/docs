@@ -55,7 +55,7 @@ description | String | The name of this outcome.
 isActive | Boolean | If this outcome is active.
 type | String | Only `'callback'` currently supported, `'statement'` outcomes coming soon
 callback | String (URL) |  URL to POST completion data on a journey being completed. [See callback example](#callback-example)
-tripCount | Number | Load control counter. The variable MAX_TRIP_COUNT in .env is responsible for this counter.
+tripCount | Number | Load control counter (Enterprise Only). The variable MAX_TRIP_COUNT in .env is responsible for this counter.
 deactivatedAt | Date | Deactivation date if tripCount has peaked.
 
 #### Callback example
