@@ -42,7 +42,7 @@
     "completion": true,
     "success": true,
     "score": {
-      "scaled": 7,
+      "scaled": 1.0,
       "raw": 7,
       "min": 0,
       "max": 7
