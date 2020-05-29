@@ -53,6 +53,7 @@ org/all/export/edit |
 org/all/download/view |
 org/all/download/edit |
 org/all/persona/manage |
+org/all/activity/manage |
 org/all/store/manage |
 org/all/user/manage |
 org/all/client/manage |
