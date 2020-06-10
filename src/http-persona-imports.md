@@ -161,7 +161,7 @@ Authorization: <YOUR_BASIC_AUTH_TOKEN>
     },
     {
       "key": "mbox",
-      "value": "sam.jackson@example.org"
+      "value": "mailto:sam.jackson@example.org"
     }
   ],
   "attributes": [
