@@ -16,6 +16,8 @@ To import a CSV via the API, you need to make the three requests below in order.
 2. Upload the CSV via the [Upload HTTP interface](#upload-http-interface).
 3. Process the persona import model via the [Process HTTP interface](#process-http-interface).
 
+Alternatively, you can create/update personas via the [Persona Upsert HTTP Interface](#persona-upsert-http-interface).
+
 ### Schema
 
 Name | Description
@@ -138,3 +140,38 @@ Content-Type: application/json; charset=utf-8
 ```
 
 The interface will respond with a 200 response code, processing of the persona import will start shortly after the response is received.
+
+# Persona Upsert HTTP Interface
+This interface provides API access to the function we use to process individual CSV rows in Persona Imports. Requests to this interface should look something like the request below.
+
+```http
+POST http://www.example.org/api/uploadpersona
+Content-Type: application/json
+Authorization: <YOUR_BASIC_AUTH_TOKEN>
+
+{
+  "personaName": "Sam Jackson",
+  "ifis": [
+    {
+      "key": "account",
+      "value": {
+        "homePage": "https://sso.example.org",
+        "name": "sam_jackson_sso_id"
+      }
+    },
+    {
+      "key": "mbox",
+      "value": "sam.jackson@example.org"
+    }
+  ],
+  "attributes": [
+    {
+      "key": "Team",
+      "value": "Avengers"
+    }
+  ]
+}
+```
+
+The interface will respond with a 200 response code after it has created/updated a matching persona.
+
