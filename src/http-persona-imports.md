@@ -173,5 +173,55 @@ Authorization: <YOUR_BASIC_AUTH_TOKEN>
 }
 ```
 
-The interface will respond with a 200 response code after it has created/updated a matching persona.
+The interface will respond with a response similar to the one below after it has created/updated a matching persona.
 
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+  "merged": true
+}
+```
+
+## Retrieving Created/Updated Persona
+To retrieve the persona that was created/updated in the previous upsert request, you can make the following request to the [Connection HTTP Interface](./http-connection/) for [Persona Indentifiers](./http-persona-identifiers/).
+
+```http
+GET http://www.example.org/api/connection/personaidentifier?filter={"ifi.key": "account", "ifi.value.homePage": "https://sso.example.org", "ifi.value.name": "sam_jackson_sso_id"}
+Authorization: <YOUR_BASIC_AUTH_TOKEN>
+```
+
+This will provide a response similar to the one below.
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+  "edges": [
+    {
+      "cursor": "<CURSOR>",
+      "node": {
+        "_id": "<YOUR_LL_PERSONA_IDENTIFIER_ID>",
+        "ifi": {
+          "key": "account",
+          "value": {
+            "homePage": "https://sso.example.org",
+            "name": "sam_jackson_sso_id"
+          }
+        },
+        "organisation": "<YOUR_LL_ORG_ID>",
+        "locked": false,
+        "persona": "<CREATED_OR_UPDATED_LL_PERSONA_ID>"
+      }
+    }
+  ],
+  "pageInfo": {
+    "endCursor": "<END_CURSOR>",
+    "hasNextPage": false,
+    "hasPreviousPage": false,
+    "startCursor": "<START_CURSOR>"
+  }
+}
+```
