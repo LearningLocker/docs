@@ -185,7 +185,7 @@ Content-Type: application/json; charset=utf-8
 ```
 
 ## Retrieving Created/Updated Persona
-To retrieve the persona that was created/updated in the previous upsert request, you can make the following request to the [Connection HTTP Interface](./http-connection/) for [Persona Indentifiers](./http-persona-identifiers/).
+To retrieve the persona that was created/updated in the previous upsert request, you can make the following request to the [Connection HTTP Interface](/http-connection/) for [Persona Indentifiers](/http-persona-identifiers/).
 
 ```http
 GET http://www.example.org/api/connection/personaidentifier?filter={"ifi.key": "account", "ifi.value.homePage": "https://sso.example.org", "ifi.value.name": "sam_jackson_sso_id"}
