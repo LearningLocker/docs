@@ -3,8 +3,6 @@
 
 # Activities HTTP Interface
 
-An activity represents an activity with many [identifiers](../http-activity-identifiers).
-
 It is accessible through the following HTTP interfaces:
 
 - [Connection HTTP Interface](../http-connection) via http://www.example.org/api/connection/activity.
