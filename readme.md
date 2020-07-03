@@ -26,4 +26,13 @@ Alternatively:
 3. Commit and push your changes to Github.
 4. Create a [pull request](/pulls) on Github (ensuring that you follow the [guidelines](/contributing.md)).
 
+### Development
+1. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
+2. Install [Bundler](https://bundler.io/)
+3. Run `bundler install`
+4. Run `jekyll server --watch`
+5. To go `http://127.0.0.1:4000` in our browser
+
+For each change in the src files jekyll will automatically recompile the dist files.
+
 Note that the documentation site is generated using [Jekyll](http://jekyllrb.com/). To learn more about the repository structure, please view the [Jekyll documentation](http://jekyllrb.com/docs/home/).
