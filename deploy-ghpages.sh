@@ -9,9 +9,7 @@ echo "${DELIM}<"
 # Builds the documentation using Jekyll
 echo "Starting build"
 rm -rf out || exit 0
-mkdir out
-gem install jekyll --http-proxy --source http://rubygems.org -v 3.6.2
-gem install jekyll-redirect-from -v 0.13.0
+bundler install
 jekyll build
 echo "Finished build"
 
