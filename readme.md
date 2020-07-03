@@ -31,7 +31,7 @@ Alternatively:
 2. Install [Bundler](https://bundler.io/)
 3. Run `bundler install`
 4. Run `jekyll server --watch`
-5. To go `http://127.0.0.1:4000` in your browser
+5. Go to `http://127.0.0.1:4000` in your browser
 
 For each change in the src files jekyll will automatically recompile the dist files.
 
