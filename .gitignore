@@ -1,6 +1,5 @@
 _site
 out
 .DS_Store
-Gemfile.lock
 .idea
 .jekyll-cache
