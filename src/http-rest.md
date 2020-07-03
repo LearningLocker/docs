@@ -72,6 +72,17 @@ Content-Type: application/json; charset=utf-8
 
 For more information about the acceptable URL query parameters, view the [Restify documentation](https://florianholzapfel.github.io/express-restify-mongoose/#querying).
 
+**Important:** In case of **User** route, [query](https://florianholzapfel.github.io/express-restify-mongoose/#querying) parameter will be ignored and `search` parameter should be used instead. `search` query parameter is a simple string and will be transformed into filter shown below.
+
+```json
+{
+  "$or": [
+    { "name": { "$regex": "exampleSearchString", "$options": "i" } },
+    { "email": { "$regex": "exampleSearchString", "$options": "i" } }
+  ]
+}
+```  
+
 ### GET /
 This route returns an array of models. A request to this route would look something like the request below.
 
@@ -100,6 +111,17 @@ Content-Type: application/json; charset=utf-8
 ```
 
 For more information about the acceptable URL query parameters, view the [Restify documentation](https://florianholzapfel.github.io/express-restify-mongoose/#querying).
+
+**Important:** In case of **User** route, [query](https://florianholzapfel.github.io/express-restify-mongoose/#querying) parameter will be ignored and `search` parameter should be used instead. `search` query parameter is a simple string and will be transformed into filter shown below.
+
+```json
+{
+  "$or": [
+    { "name": { "$regex": "exampleSearchString", "$options": "i" } },
+    { "email": { "$regex": "exampleSearchString", "$options": "i" } }
+  ]
+}
+```
 
 ### POST /
 This route creates a model. A request to this route would look something like the request below. Different models will require and respond with a different schema, you can view the schemas by clicking the model names in the [model table above](#models).
