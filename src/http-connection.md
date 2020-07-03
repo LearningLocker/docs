@@ -14,7 +14,8 @@ http://www.example.org/api/connection/statement
 You must additionally supply your Basic Auth details with each request in the `Authorization` header. Your Basic Auth details can be found under **Settings** > **Clients**. The API also accepts the following *optional* URL parameters for filtering the models returned.
 
 - [sort](#sort-parameter) (required -  we recommend sorting by `_id` if nothing else)
-- [filter](#filter-parameter)
+- [search](#search-parameter) (available only for user connection in Enterprise)
+- [filter](#filter-parameter) (not available for User connection)
 - [project](#project-parameter)
 - [hint](#hint-parameter)
 - [first](#first-parameter)
@@ -53,6 +54,23 @@ Note that when using extension keys, you need to replace any dots with `&46;` be
 
 #### Sorting With Improved Performance
 You may find that changing the sort parameter can vary the time it takes a query to run, especially when you have a large number of models. You can take advantage of database indexes to improve performance, more information is available about [using indexes via Mongo's documentation](https://docs.mongodb.com/manual/indexes/). If utilising indexes doesn't have the required performance improvement, you can instead utilise [BI tools](../guides-retrieving).
+
+### Search Parameter
+The search parameter is a simple string and **available only for User connection**. This parameter is gonna search for the match over `name` and `email` fields of User schema. So if the value for this parameter is `exampleSearchString`, as shown in the request below, it will be transformed into filter as shown below.
+
+```http
+GET http://www.example.org/api/connection/user?search=exampleSearchString
+Authorization: Basic YOUR_BASIC_AUTH
+```
+
+```json
+{
+  "$or": [
+    { "name": { "$regex": "exampleSearchString", "$options": "i" } },
+    { "email": { "$regex": "exampleSearchString", "$options": "i" } }
+  ]
+}
+```
 
 ### Filter Parameter
 The filter parameter is a JSON encoded object. The keys of the object represent the names of the properties or operators. The values of the object represent the value you wish to filter by.
