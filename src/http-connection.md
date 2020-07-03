@@ -56,7 +56,12 @@ Note that when using extension keys, you need to replace any dots with `&46;` be
 You may find that changing the sort parameter can vary the time it takes a query to run, especially when you have a large number of models. You can take advantage of database indexes to improve performance, more information is available about [using indexes via Mongo's documentation](https://docs.mongodb.com/manual/indexes/). If utilising indexes doesn't have the required performance improvement, you can instead utilise [BI tools](../guides-retrieving).
 
 ### Search Parameter
-The search parameter is a simple string and **available only for User connection**. This parameter is gonna search for the match over `name` and `email` fields of User schema. So if the value for this parameter is `exampleSearchString`, it will be transformed into filter as shown below.
+The search parameter is a simple string and **available only for User connection**. This parameter is gonna search for the match over `name` and `email` fields of User schema. So if the value for this parameter is `exampleSearchString`, as shown in the request below, it will be transformed into filter as shown below.
+
+```http
+GET http://www.example.org/api/connection/user?search=exampleSearchString
+Authorization: Basic YOUR_BASIC_AUTH
+```
 
 ```json
 {
