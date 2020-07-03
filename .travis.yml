@@ -4,6 +4,11 @@ rvm:
 
 sudo: false
 
-script:
-  - chmod +x ./deploy-ghpages.sh
-  - ./deploy-ghpages.sh
+install: bundle install --jobs=3 --retry=3
+script: jekyll build
+deploy:
+  provider: pages
+  github_token: $GH_TOKEN
+  local_dir: ./out
+  on:
+    branch: master
