@@ -14,7 +14,7 @@ http://www.example.org/api/connection/statement
 You must additionally supply your Basic Auth details with each request in the `Authorization` header. Your Basic Auth details can be found under **Settings** > **Clients**. The API also accepts the following *optional* URL parameters for filtering the models returned.
 
 - [sort](#sort-parameter) (required -  we recommend sorting by `_id` if nothing else)
-- [search](#search-parameter) (available only for User connection and for GET requests of User REST API)
+- [search](#search-parameter) (available only for user connection in Enterprise)
 - [filter](#filter-parameter) (not available for User connection)
 - [project](#project-parameter)
 - [hint](#hint-parameter)
