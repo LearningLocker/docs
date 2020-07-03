@@ -2,3 +2,4 @@ _site
 out
 .DS_Store
 Gemfile*
+.idea
