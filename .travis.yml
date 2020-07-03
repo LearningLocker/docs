@@ -11,5 +11,6 @@ deploy:
   skip_cleanup: true
   github_token: $GH_TOKEN
   local_dir: ./out
+  fqdn: docs.learninglocker.net
   on:
     branch: master
