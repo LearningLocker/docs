@@ -72,7 +72,7 @@ Content-Type: application/json; charset=utf-8
 
 For more information about the acceptable URL query parameters, view the [Restify documentation](https://florianholzapfel.github.io/express-restify-mongoose/#querying).
 
-**Important:** In case of **User** route, [query](https://florianholzapfel.github.io/express-restify-mongoose/#querying) parameter will be ignored and `search` parameter should be used instead. `search` query parameter is a simple string and will be transformed into filter shown below.
+**Important:** In case of **User** route, [query](https://florianholzapfel.github.io/express-restify-mongoose/#querying) parameter will be ignored and `search` parameter should be used instead (only available in Enterprise). `search` query parameter is a simple string and will be transformed into filter shown below.
 
 ```json
 {
