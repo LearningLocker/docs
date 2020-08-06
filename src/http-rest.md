@@ -34,7 +34,7 @@ The table below lists the models supported by this interface, you can view the m
 
 Name | API Model Name | Description
 --- | --- | ---
-[Activity](../http-activities#schema) | `activity` | Activity with many [identifiers](../http-activity-identifiers).
+[Activity](../http-activities#schema) | `activity` | Activity with many identifiers.
 [Client](../http-clients#schema) | `client` | Credentials that access HTTP Interfaces.
 [Dashboard](../http-dashboards#schema) | `dashboard` | Customisable grid of visualisations.
 [Download](../http-downloads#schema) | `download` | Record of downloaded exports.
