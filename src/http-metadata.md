@@ -19,16 +19,16 @@ The JSON body of these methods is a key-value pair such as the following. Some e
 
 Method | Description
 --- | ---
-[POST /:id](#post-id) | Creates or overwrites a model.
 [PATCH /:id](#patch-id) | Patches a model.
+[POST /:id](#post-id) | Creates or overwrites a model.
 
 ## Routes
 
-### POST /:id
-This route creates or updates the metadata field on a statement that has the specified statement identifier from the URL. A request to this route would look something like the request below.
+### PATCH /:id
+This route patches the metadata field on a statement that has the specified statement identifier from the URL. A request to this route would look something like the request below.
 
 ```http
-POST http://www.example.org/api/v2/statementmetadata/111aaa1111a111111aa11112
+PATCH http://www.example.org/api/v2/statementmetadata/111aaa1111a111111aa11112
 Authorization: Basic YOUR_BASIC_AUTH
 Content-Type: application/json; charset=utf-8
 
@@ -51,12 +51,14 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+### POST /:id
+This route creates or updates the metadata field on a statement that has the specified statement identifier from the URL. 
+> `Please note:` It is preferable to use [PATCH](#patch-id) where possible to prevent overwriting metadata set by Learning Locker that is required for certain parts of the UI to work.
 
-### PATCH /:id
-This route patches the metadata field on a statement that has the specified statement identifier from the URL. A request to this route would look something like the request below.
+A request to this route would look something like the request below.
 
 ```http
-PATCH http://www.example.org/api/v2/statementmetadata/111aaa1111a111111aa11112
+POST http://www.example.org/api/v2/statementmetadata/111aaa1111a111111aa11112
 Authorization: Basic YOUR_BASIC_AUTH
 Content-Type: application/json; charset=utf-8
 
