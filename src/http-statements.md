@@ -15,7 +15,7 @@ Whilst statements _can_ be inserted via the Models HTTP interface, this is not r
 Statements can be deleted by the REST API. See [Statement Deletion API](../http-statement-deletion) for more information.
 
 Optional metadata can be added to a statement via the [Metadata API](../http-metadata). 
-We automatically add metadata in cases such as for [question statements](../guides-assessment-statements) coming from Adapt, which makes reporting on content from this platform much easier than previously possible.
+We automatically add metadata in cases such as for [question statements](../guides-assessment-statements) (typically coming from Adapt), which makes reporting on assessments much easier than previously possible.
 
 ### Schema
 
