@@ -2,7 +2,7 @@
 ---
 
 # Statement Metadata API HTTP Interface
-The table below describes the methods that the Statement Metadata HTTP interface provides.
+The [routes table](#routes) below describes the methods that the Statement Metadata HTTP interface provides.
 
 ```
 POST http://www.example.org/api/v2/statementmetadata/:id
@@ -17,12 +17,19 @@ The JSON body of these methods is a key-value pair such as the following. Some e
 }
 ```
 
+### Schema
+
+Name | Description
+--- | --- | ---
+_id | The unique id of the statement
+metadata | An object containing key-value pairs, where the key is an IRI representing the metadata field with requirements defined by the [xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Data.md#31-iri-requirements) and the value can be of any type.
+
+## Routes
+
 Method | Description
 --- | ---
 [PATCH /:id](#patch-id) | Patches a model.
 [POST /:id](#post-id) | Creates or overwrites a model.
-
-## Routes
 
 ### PATCH /:id
 This route patches the metadata field on a statement that has the specified statement identifier from the URL. A request to this route would look something like the request below.
