@@ -21,8 +21,8 @@ To access this interface, you must additionally supply your Basic Auth details w
 Method | Description
 --- | ---
 [GET /count](#get-count) | Gets a count of the models.
-[GET /](#get) | Gets a subset of the models.
-[POST /](#post) | Creates a model.
+[GET /](#get-) | Gets a subset of the models.
+[POST /](#post-) | Creates a model.
 [GET /:id](#get-id) | Gets a single model.
 [PUT /:id](#put-or-post-id) | Creates or overwrites a model.
 [POST /:id](#put-or-post-id) | Creates or overwrites a model.
