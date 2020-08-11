@@ -10,7 +10,7 @@ POST http://www.example.org/api/v2/statementmetadata/:id
 
 To access this interface, you must additionally supply your Basic Auth details with each request in the `Authorization` header. Your Basic Auth details can be found under **Settings** > **Clients**.
 
-The JSON body of these methods is a key-value pair such as the following. Note that when using metadata keys, you need to replace any dots with `&46;` because Mongo does not allow dots in keys. 
+The JSON body of these methods is a key-value pair such as the following. Note that when using metadata keys, you need to replace any dots with `&46;` because Mongo does not allow dots in keys. Some examples of where we currently add metadata can be found on [question statements](../guides-assessment-statements) coming from Adapt.
 ```
 {
   "https://learninglocker&46;net/true-false-response": "Yes"
