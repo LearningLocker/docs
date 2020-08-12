@@ -21,8 +21,8 @@ To access this interface, you must additionally supply your Basic Auth details w
 Method | Description
 --- | ---
 [GET /count](#get-count) | Gets a count of the models.
-[GET /](#get) | Gets a subset of the models.
-[POST /](#post) | Creates a model.
+[GET /](#get-) | Gets a subset of the models.
+[POST /](#post-) | Creates a model.
 [GET /:id](#get-id) | Gets a single model.
 [PUT /:id](#put-or-post-id) | Creates or overwrites a model.
 [POST /:id](#put-or-post-id) | Creates or overwrites a model.
@@ -34,7 +34,7 @@ The table below lists the models supported by this interface, you can view the m
 
 Name | API Model Name | Description
 --- | --- | ---
-[Activity](../http-activities#schema) | `activity` | Activity with many [identifiers](../http-activity-identifiers).
+[Activity](../http-activities#schema) | `activity` | Activity with many identifiers.
 [Client](../http-clients#schema) | `client` | Credentials that access HTTP Interfaces.
 [Dashboard](../http-dashboards#schema) | `dashboard` | Customisable grid of visualisations.
 [Download](../http-downloads#schema) | `download` | Record of downloaded exports.
