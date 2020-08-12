@@ -90,7 +90,6 @@ Content-Type: application/json; charset=utf-8
 
 ## GET statement _id
 
-<!-- We might want to add an example request of how someone could retrieve the statement's _id property after inserting their statement. So perhaps an example of a POST request inserting a statement without an ID and then a GET request using the ID to retrieve the _id. -->
 To get the statement _id for the route above, we can perform a GET request on statements via the [REST API](../http-rest/#get-). 
 
 If you haven't already inserted your statements, they can be added via the [xAPI Statements HTTP Interface](../http-xapi-statements/), for example:
@@ -119,7 +118,7 @@ X-Experience-API-Consistent-Through: 2017-08-31T15:16:29.709Z
 ["dfb7218c-0fc9-4dfc-9524-d497097de027"]
 ```
 
-Then, we can use this statement identifier from the response to query the statement model ([detailed documentation can be found on the HTTP REST page](../http-rest/#get-)), in order to retrieve the `_id` which is used in the statement metadata routes. We can use [URL query parameters](https://florianholzapfel.github.io/express-restify-mongoose/#querying) to get the statement with the specified statement identifier, then select to return the statement identifier and the `_id` is returned by default.
+Then, we can use this statement identifier from the response to query the statement model ([detailed documentation can be found on the HTTP REST page](../http-rest/#get-)), in order to retrieve the `_id` which is used in the statement metadata routes. We can use [URL query parameters](https://florianholzapfel.github.io/express-restify-mongoose/#querying) to get the statement with the specified statement identifier, then return the statement identifier with the `_id`, which is returned by default.
 
 ```http
 GET http://www.example.org/api/v2/statement?query={"statement.id":"dfb7218c-0fc9-4dfc-9524-d497097de027"}&select={"statement.id":1}
@@ -142,4 +141,4 @@ Content-Type: application/json; charset=utf-8
 ]
 ```
 
-This `_id` is then used to add statement metadata via the [POST](#post) and [PATCH](#patch) routes.
+This `_id` is then used to add statement metadata via the [PATCH](#patch) and [POST](#post) routes.
