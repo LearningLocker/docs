@@ -64,3 +64,41 @@ headers | A json array encoded as a string which contains additional headers to 
   "description" : "Statement forwarder"
 }
 ```
+
+### *[Enterprise]*: Forwarding to AWS Kinesis
+_Note: Only available in Enterprise editions of Learning Locker_
+
+To create a statement forward configured for AWS Kinesis Firehose, configure the record with this modified data structure:
+
+```js
+  "configuration" : {
+    "protocol" : "Kinesis",
+    "authType" : "no auth"
+  },
+  "kinesisOptions" : {
+    "streamName" : "KinesisFirehoseName", // The immutable name of the Kinesis Firehose configured in AWS
+    "awsClientKey" : "xxxxxxxxxxxx", // AWS client access key with appropriate permission
+    "awsClientSecret" : "xxxxxxxxxxxx", // AWS client secret key
+    "awsRegion" : "us-east-1" // AWS Kinesis Firehose region
+  },
+```
+
+#### Permissions
+In order for Learning Locker to successfully write to the Kinesis Firehose, please ensure that the IAM user (attributed to the key/secret) has the minimum permissions in its policy (as shown below). When using the example below, please replace `region`, `account-id`, and `KinesisFirehoseName` with your details in the `Resource` array.
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "firehose:PutRecord",
+            ],
+            "Resource": [
+                "arn:aws:firehose:region:account-id:deliverystream/KinesisFirehoseName"
+            ]
+        }
+    ]
+}
+```
