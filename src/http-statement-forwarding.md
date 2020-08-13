@@ -76,7 +76,7 @@ To create a statement forward configured for AWS Kinesis Firehose, configure the
     "authType" : "no auth"
   },
   "kinesisOptions" : {
-    "streamName" : "KinesisFireHoseName", // The immutable name of the Kinesis Firehose configured in AWS
+    "streamName" : "KinesisFirehoseName", // The immutable name of the Kinesis Firehose configured in AWS
     "awsClientKey" : "xxxxxxxxxxxx", // AWS client access key with appropriate permission
     "awsClientSecret" : "xxxxxxxxxxxx", // AWS client secret key
     "awsRegion" : "us-east-1" // AWS Kinesis Firehose region
@@ -96,7 +96,7 @@ In order for Learning Locker to succesfully write to the Kinesis Firehose, pleas
                 "firehose:PutRecord",
             ],
             "Resource": [
-                "arn:aws:firehose:region:account-id:deliverystream/KinesisFireHoseName"
+                "arn:aws:firehose:region:account-id:deliverystream/KinesisFirehoseName" // update `region`, `account-id` and `KinesisFirehoseName`
             ]
         }
     ]
