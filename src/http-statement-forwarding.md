@@ -84,7 +84,7 @@ To create a statement forward configured for AWS Kinesis Firehose, configure the
 ```
 
 #### Permissions
-In order for Learning Locker to succesfully write to the Kinesis Firehose, please ensure that the IAM user (attributed to the key/secret) has the minimum permissions in its policy:
+In order for Learning Locker to successfully write to the Kinesis Firehose, please ensure that the IAM user (attributed to the key/secret) has the minimum permissions in its policy (as shown below). When using the example below, please replace `region`, `account-id`, and `KinesisFirehoseName` with your details in the `Resource` array.
 
 ```json
 {
@@ -96,7 +96,7 @@ In order for Learning Locker to succesfully write to the Kinesis Firehose, pleas
                 "firehose:PutRecord",
             ],
             "Resource": [
-                "arn:aws:firehose:region:account-id:deliverystream/KinesisFirehoseName" // update `region`, `account-id` and `KinesisFirehoseName`
+                "arn:aws:firehose:region:account-id:deliverystream/KinesisFirehoseName"
             ]
         }
     ]
