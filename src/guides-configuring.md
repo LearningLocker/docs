@@ -37,7 +37,6 @@ AGGREGATE_API_ALLOWED_COLLECTIONS | Rule to check whether is collection allowed 
 AGGREGATION_CACHE_SECONDS | How many seconds are aggregation results cached  | `300` | `300`
 AGGREGATION_REFRESH_AT_SECONDS | Refresh aggregations when this close to expiry | `120` | `120`
 MAX_TIME_MS | [Max time aggregations can run for in milliseconds](https://docs.mongodb.com/manual/reference/operator/meta/maxTimeMS/) | `300` | `0` (no limit)
-MAX_SCAN | [Maximum number of documents an aggregation can scan](https://docs.mongodb.com/manual/reference/operator/meta/maxScan/) | `10000` | `0` (no limit)
 DISABLE_PERSONA_SCORING | Turn off fuzzy scoring on persona matching. This will make persona workers much faster at scale. | `false` | `false`
 **LOG_MIN_LEVEL** | Minimum logging level (error\|warning\|info\|debug\|silly) | `debug` | `info`
 LOG_DIR | Relative dir to store API access logs | `logs` | `logs`
