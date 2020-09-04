@@ -22,8 +22,7 @@ The below integrations can be implemented via our own internal tool. If you'd li
 
 Below are a list of other integrations and some add-on Apps that might interest you. As mentioned above, click on the links or contact us at [hello@learninglocker.net](mailto:hello@learninglocker.net) for more information.
 
-- [Waves](https://learningpool.com/solutions/learning-experience-platform-stream/waves/) via our automation tool that uses statement forwards to trigger events such as emails,  
-auto-enrolments and more.  
+- [Waves](https://learningpool.com/solutions/learning-experience-platform-stream/waves/) via our automation tool that uses statement forwards to trigger events such as emails, auto-enrolments and more.  
 - [Semantic Analysis](https://learningpool.com/solutions/learning-record-store-learning-locker/semantic-analysis/) via our proprietary algorithm to drive insights into the quality of learners' submissions.
 - [Launchr](https://learningpool.com/solutions/learning-record-store-learning-locker/launchr/) via our proxy service that securely launch xAPI content packages.
 - [GDPR](https://learningpool.com/solutions/learning-record-store-learning-locker/gdpr/) via our standalone app that is a central administration tool for organizations seeking to comply with GDPR.
