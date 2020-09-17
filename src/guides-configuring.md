@@ -61,6 +61,7 @@ AWS_SQS_DEFAULT_REGION | The AWS region for SQS | `us-west-1` | -
 GOOGLE_ENABLED | Enable OAuth via Google (Requires setup in the Google Developer Console) | `true` | `false`
 GOOGLE_CLIENT_ID | Google OAuth Client ID | `12456789` | -
 GOOGLE_CLIENT_SECRET | Google OAuth Client Secret | `12356789` | -
+SERVICE_BUS_ENDPOINT | Azure service bus endpoint, required if QUEUE_PROVIDER=SERVICE_BUS | `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=[keyName];SharedAccessKey=[key]` -
 **FS_REPO** | Define the storage method (`local` for local storage or `amazon` for AWS S3 storage) | `local` | -
 FS_SUBFOLDER | A subfolder for all uploads to live within | `storage` | `storage`
 FS_LOCAL_ENDPOINT | An absolute path to storage | `/custom/storage/dir` | Current working directory
@@ -89,6 +90,7 @@ Name | Description | Example | Default
 _MODELS_REPO_ | Development setting to pick database type (`mongo` or `memory`). Memory only to be used for testing | `mongo` | `mongo`
 **MONGO_URL** | The [full Mongo connection string](https://docs.mongodb.com/manual/reference/connection-string/). This can include multiple hosts for replicas, and extra configuration values passed through query strings. | `mongodb://localhost:27017/learninglocker_v2`
 **REDIS_URL** | The full URL of the Redis instance including port, database number and authentication if required | `redis://127.0.0.1:6379/0` | `redis://127.0.0.1:6379/0`
+**REDIS_TEST_URL** | The full URL of the Redis instance including port, database number and authentication if required used for Jest tests | `redis://127.0.0.1:6379/1` | `redis://127.0.0.1:6379/1`
 REDIS_PREFIX | A prefix to append to all keys within the Redis database | `learninglocker` | -
 REDIS_PREFIX | A prefix to append to all keys within the Redis database | `learninglocker` | 'LEARNINGLOCKER'
 **STORAGE_REPO** | Define the storage method (`local` for local storage or `s3` for AWS S3 storage) | `local` | -
