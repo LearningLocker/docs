@@ -765,3 +765,152 @@ remainingCount | Number | Total amount of statements left to process
   "isPublic": true,
 }
 ```
+
+# Journey Recalculation HTTP Interface
+This interface provides API access to the function we use to recalculate the journey. Requests to this interface should look something like the request below.
+
+```http
+POST http://www.example.org/api/recalculatejourney?journeyId=dfb7218c-0fc9-4dfc-9524-d497097de027
+Content-Type: application/json
+Authorization: <YOUR_BASIC_AUTH_TOKEN>
+```
+
+The interface will respond with a response similar to the one below after start of recalculation a matching journey.
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "journey": {
+        "recalculateStatus": {
+            "pushing": true,
+            "inProgress": true,
+            "totalCount": 0,
+            "remainingCount": 0,
+            "recalculatedAt": "2020-12-14T10:29:22.439Z",
+            "cancelledAt": "2020-12-10T09:53:45.929Z",
+            "cancelledBy": "5fd0d4de5fa8774c995b2258",
+            "recalculatedBy": "5fd0d4de5fa8774c995b2258",
+            "recalculatedByClient": "5fd0d4faac6aeb4cd1e694ab",
+            "recalculatedByUser": null
+        },
+        "isActive": true,
+        "sources": [
+            "5fd0d4faac6aeb4cd1e694aa"
+        ],
+        "isSequential": false,
+        "isRepeatable": false,
+        "trackBy": "persona",
+        "isPublic": false,
+        "sendCompletedStatement": false,
+        "sendCompletedStatementClients": [],
+        "version": 3,
+        "_id": "5fd128debf6a026dfe99cca6",
+        "owner": "5fd0d4de5fa8774c995b2258",
+        "organisation": "5fd0d4df5fa8774c995b225b",
+        "waypoints": [
+            {
+                "description": "New waypoint",
+                "isActive": true,
+                "count": 1,
+                "_id": "5fd128e0bf6a026dfe99cca7",
+                "order": 0,
+                "conditions": {
+                    "$and": [
+                        {
+                            "$comment": "{\"criterionLabel\":\"A\",\"criteriaPath\":[\"statement\",\"verb\"]}",
+                            "statement.verb.id": {
+                                "$in": [
+                                    "http://activitystrea.ms/schema/1.0/receive"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "id": "5fd128e0bf6a026dfe99cca7"
+            }
+        ],
+        "outcomes": [],
+        "updatedAt": "2020-12-14T10:29:22.440Z",
+        "createdAt": "2020-12-09T19:43:26.429Z",
+        "__v": 1
+    }
+}
+```
+
+# Cancel Journey Recalculation HTTP Interface
+This interface provides API access to the function we use to cancel the recalculation of the journey. Requests to this interface should look something like the request below.
+
+```http
+POST http://www.example.org/api/cancelrecalculatejourney?journeyId=dfb7218c-0fc9-4dfc-9524-d497097de027
+Content-Type: application/json
+Authorization: <YOUR_BASIC_AUTH_TOKEN>
+```
+
+The interface will respond with a response similar to the one below after the start of canceling recalculation a matching journey.
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "journey": {
+        "recalculateStatus": {
+            "pushing": false,
+            "inProgress": false,
+            "totalCount": 3,
+            "remainingCount": 0,
+            "recalculatedAt": "2020-12-14T10:29:22.439Z",
+            "cancelledAt": "2020-12-14T10:42:09.921Z",
+            "cancelledBy": "5fd0d4de5fa8774c995b2258",
+            "recalculatedBy": "5fd0d4de5fa8774c995b2258",
+            "recalculatedByClient": "5fd0d4faac6aeb4cd1e694ab",
+            "recalculatedByUser": null,
+            "cancelledByClient": "5fd0d4faac6aeb4cd1e694ab",
+            "cancelledByUser": null
+        },
+        "isActive": true,
+        "sources": [
+            "5fd0d4faac6aeb4cd1e694aa"
+        ],
+        "isSequential": false,
+        "isRepeatable": false,
+        "trackBy": "persona",
+        "isPublic": false,
+        "sendCompletedStatement": false,
+        "sendCompletedStatementClients": [],
+        "version": 3,
+        "_id": "5fd128debf6a026dfe99cca6",
+        "owner": "5fd0d4de5fa8774c995b2258",
+        "organisation": "5fd0d4df5fa8774c995b225b",
+        "waypoints": [
+            {
+                "description": "New waypoint",
+                "isActive": true,
+                "count": 1,
+                "_id": "5fd128e0bf6a026dfe99cca7",
+                "order": 0,
+                "conditions": {
+                    "$and": [
+                        {
+                            "$comment": "{\"criterionLabel\":\"A\",\"criteriaPath\":[\"statement\",\"verb\"]}",
+                            "statement.verb.id": {
+                                "$in": [
+                                    "http://activitystrea.ms/schema/1.0/receive"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "id": "5fd128e0bf6a026dfe99cca7"
+            }
+        ],
+        "outcomes": [],
+        "updatedAt": "2020-12-14T10:42:09.922Z",
+        "createdAt": "2020-12-09T19:43:26.429Z",
+        "__v": 1
+    }
+}
+```
+
