@@ -790,10 +790,10 @@ Content-Type: application/json; charset=utf-8
             "remainingCount": 0,
             "recalculatedAt": "2020-12-14T10:29:22.439Z",
             "cancelledAt": "2020-12-10T09:53:45.929Z",
-            "cancelledBy": "5fd0d4de5fa8774c995b2258",
-            "recalculatedBy": "5fd0d4de5fa8774c995b2258",
             "recalculatedByClient": "5fd0d4faac6aeb4cd1e694ab",
-            "recalculatedByUser": null
+            "recalculatedByUser": null,
+            "cancelledByClient": "5fd0d4faac6aeb4cd1e694ab",
+            "cancelledByUser": null
         },
         "isActive": true,
         "sources": [
@@ -863,8 +863,6 @@ Content-Type: application/json; charset=utf-8
             "remainingCount": 0,
             "recalculatedAt": "2020-12-14T10:29:22.439Z",
             "cancelledAt": "2020-12-14T10:42:09.921Z",
-            "cancelledBy": "5fd0d4de5fa8774c995b2258",
-            "recalculatedBy": "5fd0d4de5fa8774c995b2258",
             "recalculatedByClient": "5fd0d4faac6aeb4cd1e694ab",
             "recalculatedByUser": null,
             "cancelledByClient": "5fd0d4faac6aeb4cd1e694ab",
