@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="persona-identifiers-http-interface">Persona Identifiers HTTP Interface</h1>
+
+<p>Represents a unique identifier for a person. Statements that use these identifiers are linked to the <a href="../http-personas">persona</a> that the identifier belongs to.</p>
+
+<p>It is accessible through the following HTTP interfaces:</p>
+
+<ul>
+  <li><a href="../http-connection">Connection HTTP Interface</a> via http://www.example.org/api/connection/personaidentifier.</li>
+  <li><a href="../http-rest">REST HTTP Interface</a> via http://www.example.org/api/v2/personaidentifier.</li>
+  <li><a href="#upsert-http-interface">Upsert HTTP Interface</a> via http://www.example.org/api/v2/personaidentifier/upsert.</li>
+</ul>
+
+<h3 id="schema">Schema</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>_id</td>
+      <td>The id of this identifier.</td>
+    </tr>
+    <tr>
+      <td>organisation</td>
+      <td>The id of the <a href="../http-organisations">organisation</a> this identifier belongs to.</td>
+    </tr>
+    <tr>
+      <td>persona</td>
+      <td>The id of the <a href="../http-personas">persona</a> this identifier belongs to.</td>
+    </tr>
+    <tr>
+      <td>ifi</td>
+      <td>A representation of the <a href="#inverse-functional-identifier">inverse functional identifier</a>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example">Example</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c1219936229d4ce9634601"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organisation"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c1219936229d4ce9634602"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"persona"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59c1219936229d4ce9634603"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ifi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"account"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"homePage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-user"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h1 id="inverse-functional-identifier">Inverse Functional Identifier</h1>
+<p>According to the xAPI specification, an Inverse Functional Identifier (IFI) is “a value of an Agent or Identified Group that is guaranteed to only ever refer to that Agent or Identified Group”.</p>
+
+<h3 id="schema-1">Schema</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>key</td>
+      <td>The type of IFI (<a href="#account-ifi">account</a>, <a href="#mbox-ifi">mbox</a>, <a href="#mbox-sha1sum-ifi">mbox_sha1sum</a>, or <a href="#openid-ifi">openid</a>).</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>The value of the IFI.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="account-ifi">Account IFI</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"account"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"homePage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-user"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="mbox-ifi">Mbox IFI</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mbox"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailto:user@example.org"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="mbox-sha1sum-ifi">Mbox Sha1Sum IFI</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mbox_sha1sum"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cc1e39b02974c5d21e792d7febcaa6018bb6c574"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="openid-ifi">OpenID IFI</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"openid"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org/example-user"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h1 id="upsert-http-interface">Upsert HTTP Interface</h1>
+<p>This interface creates or updates a persona identifier depending on whether the IFI already exists.</p>
+
+<ul>
+  <li>If the <code class="language-plaintext highlighter-rouge">persona</code> property is not set, a persona will be created if the identifier’s IFI doesn’t exist.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">persona</code> property is set, the persona must already exist. Otherwise, a 404 response code will be returned.</li>
+</ul>
+
+<p>A request to the upsert route would look something like this:</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST http://www.example.org/api/v2/personaidentifier/upsert
+Authorization: YOUR_BASIC_AUTH
+Content-Type: application/json; charset=utf-8
+
+{
+  "ifi": {
+    "key": "account",
+    "value": {
+      "homePage": "http://www.example.org",
+      "name": "example-user"
+    }
+  }
+}
+</span></code></pre></div></div>
+
+<p>The interface will respond with a 200 response code, with detail the created/updated identifier.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c1219936229d4ce9634601"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organisation"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c1219936229d4ce9634602"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"persona"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59c1219936229d4ce9634603"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ifi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"account"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"homePage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-user"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="statement-deletion-http-interfaces">Statement Deletion HTTP Interfaces</h1>
+
+<h3 id="added-in-v3110"><em>Added in <a href="https://github.com/LearningLocker/learninglocker/releases">v3.11.0</a></em></h3>
+
+<p>By default, Learning Locker gives you the ability to delete statements via the API (this can be disabled via the <code class="language-plaintext highlighter-rouge">ENABLE_STATEMENT_DELETION</code> flag).</p>
+
+<p>Statements may be deleted individually, using the record’s <code class="language-plaintext highlighter-rouge">_id</code>, or in bulk via a batch delete method.</p>
+
+<h2 id="authorization">Authorization</h2>
+
+<p>When using this interface, you must additionally supply your Basic Auth details with each request in the <code class="language-plaintext highlighter-rouge">Authorization</code> header. Your Basic Auth details can be found under <strong>Settings</strong> &gt; <strong>Clients</strong>.</p>
+
+<p>The deletion APIs require that the “Delete statements” (<code class="language-plaintext highlighter-rouge">'statements/delete'</code>) scope is enabled on the client. If a client also has a store (<code class="language-plaintext highlighter-rouge">lrs_id</code>) attached, this will be used to further filter down deletions only to this store.</p>
+
+<h2 id="single-statement-deletion">Single Statement Deletion</h2>
+
+<p>This leverages the existing REST API for statements.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DELETE http://www.example.org/api/v2/statement/111aaa1111a111111aa11112
+Authorization: Basic YOUR_BASIC_AUTH
+</code></pre></div></div>
+
+<p>A request like the one above, will respond with a 204 response like the one below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 204 NO CONTENT
+</code></pre></div></div>
+
+<p>The statement is deleted immediately and the 204 represents a receipt of the deletion event succeeding in the database.</p>
+
+<h2 id="batch-statement-deletion">Batch Statement Deletion</h2>
+
+<p>These endpoints allow you to send in deletion jobs to be processed, as well as stop a batch deletion job.</p>
+
+<p>As the filter passed in may apply to a large amount of data, the batch delete job is split out into batches, each deleting up to 1000 records at a time. Each successive batch will trigger another deletion job to the worker, until no more statements exist in the database matching that filter.</p>
+
+<h3 id="initialising-a-batch-deletion">Initialising a batch deletion</h3>
+
+<p>Sending a POST with a JSON body holding the required deletion filter to the following endpoint will create a job to remove all data matching that filter from the respective organisation (or store) that the client is attached to.</p>
+
+<p><em>e.g. Deletes all completions in the client’s organisation or store</em></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST http://www.example.org/api/v2/batchdelete/initialise
+Authorization: Basic YOUR_BASIC_AUTH
+Content-Type: application/json; charset=utf-8
+
+{
+  "filter": {
+    "statement.verb.id": "http://adlnet.gov/expapi/verbs/completed"
+  }
+}
+</code></pre></div></div>
+
+<p>If the client used to make the request also has a store (<code class="language-plaintext highlighter-rouge">lrs_id</code>) attached, this will be used to further filter down deletions only to this store.</p>
+
+<p>An intialise request will return a 200 HTTP response with a JSON version of the batch deletion job (see <a href="#schema">Schema</a>)</p>
+
+<h3 id="terminating-batch-deletions">Terminating batch deletions</h3>
+
+<p>You may choose to terminate one or all batch deletions for an organisation using the following commands.</p>
+
+<p><em>Note that if a deletion is currently in progress and a worker job to delete a batch has been issued, up to 1000 records may be deleted before the termination command is respected.</em></p>
+
+<p><em>This is due to how we batch the deletions into blocks of 1000. Once a batch has started, it cannot be stopped without manually stopping the Worker’s Node process running the deletion job. However, no subsequent batches will be processed once that batch has finished.</em></p>
+
+<h4 id="terminating-a-single-batch-deletion">Terminating a single batch deletion</h4>
+
+<p>Stop a specific batch deletion from executing any more batches.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST http://www.example.org/api/v2/batchdelete/terminate/111aaa1111a111111aa11112
+Authorization: Basic YOUR_BASIC_AUTH
+</code></pre></div></div>
+
+<h4 id="terminating-all-batch-deletions">Terminating all batch deletions</h4>
+
+<p>Stop all batch deletions from executing any more batches</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST http://www.example.org/api/v2/batchdelete/terminate/all
+Authorization: Basic YOUR_BASIC_AUTH
+</code></pre></div></div>
+
+<h3 id="viewing-batch-deletions">Viewing batch deletions</h3>
+
+<h4 id="schema">Schema</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>_id</td>
+      <td>The id of the batch delete job.</td>
+    </tr>
+    <tr>
+      <td>organisation</td>
+      <td>The id of the <a href="../http-organisations#schema">organisation</a> that this job belongs to.</td>
+    </tr>
+    <tr>
+      <td>filter</td>
+      <td>A stringified JSON Mongo query - records matching this filter are deleted</td>
+    </tr>
+    <tr>
+      <td>pageSize</td>
+      <td>Total records deleted per batch (defaults to 1000, no way to customise outside of code change and rebuild)</td>
+    </tr>
+    <tr>
+      <td>deleteCount</td>
+      <td>How many records have been deleted so far</td>
+    </tr>
+    <tr>
+      <td>total</td>
+      <td>Total number of statements found for deletion at initialise</td>
+    </tr>
+    <tr>
+      <td>processing</td>
+      <td>Boolean value; is there a deletion batch currently being actioned</td>
+    </tr>
+    <tr>
+      <td>done</td>
+      <td>Boolean value; has the job finished or been terminated</td>
+    </tr>
+    <tr>
+      <td>createdAt</td>
+      <td>When this document was created</td>
+    </tr>
+    <tr>
+      <td>updatedAt</td>
+      <td>When this document was last updated</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>_The <code class="language-plaintext highlighter-rouge">filter</code> field is stored as text to account for <code class="language-plaintext highlighter-rouge">.</code> (dot) characters used in query keys - these are invalid in Mongo JSON structures.</p>
+
+<h4 id="example">Example</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111aaa1111a111111aa11111"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111aaa1111a111111aa11111"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"filter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">statement.verb.id</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">http://adlnet.gov/expapi/verbs/completed</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deleteCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"processing"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"done"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01T00:00:00Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The Batch Delete model may be retrieved using the GET <a href="../http-rest">REST</a> or <a href="../http-connection">Connection APIs</a> but other HTTP methods are disabled (PUT, PATCH, DELETE) and are instead replaced by the <a href="#initialising-a-batch-deletion">initialise</a> and <a href="#terminating-batch-deletions">terminate</a> routes specified above.</p>
+
+<h4 id="examples-using-the-connection-api">Examples: (using the Connection API)</h4>
+
+<p><em>Note; query parameters should be URL encoded - these examples have not been, for readability</em></p>
+
+<h5 id="fetch-a-particular-job-by-_id">Fetch a particular job by <code class="language-plaintext highlighter-rouge">_id</code></h5>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET http://www.example.org/api/connection/batchdelete?filter={"_id":{"$oid":"111aaa1111a111111aa11112"}}
+Authorization: Basic YOUR_BASIC_AUTH
+</code></pre></div></div>
+
+<h5 id="fetch-the-5-most-recently-completedterminated-jobs">Fetch the 5 most recently completed/terminated jobs</h5>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET http://www.example.org/api/connection/batchdelete?filter={"done":true}&amp;sort={"updatedAt":-1, "_id": 1}&amp;first=5
+Authorization: Basic YOUR_BASIC_AUTH
+</code></pre></div></div>
+
+<h5 id="fetch-the-5-most-recently-created-and-unfinished-jobs">Fetch the 5 most recently created and unfinished jobs</h5>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET http://www.example.org/api/connection/batchdelete?filter={"done":false}&amp;sort={"createdAt":-1, "_id": 1}&amp;first=5
+Authorization: Basic YOUR_BASIC_AUTH
+</code></pre></div></div>
+
+<h3 id="deletion-time-window">Deletion time window</h3>
+<p>Because deletion can be an intensive job for the database, it is possible to configure Learning Locker to only trigger and process batch deletion during a specified window every day. This can be configured to enable deletions during periods of known low activity (e.g. night time).</p>
+
+<p>To configure this, update the document in the <code class="language-plaintext highlighter-rouge">siteSettings</code> collection with the required UTC hour, minute and duration:</p>
+
+<pre><code class="language-mongo">db.siteSettings.updateOne(
+  {
+    "_id" : ObjectId("111111111111111111111111")
+  },
+  {
+    $set: {
+      batchDeleteWindowStartUTCHour: 00,
+      batchDeleteWindowUTCMinutes: 00,
+      batchDeleteWindowDurationSeconds: 18000
+    }
+  }
+)
+</code></pre>
+
+<p>The configuration above, for example, would allow deletions to be triggered from midnight to 5am (UTC) everyday. Note that the Scheduler process is required to be run in order outstanding jobs at the start of the window everyday.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

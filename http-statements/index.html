@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="statements-http-interface">Statements HTTP Interface</h1>
+
+<p>Statements hold all of the xAPI records that have been inserted into the database via the <a href="../http-xapi-statements">xAPI Statements HTTP interface</a>.</p>
+
+<p>It is accessible through the following HTTP interfaces:</p>
+
+<ul>
+  <li><a href="../http-connection">Connection HTTP Interface</a> via http://www.example.org/api/connection/statement.</li>
+  <li><a href="../http-rest">REST HTTP Interface</a> via http://www.example.org/api/v2/statement.</li>
+</ul>
+
+<p>Whilst statements <em>can</em> be inserted via the Models HTTP interface, this is not recommended as it bypasses all validation, reference and void checking, leading to invalid xAPI records.</p>
+
+<p>Statements can be deleted by the REST API. See <a href="../http-statement-deletion">Statement Deletion API</a> for more information.</p>
+
+<p>Optional metadata can be added to a statement via the <a href="../http-metadata">Metadata API</a>. 
+We automatically add metadata in cases such as for <a href="../guides-assessment-statements">question statements</a> (typically coming from Adapt), which makes reporting on assessments much easier than previously possible.</p>
+
+<h3 id="schema">Schema</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>_id</td>
+      <td>Mongo ID</td>
+      <td>The id of the role <em>(autogenerated)</em></td>
+    </tr>
+    <tr>
+      <td>stored</td>
+      <td>Mongo Date</td>
+      <td>When this statement was created <em>(autogenerated)</em></td>
+    </tr>
+    <tr>
+      <td>timestamp</td>
+      <td>Mongo Date</td>
+      <td>When this statement’s activity occured <em>(autogenerated)</em></td>
+    </tr>
+    <tr>
+      <td>organisation</td>
+      <td>Mongo ID</td>
+      <td>The organisation this statement belongs in <em>(autogenerated)</em></td>
+    </tr>
+    <tr>
+      <td>lrs_id</td>
+      <td>Mongo ID</td>
+      <td>The store this statement belongs in <em>(autogenerated)</em></td>
+    </tr>
+    <tr>
+      <td>client</td>
+      <td>Mongo ID</td>
+      <td>The client that inserted this statement <em>(autogenerated)</em></td>
+    </tr>
+    <tr>
+      <td>person</td>
+      <td><a href="#person">Person</a></td>
+      <td>Information about the person associated to the actor in this statement</td>
+    </tr>
+    <tr>
+      <td>voided</td>
+      <td>Boolean</td>
+      <td>Has the statement been voided</td>
+    </tr>
+    <tr>
+      <td>hash</td>
+      <td>String</td>
+      <td>A unique hash of the statement used for conflict checks on insert <em>(autogenerated)</em></td>
+    </tr>
+    <tr>
+      <td>statement</td>
+      <td><a href="#statement">Statement</a></td>
+      <td>The statement object as constructed and validated by the xAPI service</td>
+    </tr>
+    <tr>
+      <td>metadata</td>
+      <td><a href="../http-metadata#schema">Metadata</a></td>
+      <td>The metadata related to the statement</td>
+    </tr>
+    <tr>
+      <td>refs</td>
+      <td>Array  [<a href="#statement-references">Statement References</a>]</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="person">Person</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>_id</td>
+      <td>Mongo ID</td>
+      <td>The id of the person <em>(autogenerated)</em></td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>String</td>
+      <td>The name of the person - this is auto populated for quick reference to avoid lookups <em>(autogenerated)</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="statement">Statement</h3>
+
+<p>Please refer to the <a href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Data.md#24-statement-properties">Statement Properties</a> in the xAPI specification for a full list of possible entries</p>
+
+<h3 id="statement-references">Statement References</h3>
+
+<p>This contains an array of any statements that are referenced as part of this statement structure.</p>
+
+<h3 id="example-get-data">Example GET data</h3>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"111aaa1111a111111aa11111"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"hasGeneratedId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"organisation"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"111aaa1111a111111aa11111"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lrs_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"111aaa1111a111111aa11111"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"client"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"111aaa1111a111111aa11111"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"person"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">_id:</span><span class="w"> </span><span class="s2">"111aaa1111a111111aa11111"</span><span class="p">,</span><span class="w">
+        </span><span class="err">name:</span><span class="w"> </span><span class="s2">"Joe Bloggs"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"voided"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"timestamp"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-08T09:41:58.136Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"stored"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-08T09:41:58.136Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"hash"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"05db245f890c4e5f9513658435ddd5e16c579df1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"refs"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"statement"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"actor"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"objectType"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"xAPI mbox"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"mbox"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"mailto:xapi@adlnet.gov"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"verb"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"http://adlnet.gov/expapi/verbs/attended"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"display"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"en-GB"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"attended"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"en-US"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"attended"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"object"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"objectType"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.com/meetings/occurances/34534"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"3c5f9182-81ba-4e4c-9aa4-93a6b57a61ee"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"timestamp"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-08T09:41:58.136Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"stored"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-08T09:41:58.136Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"authority"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"mbox"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"mailto:hello@learninglocker.net"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"New Client"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"objectType"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"version"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

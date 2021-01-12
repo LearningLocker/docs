@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="statement-forwarding-http-interface">Statement Forwarding HTTP Interface</h1>
+
+<p>Details of a statement forwarding configuration.</p>
+
+<p>It is accessible through the following HTTP interfaces:</p>
+
+<ul>
+  <li><a href="../http-connection">Connection HTTP Interface</a> via http://www.example.org/api/connection/statementforwarding.</li>
+  <li><a href="../http-rest">REST HTTP Interface</a> via http://www.example.org/api/v2/statementforwarding.</li>
+</ul>
+
+<h3 id="schema">Schema</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>_id</td>
+      <td>The unique id of the document.</td>
+    </tr>
+    <tr>
+      <td>createdAt</td>
+      <td>When the document was created.</td>
+    </tr>
+    <tr>
+      <td>updatedAt</td>
+      <td>When the document was updated.</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>The name of this statement forwarder.</td>
+    </tr>
+    <tr>
+      <td>lrs_id</td>
+      <td>The id of the <a href="../http-stores#schema">store</a> that Learning Locker will forward statements for.</td>
+    </tr>
+    <tr>
+      <td>active</td>
+      <td>If this statement forwarder is currently active.</td>
+    </tr>
+    <tr>
+      <td>configuration</td>
+      <td>The configuration for this statement forwarder <a href="#configuration">See configuration</a>.</td>
+    </tr>
+    <tr>
+      <td>owner</td>
+      <td>Id of the <a href="../http-users#schema">user</a> who created this statement forwarder.</td>
+    </tr>
+    <tr>
+      <td>query</td>
+      <td>A JSON Mongo query string - only statements which match this query will be forwarded. <br /><br />e.g. <code class="language-plaintext highlighter-rouge">'{"statement.verb.id":"http://adlnet.gov/expapi/verbs/completed"}'</code></td>
+    </tr>
+    <tr>
+      <td>isPublic</td>
+      <td>If false then this statement forwarder is only available to the owner and users with <a href="../http-roles/#organisation-scopes">org/all/statementForwarding/view scope</a>, otherwise it’s available to everyone in the organisation with permission.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="configuration">Configuration</h3>
+
+<p>The configuration for the statement forwarding request.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>protocol</td>
+      <td>http, https. The protocol to forward statements to.</td>
+    </tr>
+    <tr>
+      <td>url</td>
+      <td>The url to forward statement to.</td>
+    </tr>
+    <tr>
+      <td>authType</td>
+      <td>no auth, token, basic auth. The auth method to use.</td>
+    </tr>
+    <tr>
+      <td>secret</td>
+      <td>If authType is token, this is the token which will be sent with the request.</td>
+    </tr>
+    <tr>
+      <td>basicUsername</td>
+      <td>If authType is basic auth, this is the basic auth username.</td>
+    </tr>
+    <tr>
+      <td>basicPassword</td>
+      <td>If authType is basic auth, this is the basic auth password.</td>
+    </tr>
+    <tr>
+      <td>maxRetries</td>
+      <td>The number of times the statement forwarder will retry before giving up.</td>
+    </tr>
+    <tr>
+      <td>headers</td>
+      <td>A json array encoded as a string which contains additional headers to send with the request.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-model">Example Model</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c8d14b0d82b3864a450604"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-25T09:50:03.880Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedAt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-06T14:07:27.212Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"owner"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59198183d8ea540933227030"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"query"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organisation"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c209c4ad95fd50960c0362"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"isPublic"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"configuration"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"authType"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"no auth"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"protocol"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"example.org/endpoint"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"maxRetries"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"headers"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">Test-Header-Key</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Test-Header-Value</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"secret"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Dave"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"__v"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"active"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Statement forwarder"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="enterprise-forwarding-to-aws-kinesis"><em>[Enterprise]</em>: Forwarding to AWS Kinesis</h3>
+<p><em>Note: Only available in Enterprise editions of Learning Locker</em></p>
+
+<p>To create a statement forward configured for AWS Kinesis Firehose, configure the record with this modified data structure:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="dl">"</span><span class="s2">configuration</span><span class="dl">"</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">protocol</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">Kinesis</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">authType</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">no auth</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">kinesisOptions</span><span class="dl">"</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">streamName</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">KinesisFirehoseName</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// The immutable name of the Kinesis Firehose configured in AWS</span>
+    <span class="dl">"</span><span class="s2">awsClientKey</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">xxxxxxxxxxxx</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// AWS client access key with appropriate permission</span>
+    <span class="dl">"</span><span class="s2">awsClientSecret</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">xxxxxxxxxxxx</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// AWS client secret key</span>
+    <span class="dl">"</span><span class="s2">awsRegion</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">us-east-1</span><span class="dl">"</span> <span class="c1">// AWS Kinesis Firehose region</span>
+  <span class="p">},</span>
+</code></pre></div></div>
+
+<h4 id="permissions">Permissions</h4>
+<p>In order for Learning Locker to successfully write to the Kinesis Firehose, please ensure that the IAM user (attributed to the key/secret) has the minimum permissions in its policy (as shown below). When using the example below, please replace <code class="language-plaintext highlighter-rouge">region</code>, <code class="language-plaintext highlighter-rouge">account-id</code>, and <code class="language-plaintext highlighter-rouge">KinesisFirehoseName</code> with your details in the <code class="language-plaintext highlighter-rouge">Resource</code> array.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-10-17"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Statement"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Effect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allow"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Action"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"firehose:PutRecord"</span><span class="p">,</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"arn:aws:firehose:region:account-id:deliverystream/KinesisFirehoseName"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

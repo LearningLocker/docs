@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="xapi-statements-http-interface">xAPI Statements HTTP Interface</h1>
+<p>The table below describes the routes that the HTTP interface provides, all of the URLs are relative to http://www.example.org/data/xAPI where http://www.example.org is the URL of your Learning Locker instance. To access this interface, you must additionally supply your Basic Auth details with each request in the <code class="language-plaintext highlighter-rouge">Authorization</code> header. Your Basic Auth details can be found under <strong>Settings</strong> &gt; <strong>Clients</strong>.</p>
+
+<p>If you receive an “unauthorised error” from this API, you can use the three checks below via the Client UI. To remove the need for these checks, Learning Locker will automatically create a new client when a new store is created, the new client is enabled by default, with the “All” scope, and the LRS set to the new store. To avoid unauthorised errors, try to use the new client and remember the checks below if you edit or create a client manually.</p>
+
+<ol>
+  <li>Check that the client is enabled.</li>
+  <li>Check that the “All” scope is selected under the “xAPI” heading.</li>
+  <li>Check that an LRS is selected.</li>
+</ol>
+
+<p>Go to the <a href="../http-xapi">xAPI HTTP interface documentation</a> to see the rest of the xAPI routes.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Route</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="../http-xapi-statements#put-statements">PUT /statements</a></td>
+      <td>Stores a single statement.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-statements#post-statements">POST /statements</a></td>
+      <td>Stores a single statement or multiple statements.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-statements#get-statements">GET /statements</a></td>
+      <td>Retrieves statements.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="put-statements">PUT /statements</h2>
+<p>This route allows you to create a single statement with a statement identifier in the URL parameters and the statement itself in the JSON body. A request to this API would look something like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">PUT http://www.example.org/data/xAPI/statements?statementId=dfb7218c-0fc9-4dfc-9524-d497097de027
+Authorization: YOUR_BASIC_AUTH
+X-Experience-API-Version: 1.0.3
+Content-Type: application/json
+
+{
+  "id": "dfb7218c-0fc9-4dfc-9524-d497097de027",
+  "actor": { "mbox": "mailto:test@example.org" },
+  "verb": { "id": "http://www.example.org/verb" },
+  "object": { "id": "http://www.example.org/activity" }
+}
+</span></code></pre></div></div>
+
+<p>This route returns a 204 response with no content when the statement is successfully created, like the example response below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">NO CONTENT</span>
+<span class="na">X-Experience-API-Version</span><span class="p">:</span> <span class="s">1.0.3</span>
+<span class="na">X-Experience-API-Consistent-Through</span><span class="p">:</span> <span class="s">2017-08-31T15:16:29.709Z</span>
+</code></pre></div></div>
+
+<p>For more information, view the <a href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#211-put-statements">PUT /statements route in the xAPI specification</a>.</p>
+
+<h2 id="post-statements">POST /statements</h2>
+<p>This route allows you to create a multiple statements with or without statement identifiers. A request to this API would look something like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST http://www.example.org/data/xAPI/statements
+Authorization: YOUR_BASIC_AUTH
+X-Experience-API-Version: 1.0.3
+Content-Type: application/json; charset=utf-8
+
+[{
+  "id": "dfb7218c-0fc9-4dfc-9524-d497097de027",
+  "actor": { "mbox": "mailto:test1@example.org" },
+  "verb": { "id": "http://www.example.org/verb" },
+  "object": { "id": "http://www.example.org/activity" }
+}, {
+  "actor": { "mbox": "mailto:test2@example.org" },
+  "verb": { "id": "http://www.example.org/verb" },
+  "object": { "id": "http://www.example.org/activity" }
+}]
+</span></code></pre></div></div>
+
+<p>This route returns a 200 response with an array of statement identifiers when the statements are successfully created. A response from this route would look something like the response below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+<span class="na">X-Experience-API-Version</span><span class="p">:</span> <span class="s">1.0.3</span>
+<span class="na">X-Experience-API-Consistent-Through</span><span class="p">:</span> <span class="s">2017-08-31T15:16:29.709Z</span>
+
+<span class="p">[</span><span class="s2">"dfb7218c-0fc9-4dfc-9524-d497097de027"</span><span class="p">,</span><span class="w"> </span><span class="s2">"dfb7218c-0fc9-4dfc-9524-d497097de028"</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>For more information, view the <a href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#212-post-statements">POST /statements route in the xAPI specification</a>.</p>
+
+<h2 id="get-statements">GET /statements</h2>
+<p>This route allows you to retrieve a single statement or multiple statements. If the <code class="language-plaintext highlighter-rouge">statementId</code> or <code class="language-plaintext highlighter-rouge">voidedStatementId</code> URL parameters are set, it will <a href="#single-statement">retrieve a single statement</a> with the given identifier, otherwise it will retrieve <a href="#many-statements">many statements</a>. For more information, view the <a href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#213-get-statements">GET /statements route in the xAPI specification</a>.</p>
+
+<iframe src="https://player.vimeo.com/video/168960744" width="80%" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" style="padding-left: 15%;"></iframe>
+
+<h3 id="single-statement">Single Statement</h3>
+<p>In addition to the <code class="language-plaintext highlighter-rouge">statementId</code> and <code class="language-plaintext highlighter-rouge">voidedStatementId</code> URL parameters (one of which must be set to retrieve a single statement), there are two additional optional parameters in the form of <code class="language-plaintext highlighter-rouge">format</code> and <code class="language-plaintext highlighter-rouge">attachments</code>. The <code class="language-plaintext highlighter-rouge">format</code> parameter defaults to “exact” if it’s not set, the other options are “ids” (only includes minimal information) and “canonical” (only includes one language per language map). The <code class="language-plaintext highlighter-rouge">attachments</code> parameter is a boolean that determines if the statement’s attachments are returned with the statement.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/data/xAPI/statements?statementId=dfb7218c-0fc9-4dfc-9524-d497097de027&amp;format=exact&amp;attachments=false
+Authorization: YOUR_BASIC_AUTH
+X-Experience-API-Version: 1.0.3
+</span></code></pre></div></div>
+
+<p>When getting a single statement successfully, this route will return a 200 response as shown below with the statement as the body of the request. If the single statement cannot be found, then this route will return a 404 response.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+<span class="na">X-Experience-API-Version</span><span class="p">:</span> <span class="s">1.0.3</span>
+<span class="na">X-Experience-API-Consistent-Through</span><span class="p">:</span> <span class="s">2017-08-31T15:16:29.709Z</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dfb7218c-0fc9-4dfc-9524-d497097de027"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"actor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent"</span><span class="p">,</span><span class="w"> </span><span class="nl">"mbox"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailto:test@example.org"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"verb"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org/verb"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org/activity"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.3"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"authority"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mbox"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailto:authority@example.org"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-05T12:45:31+00:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"stored"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-05T12:45:31+00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="many-statements">Many Statements</h3>
+<p>When retrieving multiple statements there are a number of optional URL parameters listed below that can be used to filter statements. All of the URL parameters should be URL encoded (after JSON encoding if JSON encoding is required).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>agent</td>
+      <td>JSON encoded object containing an IFI to match an agent or group.</td>
+    </tr>
+    <tr>
+      <td>verb</td>
+      <td>String matching the statement’s verb identifier.</td>
+    </tr>
+    <tr>
+      <td>activity</td>
+      <td>String matching the statement’s object identifier.</td>
+    </tr>
+    <tr>
+      <td>registration</td>
+      <td>String matching the statement’s registration from the context.</td>
+    </tr>
+    <tr>
+      <td>related_activities</td>
+      <td>Applies the activity filter to any activity in the statement when <code class="language-plaintext highlighter-rouge">true</code>. Defaults to <code class="language-plaintext highlighter-rouge">false</code>.</td>
+    </tr>
+    <tr>
+      <td>related_agents</td>
+      <td>Applies the activity filter to any agent/group in the statement when <code class="language-plaintext highlighter-rouge">true</code>. Defaults to <code class="language-plaintext highlighter-rouge">false</code>.</td>
+    </tr>
+    <tr>
+      <td>since</td>
+      <td>String that returns statements stored after the given timestamp (exclusive).</td>
+    </tr>
+    <tr>
+      <td>until</td>
+      <td>String that returns statements stored before the given timestamp (inclusive).</td>
+    </tr>
+    <tr>
+      <td>limit</td>
+      <td>Number of statements to return. Defaults to <code class="language-plaintext highlighter-rouge">0</code> which returns the maximum the server will allow.</td>
+    </tr>
+    <tr>
+      <td>format</td>
+      <td>String (“exact”/”ids”/”canonical”) determining how much of the statement is returned. Defaults to “exact” to return the full statement.</td>
+    </tr>
+    <tr>
+      <td>attachments</td>
+      <td>Boolean determining if the statements’ attachments should be returned. Defaults to <code class="language-plaintext highlighter-rouge">false</code>.</td>
+    </tr>
+    <tr>
+      <td>ascending</td>
+      <td>Boolean determining if the statements should be returned in ascending stored order. Defaults to <code class="language-plaintext highlighter-rouge">false</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Below is an example of a request containing each of the URL parameters.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/data/xAPI/statements?agent=%7B%22mbox%22%3A%20%22mailto%3Atest%40example.org%22%7D&amp;verb=http%3A%2F%2Fwww.example.org%2Fverb&amp;activity=http%3A%2F%2Fwww.example.org%2Factivity&amp;registration=361cd8ef-0f6a-40d2-81f2-b988865f640c&amp;related_activities=false&amp;related_agents=false&amp;since=2017-09-04T12:45:31+00:00&amp;until=2017-09-06T12:45:31+00:00&amp;limit=1&amp;format=exact&amp;attachments=false&amp;ascending=false
+Authorization: YOUR_BASIC_AUTH
+X-Experience-API-Version: 1.0.3
+</span></code></pre></div></div>
+
+<p>This route will return a 200 response as shown below where the JSON body of the response contains a more link and an array of statements that match the URL parameters. The more link can be used to retrieve the next page of statements, if there aren’t any more pages of statements the more link will be an empty string.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+<span class="na">X-Experience-API-Version</span><span class="p">:</span> <span class="s">1.0.3</span>
+<span class="na">X-Experience-API-Consistent-Through</span><span class="p">:</span> <span class="s">2017-08-31T15:16:29.709Z</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nl">"more"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/data/xAPI/statements?agent=%7B%22mbox%22%3A%20%22mailto%3Atest%40example.org%22%7D&amp;verb=http%3A%2F%2Fwww.example.org%2Fverb&amp;activity=http%3A%2F%2Fwww.example.org%2Factivity&amp;registration=361cd8ef-0f6a-40d2-81f2-b988865f640c&amp;related_activities=false&amp;related_agents=false&amp;since=2017-09-04T12:45:31+00:00&amp;until=2017-09-06T12:45:31+00:00&amp;limit=1&amp;format=exact&amp;attachments=false&amp;ascending=false&amp;cursor=59a8289f399c5b1a19efa60e"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"statements"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dfb7218c-0fc9-4dfc-9524-d497097de027"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"actor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent"</span><span class="p">,</span><span class="w"> </span><span class="nl">"mbox"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailto:test@example.org"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"verb"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org/verb"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org/activity"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"registration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"361cd8ef-0f6a-40d2-81f2-b988865f640c"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.3"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"authority"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mbox"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailto:authority@example.org"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-05T12:45:31+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"stored"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-05T12:45:31+00:00"</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

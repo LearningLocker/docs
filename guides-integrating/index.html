@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="integrating-your-lrs-guide">Integrating your LRS Guide</h1>
+<p>If you’re planning to integrate a service with Learning Locker, you should firstly consider if you can use an existing integration between the service and the xAPI or Learning Locker. A <a href="#existing-integrations">list of the existing integrations</a> has been provided below.</p>
+
+<p>If a tool does not already exist, then you should consider if creating the integration yourself is going to be too costly or challenging to implement. If this is the case, you can contact us via <a href="mailto:hello@learninglocker.net">hello@learninglocker.net</a> to discuss your needs and gain advice using our experience.</p>
+
+<p>If you’ve decided you’re going to implement the integration yourself, you’re probably most interested in our guides for <a href="../guides-inserting">inserting statements</a> and/or <a href="../guides-retrieving">retrieving statements</a>. You may also be interested in viewing the documentation for our HTTP interfaces especially our <a href="../http-xapi">xAPI HTTP interface</a>.</p>
+
+<h2 id="existing-integrations">Existing Integrations</h2>
+<p>The below integrations can be implemented via our own internal tool. If you’d like to find out how to access these integrations, click on the links below or contact us at <a href="mailto:hello@learninglocker.net">hello@learninglocker.net</a> for more information.</p>
+
+<ul>
+  <li><a href="https://learningpool.com/solutions/learning-record-store-learning-locker/yammer/">Yammer</a></li>
+  <li><a href="https://learningpool.com/solutions/learning-record-store-learning-locker/get-abstract/">Get Abstract</a></li>
+  <li><a href="https://learningpool.com/solutions/learning-record-store-learning-locker/survey-monkey/">Survey Monkey</a></li>
+  <li><a href="https://learningpool.com/solutions/learning-record-store-learning-locker/cornerstone-on-demand/">Cornerstone on demand</a></li>
+  <li><a href="https://learningpool.com/solutions/learning-record-store-learning-locker/skillsoft/">Skillsoft</a></li>
+  <li><a href="https://learningpool.com/solutions/learning-experience-platform-stream/">Stream</a></li>
+</ul>
+
+<h2 id="other-integrations-and-apps">Other integrations and Apps</h2>
+
+<p>Below are a list of other integrations and some add-on Apps that might interest you. As mentioned above, click on the links or contact us at <a href="mailto:hello@learninglocker.net">hello@learninglocker.net</a> for more information.</p>
+
+<ul>
+  <li><a href="https://learningpool.com/solutions/learning-experience-platform-stream/waves/">Waves</a> via our automation tool that uses statement forwards to trigger events such as emails, auto-enrolments and more.</li>
+  <li><a href="https://learningpool.com/solutions/learning-record-store-learning-locker/semantic-analysis/">Semantic Analysis</a> via our proprietary algorithm to drive insights into the quality of learners’ submissions.</li>
+  <li><a href="https://learningpool.com/solutions/learning-record-store-learning-locker/launchr/">Launchr</a> via our proxy service that securely launch xAPI content packages.</li>
+  <li><a href="https://learningpool.com/solutions/learning-record-store-learning-locker/gdpr/">GDPR</a> via our standalone app that is a central administration tool for organizations seeking to comply with GDPR.</li>
+  <li><a href="https://learningpool.com/solutions/learning-record-store-learning-locker/csv-to-xapi/">CSV to xAPI</a> via our proprietary tool that converts CSV data into xAPI and inserts records into your LRS.</li>
+  <li><a href="https://moodle.org/">Moodle</a> via the <a href="https://moodle.org/plugins/logstore_xapi">Logstore plugin</a> that we originally developed and released.</li>
+  <li><a href="http://www.blackboard.com/learning-management-system/blackboard-learn.aspx">Blackboard</a> via <a href="https://github.com/jiscdev/blackboard-xapi-plugin/wiki">JISC’s Blackboard xAPI Plugin</a>.</li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

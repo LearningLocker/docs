@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="monitoring-your-lrs">Monitoring your LRS</h1>
+
+<h2 id="pm2--keymetrics">PM2 / KeyMetrics</h2>
+
+<p>If you have installed Learning Locker using the recommended build script, then the application will come pre-installed onto an instance of the excellent <a href="http://pm2.keymetrics.io/"><code class="language-plaintext highlighter-rouge">pm2</code></a> Node Process Management tool.</p>
+
+<p>Whilst this tool can be used to monitor the running processes from within each server running LL (refer to <a href="http://pm2.keymetrics.io/docs/usage/monitoring/">the documentation</a>), it can also be setup to send performance metrics to the <a href="http://docs.keymetrics.io/">Key Metrics</a> platform (costs may apply).</p>
+
+<p><img src="../images/pm2-monit.jpg" alt="PM2 Monitoring" title="PM2 Monitoring" /></p>
+
+<h2 id="logs">Logs</h2>
+
+<h3 id="local">Local</h3>
+
+<p>By default logs are captured by pm2 and stored locally on each instance as defined in the pm2 process file  (<a href="https://github.com/LearningLocker/learninglocker/blob/master/pm2/all.json.dist">pm2/all.json.dist</a>). Errors and standard output are separated and can be viewed by running <code class="language-plaintext highlighter-rouge">pm2 logs</code> from within your instance. By default they are stored in <code class="language-plaintext highlighter-rouge">/var/log/learninglocker/</code> and are rotated using the <a href="https://github.com/pm2-hive/pm2-logrotate"><code class="language-plaintext highlighter-rouge">pm2-logrotate</code></a> module.</p>
+
+<p><img src="../images/pm2-logs.jpg" alt="PM2 Logs" title="PM2 Logs" /></p>
+
+<h3 id="aws-cloudwatch">AWS Cloudwatch</h3>
+<p>Learning Locker comes with the ability to push your logs to AWS Cloudwatch. To enable this, configure the relevant part of the <code class="language-plaintext highlighter-rouge">.env</code> files:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#######################
+# AWS Cloudwatch logs #
+# AWS credentials must be configured for Cloudwatch access
+# Ref: http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-identity-based-access-control-cwl.html
+#######################
+# Enable cloudwatch logs (false*|true)
+WINSTON_CLOUDWATCH_ENABLED=
+WINSTON_CLOUDWATCH_LOG_GROUP_NAME=
+WINSTON_CLOUDWATCH_LOG_STREAM_NAME=
+WINSTON_CLOUDWATCH_ACCESS_KEY_ID=
+WINSTON_CLOUDWATCH_SECRET_ACCESS_KEY=
+WINSTON_CLOUDWATCH_REGION=
+</code></pre></div></div>
+
+<p>Please note that the AWS credentials must have the required permissions to create and push to log streams/groups.</p>
+
+<p><img src="../images/cloudwatch-logs.jpg" alt="Cloudwatch Logs" title="Cloudwatch Logs" /></p>
+
+<h3 id="other-logging">Other logging</h3>
+
+<p>Learning Locker handles all logging via <a href="https://www.npmjs.com/package/winston">Winston</a>. New “transports” can be added and configured in both the Learning Locker application and xAPI services.</p>
+
+<h2 id="new-relic">New Relic</h2>
+
+<p>The Learning Locker application is configured to send performance metrics to New Relic. Simply fill in the following in the <code class="language-plaintext highlighter-rouge">.env</code> of your application instance</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#############
+# New Relic #
+#############
+
+# New Relic License key
+NEW_RELIC_LICENSE_KEY=
+# APM name for API
+NEWRELIC_API_NAME=
+# APM name for UI
+NEWRELIC_UI_NAME=
+</code></pre></div></div>
+
+<h4 id="xapi">xAPI</h4>
+<p>In the xAPI you can also add monitoring.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># New Relic License key
+NEW_RELIC_LICENSE_KEY=
+# APM name
+NEW_RELIC_APP_NAME=
+</code></pre></div></div>
+
+<p><img src="../images/newrelic.jpg" alt="New Relic" title="New Relic" /></p>
+
+<h2 id="others">Others</h2>
+
+<p>Other Node monitoring solutions are available but would need to be added manually to the script or web server.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

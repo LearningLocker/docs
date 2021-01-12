@@ -1,0 +1,224 @@
+/*
+ * Thanks to http://getbootstrap.com/examples/blog/ for initial inspiration.
+ */
+
+/*
+ * Globals
+ */
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: 0;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #696969;
+  line-height: 1.2em;
+}
+
+h1 .highlighter-rouge, .h1 .highlighter-rouge,
+h2 .highlighter-rouge, .h2 .highlighter-rouge,
+h3 .highlighter-rouge, .h3 .highlighter-rouge,
+h4 .highlighter-rouge, .h4 .highlighter-rouge,
+h5 .highlighter-rouge, .h5 .highlighter-rouge,
+h6 .highlighter-rouge, .h6 .highlighter-rouge {
+  text-transform: none;
+}
+
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  line-height: 1.7em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: #ed7030; }
+a:focus, a:hover { color: #ed7030; }
+
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 26px;
+  margin-top: 30px;
+}
+
+h3 {
+  font-size: 22px;
+  margin-top: 30px;
+}
+
+h4 {
+  font-size: 16px;
+  margin-top: 20px;
+  color: #95989a;
+}
+
+blockquote {
+  background-color: #f1f1f1; /* #f4f8fa; */
+  margin: 20px 0;
+  padding: 20px;
+  border-left: 3px solid #f2a942;
+}
+blockquote p {
+  font-size:13px;
+}
+blockquote strong {
+  color: #f2a942;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.docs-sidebar .nav>li>a {
+  padding: 2px 15px;
+}
+
+.banner{
+  background:#e4e7ec; /* url(../img/banner.jpg) no-repeat; */
+  margin-bottom:20px;
+}
+
+.logo {
+  margin-top:4px;
+}
+
+.active {
+  background:#e4e7ec;
+  border-radius:6px;
+}
+
+/*
+ * Masthead for nav
+ */
+
+.docs-masthead {
+  padding: 5px 0 5px 0;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.docs-masthead img {
+  height: 48px;
+  width: 200px;
+}
+
+/* Nav links */
+.docs-nav-item {
+  position: relative;
+  display: inline-block;
+  padding: 18px;
+  font-weight: 600;
+  color: #696969;
+}
+.docs-nav-item:hover,
+.docs-nav-item:focus {
+  opacity: 0.7;
+  color: #696969;
+  text-decoration: none;
+  transition: all 0.4s ease-in-out;
+}
+
+/*
+ * docs name and description
+ */
+
+.docs-header {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.docs-title {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 40px;
+  font-weight: normal;
+  /* color:#fff; */
+}
+.docs-description {
+  font-size: 20px;
+  color: #999;
+}
+
+.docs-main {
+  margin-bottom:60px;
+  margin-top: 20px;
+}
+
+.docs-main img {
+  width: 100%;
+}
+
+.docs-sidebar {
+  margin-top: 10px;
+  margin-bottom:40px;
+}
+
+.docs-sidebar .sidebar-title {
+  font-weight:bold;
+  margin:10px 0 5px 0;
+}
+
+.docs-sidebar .sidebar-title .top {
+  margin:0 0 10px 0;
+}
+
+.docs-sidebar .nav>li>a:hover,
+.docs-sidebar .nav>li>a :focus {
+  background: none;
+  text-decoration: underline;
+}
+
+/*
+ * Footer
+ */
+
+.docs-footer {
+  padding: 40px 0;
+  color: #999;
+  text-align: center;
+  background-color: #f8f9fa;
+}
+
+/* Laravel paste inspired code display
+*****************************************************************/
+
+pre{
+  background:transparent;
+  padding:0;
+  font-size:12px;
+  border:0;
+  line-height:1.9em;
+  border-radius:6px;
+}
+
+pre code {
+  padding:20px;
+}
+
+code {
+  white-space: pre-wrap !important;
+  color: #cc7228;
+}
+
+@media (max-width: 770px) {
+
+  .banner {
+    background:#f1f1f1; /*transparent;*/
+  }
+
+  .docs-title {
+    color:#222;
+    font-size:30px;
+    margin-bottom:20px;
+  }
+
+}

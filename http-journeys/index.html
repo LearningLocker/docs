@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="journeys-http-interface">Journeys HTTP Interface</h1>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">Please note:</code> Journeys are only available in our Enterprise hosted version of Learning Locker. For more information about the differences, please see <a href="https://learninglocker.net/faqs/open-source-vs-saas-lrs/">this page</a>.</p>
+</blockquote>
+
+<p>A visualisation of an actor/person’s progress through a journey.</p>
+
+<p>It is accessible through the following HTTP interfaces:</p>
+
+<ul>
+  <li><a href="../http-connection">Connection HTTP Interface</a> via http://www.example.org/api/connection/journey.</li>
+  <li><a href="../http-rest">REST HTTP Interface</a> via http://www.example.org/api/v2/journey.</li>
+</ul>
+
+<h3 id="schema">Schema</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>_id</td>
+      <td>Mongo ID</td>
+      <td>The id of this journey <em>(autogenerated)</em></td>
+    </tr>
+    <tr>
+      <td>organisation</td>
+      <td><a href="../http-organisations#schema">Organisation</a> Mongo ID</td>
+      <td>The id of the organisation this journey belongs to <em>(autogenerated)</em></td>
+    </tr>
+    <tr>
+      <td>owner</td>
+      <td><a href="../http-users#schema">User</a> Mongo ID</td>
+      <td>The id of the user who created this journey <em>(autogenerated)</em></td>
+    </tr>
+    <tr>
+      <td>createdAt</td>
+      <td>Timestamp</td>
+      <td>When this journey was created <em>(autogenerated)</em></td>
+    </tr>
+    <tr>
+      <td>updatedAt</td>
+      <td>Timestamp</td>
+      <td>When this journey was last updated <em>(autogenerated)</em></td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>String</td>
+      <td>The name of the journey</td>
+    </tr>
+    <tr>
+      <td>isActive</td>
+      <td>Boolean</td>
+      <td>If this journey is active</td>
+    </tr>
+    <tr>
+      <td>sources</td>
+      <td>Array [<a href="../http-stores#schema">Store</a> Mongo IDs]</td>
+      <td>An array of stores that this journey applies to</td>
+    </tr>
+    <tr>
+      <td>waypoints</td>
+      <td>Array [<a href="#waypoints">Waypoints</a>]</td>
+      <td>An array of waypoints for this journey. <a href="#waypoints">See waypoints</a></td>
+    </tr>
+    <tr>
+      <td>outcomes</td>
+      <td>Array [<a href="#outcomes">Outcomes</a>]</td>
+      <td>An array of outcomes for this journey</td>
+    </tr>
+    <tr>
+      <td>isSequential</td>
+      <td>Boolean</td>
+      <td>If this journey is sequential</td>
+    </tr>
+    <tr>
+      <td>isRepeatable</td>
+      <td>Boolean</td>
+      <td>If this journey is repeatable</td>
+    </tr>
+    <tr>
+      <td>trackBy</td>
+      <td>String</td>
+      <td>Only <code class="language-plaintext highlighter-rouge">"actor"</code> currently supported, <code class="language-plaintext highlighter-rouge">"persona"</code> tracking coming soon</td>
+    </tr>
+    <tr>
+      <td>recalculateStatus</td>
+      <td>JSON {<a href="#recalculate-status">Recalculate Status</a>}</td>
+      <td>Progress in calculating this journey</td>
+    </tr>
+    <tr>
+      <td>isPublic</td>
+      <td>Boolean</td>
+      <td>If false then this visualisation is only available to the owner and users with <a href="../http-roles/#organisation-scopes">org/all/journey/view scope</a>, otherwise it’s available to everyone in the organisation with permission</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="waypoints">Waypoints</h3>
+
+<p>An array of points with properties:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>_id</td>
+      <td>Mongo ID</td>
+      <td>the id of this waypoint <em>(autogenerated)</em></td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>String</td>
+      <td>Name of this waypoint</td>
+    </tr>
+    <tr>
+      <td>isActive</td>
+      <td>Boolean</td>
+      <td>If this waypoint is active. Inactive waypoints will not be processed by the journey handler</td>
+    </tr>
+    <tr>
+      <td>conditions</td>
+      <td>String</td>
+      <td>A stringified JSON <a href="https://docs.mongodb.com/manual/tutorial/query-documents/">mongo query</a> of when this waypoint has been reached.</td>
+    </tr>
+    <tr>
+      <td>count</td>
+      <td>Number</td>
+      <td>The number of times that the condition must be met</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Number</td>
+      <td>The order of this waypoint in the journey</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="outcomes">Outcomes</h3>
+
+<p>An array of outcomes with properties:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>description</td>
+      <td>String</td>
+      <td>The name of this outcome.</td>
+    </tr>
+    <tr>
+      <td>isActive</td>
+      <td>Boolean</td>
+      <td>If this outcome is active.</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>String</td>
+      <td>Only <code class="language-plaintext highlighter-rouge">'callback'</code> currently supported, <code class="language-plaintext highlighter-rouge">'statement'</code> outcomes coming soon</td>
+    </tr>
+    <tr>
+      <td>callback</td>
+      <td>String (URL)</td>
+      <td>URL to POST completion data on a journey being completed. <a href="#callback-example">See callback example</a></td>
+    </tr>
+    <tr>
+      <td>tripCount</td>
+      <td>Number</td>
+      <td>Load control counter. The variable MAX_TRIP_COUNT in .env is responsible for this counter.</td>
+    </tr>
+    <tr>
+      <td>deactivatedAt</td>
+      <td>Date</td>
+      <td>Deactivation date if tripCount has peaked.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="callback-example">Callback example</h4>
+
+<p>When a persona/actor completes a journey, the <a href="#outcomes">callback url</a> will receive a POST with JSON body. Example body:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{  
+  "owner":{  
+    "trackBy":"actor",
+    "ident":{  
+      "account":{  
+        "homePage":"http://www.dave.com",
+        "name":"Dave"
+      },
+      "objectType":"Agent"
+    }
+  },
+  "attempt":{  
+    "waypoints":[  
+      {  
+        "completedAt":"2017-09-20T09:56:02.443Z",
+        "isCompleted":true,
+        "statements":[  
+          {  
+            "timestamp":"2017-09-20T09:56:02.443Z",
+            "statement":"59c23b32d138e44d720041a9"
+          }
+        ],
+        "order":1,
+        "waypoint":"59c237bebdf9ac67b2ab5ee9",
+        "statement":[  
+          {  
+            "_id":"59c23b32d138e44d720041a9",
+            "lrs":{  
+              "_id":"5943782ac3f34065c7b4132a"
+            },
+            "lrs_id":"5943782ac3f34065c7b4132a",
+            "organisation":"59198183d8ea540933227033",
+            "client":"592433ebce79a40338e0d8c4",
+            "client_id":"592433ebce79a40338e0d8c4",
+            "statement":{  
+              "id":"346cb0a8-368c-4f29-a4f8-ec3565f7a75a",
+              "timestamp":"2017-09-20T09:56:02.443600+00:00",
+              "stored":"2017-09-20T09:56:02.443600+00:00",
+              "authority":{  
+                "name":"New Client",
+                "mbox":"mailto:hello@learninglocker.net",
+                "objectType":"Agent"
+              },
+              "object":{  
+                "id":"https://acorncorp.com/training/Introduction",
+                "definition":{  
+                  "name":{  
+                    "en-GB":"Introduction"
+                  },
+                  "type":"http://adlnet.gov/expapi/activities/course"
+                },
+                "objectType":"Activity"
+              },
+              "verb":{  
+                "id":"http://adlnet.gov/expapi/verbs/completed",
+                "display":{  
+                  "en-GB":"completed"
+                }
+              },
+              "result":{  
+                "score":{  
+                  "min":0,
+                  "max":100,
+                  "raw":67,
+                  "scaled":0.67
+                }
+              },
+              "actor":{  
+                "account":{  
+                  "homePage":"http://www.dave.com",
+                  "name":"Dave20"
+                },
+                "objectType":"Agent"
+              },
+              "version":"1.0.0"
+            },
+            "active":true,
+            "voided":false,
+            "timestamp":"2017-09-20T09:56:02.443Z",
+            "stored":"2017-09-20T09:56:02.443Z",
+            "personaIdentifier":"59c23b27f6463f3569446bc5",
+            "completedForwardingQueue":[  
+
+            ],
+            "pendingForwardingQueue":[  
+
+            ],
+            "failedForwardingLog":[  
+
+            ],
+            "deadForwardingQueue":[  
+
+            ],
+            "processingQueues":[  
+              "STATEMENT_PERSON_QUEUE",
+              "STATEMENT_FORWARDING_QUEUE",
+              "STATEMENT_JOURNEY_QUEUE"
+            ],
+            "completedQueues":[  
+              "STATEMENT_QUERYBUILDERCACHE_QUEUE"
+            ],
+            "person":{  
+              "display":"Dave20 - http://www.dave.com (xAPI Account)",
+              "_id":"59c23b2753631c67de0cd5b9"
+            }
+          }
+        ]
+      },
+      {  
+        "completedAt":"2017-09-20T09:55:53.799Z",
+        "isCompleted":true,
+        "statements":[  
+          {  
+            "statement":"59c23b26d138e44a720041ad",
+            "timestamp":"2017-09-20T09:55:50.310Z"
+          },
+          {  
+            "timestamp":"2017-09-20T09:55:51.192Z",
+            "statement":"59c23b27d138e44a720041ae"
+          },
+          {  
+            "statement":"59c23b28d138e44a720041af",
+            "timestamp":"2017-09-20T09:55:52.313Z"
+          },
+          {  
+            "timestamp":"2017-09-20T09:55:52.880Z",
+            "statement":"59c23b28d138e44a720041b0"
+          },
+          {  
+            "statement":"59c23b29d138e44a720041b1",
+            "timestamp":"2017-09-20T09:55:53.799Z"
+          }
+        ],
+        "order":0,
+        "waypoint":"59c237bebdf9ac67b2ab5eea",
+        "statement":[  
+          {  
+            "_id":"59c23b26d138e44a720041ad",
+            "lrs":{  
+              "_id":"5943782ac3f34065c7b4132a"
+            },
+            "lrs_id":"5943782ac3f34065c7b4132a",
+            "organisation":"59198183d8ea540933227033",
+            "client":"592433ebce79a40338e0d8c4",
+            "client_id":"592433ebce79a40338e0d8c4",
+            "statement":{  
+              "id":"d0d27c01-2185-4f81-81c2-99af3326b86b",
+              "timestamp":"2017-09-20T09:55:50.310800+00:00",
+              "stored":"2017-09-20T09:55:50.310800+00:00",
+              "authority":{  
+                "name":"New Client",
+                "mbox":"mailto:hello@learninglocker.net",
+                "objectType":"Agent"
+              },
+              "object":{  
+                "id":"https://acorncorp.com/training/Introduction",
+                "definition":{  
+                  "name":{  
+                    "en-GB":"Introduction"
+                  },
+                  "type":"http://adlnet.gov/expapi/activities/course"
+                },
+                "objectType":"Activity"
+              },
+              "verb":{  
+                "id":"http://adlnet.gov/expapi/verbs/commented",
+                "display":{  
+                  "en-GB":"commented"
+                }
+              },
+              "result":{  
+                "score":{  
+                  "min":0,
+                  "max":100,
+                  "raw":67,
+                  "scaled":0.67
+                }
+              },
+              "actor":{  
+                "account":{  
+                  "homePage":"http://www.dave.com",
+                  "name":"Dave20"
+                },
+                "objectType":"Agent"
+              },
+              "version":"1.0.0"
+            },
+            "active":true,
+            "voided":false,
+            "timestamp":"2017-09-20T09:55:50.310Z",
+            "stored":"2017-09-20T09:55:50.310Z",
+            "personaIdentifier":"59c23b27f6463f3569446bc5",
+            "completedForwardingQueue":[  
+
+            ],
+            "pendingForwardingQueue":[  
+              "59a8005292303c1af05ec970"
+            ],
+            "failedForwardingLog":[  
+              {  
+                "message":"Error: Status code didn't return 200",
+                "statementForwarding_id":"59a8005292303c1af05ec970",
+                "timestamp":"2017-09-20T09:55:52.877Z",
+                "_id":"59c23b2853631c67de0cd5d4"
+              }
+            ],
+            "deadForwardingQueue":[  
+
+            ],
+            "processingQueues":[  
+
+            ],
+            "completedQueues":[  
+              "STATEMENT_QUERYBUILDERCACHE_QUEUE",
+              "STATEMENT_PERSON_QUEUE",
+              "STATEMENT_JOURNEY_QUEUE",
+              "STATEMENT_FORWARDING_QUEUE"
+            ],
+            "person":{  
+              "_id":"59c23b2753631c67de0cd5b9",
+              "display":"Dave20 - http://www.dave.com (xAPI Account)"
+            }
+          },
+          {  
+            "_id":"59c23b27d138e44a720041ae",
+            "lrs":{  
+              "_id":"5943782ac3f34065c7b4132a"
+            },
+            "lrs_id":"5943782ac3f34065c7b4132a",
+            "organisation":"59198183d8ea540933227033",
+            "client":"592433ebce79a40338e0d8c4",
+            "client_id":"592433ebce79a40338e0d8c4",
+            "statement":{  
+              "id":"e26db41d-e165-4b0f-bf83-7ffde3e7dd5a",
+              "timestamp":"2017-09-20T09:55:51.192200+00:00",
+              "stored":"2017-09-20T09:55:51.192200+00:00",
+              "authority":{  
+                "name":"New Client",
+                "mbox":"mailto:hello@learninglocker.net",
+                "objectType":"Agent"
+              },
+              "object":{  
+                "id":"https://acorncorp.com/training/Introduction",
+                "definition":{  
+                  "name":{  
+                    "en-GB":"Introduction"
+                  },
+                  "type":"http://adlnet.gov/expapi/activities/course"
+                },
+                "objectType":"Activity"
+              },
+              "verb":{  
+                "id":"http://adlnet.gov/expapi/verbs/commented",
+                "display":{  
+                  "en-GB":"commented"
+                }
+              },
+              "result":{  
+                "score":{  
+                  "min":0,
+                  "max":100,
+                  "raw":67,
+                  "scaled":0.67
+                }
+              },
+              "actor":{  
+                "account":{  
+                  "homePage":"http://www.dave.com",
+                  "name":"Dave20"
+                },
+                "objectType":"Agent"
+              },
+              "version":"1.0.0"
+            },
+            "active":true,
+            "voided":false,
+            "timestamp":"2017-09-20T09:55:51.192Z",
+            "stored":"2017-09-20T09:55:51.192Z",
+            "personaIdentifier":"59c23b27f6463f3569446bc5",
+            "completedForwardingQueue":[  
+
+            ],
+            "pendingForwardingQueue":[  
+              "59a8005292303c1af05ec970"
+            ],
+            "failedForwardingLog":[  
+              {  
+                "message":"Error: Status code didn't return 200",
+                "statementForwarding_id":"59a8005292303c1af05ec970",
+                "timestamp":"2017-09-20T09:55:53.950Z",
+                "_id":"59c23b2953631c67de0cd600"
+              }
+            ],
+            "deadForwardingQueue":[  
+
+            ],
+            "processingQueues":[  
+
+            ],
+            "completedQueues":[  
+              "STATEMENT_QUERYBUILDERCACHE_QUEUE",
+              "STATEMENT_JOURNEY_QUEUE",
+              "STATEMENT_PERSON_QUEUE",
+              "STATEMENT_FORWARDING_QUEUE"
+            ],
+            "person":{  
+              "display":"Dave20 - http://www.dave.com (xAPI Account)",
+              "_id":"59c23b2753631c67de0cd5b9"
+            }
+          },
+          {  
+            "_id":"59c23b28d138e44a720041af",
+            "lrs":{  
+              "_id":"5943782ac3f34065c7b4132a"
+            },
+            "lrs_id":"5943782ac3f34065c7b4132a",
+            "organisation":"59198183d8ea540933227033",
+            "client":"592433ebce79a40338e0d8c4",
+            "client_id":"592433ebce79a40338e0d8c4",
+            "statement":{  
+              "id":"16035311-588b-4d00-8a2a-0d5675c0cc90",
+              "timestamp":"2017-09-20T09:55:52.313800+00:00",
+              "stored":"2017-09-20T09:55:52.313800+00:00",
+              "authority":{  
+                "name":"New Client",
+                "mbox":"mailto:hello@learninglocker.net",
+                "objectType":"Agent"
+              },
+              "object":{  
+                "id":"https://acorncorp.com/training/Introduction",
+                "definition":{  
+                  "name":{  
+                    "en-GB":"Introduction"
+                  },
+                  "type":"http://adlnet.gov/expapi/activities/course"
+                },
+                "objectType":"Activity"
+              },
+              "verb":{  
+                "id":"http://adlnet.gov/expapi/verbs/commented",
+                "display":{  
+                  "en-GB":"commented"
+                }
+              },
+              "result":{  
+                "score":{  
+                  "min":0,
+                  "max":100,
+                  "raw":67,
+                  "scaled":0.67
+                }
+              },
+              "actor":{  
+                "account":{  
+                  "homePage":"http://www.dave.com",
+                  "name":"Dave20"
+                },
+                "objectType":"Agent"
+              },
+              "version":"1.0.0"
+            },
+            "active":true,
+            "voided":false,
+            "timestamp":"2017-09-20T09:55:52.313Z",
+            "stored":"2017-09-20T09:55:52.313Z",
+            "personaIdentifier":"59c23b27f6463f3569446bc5",
+            "completedForwardingQueue":[  
+
+            ],
+            "pendingForwardingQueue":[  
+              "59a8005292303c1af05ec970"
+            ],
+            "failedForwardingLog":[  
+              {  
+                "message":"Error: Status code didn't return 200",
+                "statementForwarding_id":"59a8005292303c1af05ec970",
+                "timestamp":"2017-09-20T09:55:55.139Z",
+                "_id":"59c23b2b53631c67de0cd619"
+              }
+            ],
+            "deadForwardingQueue":[  
+
+            ],
+            "processingQueues":[  
+
+            ],
+            "completedQueues":[  
+              "STATEMENT_QUERYBUILDERCACHE_QUEUE",
+              "STATEMENT_FORWARDING_QUEUE",
+              "STATEMENT_PERSON_QUEUE",
+              "STATEMENT_JOURNEY_QUEUE"
+            ],
+            "person":{  
+              "display":"Dave20 - http://www.dave.com (xAPI Account)",
+              "_id":"59c23b2753631c67de0cd5b9"
+            }
+          },
+          {  
+            "_id":"59c23b28d138e44a720041b0",
+            "lrs":{  
+              "_id":"5943782ac3f34065c7b4132a"
+            },
+            "lrs_id":"5943782ac3f34065c7b4132a",
+            "organisation":"59198183d8ea540933227033",
+            "client":"592433ebce79a40338e0d8c4",
+            "client_id":"592433ebce79a40338e0d8c4",
+            "statement":{  
+              "id":"05e8b081-ff5b-473a-96aa-a841d2823c24",
+              "timestamp":"2017-09-20T09:55:52.880800+00:00",
+              "stored":"2017-09-20T09:55:52.880800+00:00",
+              "authority":{  
+                "name":"New Client",
+                "mbox":"mailto:hello@learninglocker.net",
+                "objectType":"Agent"
+              },
+              "object":{  
+                "id":"https://acorncorp.com/training/Introduction",
+                "definition":{  
+                  "name":{  
+                    "en-GB":"Introduction"
+                  },
+                  "type":"http://adlnet.gov/expapi/activities/course"
+                },
+                "objectType":"Activity"
+              },
+              "verb":{  
+                "id":"http://adlnet.gov/expapi/verbs/commented",
+                "display":{  
+                  "en-GB":"commented"
+                }
+              },
+              "result":{  
+                "score":{  
+                  "min":0,
+                  "max":100,
+                  "raw":67,
+                  "scaled":0.67
+                }
+              },
+              "actor":{  
+                "account":{  
+                  "homePage":"http://www.dave.com",
+                  "name":"Dave20"
+                },
+                "objectType":"Agent"
+              },
+              "version":"1.0.0"
+            },
+            "active":true,
+            "voided":false,
+            "timestamp":"2017-09-20T09:55:52.880Z",
+            "stored":"2017-09-20T09:55:52.880Z",
+            "personaIdentifier":"59c23b27f6463f3569446bc5",
+            "completedForwardingQueue":[  
+
+            ],
+            "pendingForwardingQueue":[  
+              "59a8005292303c1af05ec970"
+            ],
+            "failedForwardingLog":[  
+              {  
+                "message":"Error: Status code didn't return 200",
+                "statementForwarding_id":"59a8005292303c1af05ec970",
+                "timestamp":"2017-09-20T09:55:56.378Z",
+                "_id":"59c23b2c53631c67de0cd622"
+              }
+            ],
+            "deadForwardingQueue":[  
+
+            ],
+            "processingQueues":[  
+
+            ],
+            "completedQueues":[  
+              "STATEMENT_QUERYBUILDERCACHE_QUEUE",
+              "STATEMENT_PERSON_QUEUE",
+              "STATEMENT_FORWARDING_QUEUE",
+              "STATEMENT_JOURNEY_QUEUE"
+            ],
+            "person":{  
+              "display":"Dave20 - http://www.dave.com (xAPI Account)",
+              "_id":"59c23b2753631c67de0cd5b9"
+            }
+          },
+          {  
+            "_id":"59c23b29d138e44a720041b1",
+            "lrs":{  
+              "_id":"5943782ac3f34065c7b4132a"
+            },
+            "lrs_id":"5943782ac3f34065c7b4132a",
+            "organisation":"59198183d8ea540933227033",
+            "client":"592433ebce79a40338e0d8c4",
+            "client_id":"592433ebce79a40338e0d8c4",
+            "statement":{  
+              "id":"3cbc7fc4-a755-4eff-b2c4-a03c99f336d3",
+              "timestamp":"2017-09-20T09:55:53.799200+00:00",
+              "stored":"2017-09-20T09:55:53.799200+00:00",
+              "authority":{  
+                "name":"New Client",
+                "mbox":"mailto:hello@learninglocker.net",
+                "objectType":"Agent"
+              },
+              "object":{  
+                "id":"https://acorncorp.com/training/Introduction",
+                "definition":{  
+                  "name":{  
+                    "en-GB":"Introduction"
+                  },
+                  "type":"http://adlnet.gov/expapi/activities/course"
+                },
+                "objectType":"Activity"
+              },
+              "verb":{  
+                "id":"http://adlnet.gov/expapi/verbs/commented",
+                "display":{  
+                  "en-GB":"commented"
+                }
+              },
+              "result":{  
+                "score":{  
+                  "min":0,
+                  "max":100,
+                  "raw":67,
+                  "scaled":0.67
+                }
+              },
+              "actor":{  
+                "account":{  
+                  "homePage":"http://www.dave.com",
+                  "name":"Dave20"
+                },
+                "objectType":"Agent"
+              },
+              "version":"1.0.0"
+            },
+            "active":true,
+            "voided":false,
+            "timestamp":"2017-09-20T09:55:53.799Z",
+            "stored":"2017-09-20T09:55:53.799Z",
+            "personaIdentifier":"59c23b27f6463f3569446bc5",
+            "completedForwardingQueue":[  
+
+            ],
+            "pendingForwardingQueue":[  
+              "59a8005292303c1af05ec970"
+            ],
+            "failedForwardingLog":[  
+              {  
+                "message":"Error: Status code didn't return 200",
+                "statementForwarding_id":"59a8005292303c1af05ec970",
+                "timestamp":"2017-09-20T09:55:57.674Z",
+                "_id":"59c23b2d53631c67de0cd624"
+              }
+            ],
+            "deadForwardingQueue":[  
+
+            ],
+            "processingQueues":[  
+
+            ],
+            "completedQueues":[  
+              "STATEMENT_PERSON_QUEUE",
+              "STATEMENT_QUERYBUILDERCACHE_QUEUE",
+              "STATEMENT_JOURNEY_QUEUE",
+              "STATEMENT_FORWARDING_QUEUE"
+            ],
+            "person":{  
+              "display":"Dave20 - http://www.dave.com (xAPI Account)",
+              "_id":"59c23b2753631c67de0cd5b9"
+            }
+          }
+        ]
+      }
+    ],
+    "completedAt":"2017-09-20T09:56:02.443Z",
+    "isCompleted":true
+  },
+  "journey":{  
+    "_id":"59c23527bdf9ac67b2ab5ee6",
+    "createdAt":"2017-01-01T00:00:00.000Z",
+    "updatedAt":"2017-09-20T09:55:24.715Z",
+    "description":"5 comments and 1 completion of a course",
+    "owner":"59198183d8ea540933227030",
+    "organisation":"59198183d8ea540933227033",
+    "__v":2,
+    "isPublic":true,
+    "recalculateStatus":{  
+      "remainingCount":0,
+      "totalCount":0,
+      "inProgress":false
+    },
+    "trackBy":"actor",
+    "isRepeatable":false,
+    "isSequential":true,
+    "outcomes":[  
+      {  
+        "description":"POST to my endpoint",
+        "callback":"https://requestb.in/t6lzcgt6",
+        "_id":"59c237bebdf9ac67b2ab5ee8",
+        "type":"callback",
+        "isActive":true,
+        "tripCount": 0,
+        "deactivatedAt": null
+      },
+      {  
+        "_id":"59c23b00bdf9ac67b2ab5eeb",
+        "callback":"http://mockbin.org/bin/3bc290d4-9185-455f-8799-160aed03398e",
+        "description":"Another post endpoint",
+        "type":"callback",
+        "isActive":true,
+        "tripCount": 5,
+        "deactivatedAt": null
+      }
+    ],
+    "waypoints":[  
+      {  
+        "conditions":{  
+          "statement.verb.id":"http://adlnet.gov/expapi/verbs/commented"
+        },
+        "order":0,
+        "_id":"59c237bebdf9ac67b2ab5eea",
+        "count":5,
+        "isActive":true,
+        "description":"5 comments",
+        "id":"59c237bebdf9ac67b2ab5eea"
+      },
+      {  
+        "conditions":{  
+          "statement.verb.id":"http://adlnet.gov/expapi/verbs/completed",
+          "statement.object.definition.type":"http://adlnet.gov/expapi/activities/course"
+        },
+        "order":1,
+        "_id":"59c237bebdf9ac67b2ab5ee9",
+        "count":1,
+        "isActive":true,
+        "description":"1 course completion",
+        "id":"59c237bebdf9ac67b2ab5ee9"
+      }
+    ],
+    "sources":[  
+      "111aaa1111a111111aa11111",
+      "111aaa1111a111111aa11112",
+      "5943782ac3f34065c7b4132a"
+    ],
+    "isActive":true
+  },
+  "completedAt":"2017-09-20T09:56:02.443Z"
+}
+</code></pre></div></div>
+
+<h3 id="recalculate-status">Recalculate Status</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>inProgress</td>
+      <td>Boolean</td>
+      <td>Is the journey currently being recalculated</td>
+    </tr>
+    <tr>
+      <td>totalCount</td>
+      <td>Number</td>
+      <td>Total number of statements to process</td>
+    </tr>
+    <tr>
+      <td>remainingCount</td>
+      <td>Number</td>
+      <td>Total amount of statements left to process</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="example-post-data">Example POST data</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "createdAt": "2017-01-01T00:00:00Z",
+  "updatedAt": "2017-01-02T02:00:00Z",
+  "description": "5 comments and 1 completion of a course",
+  "isActive": true,
+  "sources": ["111aaa1111a111111aa11111", "111aaa1111a111111aa11112"]
+  "waypoints": [
+    {
+      "description": "5 comments"
+      "isActive": true
+      "conditions": "{\"statement.verb.id\": \"http://adlnet.gov/expapi/verbs/commented\"}"
+      "count": 5
+      "order": 1
+    },
+    {
+      "description": "1 course completion"
+      "isActive": true
+      "conditions": "{\"statement.verb.id\": \"http://adlnet.gov/expapi/verbs/completed\", \"statement.object.definition.type\": \"http://adlnet.gov/expapi/activities/course\"}"
+      "count": 1
+      "order": 2
+    },
+  ],
+  "outcomes": [
+    {
+      "description": "POST to my endpoint",
+      "isActive": true,
+      "type": "callback",
+      "callback": "http://example.org/myPOSTcallbackURL/",
+      "tripCount": 0,
+      "deactivatedAt": null
+    }
+  ]
+  "isSequential": true,
+  "isRepeatable": false,
+  "trackBy": "actor",
+  "isPublic": true,
+}
+</code></pre></div></div>
+
+<h1 id="journey-recalculation-http-interface">Journey Recalculation HTTP Interface</h1>
+<p>This interface provides API access to the function we use to recalculate the journey. Requests to this interface should look something like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST http://www.example.org/api/recalculatejourney?journeyId=dfb7218c-0fc9-4dfc-9524-d497097de027
+Content-Type: application/json
+Authorization: &lt;YOUR_BASIC_AUTH_TOKEN&gt;
+</span></code></pre></div></div>
+
+<p>The interface will respond with a response similar to the one below after start of recalculation a matching journey.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nl">"journey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"recalculateStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"pushing"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"inProgress"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"totalCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"remainingCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"recalculatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-14T10:29:22.439Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cancelledAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-10T09:53:45.929Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"recalculatedByClient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd0d4faac6aeb4cd1e694ab"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"recalculatedByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cancelledByClient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd0d4faac6aeb4cd1e694ab"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cancelledByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"5fd0d4faac6aeb4cd1e694aa"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"isSequential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"isRepeatable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"trackBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"persona"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"isPublic"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"sendCompletedStatement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"sendCompletedStatementClients"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd128debf6a026dfe99cca6"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd0d4de5fa8774c995b2258"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd0d4df5fa8774c995b225b"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"waypoints"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New waypoint"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd128e0bf6a026dfe99cca7"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"conditions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"$and"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"$comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">criterionLabel</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">A</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">criteriaPath</span><span class="se">\"</span><span class="s2">:[</span><span class="se">\"</span><span class="s2">statement</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">verb</span><span class="se">\"</span><span class="s2">]}"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"statement.verb.id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="nl">"$in"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                                    </span><span class="s2">"http://activitystrea.ms/schema/1.0/receive"</span><span class="w">
+                                </span><span class="p">]</span><span class="w">
+                            </span><span class="p">}</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd128e0bf6a026dfe99cca7"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"outcomes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-14T10:29:22.440Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-09T19:43:26.429Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"__v"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h1 id="cancel-journey-recalculation-http-interface">Cancel Journey Recalculation HTTP Interface</h1>
+<p>This interface provides API access to the function we use to cancel the recalculation of the journey. Requests to this interface should look something like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST http://www.example.org/api/cancelrecalculatejourney?journeyId=dfb7218c-0fc9-4dfc-9524-d497097de027
+Content-Type: application/json
+Authorization: &lt;YOUR_BASIC_AUTH_TOKEN&gt;
+</span></code></pre></div></div>
+
+<p>The interface will respond with a response similar to the one below after the start of canceling recalculation a matching journey.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nl">"journey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"recalculateStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"pushing"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"inProgress"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"totalCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"remainingCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"recalculatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-14T10:29:22.439Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cancelledAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-14T10:42:09.921Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"recalculatedByClient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd0d4faac6aeb4cd1e694ab"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"recalculatedByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cancelledByClient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd0d4faac6aeb4cd1e694ab"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cancelledByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"5fd0d4faac6aeb4cd1e694aa"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"isSequential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"isRepeatable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"trackBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"persona"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"isPublic"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"sendCompletedStatement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"sendCompletedStatementClients"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd128debf6a026dfe99cca6"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd0d4de5fa8774c995b2258"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd0d4df5fa8774c995b225b"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"waypoints"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New waypoint"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd128e0bf6a026dfe99cca7"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"conditions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"$and"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"$comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">criterionLabel</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">A</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">criteriaPath</span><span class="se">\"</span><span class="s2">:[</span><span class="se">\"</span><span class="s2">statement</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">verb</span><span class="se">\"</span><span class="s2">]}"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"statement.verb.id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="nl">"$in"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                                    </span><span class="s2">"http://activitystrea.ms/schema/1.0/receive"</span><span class="w">
+                                </span><span class="p">]</span><span class="w">
+                            </span><span class="p">}</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd128e0bf6a026dfe99cca7"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"outcomes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-14T10:42:09.922Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-09T19:43:26.429Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"__v"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

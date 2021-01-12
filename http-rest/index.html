@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="rest-api-http-interface">REST API HTTP Interface</h1>
+<p>The table below describes the routes that the HTTP interface provides. This HTTP interface is available for all models in Learning Locker.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET http://www.example.org/api/v2/MODEL_NAME
+</code></pre></div></div>
+
+<p>For example, to get a count of stores via this API, you’d use the following route.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET http://www.example.org/api/v2/lrs
+</code></pre></div></div>
+
+<p>To access this interface, you must additionally supply your Basic Auth details with each request in the <code class="language-plaintext highlighter-rouge">Authorization</code> header. Your Basic Auth details can be found under <strong>Settings</strong> &gt; <strong>Clients</strong>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#get-count">GET /count</a></td>
+      <td>Gets a count of the models.</td>
+    </tr>
+    <tr>
+      <td><a href="#get-">GET /</a></td>
+      <td>Gets a subset of the models.</td>
+    </tr>
+    <tr>
+      <td><a href="#post-">POST /</a></td>
+      <td>Creates a model.</td>
+    </tr>
+    <tr>
+      <td><a href="#get-id">GET /:id</a></td>
+      <td>Gets a single model.</td>
+    </tr>
+    <tr>
+      <td><a href="#put-or-post-id">PUT /:id</a></td>
+      <td>Creates or overwrites a model.</td>
+    </tr>
+    <tr>
+      <td><a href="#put-or-post-id">POST /:id</a></td>
+      <td>Creates or overwrites a model.</td>
+    </tr>
+    <tr>
+      <td><a href="#patch-id">PATCH /:id</a></td>
+      <td>Patches a model.</td>
+    </tr>
+    <tr>
+      <td><a href="#delete-id">DELETE /:id</a></td>
+      <td>Deletes a model.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="models">Models</h2>
+<p>The table below lists the models supported by this interface, you can view the model schemas by clicking the model names.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>API Model Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="../http-activities#schema">Activity</a></td>
+      <td><code class="language-plaintext highlighter-rouge">activity</code></td>
+      <td>Activity with many identifiers.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-clients#schema">Client</a></td>
+      <td><code class="language-plaintext highlighter-rouge">client</code></td>
+      <td>Credentials that access HTTP Interfaces.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-dashboards#schema">Dashboard</a></td>
+      <td><code class="language-plaintext highlighter-rouge">dashboard</code></td>
+      <td>Customisable grid of visualisations.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-downloads#schema">Download</a></td>
+      <td><code class="language-plaintext highlighter-rouge">download</code></td>
+      <td>Record of downloaded exports.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-exports#schema">Export</a></td>
+      <td><code class="language-plaintext highlighter-rouge">export</code></td>
+      <td>Template for exporting statements.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-journeys#schema">Journey</a></td>
+      <td><code class="language-plaintext highlighter-rouge">journey</code></td>
+      <td>Journeys visualisation.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-journey-progress#schema">Journey Progress</a></td>
+      <td><code class="language-plaintext highlighter-rouge">journeyprogress</code></td>
+      <td>Journey progress.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-organisations#schema">Organisation</a></td>
+      <td><code class="language-plaintext highlighter-rouge">organisation</code></td>
+      <td>Container of clients and stores that a subset of users can access.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-personas#schema">Persona</a></td>
+      <td><code class="language-plaintext highlighter-rouge">persona</code></td>
+      <td>Person with many <a href="../http-persona-identifiers">identifiers</a> and <a href="../http-persona-attributes">attributes</a> across systems.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-persona-identifiers#schema">Persona Identifier</a></td>
+      <td><code class="language-plaintext highlighter-rouge">personaidentifier</code></td>
+      <td>Unique xAPI identifier for a persona.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-persona-attributes#schema">Persona Attribute</a></td>
+      <td><code class="language-plaintext highlighter-rouge">personaattribute</code></td>
+      <td>Attribute of a persona.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-queries#schema">Query</a></td>
+      <td><code class="language-plaintext highlighter-rouge">query</code></td>
+      <td>Saved filter for statements.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-roles#schema">Role</a></td>
+      <td><code class="language-plaintext highlighter-rouge">role</code></td>
+      <td>Group of permissions for accessing organisation data via users.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-stores#schema">Store</a></td>
+      <td><code class="language-plaintext highlighter-rouge">store</code></td>
+      <td>Container for xAPI data (statements, documents, and attachments).</td>
+    </tr>
+    <tr>
+      <td><a href="../http-users#schema">User</a></td>
+      <td><code class="language-plaintext highlighter-rouge">user</code></td>
+      <td>Login details for accessing the UI.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-visualisations#schema">Visualisation</a></td>
+      <td><code class="language-plaintext highlighter-rouge">visualisation</code></td>
+      <td>Graphical view of statements.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="routes">Routes</h2>
+<h3 id="get-count">GET /count</h3>
+<p>This route returns a count of the models. A request to this route would look something like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/api/v2/lrs/count
+Authorization: Basic YOUR_BASIC_AUTH
+</span></code></pre></div></div>
+
+<p>A request like the one above, will respond with a 200 response like the one below containing a count of the models in the body.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>For more information about the acceptable URL query parameters, view the <a href="https://florianholzapfel.github.io/express-restify-mongoose/#querying">Restify documentation</a>.</p>
+
+<p><strong>Important:</strong> In case of <strong>User</strong> route, <a href="https://florianholzapfel.github.io/express-restify-mongoose/#querying">query</a> parameter will be ignored and <code class="language-plaintext highlighter-rouge">search</code> parameter should be used instead (only available in Enterprise). <code class="language-plaintext highlighter-rouge">search</code> query parameter is a simple string and will be transformed into filter shown below.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"$or"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"$regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exampleSearchString"</span><span class="p">,</span><span class="w"> </span><span class="nl">"$options"</span><span class="p">:</span><span class="w"> </span><span class="s2">"i"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"$regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exampleSearchString"</span><span class="p">,</span><span class="w"> </span><span class="nl">"$options"</span><span class="p">:</span><span class="w"> </span><span class="s2">"i"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="get-">GET /</h3>
+<p>This route returns an array of models. A request to this route would look something like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/api/v2/lrs
+Authorization: Basic YOUR_BASIC_AUTH
+</span></code></pre></div></div>
+
+<p>A request like the one above, will respond with a 200 response like the one below containing the models as JSON in the body. Different models will respond with a different schema, you can view the schemas by clicking the model names in the <a href="#models">model table above</a>.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-08T14:35:18.400Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111aaa1111a111111aa11111"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"statementCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">987</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Store"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"__v"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-08T14:35:33.721Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111aaa1111a111111aa11112"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>For more information about the acceptable URL query parameters, view the <a href="https://florianholzapfel.github.io/express-restify-mongoose/#querying">Restify documentation</a>.</p>
+
+<p><strong>Important:</strong> In case of <strong>User</strong> route, <a href="https://florianholzapfel.github.io/express-restify-mongoose/#querying">query</a> parameter will be ignored and <code class="language-plaintext highlighter-rouge">search</code> parameter should be used instead. <code class="language-plaintext highlighter-rouge">search</code> query parameter is a simple string and will be transformed into filter shown below.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"$or"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"$regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exampleSearchString"</span><span class="p">,</span><span class="w"> </span><span class="nl">"$options"</span><span class="p">:</span><span class="w"> </span><span class="s2">"i"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"$regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exampleSearchString"</span><span class="p">,</span><span class="w"> </span><span class="nl">"$options"</span><span class="p">:</span><span class="w"> </span><span class="s2">"i"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="post-">POST /</h3>
+<p>This route creates a model. A request to this route would look something like the request below. Different models will require and respond with a different schema, you can view the schemas by clicking the model names in the <a href="#models">model table above</a>.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST http://www.example.org/api/v2/lrs
+Authorization: Basic YOUR_BASIC_AUTH
+Content-Type: application/json; charset=utf-8
+
+{
+  "title": "Example Store"
+}
+</span></code></pre></div></div>
+
+<p>A request like the one above, will respond with a 201 response like the one below containing the created model in the JSON body.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">CREATED</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-08T14:35:18.400Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111aaa1111a111111aa11111"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"statementCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Store"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-08T14:35:33.721Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111aaa1111a111111aa11112"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"__v"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="get-id">GET /:id</h3>
+<p>This route returns a single model that has the specified identifier from the URL. A request to this route would look something like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/api/v2/lrs/111aaa1111a111111aa11112
+Authorization: Basic YOUR_BASIC_AUTH
+</span></code></pre></div></div>
+
+<p>A request like the one above, will respond with a 200 response like the one below containing the model as JSON in the body. Different models will respond with a different schema, you can view the schemas by clicking the model names in the <a href="#models">model table above</a>. Note that the request will return a 404 response if the model doesn’t exist.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-08T14:35:18.400Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111aaa1111a111111aa11111"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"statementCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">987</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Store"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"__v"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-08T14:35:33.721Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111aaa1111a111111aa11112"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>For more information about the acceptable URL query parameters, view the <a href="https://florianholzapfel.github.io/express-restify-mongoose/#querying">Restify documentation</a>.</p>
+
+<h3 id="put-or-post-id">PUT or POST /:id</h3>
+<p>This route creates or updates a single model that has the specified identifier from the URL. A request to this route would look something like the request below. Different models will require and respond with a different schema, you can view the schemas by clicking the model names in the <a href="#models">model table above</a>.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">PUT http://www.example.org/api/v2/lrs/111aaa1111a111111aa11112
+Authorization: Basic YOUR_BASIC_AUTH
+Content-Type: application/json; charset=utf-8
+
+{
+  "createdAt": "2017-08-08T14:35:18.400Z",
+  "organisation": "111aaa1111a111111aa11111",
+  "statementCount": 987,
+  "title": "Updated Title",
+  "updatedAt": "2017-08-08T14:35:33.721Z",
+  "_id": "111aaa1111a111111aa11112"
+}
+</span></code></pre></div></div>
+
+<p>A request like the one above, will respond with a 200 response like the one below containing the model as JSON in the body.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-08T14:35:18.400Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111aaa1111a111111aa11111"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"statementCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">987</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Updated Title"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"__v"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-08T14:35:33.721Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111aaa1111a111111aa11112"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="patch-id">PATCH /:id</h3>
+<p>This route patches a single model that has the specified identifier from the URL. A request to this route would look something like the request below. Different models will require and respond with a different schema, you can view the schemas by clicking the model names in the <a href="#models">model table above</a>.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">PATCH http://www.example.org/api/v2/lrs/111aaa1111a111111aa11112
+Authorization: Basic YOUR_BASIC_AUTH
+Content-Type: application/json; charset=utf-8
+
+{
+  "title": "Patched Title"
+}
+</span></code></pre></div></div>
+
+<p>A request like the one above, will respond with a 200 response like the one below containing the model as JSON in the body.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-08T14:35:18.400Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111aaa1111a111111aa11111"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"statementCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">987</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patched Title"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"__v"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-08T14:35:33.721Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111aaa1111a111111aa11112"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="delete-id">DELETE /:id</h3>
+<p>This route deletes a single model that has the specified identifier from the URL. A request to this route would look something like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">DELETE http://www.example.org/api/v2/lrs/111aaa1111a111111aa11112
+Authorization: Basic YOUR_BASIC_AUTH
+</span></code></pre></div></div>
+
+<p>A request like the one above, will respond with a 204 response like the one below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">NO CONTENT</span>
+</code></pre></div></div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

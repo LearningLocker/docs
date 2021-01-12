@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="persona-imports-http-interface">Persona Imports HTTP Interface</h1>
+
+<p>Represents a CSV import (typically from a HR system) containing <a href="../http-personas">persona</a> <a href="../http-persona-identifiers">identifiers</a> and their <a href="../http-persona-attributes">attributes</a>.</p>
+
+<p>It is accessible through the following HTTP interfaces:</p>
+
+<ul>
+  <li><a href="../http-connection">Connection HTTP Interface</a> via http://www.example.org/api/connection/personasImport.</li>
+  <li><a href="../http-rest">REST HTTP Interface</a> via http://www.example.org/api/v2/personasImport.</li>
+</ul>
+
+<p>To import a CSV via the API, you need to make the three requests below in order.</p>
+
+<ol>
+  <li>Create the persona import model via the <a href="../http-rest">REST HTTP Interface</a> (http://www.example.org/api/v2/personasImport).</li>
+  <li>Upload the CSV via the <a href="#upload-http-interface">Upload HTTP interface</a>.</li>
+  <li>Process the persona import model via the <a href="#process-http-interface">Process HTTP interface</a>.</li>
+</ol>
+
+<p>Alternatively, you can create/update personas via the <a href="#persona-upsert-http-interface">Persona Upsert HTTP Interface</a>.</p>
+
+<h3 id="schema">Schema</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>_id</td>
+      <td>The id of this persona import model.</td>
+    </tr>
+    <tr>
+      <td>organisation</td>
+      <td>The id of the <a href="../http-organisations">organisation</a> this persona import belongs to.</td>
+    </tr>
+    <tr>
+      <td>owner</td>
+      <td>The id of the <a href="../http-users">user</a> that created the persona import.</td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td>The title of this persona import.</td>
+    </tr>
+    <tr>
+      <td>csvHeaders</td>
+      <td>An array of the header names from the CSV.</td>
+    </tr>
+    <tr>
+      <td>structure</td>
+      <td>The <a href="#structure">structure</a> of the CSV.</td>
+    </tr>
+    <tr>
+      <td>importedAt</td>
+      <td>The date and time that the persona import was imported.</td>
+    </tr>
+    <tr>
+      <td>csvHandle</td>
+      <td>The location of the CSV file in the storage provider.</td>
+    </tr>
+    <tr>
+      <td>csvErrorHandle</td>
+      <td>The location of the CSV file with its errors in the storage provider.</td>
+    </tr>
+    <tr>
+      <td>totalCount</td>
+      <td>Total number of data rows in the CSV.</td>
+    </tr>
+    <tr>
+      <td>processedCount</td>
+      <td>Total number of processed data rows in the CSV.</td>
+    </tr>
+    <tr>
+      <td>importErrors</td>
+      <td>An array of the errors in the CSV.</td>
+    </tr>
+    <tr>
+      <td>result</td>
+      <td>The result of the import in terms of personas created and merged.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example">Example</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c1219936229d4ce9634601"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organisation"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c1219936229d4ce9634602"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59c1219936229d4ce9634603"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Persona Import"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"csvHeaders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Full Name"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Moodle User ID"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Moodle Home Page"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Age"</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"structure"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Full Name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"columnName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Full Name"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"columnType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COLUMN_NAME"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"relatedColumn"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"primary"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Moodle User ID"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"columnName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moodle User ID"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"columnType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COLUMN_ACCOUNT_VALUE"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"relatedColumn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moodle Home Page"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"primary"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Moodle Home Page"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"columnName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moodle Home Page"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"columnType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COLUMN_ACCOUNT_KEY"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"relatedColumn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moodle User ID"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"primary"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Age"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"columnName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Age"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"columnType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COLUMN_ATTRIBUTE_DATA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"relatedColumn"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"primary"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h1 id="structure">Structure</h1>
+
+<p>Defines the structure of the CSV and how it should be parsed. The structure property is stored as an object where the keys are the CSV column names and the values are objects that define the column structure (value object schema defined below).</p>
+
+<h3 id="schema-1">Schema</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>columnName</td>
+      <td>The name of the column in the CSV (CSV header).</td>
+    </tr>
+    <tr>
+      <td><a href="#column-types">columnType</a></td>
+      <td>The type of the column or how it should be parsed.</td>
+    </tr>
+    <tr>
+      <td>relatedColumn</td>
+      <td>For account names this is the account home page column, for account home pages this is the account name column.</td>
+    </tr>
+    <tr>
+      <td>primary</td>
+      <td>Defines the order in which identifiers should be used.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="column-types">Column Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>COLUMN_NAME</td>
+      <td>Persona name.</td>
+    </tr>
+    <tr>
+      <td>COLUMN_ACCOUNT_KEY</td>
+      <td>Persona identifier account home page.</td>
+    </tr>
+    <tr>
+      <td>COLUMN_ACCOUNT_VALUE</td>
+      <td>Persona identifier account name.</td>
+    </tr>
+    <tr>
+      <td>COLUMN_ATTRIBUTE_DATA</td>
+      <td>Persona attribute value.</td>
+    </tr>
+    <tr>
+      <td>COLUMN_MBOX</td>
+      <td>Persona identifier mbox.</td>
+    </tr>
+    <tr>
+      <td>COLUMN_MBOXSHA1SUM</td>
+      <td>Persona identifier mbox_sha1sum.</td>
+    </tr>
+    <tr>
+      <td>COLUMN_OPENID</td>
+      <td>Persona identifier openid.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="upload-http-interface">Upload HTTP Interface</h1>
+<p>This interface uploads the CSV for the persona import model. Requests to this interface should look something like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST http://www.example.org/api/uploadpersonas
+Authorization: YOUR_BASIC_AUTH
+Content-Type: multipart/form-data; boundary=YOUR_FORM_BOUNDARY
+Content-Length: YOUR_CONTENT_LENGTH
+
+--YOUR_FORM_BOUNDARY
+Content-Disposition form-data; name="id"
+Content-Length: YOUR_PERSONA_IMPORT_MODEL_ID_LENGTH
+
+YOUR_PERSONA_IMPORT_MODEL_ID
+
+--YOUR_FORM_BOUNDARY
+Content-Disposition form-data; name="file"; filename="import.csv"
+Content-Length: YOUR_CSV_CONTENT_LENGTH
+Content-Type: text/csv
+
+YOUR_CSV_CONTENT
+
+--YOUR_FORM_BOUNDARY--
+</span></code></pre></div></div>
+
+<p>The interface will respond with a 200 response code when the CSV is successfully uploaded.</p>
+
+<h1 id="process-http-interface">Process HTTP Interface</h1>
+<p>This interface starts the processing of the persona import. Requests to this interface should look something like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST http://www.example.org/api/importpersonas
+Authorization: YOUR_BASIC_AUTH
+Content-Type: application/json; charset=utf-8
+
+{
+  "id": "YOUR_PERSONA_IMPORT_MODEL_ID"
+}
+</span></code></pre></div></div>
+
+<p>The interface will respond with a 200 response code, processing of the persona import will start shortly after the response is received.</p>
+
+<h1 id="persona-upsert-http-interface">Persona Upsert HTTP Interface</h1>
+<p>This interface provides API access to the function we use to process individual CSV rows in Persona Imports. Requests to this interface should look something like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST http://www.example.org/api/uploadpersona
+Content-Type: application/json
+Authorization: &lt;YOUR_BASIC_AUTH_TOKEN&gt;
+
+{
+  "personaName": "Sam Jackson",
+  "ifis": [
+    {
+      "key": "account",
+      "value": {
+        "homePage": "https://sso.example.org",
+        "name": "sam_jackson_sso_id"
+      }
+    },
+    {
+      "key": "mbox",
+      "value": "mailto:sam.jackson@example.org"
+    }
+  ],
+  "attributes": [
+    {
+      "key": "Team",
+      "value": "Avengers"
+    }
+  ]
+}
+</span></code></pre></div></div>
+
+<p>The interface will respond with a response similar to the one below after it has created/updated a matching persona.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nl">"merged"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="retrieving-createdupdated-persona">Retrieving Created/Updated Persona</h2>
+<p>To retrieve the persona that was created/updated in the previous upsert request, you can make the following request to the <a href="/http-connection/">Connection HTTP Interface</a> for <a href="/http-persona-identifiers/">Persona Indentifiers</a>.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/api/connection/personaidentifier?filter={"ifi.key": "account", "ifi.value.homePage": "https://sso.example.org", "ifi.value.name": "sam_jackson_sso_id"}
+Authorization: &lt;YOUR_BASIC_AUTH_TOKEN&gt;
+</span></code></pre></div></div>
+
+<p>This will provide a response similar to the one below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+  "edges": [
+    {
+      "cursor": "&lt;CURSOR&gt;",
+      "node": {
+        "_id": "&lt;YOUR_LL_PERSONA_IDENTIFIER_ID&gt;",
+        "ifi": {
+          "key": "account",
+          "value": {
+            "homePage": "https://sso.example.org",
+            "name": "sam_jackson_sso_id"
+          }
+        },
+        "organisation": "&lt;YOUR_LL_ORG_ID&gt;",
+        "locked": false,
+        "persona": "&lt;CREATED_OR_UPDATED_LL_PERSONA_ID&gt;"
+      }
+    }
+  ],
+  "pageInfo": {
+    "endCursor": "&lt;END_CURSOR&gt;",
+    "hasNextPage": false,
+    "hasPreviousPage": false,
+    "startCursor": "&lt;START_CURSOR&gt;"
+  }
+}
+</code></pre></div></div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

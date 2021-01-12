@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="custom-installation">Custom installation</h1>
+
+<h2 id="requirements">Requirements</h2>
+
+<p>In order to install Learning Locker you will require a machine that has these minimum requirements:</p>
+
+<ul>
+  <li><a href="https://git-scm.com/">Git</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/GNU_toolchain">GCC toolchain</a></li>
+  <li><a href="https://nodejs.org/en/">Node</a> (v10)</li>
+  <li><a href="https://yarnpkg.com/en/">Yarn</a></li>
+  <li>Connectivity to a <a href="https://www.mongodb.com/">Mongo</a> instance (v4+ as of LL v7.0.0)</li>
+  <li>Connectivity to a <a href="https://redis.io/">Redis</a> instance (v2.8.18+)</li>
+  <li>Web server <em>e.g. <a href="https://www.nginx.com/resources/wiki/">Nginx</a> or <a href="https://httpd.apache.org/">Apache</a></em> (optional)</li>
+  <li>Process management system <em>e.g. <a href="http://pm2.keymetrics.io/docs/usage/quick-start/">PM2</a> or <a href="http://supervisord.org/">Supervisor</a></em></li>
+</ul>
+
+<h3 id="gcc-and-git">GCC and Git</h3>
+
+<p>A good minimum set of requirements for Git and the GCC toolchain can be installed with the following commands:</p>
+
+<h3 id="fedora-based-systems">Fedora based systems</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum update
+yum -y install curl git python make automake gcc gcc-c++ kernel-devel xorg-x11-server-Xvfb git-core
+</code></pre></div></div>
+
+<h3 id="ubuntudebian-based-systems">Ubuntu/Debian based systems</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get update &amp;&amp; apt-get upgrade
+apt-get -y install curl git python build-essential xvfb apt-transport-https
+</code></pre></div></div>
+
+<h3 id="node-and-yarn-installation">Node and Yarn installation</h3>
+
+<p>There are multiple ways to install Node and Yarn (a package management system for Node). We would recommend the excellent NVM (Node Version Manager) which can be installed by following instructions here: <a href="https://github.com/creationix/nvm">https://github.com/creationix/nvm</a></p>
+
+<p>We are currently targeting builds on Node 10.*</p>
+
+<p>Instructions to install Yarn can be found here: <a href="https://yarnpkg.com/en/docs/install">https://yarnpkg.com/en/docs/install</a> but if being used with <code class="language-plaintext highlighter-rouge">nvm</code> install via:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install -g yarn
+</code></pre></div></div>
+
+<h3 id="process-management">Process Management</h3>
+
+<p><a href="http://pm2.keymetrics.io/docs/usage/quick-start/">PM2</a> is an excellent tool that can be used to manage the Node processes. It also handles log management/rotation and can automatically restart failed services. Learning Locker comes pre-packaged with some <a href="https://github.com/LearningLocker/learninglocker/tree/master/pm2">pm2 configuration scripts</a>.</p>
+
+<p>To <a href="http://pm2.keymetrics.io/docs/usage/quick-start/#installation">install PM2</a>, run the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install -g pm2
+</code></pre></div></div>
+
+<p>We also recommend installing the <code class="language-plaintext highlighter-rouge">pm2-logrotate</code> module, which can handle rotating and compressing your logs.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pm2 install pm2-logrotate
+pm2 set pm2-logrotate:compress true
+</code></pre></div></div>
+
+<h2 id="user-best-practice">User best practice</h2>
+
+<p>It is always preferable that you do not run your Node processes as the <code class="language-plaintext highlighter-rouge">root</code> user. For this reason we would always suggest creating a new system user under which installation, builds and services can be run.</p>
+
+<h2 id="setup">Setup</h2>
+
+<p>The Learning Locker application is divided into two logically separate codebases, each of which can be configured to talk to the same Mongo and Redis instances.</p>
+
+<p>Each codebase requires that it is downloaded, built and configured before it can be run. This guide will aim to guide you through manually installing and running a full Learning Locker stack.</p>
+
+<p>More distribution specific information can be found inside the <a href="https://github.com/LearningLocker/deploy/">install script source code</a>.</p>
+
+<h2 id="installing-and-building-the-learning-locker-ui-api-and-worker">Installing and Building the Learning Locker UI, API and Worker</h2>
+
+<h3 id="clone-and-install">Clone and install</h3>
+
+<p>Clone <a href="https://github.com/LearningLocker/learninglocker">the Learning Locker application</a> into a new working directory on your server.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/LearningLocker/learninglocker.git
+</code></pre></div></div>
+
+<p>Enter the directory and install the requirements:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm_config_build_from_source=true yarn install --ignore-engines
+</code></pre></div></div>
+
+<h3 id="build">Build</h3>
+
+<p>You are now ready to build the code. You have different option here depending on how you wish to deploy the services. The codebase has 5 distinct services that can be built:</p>
+
+<ul>
+  <li>UI Server - <code class="language-plaintext highlighter-rouge">yarn build-ui-server</code></li>
+  <li>UI Client - <code class="language-plaintext highlighter-rouge">yarn build-ui-client</code></li>
+  <li>API Server - <code class="language-plaintext highlighter-rouge">yarn build-api-server</code></li>
+  <li>Worker - <code class="language-plaintext highlighter-rouge">yarn build-worker-server</code></li>
+  <li>CLI - <code class="language-plaintext highlighter-rouge">yarn build-cli-server</code></li>
+</ul>
+
+<p>If you wish to run the UI, API and Worker on the same machine and run CLI commands, you will probably want to build all the services in one simple command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn build-all
+</code></pre></div></div>
+
+<h3 id="configuration">Configuration</h3>
+
+<p>Copy the <code class="language-plaintext highlighter-rouge">.env.example</code> into a new <code class="language-plaintext highlighter-rouge">.env</code> file and <a href="http://docs.learninglocker.net/guides-configuring/#learning-locker-application">edit as required</a>.</p>
+
+<h3 id="migrations">Migrations</h3>
+
+<p>The database requires some indexes adding and also when upgrading you will find migrations that take care of mutating your data where required.</p>
+
+<p>Once your instance is configured, run required migrations using the below command.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn migrate
+</code></pre></div></div>
+
+<h2 id="installing-the-xapi-service">Installing the xAPI service</h2>
+
+<h3 id="clone-and-install-1">Clone and install</h3>
+
+<p>Clone <a href="https://github.com/LearningLocker/xapi-service">the xAPI Service</a> into a new working directory on your server.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/LearningLocker/xapi-service.git
+</code></pre></div></div>
+
+<p>Enter the directory and install the requirements:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn install --ignore-engines
+</code></pre></div></div>
+
+<h3 id="build-1">Build</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn build
+</code></pre></div></div>
+
+<h3 id="configuration-1">Configuration</h3>
+
+<p>Copy the <code class="language-plaintext highlighter-rouge">.env.example</code> into a new <code class="language-plaintext highlighter-rouge">.env</code> file and <a href="http://docs.learninglocker.net/guides-configuring/#xapi-service">edit as required</a>.</p>
+
+<h2 id="running-the-services-via-pm2">Running the services via PM2</h2>
+
+<p>If PM2 has been installed, you will be able to run the services using the preconfigured pm2 files in each codebase:</p>
+
+<h3 id="learning-locker-ui-api-worker">Learning Locker UI, API, Worker</h3>
+
+<p>To start all 3 services, navigate to the LL working directory and run:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pm2 start pm2/all.json
+</code></pre></div></div>
+
+<h3 id="xapi-service">xAPI Service</h3>
+
+<p>To start the xAPI service, navigate to the xAPI Service working directory and run:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pm2 start pm2/xapi.json
+</code></pre></div></div>
+
+<h3 id="config-status-and-logs">Config, status and logs</h3>
+
+<p>Note you may wish to copy and modify these pm2 config files based on your setup. Documentation can be found <a href="http://pm2.keymetrics.io/docs/usage/application-declaration/">here</a>.</p>
+
+<p>To view the status of your services:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pm2 status
+</code></pre></div></div>
+
+<p>To view logs:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pm2 logs
+</code></pre></div></div>
+
+<p>To restart the services:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pm2 restart all
+</code></pre></div></div>
+
+<h2 id="running-the-services-manually">Running the services manually</h2>
+
+<p>If you wish to use a different process management tool (e.g. Supervisor) or simply wish to run them manually for testing, you can start the services with these commands.</p>
+
+<h4 id="running-the-ui">Running the UI</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node ui/dist/server
+</code></pre></div></div>
+
+<h4 id="running-the-api">Running the API</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node api/dist/server
+</code></pre></div></div>
+
+<h4 id="running-the-worker">Running the worker</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node worker/dist/server
+</code></pre></div></div>
+
+<h4 id="running-the-xapi-service">Running the xAPI service</h4>
+
+<p><em>In your xAPI service directory</em></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node dist/server.js
+</code></pre></div></div>
+
+<h2 id="server-configuration">Server configuration</h2>
+
+<p>The application is accessed through 3 web interfaces, the UI, API and xAPI. Each of these is configured to run on independent ports but it is recommended you setup a server to sit infront of all traffic and route accordingly. An example nginx config can be seen here: <a href="https://github.com/LearningLocker/learninglocker/blob/master/nginx.conf.example">nginx.conf.example</a></p>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

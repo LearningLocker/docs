@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="connection-http-interface">Connection HTTP Interface</h1>
+
+<p>The Learning Locker Connection API is a HTTP interface that <a href="#pagination-example">utilises cursors to provide paginated models</a>. The API is inspired by <a href="https://facebook.github.io/relay/graphql/connections.htm">GraphQL’s connections</a>. The API is available for all models in Learning Locker, for example, to receive paginated statements via this API, you’d use the following URL.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://www.example.org/api/connection/statement
+</code></pre></div></div>
+
+<p>You must additionally supply your Basic Auth details with each request in the <code class="language-plaintext highlighter-rouge">Authorization</code> header. Your Basic Auth details can be found under <strong>Settings</strong> &gt; <strong>Clients</strong>. The API also accepts the following <em>optional</em> URL parameters for filtering the models returned.</p>
+
+<ul>
+  <li><a href="#sort-parameter">sort</a> (required -  we recommend sorting by <code class="language-plaintext highlighter-rouge">_id</code> if nothing else)</li>
+  <li><a href="#search-parameter">search</a> (available only for user connection in Enterprise)</li>
+  <li><a href="#filter-parameter">filter</a> (not available for User connection)</li>
+  <li><a href="#project-parameter">project</a></li>
+  <li><a href="#hint-parameter">hint</a></li>
+  <li><a href="#first-parameter">first</a></li>
+  <li><a href="#after-parameter">after</a></li>
+</ul>
+
+<h2 id="url-parameters">URL Parameters</h2>
+<p>All of the URL parameters should be URL encoded (after JSON encoding if JSON encoding is required). For example, if you were using the <a href="#sort-parameter">example sort parameter</a>, your request would look something like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/api/connection/statement?sort=%7b%22timestamp%22%3a-1%2c%22statement.id%22%3a1%7d
+Authorization: Basic YOUR_BASIC_AUTH
+</span></code></pre></div></div>
+
+<h3 id="sort-parameter">Sort Parameter</h3>
+<p>The sort parameter is a JSON encoded object. The keys of the object represent the names of the properties you wish to sort. The values of the object represent the order in which you want to sort the properties. To sort in ascending order, use the number 1; to sort in descending order, use the number -1.</p>
+
+<p>For example, to sort statements in descending order of their timestamp and ascending order of their Mongo ObjectId, you can use the following sort parameter.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In the above example, we’ve included the <code class="language-plaintext highlighter-rouge">_id</code> because it should be unique and the sort parameter should always contain a unique property in order for pagination to work correctly with cursors. The order of the keys in the object determines which property is sorted first, so always include a unique property at the end such as the <code class="language-plaintext highlighter-rouge">_id</code> property.</p>
+
+<h4 id="sorting-with-extension-keys">Sorting With Extension Keys</h4>
+<p>Note that when using extension keys, you need to replace any dots with <code class="language-plaintext highlighter-rouge">&amp;46;</code> because Mongo does not allow dots in keys. For example, when you have an extension key like <code class="language-plaintext highlighter-rouge">http://www.example.com/extension</code> you can sort by it using <code class="language-plaintext highlighter-rouge">http://www&amp;46;example&amp;46;com/extension</code> instead, so a sort parameter using this extension key might look something like the sort parameter below.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"statement.context.extensions.http://www&amp;46;example&amp;46;com/extension"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="sorting-with-improved-performance">Sorting With Improved Performance</h4>
+<p>You may find that changing the sort parameter can vary the time it takes a query to run, especially when you have a large number of models. You can take advantage of database indexes to improve performance, more information is available about <a href="https://docs.mongodb.com/manual/indexes/">using indexes via Mongo’s documentation</a>. If utilising indexes doesn’t have the required performance improvement, you can instead utilise <a href="../guides-retrieving">BI tools</a>.</p>
+
+<h3 id="search-parameter">Search Parameter</h3>
+<p>The search parameter is a simple string and <strong>available only for User connection</strong>. This parameter is gonna search for the match over <code class="language-plaintext highlighter-rouge">name</code> and <code class="language-plaintext highlighter-rouge">email</code> fields of User schema. So if the value for this parameter is <code class="language-plaintext highlighter-rouge">exampleSearchString</code>, as shown in the request below, it will be transformed into filter as shown below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/api/connection/user?search=exampleSearchString
+Authorization: Basic YOUR_BASIC_AUTH
+</span></code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"$or"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"$regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exampleSearchString"</span><span class="p">,</span><span class="w"> </span><span class="nl">"$options"</span><span class="p">:</span><span class="w"> </span><span class="s2">"i"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"$regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exampleSearchString"</span><span class="p">,</span><span class="w"> </span><span class="nl">"$options"</span><span class="p">:</span><span class="w"> </span><span class="s2">"i"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="filter-parameter">Filter Parameter</h3>
+<p>The filter parameter is a JSON encoded object. The keys of the object represent the names of the properties or operators. The values of the object represent the value you wish to filter by.</p>
+
+<p>For example, to filter statements by actor or verb, you can use the following filter parameter.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"$or"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"statement.actor.account.name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"statement.actor.account.homePage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org/user"</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"statement.verb.id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org/verb"</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In the example above, <a href="https://docs.mongodb.com/manual/reference/operator/query/or/#op._S_or"><code class="language-plaintext highlighter-rouge">$or</code></a> is a operator, all operators start with a dollar (<code class="language-plaintext highlighter-rouge">$</code>). You can find a <a href="https://docs.mongodb.com/manual/reference/operator/query/">list of the available operators in the Mongo documentation</a>. The most common operators are the comparison operators (<a href="https://docs.mongodb.com/manual/reference/operator/query/eq/#op._S_eq"><code class="language-plaintext highlighter-rouge">$eq</code></a>, <a href="https://docs.mongodb.com/manual/reference/operator/query/gt/#op._S_gt"><code class="language-plaintext highlighter-rouge">$gt</code></a>, <a href="https://docs.mongodb.com/manual/reference/operator/query/gte/#op._S_gte"><code class="language-plaintext highlighter-rouge">$gte</code></a>, <a href="https://docs.mongodb.com/manual/reference/operator/query/in/#op._S_in"><code class="language-plaintext highlighter-rouge">$in</code></a>, <a href="https://docs.mongodb.com/manual/reference/operator/query/lt/#op._S_lt"><code class="language-plaintext highlighter-rouge">$lt</code></a>, <a href="https://docs.mongodb.com/manual/reference/operator/query/lte/#op._S_lte"><code class="language-plaintext highlighter-rouge">$lte</code></a>, <a href="https://docs.mongodb.com/manual/reference/operator/query/ne/#op._S_ne"><code class="language-plaintext highlighter-rouge">$ne</code></a>, and <a href="https://docs.mongodb.com/manual/reference/operator/query/nin/#op._S_nin"><code class="language-plaintext highlighter-rouge">$nin</code></a>) and the logical operators (<a href="https://docs.mongodb.com/manual/reference/operator/query/and/#op._S_and"><code class="language-plaintext highlighter-rouge">$and</code></a>, <a href="https://docs.mongodb.com/manual/reference/operator/query/not/#op._S_not"><code class="language-plaintext highlighter-rouge">$not</code></a>, <a href="https://docs.mongodb.com/manual/reference/operator/query/nor/#op._S_nor"><code class="language-plaintext highlighter-rouge">$nor</code></a>, and <a href="https://docs.mongodb.com/manual/reference/operator/query/or/#op._S_or"><code class="language-plaintext highlighter-rouge">$or</code></a>).</p>
+
+<h4 id="filtering-with-extension-keys">Filtering With Extension Keys</h4>
+<p>Note that when using extension keys, you need to replace any dots with <code class="language-plaintext highlighter-rouge">&amp;46;</code> because Mongo does not allow dots in keys. For example, when you have an extension key like <code class="language-plaintext highlighter-rouge">http://www.example.com/extension</code> you can filter it using <code class="language-plaintext highlighter-rouge">http://www&amp;46;example&amp;46;com/extension</code> instead, so a filter parameter using this extension key might look something like the filter parameter below.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"statement.context.extensions.http://www&amp;46;example&amp;46;com/extension"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"$ne"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="filtering-with-improved-performance">Filtering With Improved Performance</h4>
+<p>You may find that changing the filter parameter can vary the time it takes a query to run, especially when you have a large number of models. You can take advantage of database indexes to improve performance, more information is available about <a href="https://docs.mongodb.com/manual/indexes/">using indexes via Mongo’s documentation</a>. If utilising indexes doesn’t have the required performance improvement, you can instead utilise <a href="../guides-retrieving">BI tools</a>.</p>
+
+<h3 id="project-parameter">Project Parameter</h3>
+<p>The project parameter is a JSON encoded object. The keys of the object usually represent the names you want to give to the projected properties. The values of the object usually determine whether the property is included/excluded or the name of the property to project from the model.</p>
+
+<p>For example, to project the actor’s account name as a user’s identifier, the verb without a display, and the object’s identifier you can use the following project parameter.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$statement.actor.account.name"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"statement.verb"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"statement.object.id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In the example above, the value <code class="language-plaintext highlighter-rouge">0</code> is used to exclude the verb’s display property. Similarly, the value <code class="language-plaintext highlighter-rouge">1</code> is used to include the object’s identifier. You can find out more about <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/project/">projections via the Mongo documentation</a>.</p>
+
+<h4 id="projecting-with-extension-keys">Projecting With Extension Keys</h4>
+<p>Note that when using extension keys, you need to replace any dots with <code class="language-plaintext highlighter-rouge">&amp;46;</code> because Mongo does not allow dots in keys. For example, when you have an extension key like <code class="language-plaintext highlighter-rouge">http://www.example.com/extension</code> you can project it using <code class="language-plaintext highlighter-rouge">http://www&amp;46;example&amp;46;com/extension</code> instead, so a project parameter using this extension key might look something like the project parameter below.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"statement.context.extensions.http://www&amp;46;example&amp;46;com/extension"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="hint-parameter">Hint Parameter</h3>
+<p>The hint parameter is a JSON encoded object that represents a Mongo index and is similar to the <a href="#sort-parameter">sort parameter</a>. A hint overrides Mongo’s default index selection and query optimisation process.</p>
+
+<p>For example, to use an index you’ve created in Mongo for verb identifiers in ascending order, you can use the following hint parameter.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"statement.verb.id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>For more information about hints, you can checkout <a href="https://docs.mongodb.com/manual/reference/method/cursor.hint/index.html">Mongo’s hint documentation</a>.</p>
+
+<h3 id="first-parameter">First Parameter</h3>
+<p>The first parameter is a number that represents the number of models to be returned after the <a href="#after-parameter">after cursor parameter</a> or from the very first model in Mongo.</p>
+
+<h3 id="after-parameter">After Parameter</h3>
+<p>The after parameter is a string that represents a cursor used for getting models after a specified point in the Mongo collection.</p>
+
+<h2 id="pagination-example">Pagination Example</h2>
+<p>To demonstrate pagination with this API, you can insert two statements using a request like the one below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST http://www.example.org/data/xAPI/statements
+Authorization: Basic YOUR_BASIC_AUTH
+X-Experience-API-Version: 1.0.3
+Content-Type: application/json
+
+[{
+  "actor": { "mbox": "mailto:test1@example.org" },
+  "verb": { "id": "http://www.example.org/verb" },
+  "object": { "id": "http://www.example.org/activity" },
+}, {
+  "actor": { "mbox": "mailto:test2@example.org" },
+  "verb": { "id": "http://www.example.org/verb" },
+  "object": { "id": "http://www.example.org/activity" },
+}]
+</span></code></pre></div></div>
+
+<p>The request above should return you a statement identifier for each of the statements in an array.</p>
+
+<h3 id="retrieving-page-one">Retrieving Page One</h3>
+<p>Once you’ve inserted two statements, you can make a request for the first statement, using a request like the one below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/api/connection/statement?first=1
+Authorization: Basic YOUR_BASIC_AUTH
+</span></code></pre></div></div>
+
+<p>The request above should return you a connection, consisting of edges (which contain the models) and page info (which contains the cursors). For example, the above request would return something like the response below.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"cursor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zmlyc3RTdGF0ZW1lbnQ="</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"node"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59ad59a40334c1bd23322c3a"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"statement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0f748889-8d6c-4423-9919-189a14484d2f"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"actor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent"</span><span class="p">,</span><span class="w"> </span><span class="nl">"mbox"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailto:test1@example.org"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"verb"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org/verb"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org/activity"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.3"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"authority"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"mbox"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailto:authority@example.org"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"pageInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"endCursor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zmlyc3RTdGF0ZW1lbnQ="</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"hasNextPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"hasPreviousPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"startCursor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zmlyc3RTdGF0ZW1lbnQ="</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="retrieving-subsequent-pages">Retrieving Subsequent Pages</h3>
+<p>Once you’ve received a page, you can use the cursors in the <code class="language-plaintext highlighter-rouge">pageInfo</code> from the previous response to retrieve the next page. For example, we can use a request like the one below to retrieve the second of the inserted statements from earlier in this example.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/api/connection/statement?first=1&amp;after=Zmlyc3RTdGF0ZW1lbnQ=
+Authorization: Basic YOUR_BASIC_AUTH
+</span></code></pre></div></div>
+
+<p>The request above should return you another connection, again this will consist of edges (which contain the models) and page info (which contains the cursors). For example, the request for page two would return something like the response below.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"cursor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c2Vjb25kU3RhdGVtZW50"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"node"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59ad5b9480fe0205abbd0aec"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"statement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3c44a187-ad17-41c1-bc73-fed40fdbb200"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"actor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent"</span><span class="p">,</span><span class="w"> </span><span class="nl">"mbox"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailto:test2@example.org"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"verb"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org/verb"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org/activity"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.3"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"authority"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"mbox"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailto:authority@example.org"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"pageInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"endCursor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c2Vjb25kU3RhdGVtZW50"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"hasNextPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"hasPreviousPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"startCursor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c2Vjb25kU3RhdGVtZW50"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

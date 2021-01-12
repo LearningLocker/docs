@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="xapi-http-interface">xAPI HTTP Interface</h1>
+<p>Learning Locker’s HTTP interface conforms to the xAPI specification. The xAPI defines how to record learning experiences for analysis and serves as a guide to maximise interoperability between services that provide learning experiences.</p>
+
+<p>The table below describes the routes that the HTTP interface provides, all of the URLs are relative to http://www.example.org/data/xAPI where http://www.example.org is the URL of your Learning Locker instance. To access this interface, you must additionally supply your Basic Auth details with each request in the <code class="language-plaintext highlighter-rouge">Authorization</code> header. Your Basic Auth details can be found under <strong>Settings</strong> &gt; <strong>Clients</strong>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Route</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#get-about">GET /about</a></td>
+      <td>Retrieves information about the LRS.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-statements#put-statements">PUT /statements</a></td>
+      <td>Stores a single statement.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-statements#post-statements">POST /statements</a></td>
+      <td>Stores a single statement or multiple statements.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-statements#get-statements">GET /statements</a></td>
+      <td>Retrieves statements.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-states#put-activitiesstate">PUT /activities/state</a></td>
+      <td>Creates or overwrites a state document.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-states#post-activitiesstate">POST /activities/state</a></td>
+      <td>Creates or merges a state document.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-states#get-activitiesstate">GET /activities/state</a></td>
+      <td>Retrieves a single state document or multiple state identifiers.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-states#delete-activitiesstate">DELETE /activities/state</a></td>
+      <td>Deletes a single state document or multiple state documents.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-activities#get-activities">GET /activities</a></td>
+      <td>Retrieves a fully described activity.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-activities#put-activitiesprofile">PUT /activities/profile</a></td>
+      <td>Creates or overwrites a profile document.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-activities#post-activitiesprofile">POST /activities/profile</a></td>
+      <td>Creates or merges a profile document.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-activities#get-activitiesprofile">GET /activities/profile</a></td>
+      <td>Retrieves a single profile document or multiple profile identifiers.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-activities#delete-activitiesprofile">DELETE /activities/profile</a></td>
+      <td>Deletes a single profile document.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-agents#get-agents">GET /agents</a></td>
+      <td>Retrieves all of the agents used by a person.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-agents#put-agentsprofile">PUT /agents/profile</a></td>
+      <td>Creates or overwrites a profile document.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-agents#post-agentsprofile">POST /agents/profile</a></td>
+      <td>Creates or merges a profile document.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-agents#get-agentsprofile">GET /agents/profile</a></td>
+      <td>Retrieves a single profile document or multiple profile identifiers.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-agents#delete-agentsprofile">DELETE /agents/profile</a></td>
+      <td>Deletes a single profile document.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="get-about">GET /about</h2>
+<p>This route returns a JSON encoded object containing information about the LRS. A request to this route would look something like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/data/xAPI/about
+Authorization: YOUR_BASIC_AUTH
+</span></code></pre></div></div>
+
+<p>A request like the one above, will respond with a 200 response with a response body like the JSON below, which contains an array of the xAPI versions supported by your Learning Locker instance.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+<span class="na">X-Experience-API-Version</span><span class="p">:</span> <span class="s">1.0.3</span>
+
+<span class="p">{</span><span class="w"> </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"1.0.1"</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>For more information, view the <a href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#28-about-resource">GET /about route in the xAPI specification</a>.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

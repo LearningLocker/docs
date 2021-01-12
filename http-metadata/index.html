@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="statement-metadata-api-http-interface">Statement Metadata API HTTP Interface</h1>
+<p>The <a href="#routes">routes table</a> below describes the methods that the Statement Metadata HTTP interface provides. Both routes require that you specify an <code class="language-plaintext highlighter-rouge">_id</code> from the statement record, in order to determine to which statement the metadata should be added. This can be found be found by performing a <a href="#get-statement-_id">GET request on the statement model</a>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST http://www.example.org/api/v2/statementmetadata/:id
+</code></pre></div></div>
+
+<p>To access this interface, you must additionally supply your Basic Auth details with each request in the <code class="language-plaintext highlighter-rouge">Authorization</code> header. Your Basic Auth details can be found under <strong>Settings</strong> &gt; <strong>Clients</strong>.</p>
+
+<p>The JSON body of these methods is a key-value pair such as the following. Some examples of where we currently add metadata can be found on <a href="../guides-assessment-statements">question statements</a> coming from Adapt.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "https://learninglocker.net/true-false-response": "Yes"
+}
+</code></pre></div></div>
+
+<h2 id="schema">Schema</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>_id</td>
+      <td>The unique id of the <a href="./http-statements#schema/">Statement</a></td>
+    </tr>
+    <tr>
+      <td>metadata</td>
+      <td>An object containing key-value pairs, where the key is an IRI representing the metadata field with requirements defined by the <a href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Data.md#31-iri-requirements">xAPI specification</a> and the value can be of any type.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="routes">Routes</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#patch-id">PATCH /:id</a></td>
+      <td>Patches a model.</td>
+    </tr>
+    <tr>
+      <td><a href="#post-id">POST /:id</a></td>
+      <td>Creates or overwrites a model.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="patch-id">PATCH /:id</h3>
+<p>This route patches the metadata field on a statement that has the specified statement _id from the URL. A request to this route would look something like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">PATCH http://www.example.org/api/v2/statementmetadata/111aaa1111a111111aa11112
+Authorization: Basic YOUR_BASIC_AUTH
+Content-Type: application/json; charset=utf-8
+
+{
+  "example_key": "example_value"
+}
+</span></code></pre></div></div>
+
+<p>A request like the one above, will respond with a 200 response like the one below containing the model as JSON in the body.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111aaa1111a111111aa11111"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"example_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="post-id">POST /:id</h3>
+<p>This route creates or updates the metadata field on a statement that has the specified statement identifier from the URL.</p>
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">Please note:</code> It is preferable to use <a href="#patch-id">PATCH</a> where possible to prevent overwriting metadata set by Learning Locker that is required for certain parts of the UI to work.</p>
+</blockquote>
+
+<p>A request to this route would look something like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST http://www.example.org/api/v2/statementmetadata/111aaa1111a111111aa11112
+Authorization: Basic YOUR_BASIC_AUTH
+Content-Type: application/json; charset=utf-8
+
+{
+  "example_key": "example_value"
+}
+</span></code></pre></div></div>
+
+<p>A request like the one above, will respond with a 200 response like the one below containing the model as JSON in the body.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111aaa1111a111111aa11111"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"example_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="get-statement-_id">GET statement _id</h2>
+
+<p>To get the statement _id for the route above, we can perform a GET request on statements via the <a href="../http-rest/#get-">REST API</a>.</p>
+
+<p>If you haven’t already inserted your statements, they can be added via the <a href="../http-xapi-statements/">xAPI Statements HTTP Interface</a>, for example:</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST http://www.example.org/data/xAPI/statements
+Authorization: YOUR_BASIC_AUTH
+X-Experience-API-Version: 1.0.3
+Content-Type: application/json; charset=utf-8
+
+{
+  "actor": { "mbox": "mailto:test1@example.org" },
+  "verb": { "id": "http://www.example.org/verb" },
+  "object": { "id": "http://www.example.org/activity" }
+}
+</span></code></pre></div></div>
+
+<p>This route returns a 200 response with an array of statement identifiers when the statements are successfully created. A response from this route would look something like the response below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+<span class="na">X-Experience-API-Version</span><span class="p">:</span> <span class="s">1.0.3</span>
+<span class="na">X-Experience-API-Consistent-Through</span><span class="p">:</span> <span class="s">2017-08-31T15:16:29.709Z</span>
+
+<span class="p">[</span><span class="s2">"dfb7218c-0fc9-4dfc-9524-d497097de027"</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Then, we can use this statement identifier from the response to query the statement model (<a href="../http-rest/#get-">detailed documentation can be found on the HTTP REST page</a>), in order to retrieve the <code class="language-plaintext highlighter-rouge">_id</code> which is used in the statement metadata routes. We can use <a href="https://florianholzapfel.github.io/express-restify-mongoose/#querying">URL query parameters</a> to get the statement with the specified statement identifier, then return the statement identifier with the <code class="language-plaintext highlighter-rouge">_id</code>, which is returned by default.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/api/v2/statement?query={"statement.id":"dfb7218c-0fc9-4dfc-9524-d497097de027"}&amp;select={"statement.id":1}
+Authorization: Basic YOUR_BASIC_AUTH
+</span></code></pre></div></div>
+
+<p>A request like the one above, will respond with a 200 response like the one below containing the statement model as JSON in the body with only the fields defined in the SELECT parameter.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f32b029f31b0ad6c241f7bb"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"statement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dfb7218c-0fc9-4dfc-9524-d497097de027"</span><span class="p">,</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>This <code class="language-plaintext highlighter-rouge">_id</code> is then used to add statement metadata via the <a href="#patch">PATCH</a> and <a href="#post">POST</a> routes.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

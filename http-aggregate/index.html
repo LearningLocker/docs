@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="aggregate-http-interface">Aggregate HTTP Interface</h1>
+
+<p>The Learning Locker Aggregate HTTP interface utilises the <a href="https://docs.mongodb.com/manual/aggregation/">Mongo aggregation API</a> and is only available for allowed collections. 
+The Aggregate HTTP Interface is more advanced than the xAPI HTTP interface and allows you to access MongoDB’s powerful Aggregation API for more custom filtration of documents.</p>
+
+<h2 id="allowed-collections">Allowed Collections</h2>
+
+<p>This interface can be used to aggregate on multiple <strong>allowed only</strong> collections. To check whether a collection is allowed for aggregation or not, we use a regular expression. You can specify your own rule using <code class="language-plaintext highlighter-rouge">AGGREGATE_API_ALLOWED_COLLECTIONS</code> environment variable with <code class="language-plaintext highlighter-rouge">^rollup</code> default value that means that by default you can aggregate on collections that prefixed with “rollup” word.</p>
+
+<h2 id="request-setup">Request Setup</h2>
+
+<p>When using this interface, you must additionally supply your Basic Auth details with each request in the <code class="language-plaintext highlighter-rouge">Authorization</code> header.
+Your Basic Auth details can be found under <strong>Settings</strong> &gt; <strong>Clients</strong>. The interface can be passed options via a JSON object in the request body (described in the table below). The  <code class="language-plaintext highlighter-rouge">collection</code> property is required. The <code class="language-plaintext highlighter-rouge">collection</code> is a string that determines the collection name used to execute the aggregation on. The other properties are optional.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>pipeline</td>
+      <td>Array containing a pipeline of stages for documents to pass through before being output from the interface.</td>
+      <td><code class="language-plaintext highlighter-rouge">[]</code><br /><br />(in this case, you’ll get records from the desired collection without any transformations)</td>
+    </tr>
+    <tr>
+      <td>skip</td>
+      <td>Number that specifies a number of records that should be skipped from the beginning. This parameter will be transformed into <code class="language-plaintext highlighter-rouge">$skip</code> aggregation stage and executed at the very end.</td>
+      <td><code class="language-plaintext highlighter-rouge">0</code></td>
+    </tr>
+    <tr>
+      <td>limit</td>
+      <td>Number that specifies a number of records that will be cut from the final results. This parameter will be transformed into <code class="language-plaintext highlighter-rouge">$limit</code> aggregation stage and executed at the very end.</td>
+      <td><code class="language-plaintext highlighter-rouge">10000</code></td>
+    </tr>
+    <tr>
+      <td>maxTimeMS</td>
+      <td>Number that specifies the time limit for the query in Mongo.</td>
+      <td><code class="language-plaintext highlighter-rouge">0</code><br /><br />(if nothing else was set to <code class="language-plaintext highlighter-rouge">MAX_TIME_MS</code> environment variable)</td>
+    </tr>
+    <tr>
+      <td>batchSize</td>
+      <td>Specifies the number of documents to return in each batch of the response from the MongoDB instance. Defaults to <code class="language-plaintext highlighter-rouge">100</code></td>
+      <td><code class="language-plaintext highlighter-rouge">100</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A simple request to this interface using all of the available parameters looks like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST http://www.example.org/api/aggregate
+Authorization: Basic YOUR_BASIC_AUTH
+Content-Type: application/json; charset=utf-8
+
+{
+    "collection": "rollupUniqueVerbsByPlatformDaily",
+    "pipeline": [],
+    "skip": 0,
+    "limit": 1,
+    "maxTimeMs": 100,
+    "batchSize": 100
+}
+
+</span></code></pre></div></div>
+<p>A response to this valid request will return a 200 response like the response below, where the JSON encoded body contains several keys.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">{
+    "result": [
+        {
+          "_id" : "111aaa1111a111111aa11111",
+          "organisationId" : "111aaa1111a111111aa11111",
+          "organisationName" : [
+            "My amazing org"
+          ],
+          "lrsId" : "111aaa1111a111111aa11111",
+          "lrsName" : [
+            "My awesome store"
+          ],
+          "clientId" : "111aaa1111a111111aa11111",
+          "clientName" : [
+            "My incredible client"
+          ],
+          "platform" : "Some Cool Platform",
+          "verb" : "http://adlnet.gov/expapi/verbs/scored",
+          "count" : 200,
+          "date" : "2017-08-01T00:00:00Z",
+          "storedDate" : "2017-08-01T00:00:00Z"
+        }
+    ],
+    "startedAt": "2020-04-03 14:17:30.924+03:00",
+    "completedAt": "2020-04-03 14:17:30.943+03:00"
+}
+</span></code></pre></div></div>
+
+<h2 id="pipeline-stages">Pipeline Stages</h2>
+<p>So far we’ve only seen the <code class="language-plaintext highlighter-rouge">limit</code> and <code class="language-plaintext highlighter-rouge">project</code> stages, however, there are many other <a href="https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline/">stages available in Mongo</a>. The common stages are listed in the table below.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#project-stage">project</a></td>
+      <td>Reshapes the records from the previous stage of the pipeline for the next stage.</td>
+    </tr>
+    <tr>
+      <td><a href="#match-stage">match</a></td>
+      <td>Filters the records from the previous stage of the pipeline for the next stage.</td>
+    </tr>
+    <tr>
+      <td><a href="#limit-stage">limit</a></td>
+      <td>Limits the number of records from the previous stage of the pipeline for the next stage.</td>
+    </tr>
+    <tr>
+      <td><a href="#skip-stage">skip</a></td>
+      <td>Skips a number of records from the previous stage of the pipeline for the next stage.</td>
+    </tr>
+    <tr>
+      <td><a href="#group-stage">group</a></td>
+      <td>Groups records by a specified identifier from the previous stage of the pipeline for the next stage.</td>
+    </tr>
+    <tr>
+      <td><a href="#sort-stage">sort</a></td>
+      <td>Sorts the records from the previous stage of the pipeline for the next stage.</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

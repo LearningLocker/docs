@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="clients-http-interface">Clients HTTP Interface</h1>
+
+<p>Details of a clients which will be accessing Learning Locker. It contains details for permissions, authenticating and storing the xapi request.</p>
+
+<p>It is accessible through the following HTTP interfaces:</p>
+
+<ul>
+  <li><a href="../http-connection">Connection HTTP Interface</a> via http://www.example.org/api/connection/client.</li>
+  <li><a href="../http-rest">REST HTTP Interface</a> via http://www.example.org/api/v2/client.</li>
+</ul>
+
+<h3 id="schema">Schema</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>_id</td>
+      <td>The unique id of the document.</td>
+    </tr>
+    <tr>
+      <td>createdAt</td>
+      <td>When this document was created.</td>
+    </tr>
+    <tr>
+      <td>updatedAt</td>
+      <td>When this document was last updated.</td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td>String. The title of the client.</td>
+    </tr>
+    <tr>
+      <td>api</td>
+      <td>The client <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">basic auth</a> details. <a href="#api">See api</a>.</td>
+    </tr>
+    <tr>
+      <td>authority</td>
+      <td>A JSON encoded string of an agent object that will be set on any statements that the client pushes. <a href="#authority">See authority</a>.</td>
+    </tr>
+    <tr>
+      <td>scopes</td>
+      <td>An array of strings. Permission <a href="#client-scopes">scopes</a> that this client has permission for.</td>
+    </tr>
+    <tr>
+      <td>isTrusted</td>
+      <td>Whether this client is enabled.</td>
+    </tr>
+    <tr>
+      <td>organisation</td>
+      <td>The <a href="../http-organisations#schema">organisation</a> this client is attached to.</td>
+    </tr>
+    <tr>
+      <td>lrs_id</td>
+      <td>The id of the <a href="../http-stores#schema">store</a> that the system will put received xapi statements.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="api">api</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>basic_key</td>
+      <td>The basic auth key.</td>
+    </tr>
+    <tr>
+      <td>basic_secret</td>
+      <td>The basic auth secret.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="authority">authority</h3>
+
+<p>This is a JSON encoded string, of the following properties:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>objectType</td>
+      <td>‘Agent’.</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>Name of the agent.</td>
+    </tr>
+    <tr>
+      <td>mbox</td>
+      <td>Optional, of its an mbox</td>
+    </tr>
+    <tr>
+      <td>mbox_sha1sum</td>
+      <td>Optional, mbox sha1</td>
+    </tr>
+    <tr>
+      <td>openid</td>
+      <td>Optional, the open id.</td>
+    </tr>
+    <tr>
+      <td>account</td>
+      <td>Optional, A JSON object. <a href="#account">See Account</a></td>
+    </tr>
+    <tr>
+      <td>homePage</td>
+      <td>Optional, the homePage.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>One and only one of mbox, mbox_sha1, openid, Account should be provided</p>
+
+<h3 id="account">account</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>The unique id or name used to log into the account.</td>
+    </tr>
+    <tr>
+      <td>homePage</td>
+      <td>The url of the home page.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="client-scopes">Client Scopes</h3>
+
+<p>A scope is a specific permission. Available scopes:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Scope</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>all</td>
+      <td>Permission to read and write everything.</td>
+    </tr>
+    <tr>
+      <td>all/read</td>
+      <td>Permission to read everything.</td>
+    </tr>
+    <tr>
+      <td>xapi/all</td>
+      <td>Permission to read and write to the xAPI.</td>
+    </tr>
+    <tr>
+      <td>xapi/read</td>
+      <td>Read all.</td>
+    </tr>
+    <tr>
+      <td>statements/read</td>
+      <td>Read all statements.</td>
+    </tr>
+    <tr>
+      <td>statements/write</td>
+      <td>Write statements (must be used with a read scope).</td>
+    </tr>
+    <tr>
+      <td>statements/read/mine</td>
+      <td>Read my statements.</td>
+    </tr>
+    <tr>
+      <td>state</td>
+      <td>Access state.</td>
+    </tr>
+    <tr>
+      <td>profile</td>
+      <td>Access profiles.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-model">Example Model</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+	</span><span class="nl">"_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c2371616bc715f83c34506"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"createdAt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-20T09:40:44.962Z"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"updatedAt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-20T09:40:58.376Z"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"organisation"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c2371c16bc715f83c34507"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"lrs_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c2371c16bc715f83c34508"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"title"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Client"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"scopes"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+		</span><span class="s2">"xapi/all"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"all"</span><span class="w">
+	</span><span class="p">],</span><span class="w">
+	</span><span class="nl">"isTrusted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"authority"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">objectType</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Agent</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">New Client</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">mbox</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">mailto:hello@learninglocker.net</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"api"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+		</span><span class="nl">"basic_secret"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"aaa"</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"basic_key"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"bbb"</span><span class="w">
+	</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="journey-progress-http-interface">Journey Progress HTTP Interface</h1>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">Please note:</code> Journeys are only available in our Enterprise hosted version of Learning Locker. For more information about the differences, please see <a href="https://learninglocker.net/faqs/open-source-vs-saas-lrs/">this page</a>.</p>
+</blockquote>
+
+<p>An actor/person’s progress through a journey.</p>
+
+<p>It is accessible through the following HTTP interfaces:</p>
+
+<ul>
+  <li><a href="../http-connection">Connection HTTP Interface</a> via http://www.example.org/api/connection/journeyProgress.</li>
+  <li><a href="../http-rest">REST HTTP Interface</a> via http://www.example.org/api/v2/journeyProgress.</li>
+</ul>
+
+<h3 id="schema">Schema</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>_id</td>
+      <td>Mongo ID</td>
+      <td>The id of this journey progress <em>(autogenerated)</em></td>
+    </tr>
+    <tr>
+      <td>organisation</td>
+      <td><a href="../http-organisations#schema">Organisation</a> Mongo ID</td>
+      <td>The id of the organisation</td>
+    </tr>
+    <tr>
+      <td>createdAt</td>
+      <td>Timestamp</td>
+      <td>When this journey progress was created <em>(autogenerated)</em></td>
+    </tr>
+    <tr>
+      <td>updatedAt</td>
+      <td>Timestamp</td>
+      <td>When this journey progress was last updated <em>(autogenerated)</em></td>
+    </tr>
+    <tr>
+      <td>owner</td>
+      <td><a href="#owner">owner</a></td>
+      <td>The ident associated to this progress</td>
+    </tr>
+    <tr>
+      <td>pendingProgress</td>
+      <td><a href="#pending-progress">pendingProgress</a></td>
+      <td>An object of pendingProgress <em>(autogenerated)</em></td>
+    </tr>
+    <tr>
+      <td>completions</td>
+      <td><a href="#completions">completions</a></td>
+      <td>An object of completed statements.</td>
+    </tr>
+    <tr>
+      <td>startedAt</td>
+      <td>Timestamp</td>
+      <td>When the first attempt of a waypoint was registered</td>
+    </tr>
+    <tr>
+      <td>isCompleted</td>
+      <td>Boolean</td>
+      <td>Has this owner completed this journey?</td>
+    </tr>
+    <tr>
+      <td>completedAt</td>
+      <td>Timestamp</td>
+      <td>When was the journey first completed</td>
+    </tr>
+    <tr>
+      <td>duration</td>
+      <td>microseconds</td>
+      <td>Time between <code class="language-plaintext highlighter-rouge">startedAt</code> and <code class="language-plaintext highlighter-rouge">completedAt</code> in <a href="https://en.wikipedia.org/wiki/Microsecond">microseconds</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="owner">Owner</h3>
+
+<p>This is a reference to the xAPI actor or Learning Locker Persona associated to this progress.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>trackBy</td>
+      <td>string</td>
+      <td>Only <code class="language-plaintext highlighter-rouge">"actor"</code> currently supported, <code class="language-plaintext highlighter-rouge">"persona"</code> tracking coming soon</td>
+    </tr>
+    <tr>
+      <td>ident</td>
+      <td>mixed</td>
+      <td>Either a full xAPI actor object or a <a href="../http-personas">Persona Mongo ID</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="pending-progress">Pending Progress</h3>
+
+<p>This is a reference to statements which need processing.</p>
+
+<p>It is an object whose key is the waypointID:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Decsription</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>statement</td>
+      <td>Array of <a href="#journey-progress-statement">Journey Progress Statement</a></td>
+      <td>The reference to the statement.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="completions">Completions</h3>
+
+<p>A journey can be completed multiple times if the journey is set to be repeatable. An array of completed journey attempts is stored in this value.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>waypoints</td>
+      <td>object</td>
+      <td>An object of <a href="#completed-waypoint">completed waypoints</a> whose key are the waypoint ids.</td>
+    </tr>
+    <tr>
+      <td>completedAt</td>
+      <td>Timestamp</td>
+      <td>When this journey attempt was completed.</td>
+    </tr>
+    <tr>
+      <td>isCompleted</td>
+      <td>boolean</td>
+      <td>If this journey attempt has been completed.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="completed-waypoint">Completed Waypoint</h3>
+
+<p>An array of completed waypoints for a journey attempt</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>waypoint</td>
+      <td>Mongo ID</td>
+      <td>The id of the waypoint</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Integer</td>
+      <td>The order of the waypoint</td>
+    </tr>
+    <tr>
+      <td>statements</td>
+      <td>Array of <a href="#journey-progress-statements">journey progress statements</a></td>
+      <td>A reference to the statements</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="journey-progress-statements">Journey Progress Statements</h3>
+
+<p>Reference and timestamp of a statement.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>statement</td>
+      <td>Mongo ID</td>
+      <td>The id of a statement.</td>
+    </tr>
+    <tr>
+      <td>timestamp</td>
+      <td>Timestamp</td>
+      <td>When this statement was added.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="example-get-data">Example GET data</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{  
+  "_id":"59c23b28f6463f3569446bdc",
+  "journey":"59c23527bdf9ac67b2ab5ee6",
+  "organisation":"59198183d8ea540933227033",
+  "updatedAt":"2017-09-20T09:56:04.309Z",
+  "createdAt":"2017-09-20T09:55:52.198Z",
+  "pendingProgress":{  
+    "59c237bebdf9ac67b2ab5ee9":{  
+      "statements":[
+      ]
+    },
+    "59c237bebdf9ac67b2ab5eea":{  
+      "statements":[  
+
+      ]
+    }
+  },
+  "lockKey":"571bf02f-d41b-4b31-972d-f092845af816",
+  "duration":12133,
+  "startedAt":"2017-09-20T09:55:50.310Z",
+  "completions":[  
+    {  
+      "waypoints":{  
+        "59c237bebdf9ac67b2ab5ee9":{  
+          "completedAt":"2017-09-20T09:56:02.443Z",
+          "isCompleted":true,
+          "statements":[  
+            {  
+              "timestamp":"2017-09-20T09:56:02.443Z",
+              "statement":"59c23b32d138e44d720041a9"
+            }
+          ],
+          "order":1,
+          "waypoint":"59c237bebdf9ac67b2ab5ee9"
+        },
+        "59c237bebdf9ac67b2ab5eea":{  
+          "completedAt":"2017-09-20T09:55:53.799Z",
+          "isCompleted":true,
+          "statements":[  
+            {  
+              "statement":"59c23b26d138e44a720041ad",
+              "timestamp":"2017-09-20T09:55:50.310Z"
+            },
+            {  
+              "timestamp":"2017-09-20T09:55:51.192Z",
+              "statement":"59c23b27d138e44a720041ae"
+            },
+            {  
+              "statement":"59c23b28d138e44a720041af",
+              "timestamp":"2017-09-20T09:55:52.313Z"
+            },
+            {  
+              "timestamp":"2017-09-20T09:55:52.880Z",
+              "statement":"59c23b28d138e44a720041b0"
+            },
+            {  
+              "statement":"59c23b29d138e44a720041b1",
+              "timestamp":"2017-09-20T09:55:53.799Z"
+            }
+          ],
+          "order":0,
+          "waypoint":"59c237bebdf9ac67b2ab5eea"
+        }
+      },
+      "completedAt":"2017-09-20T09:56:02.443Z",
+      "isCompleted":true
+    }
+  ]
+}
+</code></pre></div></div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

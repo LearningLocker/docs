@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="visualisations-http-interface">Visualisations HTTP Interface</h1>
+
+<p>Visualisation configuration.</p>
+
+<p>It is accessible through the following HTTP interfaces:</p>
+
+<ul>
+  <li><a href="../http-connection">Connection HTTP Interface</a> via http://www.example.org/api/connection/visualisation.</li>
+  <li><a href="../http-rest">REST HTTP Interface</a> via http://www.example.org/api/v2/visualisation.</li>
+</ul>
+
+<h3 id="schema">Schema</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>_id</td>
+      <td>The id of this visualisation.</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>The name of this visualisation.</td>
+    </tr>
+    <tr>
+      <td>createdAt</td>
+      <td>When this visualisation was created.</td>
+    </tr>
+    <tr>
+      <td>updatedAt</td>
+      <td>When this visualisation was last updated.</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>The type of this visualisation.</td>
+    </tr>
+    <tr>
+      <td>axesgroup</td>
+      <td>What to group the visualisation data points as.</td>
+    </tr>
+    <tr>
+      <td>axesxLabel</td>
+      <td>The x axes label.</td>
+    </tr>
+    <tr>
+      <td>axesyLabel</td>
+      <td>The y axes label.</td>
+    </tr>
+    <tr>
+      <td>axesxValue</td>
+      <td>A stringified json encode object of the x axes value options.</td>
+    </tr>
+    <tr>
+      <td>axesyValue</td>
+      <td>A stringified json encode object of the y axes value options.</td>
+    </tr>
+    <tr>
+      <td>axesvalue</td>
+      <td>A stringified json encode object of the value for this visualisation.</td>
+    </tr>
+    <tr>
+      <td>axesyOperator</td>
+      <td>The y axes operator, eg uniqueCount.</td>
+    </tr>
+    <tr>
+      <td>axesxOperator</td>
+      <td>The x axes operator, eg uniqueCount.</td>
+    </tr>
+    <tr>
+      <td>axesOperator</td>
+      <td>The visualisation operator, eg uniqueCount.</td>
+    </tr>
+    <tr>
+      <td>axesquery</td>
+      <td>Query for this visualisation.</td>
+    </tr>
+    <tr>
+      <td>axesxQuery</td>
+      <td>Query for the x axes.</td>
+    </tr>
+    <tr>
+      <td>axesyQuery</td>
+      <td>Query for the y axes.</td>
+    </tr>
+    <tr>
+      <td>stacked</td>
+      <td>If this visualisation is stacked.</td>
+    </tr>
+    <tr>
+      <td>chart</td>
+      <td>The type of visualisation.</td>
+    </tr>
+    <tr>
+      <td>filter</td>
+      <td>An array of stringified <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/filter/">mongo filters</a>.</td>
+    </tr>
+    <tr>
+      <td>journey</td>
+      <td>The <a href="../http-journeys#schema">journey’s</a> id if this visualisation is a journey.</td>
+    </tr>
+    <tr>
+      <td>organisation</td>
+      <td>The <a href="../http-organisations#schema">organisation</a> this visualisation belongs to.</td>
+    </tr>
+    <tr>
+      <td>owner</td>
+      <td>The id of the <a href="../http-users#schema">user</a> who created this visualisation.</td>
+    </tr>
+    <tr>
+      <td>previewPeriod</td>
+      <td>The time range which is shown in this visualisation.</td>
+    </tr>
+    <tr>
+      <td>isPublic</td>
+      <td>If false then this visualisation is only available to the owner and users with <a href="../http-roles/#organisation-scopes">org/all/visualisation/view scope</a>, otherwise it’s available to everyone in the organisation with permission.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-model">Example Model</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+	</span><span class="nl">"_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c1087dfd869741959c5701"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"createdAt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-19T13:13:09.312Z"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"updatedAt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-19T13:22:00.404Z"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"owner"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c1087dfd869741959c5702"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"axes"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{}"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"organisation"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c1087dfd869741959c5703"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"isPublic"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"previewPeriod"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"LAST_7_DAYS"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"filters"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+		</span><span class="s2">"{</span><span class="se">\"</span><span class="s2">color</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">#1e8bc3</span><span class="se">\"</span><span class="s2">}"</span><span class="w">
+	</span><span class="p">],</span><span class="w">
+	</span><span class="nl">"chart"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"LINE"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"stacked"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"axesoperator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"uniqueCount"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"axesvalue"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">optionKey</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">statements</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">searchString</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Statements</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"COUNTER"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Visualisation"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="aggregation-http-interface">Aggregation HTTP Interface</h1>
+
+<p>The Learning Locker Aggregation HTTP interface utilises the <a href="https://docs.mongodb.com/manual/aggregation/">Mongo aggregation API</a> and is only available for statements. The Aggregation HTTP Interface is more advanced than the xAPI HTTP interface and allows you to access MongoDB’s powerful Aggregation API for more custom filtration of statements.</p>
+
+<iframe src="https://player.vimeo.com/video/169885401" width="80%" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" style="padding-left: 15%;"></iframe>
+
+<p>When using this interface, you must additionally supply your Basic Auth details with each request in the <code class="language-plaintext highlighter-rouge">Authorization</code> header. Your Basic Auth details can be found under <strong>Settings</strong> &gt; <strong>Clients</strong>. The interface requires a <code class="language-plaintext highlighter-rouge">pipeline</code> URL parameter, which is a JSON encoded array containing a pipeline of stages for statements to pass through before being output from the interface. The optional URL parameters are described in the table below.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>cache</td>
+      <td>Boolean that determines if the result should be cached for reuse next time the pipeline is used.</td>
+    </tr>
+    <tr>
+      <td>maxTimeMS</td>
+      <td>Number that specifies the time limit for the query in Mongo.</td>
+    </tr>
+    <tr>
+      <td>maxScan</td>
+      <td>Number that specifies the maximum number of models to scan in Mongo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A simple request to this interface using all of the available URL parameters looks like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/api/statements/aggregate?cache=false&amp;maxTimeMS=5000&amp;maxScan=10000&amp;pipeline=%5B%7B%22%24limit%22%3A%201%7D%2C%20%7B%22%24project%22%3A%20%7B%20%22statement%22%3A%201%2C%20%22_id%22%3A%200%20%7D%7D%5D
+Authorization: Basic YOUR_BASIC_AUTH
+</span></code></pre></div></div>
+
+<p>In the request above, the <code class="language-plaintext highlighter-rouge">pipeline</code> contains two stages, one to limit the route to returning a max of 1 statement and another to only project the <code class="language-plaintext highlighter-rouge">statement</code> from the statement’s model. The JSON encoded <code class="language-plaintext highlighter-rouge">pipeline</code> without URL encoding is shown below.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[{</span><span class="nl">"$limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nl">"$project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"statement"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}}]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>A response to this valid request will return a 200 response like the response below, where the JSON encoded body contains an array of records.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">[{</span><span class="w">
+  </span><span class="nl">"statement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dfb7218c-0fc9-4dfc-9524-d497097de027"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"actor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent"</span><span class="p">,</span><span class="w"> </span><span class="nl">"mbox"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailto:test@example.org"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"verb"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org/verb"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org/activity"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.3"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"authority"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent"</span><span class="p">,</span><span class="w"> </span><span class="nl">"mbox"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailto:authority@example.org"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-05T12:45:31+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"stored"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-05T12:45:31+00:00"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="pipeline-stages">Pipeline Stages</h2>
+<p>So far we’ve only seen the <code class="language-plaintext highlighter-rouge">limit</code> and <code class="language-plaintext highlighter-rouge">project</code> stages, however, there are many other <a href="https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline/">stages available in Mongo</a>. The common stages are listed in the table below.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#project-stage">project</a></td>
+      <td>Reshapes the records from the previous stage of the pipeline for the next stage.</td>
+    </tr>
+    <tr>
+      <td><a href="#match-stage">match</a></td>
+      <td>Filters the records from the previous stage of the pipeline for the next stage.</td>
+    </tr>
+    <tr>
+      <td><a href="#limit-stage">limit</a></td>
+      <td>Limits the number of records from the previous stage of the pipeline for the next stage.</td>
+    </tr>
+    <tr>
+      <td><a href="#skip-stage">skip</a></td>
+      <td>Skips a number of records from the previous stage of the pipeline for the next stage.</td>
+    </tr>
+    <tr>
+      <td><a href="#group-stage">group</a></td>
+      <td>Groups records by a specified identifier from the previous stage of the pipeline for the next stage.</td>
+    </tr>
+    <tr>
+      <td><a href="#sort-stage">sort</a></td>
+      <td>Sorts the records from the previous stage of the pipeline for the next stage.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="project-stage">Project Stage</h3>
+<p>For example, to project the actor’s account name as a user’s identifier, the verb without a display, and the object’s identifier you can use the following project stage.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$statement.actor.account.name"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"statement.verb"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"statement.object.id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In the example above, the value <code class="language-plaintext highlighter-rouge">0</code> is used to exclude the verb’s display property. Similarly, the value <code class="language-plaintext highlighter-rouge">1</code> is used to include the object’s identifier. You can find out more about the <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/project/">project stage via the Mongo documentation</a>. The request below demonstrates how the project stage above could be used in a request.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/api/statements/aggregate?pipeline=%5B%7B%0D%0A%20%20%22%24project%22%3A%20%7B%0D%0A%20%20%20%20%22userId%22%3A%20%22%24statement.actor.account.name%22%2C%0D%0A%20%20%20%20%22statement.verb%22%3A%20%7B%0D%0A%20%20%20%20%20%20%22display%22%3A%200%0D%0A%20%20%20%20%7D%2C%0D%0A%20%20%20%20%22statement.object.id%22%3A%201%0D%0A%20%20%7D%0D%0A%7D%5D
+Authorization: Basic YOUR_BASIC_AUTH
+</span></code></pre></div></div>
+
+<h4 id="projecting-with-extension-keys">Projecting With Extension Keys</h4>
+<p>Note that when using extension keys, you need to replace any dots with <code class="language-plaintext highlighter-rouge">&amp;46;</code> because Mongo does not allow dots in keys. For example, when you have an extension key like <code class="language-plaintext highlighter-rouge">http://www.example.com/extension</code> you can project it using <code class="language-plaintext highlighter-rouge">http://www&amp;46;example&amp;46;com/extension</code> instead, so a project stage using this extension key might look something like the project stage below.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"statement.context.extensions.http://www&amp;46;example&amp;46;com/extension"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="match-stage">Match Stage</h3>
+<p>For example, to filter statements by actor or verb, you can use the following match stage.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"$or"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"statement.actor.account.name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"statement.actor.account.homePage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org/user"</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"statement.verb.id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"$in"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"http://www.example.org/verb"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"http://www.example.org/otherverb"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In the example above, <code class="language-plaintext highlighter-rouge">$or</code> and <code class="language-plaintext highlighter-rouge">$in</code> are operators, all operators start with a dollar (<code class="language-plaintext highlighter-rouge">$</code>). You can find a <a href="https://docs.mongodb.com/manual/reference/operator/query/">list of the available operators in the Mongo documentation</a>. The most common operators are the comparison operators and the logical operators listed in the table below.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/query/gt/#op._S_gt"><code class="language-plaintext highlighter-rouge">$gt</code></a></td>
+      <td>Includes values greater than a specified value.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/query/gte/#op._S_gte"><code class="language-plaintext highlighter-rouge">$gte</code></a></td>
+      <td>Includes values greater than or equal to a specified value.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/query/in/#op._S_in"><code class="language-plaintext highlighter-rouge">$in</code></a></td>
+      <td>Includes values that are in the specified values.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/query/lt/#op._S_lt"><code class="language-plaintext highlighter-rouge">$lt</code></a></td>
+      <td>Includes values less than a specified value.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/query/lte/#op._S_lte"><code class="language-plaintext highlighter-rouge">$lte</code></a></td>
+      <td>Includes values less than or equal to a specified value.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/query/ne/#op._S_ne"><code class="language-plaintext highlighter-rouge">$ne</code></a></td>
+      <td>Includes values not equal to a specified value.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/query/nin/#op._S_nin"><code class="language-plaintext highlighter-rouge">$nin</code></a></td>
+      <td>Includes values not in the specified values.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/query/and/#op._S_and"><code class="language-plaintext highlighter-rouge">$and</code></a></td>
+      <td>Includes values where all specified expressions are true.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/query/not/#op._S_not"><code class="language-plaintext highlighter-rouge">$not</code></a></td>
+      <td>Includes values where a specified expression is not true.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/query/nor/#op._S_nor"><code class="language-plaintext highlighter-rouge">$nor</code></a></td>
+      <td>Includes values where no specified expressions are true.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/query/or/#op._S_or"><code class="language-plaintext highlighter-rouge">$or</code></a></td>
+      <td>Includes values where some specified expressions are true.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You can find out more about the <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/match/">match stage via the Mongo documentation</a>. The request below demonstrates how the match stage above could be used in a request.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/api/statements/aggregate?pipeline=%5B%7B%0D%0A%20%20%22%24match%22%3A%20%7B%0D%0A%20%20%20%20%22%24or%22%3A%20%5B%7B%0D%0A%20%20%20%20%20%20%22statement.actor.account.name%22%3A%20%22123%22%2C%0D%0A%20%20%20%20%20%20%22statement.actor.account.homePage%22%3A%20%22http%3A%2F%2Fwww.example.org%2Fuser%22%0D%0A%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%22statement.verb.id%22%3A%20%7B%0D%0A%20%20%20%20%20%20%20%20%22%24in%22%3A%20%5B%0D%0A%20%20%20%20%20%20%20%20%20%20%22http%3A%2F%2Fwww.example.org%2Fverb%22%2C%0D%0A%20%20%20%20%20%20%20%20%20%20%22http%3A%2F%2Fwww.example.org%2Fotherverb%22%0D%0A%20%20%20%20%20%20%20%20%5D%0D%0A%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%7D%5D%0D%0A%20%20%7D%0D%0A%7D%5D
+Authorization: Basic YOUR_BASIC_AUTH
+</span></code></pre></div></div>
+
+<h4 id="matching-with-extension-keys">Matching With Extension Keys</h4>
+<p>Note that when using extension keys, you need to replace any dots with <code class="language-plaintext highlighter-rouge">&amp;46;</code> because Mongo does not allow dots in keys. For example, when you have an extension key like <code class="language-plaintext highlighter-rouge">http://www.example.com/extension</code> you can filter it using <code class="language-plaintext highlighter-rouge">http://www&amp;46;example&amp;46;com/extension</code> instead, so a match stage using this extension key might look something like the match stage below.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"statement.context.extensions.http://www&amp;46;example&amp;46;com/extension"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"$ne"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="matching-on-objectids">Matching on ObjectIds</h4>
+<p>When querying on ObjectIds we must tell the aggregation to cast these values. To do this we can use the <code class="language-plaintext highlighter-rouge">$oid</code> operator:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"person._id": {
+  "$oid": "59c1219936229d4ce9634601"
+}
+</code></pre></div></div>
+
+<p>This will cast the ID to a Mongo Object ID</p>
+
+<h4 id="matching-on-binary-date-fields">Matching on binary date fields</h4>
+<p>Most date fields (other than <code class="language-plaintext highlighter-rouge">statement.timestamp</code> and <code class="language-plaintext highlighter-rouge">statement.stored</code>) are stored as ISODate values. To query on these we can cast our ISO8601 formatted date from a string into an ISODate using the <code class="language-plaintext highlighter-rouge">$dte</code> operator:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// return all records in April 2017
+"timestamp": {
+  "$gte": {
+    "$dte": "2017-04-01T00:00:00Z"
+  },
+  "$lt": {
+    "$dte": "2017-05-01T00:00:00Z"
+  }
+}
+</code></pre></div></div>
+
+<h4 id="matching-with-improved-performance">Matching With Improved Performance</h4>
+<p>You may find that changing the match stage can vary the time it takes a query to run, especially when you have a large number of statements. You can take advantage of database indexes to improve performance, more information is available about <a href="https://docs.mongodb.com/manual/core/aggregation-pipeline/#pipeline-operators-and-indexes">using indexes in the match stage via Mongo’s documentation</a>. If utilising indexes doesn’t have the required performance improvement, you can instead utilise our <a href="../http-connection">Connection HTTP Interface</a> or <a href="../guides-retrieving">BI tools</a>.</p>
+
+<h3 id="limit-stage">Limit Stage</h3>
+<p>For example, to limit the interface to returning 1 statement, you can use the following request. You can find out more about the <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/limit/">limit stage via the Mongo documentation</a>.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/api/statements/aggregate?pipeline=%5B%7B%20%22%24limit%22%3A%201%20%7D%5D
+Authorization: Basic YOUR_BASIC_AUTH
+</span></code></pre></div></div>
+
+<h3 id="skip-stage">Skip Stage</h3>
+<p>For example, to skip the first statement, you can use the following request. You can find out more about the <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/skip/">skip stage via the Mongo documentation</a>.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/api/statements/aggregate?pipeline=%5B%7B%20%22%24skip%22%3A%201%20%7D%5D
+Authorization: Basic YOUR_BASIC_AUTH
+</span></code></pre></div></div>
+
+<h3 id="group-stage">Group Stage</h3>
+<p>For example, to retrieve the average raw score for each actor, you can use the group stage below.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"actor_account_homePage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$statement.actor.account.homePage"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"actor_account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$statement.actor.account.name"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"actor_mbox"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$statement.actor.mbox"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"actor_mbox_sha1sum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$statement.actor.mbox_sha1sum"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"actor_openid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$statement.actor.openid"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"statements"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"$avg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$statement.result.score.raw"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In the group stage above, the <code class="language-plaintext highlighter-rouge">_id</code> property specifies the properties to group by and is a required property in the group stage. The rest of the properties in the group stage specify the properties to be passed through to the next stage. In the example above, <code class="language-plaintext highlighter-rouge">$avg</code> is one of the accumulator operators available in Mongo, the other common accumulator operators are listed in the table below.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/aggregation/sum/#grp._S_sum"><code class="language-plaintext highlighter-rouge">$sum</code></a></td>
+      <td>Returns a sum of numeric values from the grouped records.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/aggregation/avg/#grp._S_avg"><code class="language-plaintext highlighter-rouge">$avg</code></a></td>
+      <td>Returns an average of numeric values from the grouped records.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/aggregation/first/#grp._S_first"><code class="language-plaintext highlighter-rouge">$first</code></a></td>
+      <td>Returns a value from the first record in the grouped records.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/aggregation/last/#grp._S_last"><code class="language-plaintext highlighter-rouge">$last</code></a></td>
+      <td>Returns a value from the last record in the grouped records.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/aggregation/max/#grp._S_max"><code class="language-plaintext highlighter-rouge">$max</code></a></td>
+      <td>Returns the highest of the numeric values from the grouped records.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/aggregation/min/#grp._S_min"><code class="language-plaintext highlighter-rouge">$min</code></a></td>
+      <td>Returns the lowest of the numeric values from the grouped records</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/aggregation/push/#grp._S_push"><code class="language-plaintext highlighter-rouge">$push</code></a></td>
+      <td>Returns an array of values from the grouped records.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/aggregation/addToSet/#grp._S_addToSet"><code class="language-plaintext highlighter-rouge">$addToSet</code></a></td>
+      <td>Returns an array of unique values from the grouped records.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You can find out more about the <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/group/">group stage via the Mongo documentation</a>. The request below demonstrates how the group stage above could be used in a request.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/api/statements/aggregate?pipeline=%5B%7B%0A%20%20%22%24group%22%3A%20%7B%0A%20%20%22_id%22%3A%20%7B%0A%20%20%20%20%22actor_account_homePage%22%3A%20%22%24statement.actor.account.homePage%22%2C%0A%20%20%20%20%22actor_account_name%22%3A%20%22%24statement.actor.account.name%22%2C%0A%20%20%20%20%22actor_mbox%22%3A%20%22%24statement.actor.mbox%22%2C%0A%20%20%20%20%22actor_mbox_sha1sum%22%3A%20%22%24statement.actor.mbox_sha1sum%22%2C%0A%20%20%20%20%22actor_openid%22%3A%20%22%24statement.actor.openid%22%0A%20%20%7D%2C%0A%20%20%22statements%22%3A%20%7B%20%22%24avg%22%3A%20%22%24statement.result.score.raw%22%20%7D%0A%7D%0A%7D%5D
+Authorization: Basic YOUR_BASIC_AUTH
+</span></code></pre></div></div>
+
+<h4 id="grouping-with-extension-keys">Grouping With Extension Keys</h4>
+<p>Note that when using extension keys, you need to replace any dots with <code class="language-plaintext highlighter-rouge">&amp;46;</code> because Mongo does not allow dots in keys. For example, when you have an extension key like <code class="language-plaintext highlighter-rouge">http://www.example.com/extension</code> you can group by it using <code class="language-plaintext highlighter-rouge">http://www&amp;46;example&amp;46;com/extension</code> instead, so a group stage using this extension key might look something like the group stage below.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$statement.context.extensions.http://www&amp;46;example&amp;46;com/extension"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"statements"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"$avg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$statement.result.score.raw"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="sort-stage">Sort Stage</h3>
+<p>In this stage the keys of the object represent the names of the properties you wish to sort. The values of the object represent the order in which you want to sort the properties. To sort in ascending order, use the number 1; to sort in descending order, use the number -1. For example, to sort statements in descending order of their timestamp and ascending order of their Mongo ObjectId, you can use the following sort parameter.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In the above example, we’ve included the <code class="language-plaintext highlighter-rouge">_id</code> because it should be unique and the sort parameter should always contain a unique property in order to ensure the objects are always returned in the same order for any pagination. The order of the keys in the object determines which property is sorted first, so always include a unique property at the end such as the <code class="language-plaintext highlighter-rouge">_id</code> property. You can find out more about the <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/sort/">sort stage via the Mongo documentation</a>. The request below demonstrates how the sort stage above could be used in a request.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/api/statements/aggregate?pipeline=%5B%7B%0D%0A%20%20%22%24sort%22%3A%20%7B%0D%0A%20%20%20%20%22timestamp%22%3A%20-1%2C%0D%0A%20%20%20%20%22_id%22%3A%201%0D%0A%20%20%7D%0D%0A%7D%5D
+Authorization: Basic YOUR_BASIC_AUTH
+</span></code></pre></div></div>
+
+<h4 id="sorting-with-extension-keys">Sorting With Extension Keys</h4>
+<p>Note that when using extension keys, you need to replace any dots with <code class="language-plaintext highlighter-rouge">&amp;46;</code> because Mongo does not allow dots in keys. For example, when you have an extension key like <code class="language-plaintext highlighter-rouge">http://www.example.com/extension</code> you can sort by it using <code class="language-plaintext highlighter-rouge">http://www&amp;46;example&amp;46;com/extension</code> instead, so a sort stage using this extension key might look something like the sort stage below.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"statement.context.extensions.http://www&amp;46;example&amp;46;com/extension"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="sorting-with-improved-performance">Sorting With Improved Performance</h4>
+<p>You may find that changing the sort stage can vary the time it takes a query to run, especially when you have a large number of statements. You can take advantage of database indexes to improve performance, more information is available about <a href="https://docs.mongodb.com/manual/core/aggregation-pipeline/#pipeline-operators-and-indexes">using indexes in the sort stage via Mongo’s documentation</a>. If utilising indexes doesn’t have the required performance improvement, you can instead utilise our <a href="../http-connection">Connection HTTP Interface</a> or <a href="../guides-retrieving">BI tools</a>.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

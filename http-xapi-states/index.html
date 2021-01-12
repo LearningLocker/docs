@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="xapi-state-http-interface">xAPI State HTTP Interface</h1>
+<p>The table below describes the routes that the HTTP interface provides, all of the URLs are relative to http://www.example.org/data/xAPI where http://www.example.org is the URL of your Learning Locker instance. To access this interface, you must additionally supply your Basic Auth details with each request in the <code class="language-plaintext highlighter-rouge">Authorization</code> header. Your Basic Auth details can be found under <strong>Settings</strong> &gt; <strong>Clients</strong>. Go to the <a href="../http-xapi">xAPI HTTP interface documentation</a> to see the rest of the xAPI routes.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Route</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="../http-xapi-states#put-activitiesstate">PUT /activities/state</a></td>
+      <td>Creates or overwrites a state document.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-states#post-activitiesstate">POST /activities/state</a></td>
+      <td>Creates or merges a state document.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-states#get-activitiesstate">GET /activities/state</a></td>
+      <td>Retrieves a single state document or multiple state identifiers.</td>
+    </tr>
+    <tr>
+      <td><a href="../http-xapi-states#delete-activitiesstate">DELETE /activities/state</a></td>
+      <td>Deletes a single state document or multiple state documents.</td>
+    </tr>
+  </tbody>
+</table>
+
+<iframe src="https://player.vimeo.com/video/168960742" width="80%" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" style="padding-left: 15%;"></iframe>
+
+<h2 id="put-activitiesstate">PUT /activities/state</h2>
+<p>This route allows you to create a single state document if it doesn’t exist or overwrite an existing state document if it does exist. The route has 3 required URL parameters, an <code class="language-plaintext highlighter-rouge">activityId</code> (an IRI representing the activity), an <code class="language-plaintext highlighter-rouge">agent</code> (a JSON encoded object representing the agent the state belongs to), and a <code class="language-plaintext highlighter-rouge">stateId</code> (a string representing an identifier for the state). There is also an optional URL parameter for the <code class="language-plaintext highlighter-rouge">registration</code>. A request to this route would look something like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">PUT http://www.example.org/data/xAPI/activities/state?activityId=http%3A%2F%2Fwww.example.org%2Factivity&amp;agent=%7B%22mbox%22%3A%20%22mailto%3Atest%40example.org%22%7D&amp;stateId=example_state_id&amp;registration=361cd8ef-0f6a-40d2-81f2-b988865f640c
+Authorization: YOUR_BASIC_AUTH
+X-Experience-API-Version: 1.0.3
+Content-Type: application/json; charset=utf-8
+
+{
+  "example_key": "example_value"
+}
+</span></code></pre></div></div>
+
+<p>This route returns a 204 response with no content when the state document is successfully created/overwritten, like the example response below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">NO CONTENT</span>
+<span class="na">X-Experience-API-Version</span><span class="p">:</span> <span class="s">1.0.3</span>
+</code></pre></div></div>
+
+<p>For more information, view the <a href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#single-document-put--post--get--delete">PUT /activities/state route in the xAPI specification</a>.</p>
+
+<h2 id="post-activitiesstate">POST /activities/state</h2>
+<p>This route allows you to create a single state document if it doesn’t exist or merge an existing state document if it does exist. The route allows the same URL parameters as the <a href="#put-activitiesstate">PUT /activities/state route</a>. The state document is merged when the state document exists, the existing state document is a JSON encoded object, and the posted state document is a JSON encoded object. When the two JSON encoded documents are merged, only the top-level properties are merged. The example requests below demonstrate merging state documents. For more information, view the <a href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#single-document-put--post--get--delete">POST /activities/state route in the xAPI specification</a>.</p>
+
+<h3 id="post-initial-state">POST Initial State</h3>
+<p>To POST an initial state, the request should be something like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST http://www.example.org/data/xAPI/activities/state?activityId=http%3A%2F%2Fwww.example.org%2Factivity&amp;agent=%7B%22mbox%22%3A%20%22mailto%3Atest%40example.org%22%7D&amp;stateId=example_state_id&amp;registration=361cd8ef-0f6a-40d2-81f2-b988865f640c
+Authorization: YOUR_BASIC_AUTH
+X-Experience-API-Version: 1.0.3
+Content-Type: application/json; charset=utf-8
+
+{
+  "key_to_keep": "value_to_keep",
+  "key_to_change": "value_before_change"
+}
+</span></code></pre></div></div>
+
+<p>The response to the request above would be something similar to the response below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">NO CONTENT</span>
+<span class="na">X-Experience-API-Version</span><span class="p">:</span> <span class="s">1.0.3</span>
+</code></pre></div></div>
+
+<h3 id="post-merge-state">POST Merge State</h3>
+<p>To POST a state for merging, the request should be something like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST http://www.example.org/data/xAPI/activities/state?activityId=http%3A%2F%2Fwww.example.org%2Factivity&amp;agent=%7B%22mbox%22%3A%20%22mailto%3Atest%40example.org%22%7D&amp;stateId=example_state_id&amp;registration=361cd8ef-0f6a-40d2-81f2-b988865f640c
+Authorization: YOUR_BASIC_AUTH
+X-Experience-API-Version: 1.0.3
+Content-Type: application/json; charset=utf-8
+
+{
+  "key_to_change": "value_after_change",
+  "key_to_add": "value_to_add"
+}
+</span></code></pre></div></div>
+
+<p>The response to the request above would be something similar to the response below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">NO CONTENT</span>
+<span class="na">X-Experience-API-Version</span><span class="p">:</span> <span class="s">1.0.3</span>
+</code></pre></div></div>
+
+<h3 id="get-merged-state">GET Merged State</h3>
+<p>To GET the merged state, the request should be something like the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/data/xAPI/activities/state?activityId=http%3A%2F%2Fwww.example.org%2Factivity&amp;agent=%7B%22mbox%22%3A%20%22mailto%3Atest%40example.org%22%7D&amp;stateId=example_state_id&amp;registration=361cd8ef-0f6a-40d2-81f2-b988865f640c
+Authorization: YOUR_BASIC_AUTH
+X-Experience-API-Version: 1.0.3
+</span></code></pre></div></div>
+
+<p>The response to the request above would be something similar to the response below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">X-Experience-API-Version</span><span class="p">:</span> <span class="s">1.0.3</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nl">"key_to_keep"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_to_keep"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"key_to_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_after_change"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"key_to_add"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_to_add"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="get-activitiesstate">GET /activities/state</h2>
+<p>This route allows you to retrieve a single state document or multiple state identifiers. If the <code class="language-plaintext highlighter-rouge">stateId</code> URL parameter is set, it will <a href="#retrieve-single-state-document">retrieve a single state document</a> with the state identifier, otherwise it will <a href="#retrieve-many-state-identifiers">retrieve many state identifiers</a>. For more information, view the <a href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#single-document-put--post--get--delete">GET /activities/state route in the xAPI specification</a>.</p>
+
+<h3 id="retrieve-single-state-document">Retrieve Single State Document</h3>
+<p>The route allows the same URL parameters as the <a href="#put-activitiesstate">PUT /activities/state route</a>. A request to this route should be similar to the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/data/xAPI/activities/state?activityId=http%3A%2F%2Fwww.example.org%2Factivity&amp;agent=%7B%22mbox%22%3A%20%22mailto%3Atest%40example.org%22%7D&amp;stateId=example_state_id&amp;registration=361cd8ef-0f6a-40d2-81f2-b988865f640c
+Authorization: YOUR_BASIC_AUTH
+X-Experience-API-Version: 1.0.3
+</span></code></pre></div></div>
+
+<p>The response to the request above would be something similar to the response below. If the state document cannot be found, a 404 response will be returned instead of a 200.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">X-Experience-API-Version</span><span class="p">:</span> <span class="s">1.0.3</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nl">"example_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="retrieve-many-state-identifiers">Retrieve Many State Identifiers</h3>
+<p>The route allows the same URL parameters as the <a href="#put-activitiesstate">PUT /activities/state route</a> except for the <code class="language-plaintext highlighter-rouge">stateId</code> parameter and with the addition of the optional <code class="language-plaintext highlighter-rouge">since</code> parameter. The <code class="language-plaintext highlighter-rouge">since</code> URL parameter is an ISO timestamp that ensures only state identifiers stored since the timestamp (exclusive) are returned. A request to this route should be similar to the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET http://www.example.org/data/xAPI/activities/state?activityId=http%3A%2F%2Fwww.example.org%2Factivity&amp;agent=%7B%22mbox%22%3A%20%22mailto%3Atest%40example.org%22%7D&amp;registration=361cd8ef-0f6a-40d2-81f2-b988865f640c&amp;since=2017-09-04T12:45:31+00:00
+Authorization: YOUR_BASIC_AUTH
+X-Experience-API-Version: 1.0.3
+</span></code></pre></div></div>
+
+<p>The response to the request above would be something similar to the response below, where the JSON encoded response body contains an array of state identifiers that match the URL parameters.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">X-Experience-API-Version</span><span class="p">:</span> <span class="s">1.0.3</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">[</span><span class="s2">"example_state_id"</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="delete-activitiesstate">DELETE /activities/state</h2>
+<p>This route allows you to delete a single state document or multiple state documents. If the <code class="language-plaintext highlighter-rouge">stateId</code> URL parameter is set, it will <a href="#delete-single-state-document">delete a single state document</a> with the state identifier, otherwise it will <a href="#delete-many-state-documents">delete many state documents</a>. For more information, view the <a href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#single-document-put--post--get--delete">DELETE /activities/state route in the xAPI specification</a>.</p>
+
+<h3 id="delete-single-state-document">Delete Single State Document</h3>
+<p>The route allows the same URL parameters as the <a href="#put-activitiesstate">PUT /activities/state route</a>. A request to this route should be similar to the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">DELETE http://www.example.org/data/xAPI/activities/state?activityId=http%3A%2F%2Fwww.example.org%2Factivity&amp;agent=%7B%22mbox%22%3A%20%22mailto%3Atest%40example.org%22%7D&amp;stateId=example_state_id&amp;registration=361cd8ef-0f6a-40d2-81f2-b988865f640c
+Authorization: YOUR_BASIC_AUTH
+X-Experience-API-Version: 1.0.3
+</span></code></pre></div></div>
+
+<p>The response to the request above would be something similar to the response below. If the state document cannot be found, a 404 response will be returned instead of a 204.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">NO CONTENT</span>
+<span class="na">X-Experience-API-Version</span><span class="p">:</span> <span class="s">1.0.3</span>
+</code></pre></div></div>
+
+<h3 id="delete-many-state-documents">Delete Many State Documents</h3>
+<p>The route allows the same URL parameters as the <a href="#put-activitiesstate">PUT /activities/state route</a> except for the <code class="language-plaintext highlighter-rouge">stateId</code> parameter. A request to this route should be similar to the request below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">DELETE http://www.example.org/data/xAPI/activities/state?activityId=http%3A%2F%2Fwww.example.org%2Factivity&amp;agent=%7B%22mbox%22%3A%20%22mailto%3Atest%40example.org%22%7D&amp;registration=361cd8ef-0f6a-40d2-81f2-b988865f640c
+Authorization: YOUR_BASIC_AUTH
+X-Experience-API-Version: 1.0.3
+</span></code></pre></div></div>
+
+<p>The response to the request above would be something similar to the response below.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">NO CONTENT</span>
+<span class="na">X-Experience-API-Version</span><span class="p">:</span> <span class="s">1.0.3</span>
+</code></pre></div></div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

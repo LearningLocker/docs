@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="configuring-learning-locker">Configuring Learning Locker</h1>
+
+<p>Both the UI/API/Worker and xAPI Service require a <code class="language-plaintext highlighter-rouge">.env</code> file which will contain all the configuration variables required the application to run.</p>
+
+<p>Where applicable, both of these files will need to have the same values (e.g. in order to connect to the same database).</p>
+
+<p>Both repositories contain .env.example templates which can be copied as new <code class="language-plaintext highlighter-rouge">.env</code> files. If the application has been installed using the install script then this step will be performed for you.</p>
+
+<h2 id="learning-locker-application">Learning Locker Application</h2>
+
+<p><strong>Variables in bold are required or strongly recommended</strong></p>
+
+<p><em>Variables in italics are required for debugging or development only</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Example</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>NODE_ENV</strong></td>
+      <td>Under what mode is Node running. This should be left as <code class="language-plaintext highlighter-rouge">production</code> in most circumstances</td>
+      <td><code class="language-plaintext highlighter-rouge">production</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>SITE_URL</strong></td>
+      <td>The host this application is running under, including protocol</td>
+      <td><code class="language-plaintext highlighter-rouge">https://mylrs.com</code></td>
+      <td><code class="language-plaintext highlighter-rouge">127.0.0.1</code></td>
+    </tr>
+    <tr>
+      <td><strong>UI_PORT</strong></td>
+      <td>The port that the UI is attached to</td>
+      <td><code class="language-plaintext highlighter-rouge">3000</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>API_PORT</strong></td>
+      <td>The port that the API is attached to</td>
+      <td><code class="language-plaintext highlighter-rouge">8080</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><em>TEST_API_PORT</em></td>
+      <td>A port to expose the application on when running tests</td>
+      <td><code class="language-plaintext highlighter-rouge">808080</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>APP_SECRET</strong></td>
+      <td>Unique string used for hashing. Recommended length of 256 bits</td>
+      <td><code class="language-plaintext highlighter-rouge">pleasechangetounique256bitstring</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>MONGODB_PATH</strong></td>
+      <td>The <a href="https://docs.mongodb.com/manual/reference/connection-string/">full Mongo connection string</a>. This can include multiple hosts for replicas, and extra configuration values passed through query strings.</td>
+      <td><code class="language-plaintext highlighter-rouge">mongodb://localhost:27017/learninglocker_v2</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><em>MONGODB_TEST_PATH</em></td>
+      <td>A different Mongo URL to use when running tests</td>
+      <td><code class="language-plaintext highlighter-rouge">mongodb://localhost:27017/llv2_tests</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>MONGO_SOCKET_TIMEOUT_MS</td>
+      <td>How long does the socket stay open when there is no activity</td>
+      <td><code class="language-plaintext highlighter-rouge">300000</code></td>
+      <td><code class="language-plaintext highlighter-rouge">300000</code></td>
+    </tr>
+    <tr>
+      <td>MONGO_CONNECTION_POOLSIZE</td>
+      <td>https://blog.mlab.com/2013/11/deep-dive-into-connection-pooling/</td>
+      <td><code class="language-plaintext highlighter-rouge">20</code></td>
+      <td><code class="language-plaintext highlighter-rouge">20</code></td>
+    </tr>
+    <tr>
+      <td><strong>REDIS_HOST</strong></td>
+      <td>The host of the Redis instance</td>
+      <td><code class="language-plaintext highlighter-rouge">127.0.0.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">127.0.0.1</code></td>
+    </tr>
+    <tr>
+      <td><strong>REDIS_PORT</strong></td>
+      <td>The port of the Redis instance</td>
+      <td><code class="language-plaintext highlighter-rouge">example</code></td>
+      <td><code class="language-plaintext highlighter-rouge">6379</code></td>
+    </tr>
+    <tr>
+      <td>REDIS_DB</td>
+      <td>The database number of the Redis instance</td>
+      <td><code class="language-plaintext highlighter-rouge">0</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>REDIS_PREFIX</td>
+      <td>A prefix to append to all keys within the Redis database</td>
+      <td><code class="language-plaintext highlighter-rouge">learninglocker</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>ALLOW_AGGREGATION_DISK_USE</td>
+      <td>Can Mongo use its disks for aggregating</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+    </tr>
+    <tr>
+      <td>AGGREGATE_API_ALLOWED_COLLECTIONS</td>
+      <td>Rule to check whether is collection allowed for Aggregate API or not</td>
+      <td><code class="language-plaintext highlighter-rouge">^rollup</code></td>
+      <td><code class="language-plaintext highlighter-rouge">^rollup</code></td>
+    </tr>
+    <tr>
+      <td>AGGREGATION_CACHE_SECONDS</td>
+      <td>How many seconds are aggregation results cached</td>
+      <td><code class="language-plaintext highlighter-rouge">300</code></td>
+      <td><code class="language-plaintext highlighter-rouge">300</code></td>
+    </tr>
+    <tr>
+      <td>AGGREGATION_REFRESH_AT_SECONDS</td>
+      <td>Refresh aggregations when this close to expiry</td>
+      <td><code class="language-plaintext highlighter-rouge">120</code></td>
+      <td><code class="language-plaintext highlighter-rouge">120</code></td>
+    </tr>
+    <tr>
+      <td>MAX_TIME_MS</td>
+      <td><a href="https://docs.mongodb.com/manual/reference/operator/meta/maxTimeMS/">Max time aggregations can run for in milliseconds</a></td>
+      <td><code class="language-plaintext highlighter-rouge">300</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0</code> (no limit)</td>
+    </tr>
+    <tr>
+      <td>DISABLE_PERSONA_SCORING</td>
+      <td>Turn off fuzzy scoring on persona matching. This will make persona workers much faster at scale.</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+    </tr>
+    <tr>
+      <td><strong>LOG_MIN_LEVEL</strong></td>
+      <td>Minimum logging level (error|warning|info|debug|silly)</td>
+      <td><code class="language-plaintext highlighter-rouge">debug</code></td>
+      <td><code class="language-plaintext highlighter-rouge">info</code></td>
+    </tr>
+    <tr>
+      <td>LOG_DIR</td>
+      <td>Relative dir to store API access logs</td>
+      <td><code class="language-plaintext highlighter-rouge">logs</code></td>
+      <td><code class="language-plaintext highlighter-rouge">logs</code></td>
+    </tr>
+    <tr>
+      <td><em>TEST_LOG_MIN_LEVEL</em></td>
+      <td>Logging level for tests</td>
+      <td><code class="language-plaintext highlighter-rouge">silly</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>COLOR_LOGS</td>
+      <td>Should logs be output using ANSI color</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>WINSTON_CLOUDWATCH_ENABLED</strong></td>
+      <td>Should logs be sent to AWS Cloudwatch?<br /><br /><a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-identity-based-access-control-cwl.html">AWS credentials must be configured for Cloudwatch access</a></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+    </tr>
+    <tr>
+      <td>WINSTON_CLOUDWATCH_LOG_GROUP_NAME</td>
+      <td>The Cloudwatch Logs group name</td>
+      <td><code class="language-plaintext highlighter-rouge">llv2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">llv2</code></td>
+    </tr>
+    <tr>
+      <td>WINSTON_CLOUDWATCH_LOG_STREAM_NAME</td>
+      <td>The Cloudwatch Logs stream name</td>
+      <td><code class="language-plaintext highlighter-rouge">application</code></td>
+      <td>The server’s hostname</td>
+    </tr>
+    <tr>
+      <td>WINSTON_CLOUDWATCH_ACCESS_KEY_ID</td>
+      <td>AWS Access Key with suitable privileges</td>
+      <td><code class="language-plaintext highlighter-rouge">12345678901</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>WINSTON_CLOUDWATCH_SECRET_ACCESS_KEY</td>
+      <td>AWS Secret Access Key</td>
+      <td><code class="language-plaintext highlighter-rouge">12345678901</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>WINSTON_CLOUDWATCH_REGION</td>
+      <td>The region the logs will be sent to</td>
+      <td><code class="language-plaintext highlighter-rouge">us-west-1</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>SMTP_HOST</strong></td>
+      <td>The SMTP mailbox host</td>
+      <td><code class="language-plaintext highlighter-rouge">smtp.mailserver.com</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>SMTP_PORT</strong></td>
+      <td>The SMTP port</td>
+      <td><code class="language-plaintext highlighter-rouge">1234</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>SMTP_SECURED</strong></td>
+      <td>Use SSL for SMTP?</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>SMTP_USER</strong></td>
+      <td>The SMTP username</td>
+      <td><code class="language-plaintext highlighter-rouge">username</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>SMTP_PASS</strong></td>
+      <td>The SMTP password</td>
+      <td><code class="language-plaintext highlighter-rouge">password</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>QUEUE_PROVIDER</strong></td>
+      <td>Which queue provider should be used?<br /><br />Options are <code class="language-plaintext highlighter-rouge">REDIS</code> or <code class="language-plaintext highlighter-rouge">SQS</code><br /><br />When using Redis, queues are held in the Redis database<br /><br />When using SQS, queues are held and managed by the AWS Simple Queue Service</td>
+      <td><code class="language-plaintext highlighter-rouge">SQS</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>QUEUE_NAMESPACE</td>
+      <td>A queue prefix for SQS</td>
+      <td><code class="language-plaintext highlighter-rouge">example</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>AWS_SQS_ACCESS_KEY_ID</td>
+      <td>An AWS Access Key ID with privileges to read/write to SQS queue jobs</td>
+      <td><code class="language-plaintext highlighter-rouge">12567890</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>AWS_SQS_SECRET_ACCESS_KEY</td>
+      <td>An AWS Secret Access Key for SQS</td>
+      <td><code class="language-plaintext highlighter-rouge">example</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>AWS_SQS_DEFAULT_REGION</td>
+      <td>The AWS region for SQS</td>
+      <td><code class="language-plaintext highlighter-rouge">us-west-1</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>GOOGLE_ENABLED</td>
+      <td>Enable OAuth via Google (Requires setup in the Google Developer Console)</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+    </tr>
+    <tr>
+      <td>GOOGLE_CLIENT_ID</td>
+      <td>Google OAuth Client ID</td>
+      <td><code class="language-plaintext highlighter-rouge">12456789</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>GOOGLE_CLIENT_SECRET</td>
+      <td>Google OAuth Client Secret</td>
+      <td><code class="language-plaintext highlighter-rouge">12356789</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>FS_REPO</strong></td>
+      <td>Define the storage method (<code class="language-plaintext highlighter-rouge">local</code> for local storage or <code class="language-plaintext highlighter-rouge">amazon</code> for AWS S3 storage)</td>
+      <td><code class="language-plaintext highlighter-rouge">local</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>FS_SUBFOLDER</td>
+      <td>A subfolder for all uploads to live within</td>
+      <td><code class="language-plaintext highlighter-rouge">storage</code></td>
+      <td><code class="language-plaintext highlighter-rouge">storage</code></td>
+    </tr>
+    <tr>
+      <td>FS_LOCAL_ENDPOINT</td>
+      <td>An absolute path to storage</td>
+      <td><code class="language-plaintext highlighter-rouge">/custom/storage/dir</code></td>
+      <td>Current working directory</td>
+    </tr>
+    <tr>
+      <td>FS_AWS_S3_ACCESS_KEY_ID</td>
+      <td>If using the Amazon repo, an AWS Access Key with permissions to read and write to the specified S3 bucket</td>
+      <td><code class="language-plaintext highlighter-rouge">12356789</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>FS_AWS_S3_SECRET_ACCESS_KEY</td>
+      <td>AWS Secret Access Key</td>
+      <td><code class="language-plaintext highlighter-rouge">12356789</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>FS_AWS_S3_REGION</td>
+      <td>AWS Secret Access Key</td>
+      <td><code class="language-plaintext highlighter-rouge">us-west-1</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>FS_AWS_S3_BUCKET</td>
+      <td>The S3 bucket name</td>
+      <td><code class="language-plaintext highlighter-rouge">12356789</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>NEW_RELIC_LICENSE_KEY</td>
+      <td>A New Relic license key for monitoring the UI and API</td>
+      <td><code class="language-plaintext highlighter-rouge">qwertyuiopsdfghjkl</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>NEWRELIC_API_NAME</td>
+      <td>Name for the API in New Relic</td>
+      <td><code class="language-plaintext highlighter-rouge">12356789</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>NEWRELIC_UI_NAME</td>
+      <td>Name for the UI in New Relic</td>
+      <td><code class="language-plaintext highlighter-rouge">12356789</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>CLAMSCAN_BINARY</td>
+      <td>Location of Clamscan binary if requiring anti-virus scans on uploaded files (e.g. images)</td>
+      <td><code class="language-plaintext highlighter-rouge">/usr/bin/clamscan</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>MAX_TRIP_COUNT</strong></td>
+      <td>Load control counter for Journey outcomes (Enterprise Only)</td>
+      <td><code class="language-plaintext highlighter-rouge">15</code></td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="xapi-service">xAPI Service</h2>
+
+<p>Please note that some of these variables are slightly different to their Application equivalents. Future updates will bring these inline with each other, with the eventual goal of allowing for a single <code class="language-plaintext highlighter-rouge">.env</code> file.</p>
+
+<p><strong>Variables in bold are required or strongly recommended</strong></p>
+
+<p><em>Variables in italics are required for debugging or development only</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Example</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>EXPRESS_PORT</strong></td>
+      <td>The port that the UI is attached to</td>
+      <td><code class="language-plaintext highlighter-rouge">8081</code></td>
+      <td><code class="language-plaintext highlighter-rouge">8081</code></td>
+    </tr>
+    <tr>
+      <td><em>MODELS_REPO</em></td>
+      <td>Development setting to pick database type (<code class="language-plaintext highlighter-rouge">mongo</code> or <code class="language-plaintext highlighter-rouge">memory</code>). Memory only to be used for testing</td>
+      <td><code class="language-plaintext highlighter-rouge">mongo</code></td>
+      <td><code class="language-plaintext highlighter-rouge">mongo</code></td>
+    </tr>
+    <tr>
+      <td><strong>MONGO_URL</strong></td>
+      <td>The <a href="https://docs.mongodb.com/manual/reference/connection-string/">full Mongo connection string</a>. This can include multiple hosts for replicas, and extra configuration values passed through query strings.</td>
+      <td><code class="language-plaintext highlighter-rouge">mongodb://localhost:27017/learninglocker_v2</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>REDIS_URL</strong></td>
+      <td>The full URL of the Redis instance including port, database number and authentication if required</td>
+      <td><code class="language-plaintext highlighter-rouge">redis://127.0.0.1:6379/0</code></td>
+      <td><code class="language-plaintext highlighter-rouge">redis://127.0.0.1:6379/0</code></td>
+    </tr>
+    <tr>
+      <td>REDIS_PREFIX</td>
+      <td>A prefix to append to all keys within the Redis database</td>
+      <td><code class="language-plaintext highlighter-rouge">learninglocker</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>REDIS_PREFIX</td>
+      <td>A prefix to append to all keys within the Redis database</td>
+      <td><code class="language-plaintext highlighter-rouge">learninglocker</code></td>
+      <td>‘LEARNINGLOCKER’</td>
+    </tr>
+    <tr>
+      <td><strong>STORAGE_REPO</strong></td>
+      <td>Define the storage method (<code class="language-plaintext highlighter-rouge">local</code> for local storage or <code class="language-plaintext highlighter-rouge">s3</code> for AWS S3 storage)</td>
+      <td><code class="language-plaintext highlighter-rouge">local</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>FS_LOCAL_STORAGE_DIR</td>
+      <td>An absolute path to storage</td>
+      <td><code class="language-plaintext highlighter-rouge">/custom/storage/dir</code></td>
+      <td>Current working directory</td>
+    </tr>
+    <tr>
+      <td>FS_S3_ACCESS_KEY_ID</td>
+      <td>If using the Amazon repo, an AWS Access Key with permissions to read and write to the specified S3 bucket</td>
+      <td><code class="language-plaintext highlighter-rouge">12356789</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>FS_S3_SECRET_ACCESS_KEY</td>
+      <td>AWS Secret Access Key</td>
+      <td><code class="language-plaintext highlighter-rouge">12356789</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>FS_S3_REGION</td>
+      <td>AWS Secret Access Key</td>
+      <td><code class="language-plaintext highlighter-rouge">us-west-1</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>WINSTON_CONSOLE_LEVEL</td>
+      <td>Minimum logging level (error|warning|info|debug|silly)</td>
+      <td><code class="language-plaintext highlighter-rouge">info</code></td>
+      <td><code class="language-plaintext highlighter-rouge">info</code></td>
+    </tr>
+    <tr>
+      <td><strong>WINSTON_CLOUDWATCH_ENABLED</strong></td>
+      <td>Should logs be sent to AWS Cloudwatch?<br /><br /><a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-identity-based-access-control-cwl.html">AWS credentials must be configured for Cloudwatch access</a></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+    </tr>
+    <tr>
+      <td>WINSTON_CLOUDWATCH_LOG_GROUP_NAME</td>
+      <td>The Cloudwatch Logs group name</td>
+      <td><code class="language-plaintext highlighter-rouge">llv2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">llv2</code></td>
+    </tr>
+    <tr>
+      <td>WINSTON_CLOUDWATCH_LOG_STREAM_NAME</td>
+      <td>The Cloudwatch Logs stream name</td>
+      <td><code class="language-plaintext highlighter-rouge">application</code></td>
+      <td>The server’s hostname</td>
+    </tr>
+    <tr>
+      <td>WINSTON_CLOUDWATCH_ACCESS_KEY_ID</td>
+      <td>AWS Access Key with suitable privileges</td>
+      <td><code class="language-plaintext highlighter-rouge">12345678901</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>WINSTON_CLOUDWATCH_SECRET_ACCESS_KEY</td>
+      <td>AWS Secret Access Key</td>
+      <td><code class="language-plaintext highlighter-rouge">12345678901</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>WINSTON_CLOUDWATCH_REGION</td>
+      <td>The region the logs will be sent to</td>
+      <td><code class="language-plaintext highlighter-rouge">us-west-1</code></td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="users-http-interface">Users HTTP Interface</h1>
+
+<p>A user of learning locker.</p>
+
+<p>It is accessible through the following HTTP interfaces:</p>
+
+<ul>
+  <li><a href="../http-connection">Connection HTTP Interface</a> via http://www.example.org/api/connection/user.</li>
+  <li><a href="../http-rest">REST HTTP Interface</a> via http://www.example.org/api/v2/user.</li>
+</ul>
+
+<h3 id="schema">Schema</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>_id</td>
+      <td>The id of this user.</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>Name of the user.</td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>The email of the user.</td>
+    </tr>
+    <tr>
+      <td>organisations</td>
+      <td>A list of <a href="../http-organisations#schema">organisation</a> ids that this user belongs to.</td>
+    </tr>
+    <tr>
+      <td>organisationSettings</td>
+      <td>A list of <a href="#organisation-settings">organisation settings</a> for this user</td>
+    </tr>
+    <tr>
+      <td>imageUrl</td>
+      <td>A url of an image for this user.</td>
+    </tr>
+    <tr>
+      <td>googleId</td>
+      <td>The user’s google id.</td>
+    </tr>
+    <tr>
+      <td>ownerOrganisation</td>
+      <td>The id of the users owning <a href="../http-organisations#schema">organisation</a></td>
+    </tr>
+    <tr>
+      <td>ownerOrganisationSettings</td>
+      <td>Duplication of <a href="../http-organisations#schema">organisation settings</a>.</td>
+    </tr>
+    <tr>
+      <td>settings</td>
+      <td>An object of specific users settings. <a href="#settings">see settings</a></td>
+    </tr>
+    <tr>
+      <td>scopes</td>
+      <td>Global <a href="../http-roles#scopes">scopes</a> for this user.</td>
+    </tr>
+    <tr>
+      <td>verified</td>
+      <td>Whether this user has been verified.</td>
+    </tr>
+    <tr>
+      <td>resetTokens</td>
+      <td>A list of reset tokens. <a href="#reset-token">See reset token</a>.</td>
+    </tr>
+    <tr>
+      <td>passwordHistory</td>
+      <td>A list of users previously used password hashes.</td>
+    </tr>
+    <tr>
+      <td>authLastAttempt</td>
+      <td>When the user last attempted to authenticate.</td>
+    </tr>
+    <tr>
+      <td>authFailedAttempts</td>
+      <td>Number of failed authentication attempts.</td>
+    </tr>
+    <tr>
+      <td>authLockoutExpiry</td>
+      <td>When the user can attempt to authenticate again.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="organisation-settings">Organisation Settings</h3>
+
+<p>A list of organisation settings:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>organisation</td>
+      <td>The id of the <a href="organisations#schema">organisation</a> of these settings.</td>
+    </tr>
+    <tr>
+      <td>scopes</td>
+      <td>List of <a href="../http-roles#scopes">scopes</a> that this user has permissions for in this <a href="organisations#schema">organisation</a>.</td>
+    </tr>
+    <tr>
+      <td>roles</td>
+      <td>List of <a href="../http-roles#schema">role</a> ids that this user has permissions for in the <a href="organisations#schema">organisation</a>.</td>
+    </tr>
+    <tr>
+      <td>filter</td>
+      <td>A <a href="../http-statements#schema">statement</a> filter which restricts which statements this user has access too.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="settings">Settings</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CONFIRM_BEFORE_DELETE</td>
+      <td>If true, will prompt user before delete actions.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="reset-token">Reset Token</h3>
+
+<p>A token which is used to reset a user’s password.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>token</td>
+      <td>The token.</td>
+    </tr>
+    <tr>
+      <td>expires</td>
+      <td>When this token expires.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-model">Example Model</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+	</span><span class="nl">"_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c2371c16bc715f83c34501"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"createdAt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-19T12:07:25.536Z"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"updatedAt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-19T15:06:54.027Z"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"email"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"example@example.org"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"password"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"aaa"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"authLockoutExpiry"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"authFailedAttempts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"authLastAttempt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-19T15:06:54.020Z"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"passwordHistory"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+		</span><span class="p">{</span><span class="w">
+			</span><span class="nl">"date"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-19T12:07:25.505Z"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"hash"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"aaa"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c2371c16bc715f83c34502"</span><span class="w">
+		</span><span class="p">},</span><span class="w">
+		</span><span class="p">{</span><span class="w">
+			</span><span class="nl">"date"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-19T12:47:34.093Z"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"hash"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"bbb"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c2371c16bc715f83c34503"</span><span class="w">
+		</span><span class="p">}</span><span class="w">
+	</span><span class="p">],</span><span class="w">
+	</span><span class="nl">"resetTokens"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">],</span><span class="w">
+	</span><span class="nl">"verified"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"scopes"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+		</span><span class="s2">"site_admin"</span><span class="w">
+	</span><span class="p">],</span><span class="w">
+	</span><span class="nl">"settings"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+		</span><span class="nl">"CONFIRM_BEFORE_DELETE"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	</span><span class="nl">"ownerOrganisationSettings"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+		</span><span class="nl">"PASSWORD_CUSTOM_MESSAGE"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"PASSWORD_CUSTOM_REGEX"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"PASSWORD_USE_CUSTOM_REGEX"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"PASSWORD_REQUIRE_NUMBER"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"PASSWORD_REQUIRE_ALPHA"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"PASSWORD_MIN_LENGTH"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"PASSWORD_HISTORY_TOTAL"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"PASSWORD_HISTORY_CHECK"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"LOCKOUT_SECONDS"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1800</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"LOCKOUT_ATTEMPS"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"LOCKOUT_ENABLED"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	</span><span class="nl">"organisationSettings"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+		</span><span class="p">{</span><span class="w">
+			</span><span class="nl">"organisation"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c2371c16bc715f83c34504"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c2371c16bc715f83c34505"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"filter"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{}"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"roles"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">],</span><span class="w">
+			</span><span class="nl">"scopes"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+				</span><span class="s2">"all"</span><span class="w">
+			</span><span class="p">]</span><span class="w">
+		</span><span class="p">}</span><span class="w">
+	</span><span class="p">],</span><span class="w">
+	</span><span class="nl">"organisations"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+		</span><span class="s2">"59c2371c16bc715f83c34504"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"59c2371c16bc715f83c34506"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"59c2371c16bc715f83c34507"</span><span class="w">
+	</span><span class="p">],</span><span class="w">
+	</span><span class="nl">"ownerOrganisation"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"59c2371c16bc715f83c34504"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>

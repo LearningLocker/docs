@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+  <div class="docs-masthead">
+    <div class="container">
+      <a href="../welcome"><img src="../images/logo-small.png" class="logo"></a>
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 docs-sidebar">
+        <div class="sidebar-title">
+          <a href="../welcome">Overview</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../overview-architecture">Architecture</a></li>
+          <li><a href="../overview-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="#">Guides</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../guides-installing">Installation</a></li>
+          <li><a href="../guides-custom-installation">Custom Installations</a></li>
+          <li><a href="../guides-configuring">Configuration</a></li>
+          <li><a href="../guides-cli">CLI Operations</a></li>
+          <li><a href="../guides-migrating">Migrating from v1</a></li>
+          <li><a href="../guides-indexing">Indexing</a></li>
+          <li><a href="../guides-monitoring">Monitoring</a></li>
+          <li><a href="../guides-structuring">Structuring your LRS</a></li>
+          <li><a href="../guides-inserting">Inserting statements</a></li>
+          <li><a href="../guides-retrieving">Retrieving statements</a></li>
+          <li><a href="../guides-integrating">Integrations</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">HTTP Interfaces (APIs)</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-rest">REST API</a></li>
+          <li><a href="../http-connection">Connection API</a></li>
+          <li><a href="../http-aggregation">Aggregation API</a></li>
+          <li><a href="../http-aggregate"><strong>[Enterprise]</strong> Aggregate API</a></li>
+          <li><a href="../http-statement-deletion">Statement Deletion API</a></li>
+        </ul>
+
+        <div class="sidebar-title">
+          <a href="#">Models</a>
+        </div>
+        <ul class="nav">
+          <li><a href="../http-activities"><strong>[Enterprise]</strong> Activities</a></li>
+          <li><a href="../http-clients">Clients</a></li>
+          <li><a href="../http-dashboards">Dashboards</a></li>
+          <li><a href="../http-downloads">Downloads</a></li>
+          <li><a href="../http-exports">Exports</a></li>
+          <li><a href="../http-journeys"><strong>[Enterprise]</strong> Journeys</a></li>
+          <li><a href="../http-journey-progress"><strong>[Enterprise]</strong> Journey Progress</a></li>
+          <li><a href="../http-organisations">Organisations</a></li>
+          <li><a href="../http-personas">Personas</a></li>
+          <li><a href="../http-persona-identifiers">Persona Identifiers</a></li>
+          <li><a href="../http-persona-attributes">Persona Attributes</a></li>
+          <li><a href="../http-persona-imports">Persona Imports</a></li>
+          <li><a href="../http-queries">Queries</a></li>
+
+          <li><a href="../http-roles">Roles</a></li>
+          <li><a href="../http-statements">Statements</a></li>
+          <li><a href="../http-statement-forwarding">Statement Forwarding</a></li>
+          <li><a href="../http-stores">Stores</a></li>
+          <li><a href="../http-users">Users</a></li>
+          <li><a href="../http-visualisations">Visualisations</a></li>
+          <li><a href="../http-xapi">xAPI</a></li>
+        </ul>
+        <div class="sidebar-title">
+          <a href="../faqs">FAQs</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9 docs-main">
+        <h1 id="command-line-interface">Command Line Interface</h1>
+
+<p>Learning Locker comes with a range of CLI commands that can be used to execute common administrative tasks.</p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">Note:</code> In order to use the CLI commands, you must ensure that the CLI server is built. The default install script will have performed this action as part of the <code class="language-plaintext highlighter-rouge">yarn build-all</code> command, but it can manually be built using <code class="language-plaintext highlighter-rouge">yarn build-cli-server</code></p>
+</blockquote>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">Note:</code> These commands should be run from the Learning Locker working directory. By default, with the install script, this is <code class="language-plaintext highlighter-rouge">/usr/local/learninglocker/current/webapp</code></p>
+</blockquote>
+
+<h2 id="createsiteadmin"><code class="language-plaintext highlighter-rouge">createSiteAdmin</code></h2>
+
+<p>Create a site admin user</p>
+
+<h3 id="command">Command:</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node cli/dist/server createSiteAdmin <span class="o">[</span>email] <span class="o">[</span>organisation] <span class="o">[</span>password]
+</code></pre></div></div>
+
+<p>Create a new user and organisation for the site. This user will have the Super User privilege (only assignable via this command) and will also automatically be made an admin of the new organisation.</p>
+
+<p>Additional organisation admins can be made within the platform but other super users need to be made via subsequent calls to this command.</p>
+
+<h3 id="arguments">Arguments:</h3>
+<h4 id="email"><code class="language-plaintext highlighter-rouge">email</code></h4>
+<p>The email of the user - this is what they will use to login</p>
+
+<h4 id="organisation"><code class="language-plaintext highlighter-rouge">organisation</code></h4>
+<p>The name of the new organisation. If the organisation already exists, the new user will be added to it.</p>
+
+<h4 id="password"><code class="language-plaintext highlighter-rouge">password</code></h4>
+<p>The user’s password</p>
+
+<h3 id="example">Example</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node cli/dist/server createSiteAdmin "user@example.com" "Example" "password123"
+</code></pre></div></div>
+<hr />
+
+<h2 id="migratemongo"><code class="language-plaintext highlighter-rouge">migrateMongo</code></h2>
+
+<p>Runs any outstanding migrations on the Mongo database</p>
+
+<h3 id="command-1">Command:</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node cli/dist/server migrateMongo 
+</code></pre></div></div>
+
+<p>Will check for any migrations that have not been run and apply them to the database. You can run migrations “up” or “down”. The former will apply migrations, whilst the latter will roll back migrations.</p>
+
+<p>If you do not pass any arguments, defaults to <code class="language-plaintext highlighter-rouge">-u</code>; all pending migrations will be performed.</p>
+
+<h3 id="arguments-1">Arguments:</h3>
+<h4 id="-u---up-target"><code class="language-plaintext highlighter-rouge">-u, --up [target]</code></h4>
+<p>Runs all pending migrations.</p>
+
+<p>The optional [target] parameter can be passed to specify a certain migration to run. Pass <code class="language-plaintext highlighter-rouge">next</code> as [target] to run only the next pending migration, or the name of a certain pending migration to run only that one.</p>
+
+<h4 id="-d---down-target"><code class="language-plaintext highlighter-rouge">-d, --down [target]</code></h4>
+<p>Optional. Runs applied migrations down until the migration name specified as [target]. Also accepts <code class="language-plaintext highlighter-rouge">last</code> as [target] to only down the last applied migration.</p>
+
+<h4 id="-i---info-level"><code class="language-plaintext highlighter-rouge">-i, --info [level]</code></h4>
+<p>Display the state of migrations (which have been run, which haven’t). Can optionally specify <code class="language-plaintext highlighter-rouge">v</code> or <code class="language-plaintext highlighter-rouge">verbose</code> as [level] to output more detailed information.</p>
+
+<h3 id="example-1">Example</h3>
+<p>Apply all outstanding migrations:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node cli/dist/server migrateMongo --up
+</code></pre></div></div>
+
+<p>Roll back the last applied migration:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node cli/dist/server migrateMongo --down last
+</code></pre></div></div>
+<hr />
+
+<h2 id="clearaggregationcache"><code class="language-plaintext highlighter-rouge">clearAggregationCache</code></h2>
+<p>Clear the cache of any aggregation data</p>
+
+<h3 id="command-2">Command</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node cli/dist/server clearAggregationCache
+</code></pre></div></div>
+
+<p>Will clear down any cached aggregation results. This can be useful if you require an up-to-date result for a particular visualisation or query.</p>
+
+<h3 id="arguments-2">Arguments</h3>
+
+<h4 id="-o---org-organisation_id-optional"><code class="language-plaintext highlighter-rouge">-o --org &lt;organisation_id&gt;</code> (optional)</h4>
+<p>An organisation’s Mongo ObjectId.</p>
+
+<p>Filter to only clear down the cache for a particular organisation.</p>
+
+<h3 id="example-2">Example</h3>
+
+<p>Clear all caches:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node cli/dist/server clearAggregationCache
+</code></pre></div></div>
+
+<p>Clear a particular organisation’s cache:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node cli/dist/server clearAggregationCache 572cac001bb110583ed76177
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="batchjobs"><code class="language-plaintext highlighter-rouge">batchJobs</code></h2>
+<p>Batch run the worker across existing statements</p>
+
+<h3 id="command-3">Command</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node cli/dist/server batchJobs
+</code></pre></div></div>
+
+<p>Will force statements back through the respective worker queue if they have not already been handled. This is useful if you have migrated statements into the LRS (e.g. if migrating from v1), or if your workers were not enabled at the time your statements were inserted into the LRS.</p>
+
+<p>Note this can be an intensive task and may be best done on a separate box.</p>
+
+<p>Currently you can batch process the Query Builder Cache generation (used to populate the items for the query builder) and also the persona generation.</p>
+
+<p>When a worker job is completed, the appropriate worker queue name will be populated into the <code class="language-plaintext highlighter-rouge">completedQueues</code> array on each statement document in the database. If you wish to reprocess a set of statements, then clearing the <code class="language-plaintext highlighter-rouge">completedQueues</code> will allow you to reprocess them.</p>
+
+<h3 id="arguments-3">Arguments</h3>
+
+<h4 id="-j---job-job-optional"><code class="language-plaintext highlighter-rouge">-j --job [job]</code> (optional)</h4>
+<p>Which worker job to run. <code class="language-plaintext highlighter-rouge">querybuildercache</code>* and <code class="language-plaintext highlighter-rouge">personas</code>.</p>
+
+<p><em>* Default job</em></p>
+
+<h4 id="-o---org-organisation_id-optional-1"><code class="language-plaintext highlighter-rouge">-o --org [organisation_id]</code> (optional)</h4>
+<p>An organisation’s Mongo ObjectId.</p>
+
+<p>Filter to operate on only statements in this organisation.</p>
+
+<h4 id="-l---lrs-lrs-optional"><code class="language-plaintext highlighter-rouge">-l, --lrs [lrs]</code> (optional)</h4>
+<p>An LRS’s (store) Mongo ObjectId.</p>
+
+<p>Filter to operate on only statements in this store.</p>
+
+<h4 id="-b---batchsize-batchsize-optional"><code class="language-plaintext highlighter-rouge">-b, --batchSize [batchSize]</code> (optional)</h4>
+<p>How many statements to include in each batch. For query builder cache generation, good performance is seen with 1000 per batch. For persona processing we’ve seen good results with this set to 100.</p>
+
+<h4 id="-f---from-date-optional"><code class="language-plaintext highlighter-rouge">-f, --from [date]</code> (optional)</h4>
+<p>ISO8601 formatted date to query the stored date from.</p>
+
+<h4 id="-t---to-date-optional"><code class="language-plaintext highlighter-rouge">-t, --to [date]</code> (optional)</h4>
+<p>ISO8601 formatted date to query the stored date to.</p>
+
+<h3 id="example-3">Example</h3>
+
+<p>Process persona data on all statements (100 per batch) personas in a particular store:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node cli/dist/server batchJobs -j personas -b 100 -lrs 572cac001bb110583ed76177
+</code></pre></div></div>
+
+<h2 id="updatestatementcount"><code class="language-plaintext highlighter-rouge">updateStatementCount</code></h2>
+
+<p>Recalculates the statement counts on stores</p>
+
+<h3 id="command-4">Command:</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node cli/dist/server updateStatementCount
+</code></pre></div></div>
+
+<p>For each store, will count how many statements exist in the database and update the statementCount property on the store document. This may be required if statements have manually been deleted permanently from the database.</p>
+
+<p><em>Note: as of v2.6.3 this process is done in synchronously per store to avoid large concurrency query issues on Learning Locker’s with many stores.</em></p>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="docs-footer">
+  <p>Learning Locker and the Squirrel logo are trademark of Learning Pool
+    <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+</body>
+
+</html>
