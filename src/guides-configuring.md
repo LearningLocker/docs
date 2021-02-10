@@ -66,7 +66,7 @@ FS_SUBFOLDER | A subfolder for all uploads to live within | `storage` | `storage
 FS_LOCAL_ENDPOINT | An absolute path to storage | `/custom/storage/dir` | Current working directory
 FS_AWS_S3_ACCESS_KEY_ID | If using the Amazon repo, an AWS Access Key with permissions to read and write to the specified S3 bucket | `12356789` | -
 FS_AWS_S3_SECRET_ACCESS_KEY | AWS Secret Access Key | `12356789` | -
-FS_AWS_S3_REGION | AWS Secret Access Key | `us-west-1` | -
+FS_AWS_S3_REGION | The S3 region | `us-west-1` | -
 FS_AWS_S3_BUCKET | The S3 bucket name | `12356789` | -
 NEW_RELIC_LICENSE_KEY | A New Relic license key for monitoring the UI and API | `qwertyuiopsdfghjkl` | -
 NEWRELIC_API_NAME | Name for the API in New Relic | `12356789` | -
@@ -95,7 +95,7 @@ REDIS_PREFIX | A prefix to append to all keys within the Redis database | `learn
 FS_LOCAL_STORAGE_DIR | An absolute path to storage | `/custom/storage/dir` | Current working directory
 FS_S3_ACCESS_KEY_ID | If using the Amazon repo, an AWS Access Key with permissions to read and write to the specified S3 bucket | `12356789` | -
 FS_S3_SECRET_ACCESS_KEY | AWS Secret Access Key | `12356789` | -
-FS_S3_REGION | AWS Secret Access Key | `us-west-1` | -
+FS_S3_REGION | The S3 region | `us-west-1` | -
 WINSTON_CONSOLE_LEVEL | Minimum logging level (error\|warning\|info\|debug\|silly) | `info` | `info`
 **WINSTON_CLOUDWATCH_ENABLED** | Should logs be sent to AWS Cloudwatch?<br><br>[AWS credentials must be configured for Cloudwatch access](http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-identity-based-access-control-cwl.html) | `true` | `false`
 WINSTON_CLOUDWATCH_LOG_GROUP_NAME | The Cloudwatch Logs group name | `llv2` | `llv2`
