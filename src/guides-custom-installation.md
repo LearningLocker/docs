@@ -1,7 +1,7 @@
 ---
 ---
 
-# Installation
+# Custom installation
 
 ## Requirements
 
