@@ -10,7 +10,8 @@ redirect_from:
 
 ## Via the install script
 
-To install Learning Locker easily we have a script. For more information, you can view the [deployment repository's documentation](https://github.com/LearningLocker/deploy). Alternatively, view the following video tutorial:
+To install Learning Locker using our deploy script, please follow the below instructions.
+For more information, you can view the [deployment repository's documentation](https://github.com/LearningLocker/deploy).
 
 <iframe width="80%" height="315" src="https://www.youtube.com/embed/tc_VDNjXLSc" frameborder="0" gesture="media" allowfullscreen style="padding-left: 15%;"></iframe>
 
