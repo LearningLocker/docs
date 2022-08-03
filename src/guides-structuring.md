@@ -2,7 +2,7 @@
 ---
 
 # Structuring your LRS Guide
-In Learning Locker you can structure your [organisations](https://ht2ltd.zendesk.com/hc/en-us/articles/115000904505-Managing-your-Organisations), [stores](https://ht2ltd.zendesk.com/hc/en-us/articles/115000893009-Managing-your-Learning-Record-Stores), [clients](https://ht2ltd.zendesk.com/hc/en-us/articles/115000951445-Managing-your-Clients), and [users](https://ht2ltd.zendesk.com/hc/en-us/articles/115000894529-Managing-your-Users) to manage the visibility of data in your Learning Locker instance. There are few key concepts that you should know before we get started.
+In Learning Locker you can structure your [organisations](https://learningpool.zendesk.com/hc/en-us/articles/115000904505-Managing-your-Organisations), [stores](https://learningpool.zendesk.com/hc/en-us/articles/115000893009-Managing-your-Learning-Record-Stores), [clients](https://learningpool.zendesk.com/hc/en-us/articles/115000951445-Managing-your-Clients), and [users](https://learningpool.zendesk.com/hc/en-us/articles/115000894529-Managing-your-Users) to manage the visibility of data in your Learning Locker instance. There are few key concepts that you should know before we get started.
 
 - Organisations contain stores and clients.
 - Stores contain xAPI statements and xAPI documents.
