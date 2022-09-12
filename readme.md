@@ -1,3 +1,5 @@
+This repository is now archived. It previously generated the documentation for https://docs.learninglocker.net which now redirects to https://learninglocker.atlassian.net/wiki/spaces/DOCS/overview hosted by Learning Pool's account on Confluence.
+
 [![Learning Locker Logo](https://raw.githubusercontent.com/LearningLocker/docs/master/src/images/logo-small.png)](https://learninglocker.net)   
 > Documentation for Learning Locker.
 
